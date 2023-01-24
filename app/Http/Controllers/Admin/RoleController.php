@@ -59,7 +59,7 @@ class RoleController extends Controller
         $role = Role::create(['name'=>$request->name]);
 
         $role->syncPermissions($request->permissions);
-        
+
         return redirect()->back()->withSuccess('Role created !!!');
     }
 
@@ -111,5 +111,10 @@ class RoleController extends Controller
     {
         $role->delete();
         return redirect()->back()->withSuccess('Role deleted !!!');
+    }
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class);
     }
 }

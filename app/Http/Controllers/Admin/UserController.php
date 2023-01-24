@@ -133,4 +133,9 @@ class UserController extends Controller
         $role->delete();
         return redirect()->back()->withSuccess('Role deleted !!!');
     }
+
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class);
+    }
 }
