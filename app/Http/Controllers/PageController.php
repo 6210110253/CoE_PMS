@@ -31,5 +31,10 @@ class PageController extends Controller
         return view('pages.student.project_propose');
     }
 
+    public function project_status()
+    {
+        return view('pages.admin.project_status');
+    }
+
 
 }

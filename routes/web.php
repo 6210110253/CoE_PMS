@@ -57,6 +57,7 @@ Route::get('/project_select', [App\Http\Controllers\PageController::class, 'proj
 Route::get('/project_list', [App\Http\Controllers\PageController::class, 'project_list']);
 Route::get('/project_detail', [App\Http\Controllers\PageController::class, 'project_detail']);
 Route::get('/project_propose', [App\Http\Controllers\PageController::class, 'project_propose']);
+Route::get('/project_status', [App\Http\Controllers\PageController::class, 'project_status']);
 
 
 Route::namespace('App\Http\Controllers\Admin')->name('admin.')->prefix('admin')
