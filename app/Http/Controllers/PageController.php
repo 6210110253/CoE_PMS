@@ -31,7 +31,6 @@ class PageController extends Controller
         return view('pages.student.project_propose');
     }
 
-<<<<<<< HEAD
     public function project_teacher()
     {
         return view('pages.teacher.project_teacher');
@@ -49,12 +48,10 @@ class PageController extends Controller
         return view('pages.teacher.project_detail_teacher');
 
     }
-=======
     public function project_status()
     {
         return view('pages.admin.project_status');
     }
 
->>>>>>> 5d76457bcdf236309bb5383d47a29e1b01b42406
 
 }
