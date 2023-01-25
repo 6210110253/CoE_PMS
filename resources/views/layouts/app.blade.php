@@ -15,11 +15,12 @@
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
     </head>
     <body class="font-sans antialiased">
         <div x-data="{ sidebarOpen: false }" class="flex h-screen bg-gray-200">
             <div :class="sidebarOpen ? 'block' : 'hidden'" @click="sidebarOpen = false" class="fixed z-20 inset-0 bg-black opacity-50 transition-opacity lg:hidden"></div>
-        
+
             @include('layouts.sidebar');
 
             <div class="flex-1 flex flex-col overflow-scroll">
@@ -33,7 +34,7 @@
                             </ul>
                         </div>
                     @endif
-                    
+
                     @if(\Session::has('error'))
                         <div class="text-green-600 pt-5 pl-5">
                             <ul>
@@ -53,7 +54,7 @@
                     @endif
 
                     {{ $slot }}
-                    
+
             </div>
         </div>
     </body>

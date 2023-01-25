@@ -57,11 +57,15 @@ Route::get('/project_select', [App\Http\Controllers\PageController::class, 'proj
 Route::get('/project_list', [App\Http\Controllers\PageController::class, 'project_list']);
 Route::get('/project_detail', [App\Http\Controllers\PageController::class, 'project_detail']);
 Route::get('/project_propose', [App\Http\Controllers\PageController::class, 'project_propose']);
+<<<<<<< HEAD
 Route::get('/project_teacher', [App\Http\Controllers\PageController::class, 'project_teacher']);
 Route::get('/project_create', [App\Http\Controllers\PageController::class, 'project_create']);
 Route::get('/project_propose_to_teacher', [App\Http\Controllers\PageController::class, 'project_propose_to_teacher']);
 Route::get('/project_detail_teacher', [App\Http\Controllers\PageController::class, 'project_detail_teacher']);
 
+=======
+Route::get('/project_status', [App\Http\Controllers\PageController::class, 'project_status']);
+>>>>>>> 5d76457bcdf236309bb5383d47a29e1b01b42406
 
 
 Route::namespace('App\Http\Controllers\Admin')->name('admin.')->prefix('admin')
