@@ -31,5 +31,22 @@ class PageController extends Controller
         return view('pages.student.project_propose');
     }
 
+    public function project_teacher()
+    {
+        return view('pages.teacher.project_teacher');
+    }
+
+    public function project_create(){
+        return view('pages.teacher.project_create');
+    }
+
+    public function project_propose_to_teacher(){
+        return view('pages.teacher.project_propose_to_teacher');
+    }
+
+    public function project_detail_teacher(){
+        return view('pages.teacher.project_detail_teacher');
+
+    }
 
 }
