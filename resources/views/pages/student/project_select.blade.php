@@ -6,16 +6,22 @@
 
 
 
+
+
+
+
+                @foreach($teachers as $teacher)
                 <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                     <a href="#">
-                        <img class="p-8 rounded-t-lg" src="/docs/images/products/apple-watch.png" alt="product image" />
+                        <img class="p-8 rounded-t-lg" src="{{ !empty($teacher->profile) ? asset('images/'. $teacher->profile) : asset('images/1651389508_user.avif') }}" alt="product image" />
                     </a>
+
                     <div class="px-5 pb-5">
                         <a>
-                            <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">Supervisor:</h5>
+                            <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">Supervisor: {{ $teacher->name }}</h5>
                         </a>
                         <a>
-                            <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">Email:</h5>
+                            <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">Email: {{ $teacher->email }}</h5>
                         </a>
 
 
@@ -26,6 +32,7 @@
                         </div>
                     </div>
                 </div>
+                @endforeach
 
 
 
