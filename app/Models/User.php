@@ -46,6 +46,13 @@ class User extends Authenticatable
     ];
 
     public function getRole(){
-  return $this->roles()->first();
-}
+        return $this->roles()->first();
+    }
+
+    public function project_reservations(){
+        return $this->belongsToMany(ProjectReservation::class)
+        ->using(ProjectReservationRelate::class);
+    }
+
+ 
 }

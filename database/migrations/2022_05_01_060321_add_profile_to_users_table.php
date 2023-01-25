@@ -15,6 +15,7 @@ class AddProfileToUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->string('profile')->after('email')->nullable();
+            $table->softDeletes();
         });
     }
 
@@ -26,7 +27,10 @@ class AddProfileToUsersTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('profile');
+            $table->dropColumn([
+                'profile',
+                'deleted_at'
+            ]);
         });
     }
 }

@@ -4,12 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Project;
 
 class PageController extends Controller
 {
     public function project_select()
     {
-
         $teachers = User::role('teacher')->get();
         //dd($users);
         return view('pages.student.project_select', compact('teachers'));
@@ -50,6 +50,13 @@ class PageController extends Controller
     }
     public function project_status()
     {
+        $project = Project::query()
+        ->with([
+            'project_reservations.users',
+        ])
+        ->get();
+       dd($project);
+
         return view('pages.admin.project_status');
     }
 
