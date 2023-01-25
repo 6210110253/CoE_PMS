@@ -53,5 +53,9 @@ class PageController extends Controller
         return view('pages.admin.project_status');
     }
 
+    public function project_request(){
+        return view('pages.teacher.project_request');
+    }
+
 
 }
