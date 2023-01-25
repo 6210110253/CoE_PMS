@@ -1,10 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\Admin\{
     ProfileController,
     MailSettingController,
+
 };
+
 
 /*
 |--------------------------------------------------------------------------
@@ -50,7 +53,10 @@ Route::get('/admin/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
-
+Route::get('/project_select', [App\Http\Controllers\PageController::class, 'project_select']);
+Route::get('/project_list', [App\Http\Controllers\PageController::class, 'project_list']);
+Route::get('/project_detail', [App\Http\Controllers\PageController::class, 'project_detail']);
+Route::get('/project_propose', [App\Http\Controllers\PageController::class, 'project_propose']);
 
 
 Route::namespace('App\Http\Controllers\Admin')->name('admin.')->prefix('admin')
