@@ -14,7 +14,9 @@ class AddProfileToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('profile')->after('email')->nullable();
+            $table->string('profile')
+            ->after('email')
+            ->nullable();
             $table->softDeletes();
         });
     }

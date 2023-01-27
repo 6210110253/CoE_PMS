@@ -54,6 +54,8 @@ Route::get('/admin/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
+
+//นักศึกษา
 Route::get('/project-select', [PageController::class, 'project_select'])
     ->name('project.select');
 Route::get('/project-list', [PageController::class, 'project_list'])
@@ -62,6 +64,10 @@ Route::get('/project-detail', [PageController::class, 'project_detail'])
     ->name('project.detail');
 Route::get('/project-propose', [PageController::class, 'project_propose'])
     ->name('project.propose');
+Route::get('/submission', [PageController::class, 'submission'])
+    ->name('submission');
+
+//อาจารย์
 Route::get('/project-teacher', [PageController::class, 'project_teacher'])
     ->name('project.teacher');
 Route::get('/project-create', [PageController::class, 'project_create'])
@@ -70,11 +76,15 @@ Route::get('/project-propose-to-teacher', [PageController::class, 'project_propo
     ->name('project.propose.to.teacher');
 Route::get('/project-detail-teacher', [PageController::class, 'project_detail_teacher'])
     ->name('project.detail.teacher');
+Route::get('/project-request', [PageController::class, 'project_request'])
+    ->name('project.request');
+
+//แอดมิน
+
 Route::get('/project-status', [PageController::class, 'project_status'])
     ->name('project.status');
 
-Route::get('/project-request', [PageController::class, 'project_request'])
-    ->name('project.request');
+
 
 Route::namespace('App\Http\Controllers\Admin')->name('admin.')->prefix('admin')
     ->group(function(){

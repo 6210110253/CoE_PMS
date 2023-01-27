@@ -31,6 +31,11 @@ class PageController extends Controller
         return view('pages.student.project_propose');
     }
 
+    public function submission()
+    {
+        return view('pages.student.submission');
+    }
+
     public function project_teacher()
     {
         return view('pages.teacher.project_teacher');

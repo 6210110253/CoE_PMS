@@ -8,7 +8,13 @@
         </button>
 
         <div class="relative mx-4 lg:mx-0">
-            <span class="absolute inset-y-0 left-0 pl-3 flex items-center">
+            <p>Welcome to<b>
+                    @foreach(auth()->user()->roles as $role)
+                        {{ $role->name }} Dashboard
+                    @endforeach
+                </b> </p>
+
+            {{-- <span class="absolute inset-y-0 left-0 pl-3 flex items-center">
                 <svg class="h-5 w-5 text-gray-500" viewBox="0 0 24 24" fill="none">
                     <path
                         d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z"
@@ -16,13 +22,12 @@
                     </path>
                 </svg>
             </span>
-
             <input class="form-input w-32 sm:w-64 rounded-md pl-10 pr-4 focus:border-indigo-600" type="text"
-                placeholder="Search">
+                placeholder="Search"> --}}
         </div>
     </div>
 
-    <div class="flex items-center">    
+    <div class="flex items-center">
         <div x-data="{ dropdownOpen: false }" class="relative">
             <button @click="dropdownOpen = ! dropdownOpen"
                 class="relative block h-8 w-8 rounded-full overflow-hidden shadow focus:outline-none">
