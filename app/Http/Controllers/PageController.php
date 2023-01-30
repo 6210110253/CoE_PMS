@@ -60,7 +60,7 @@ class PageController extends Controller
             'project_reservations.users',
         ])
         ->get();
-    //    dd($project);
+        //dd($project);
 
         return view('pages.admin.project_status');
     }
