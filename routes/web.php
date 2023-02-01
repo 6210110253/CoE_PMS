@@ -55,17 +55,7 @@ Route::get('/admin/dashboard', function () {
 require __DIR__.'/auth.php';
 
 
-//นักศึกษา
-Route::get('/project-select', [PageController::class, 'project_select'])
-    ->name('project.select');
-Route::get('/project-list', [PageController::class, 'project_list'])
-    ->name('project.list');
-Route::get('/project-detail', [PageController::class, 'project_detail'])
-    ->name('project.detail');
-Route::get('/project-propose', [PageController::class, 'project_propose'])
-    ->name('project.propose');
-Route::get('/submission', [PageController::class, 'submission'])
-    ->name('submission');
+
 
 //อาจารย์
 Route::get('/project-teacher', [PageController::class, 'project_teacher'])
