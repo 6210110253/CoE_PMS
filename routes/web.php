@@ -7,7 +7,7 @@ use App\Http\Controllers\Admin\{
 
 };
 
-use App\Http\Controllers\PageController;
+use App\Http\Controllers\Teacher\ProjectController;
 
 
 /*
@@ -58,21 +58,13 @@ require __DIR__.'/auth.php';
 
 
 //อาจารย์
-Route::get('/project-teacher', [PageController::class, 'project_teacher'])
-    ->name('project.teacher');
-Route::get('/project-create', [PageController::class, 'project_create'])
-    ->name('project.create');
-Route::get('/project-propose-to-teacher', [PageController::class, 'project_propose_to_teacher'])
-    ->name('project.propose.to.teacher');
-Route::get('/project-detail-teacher', [PageController::class, 'project_detail_teacher'])
-    ->name('project.detail.teacher');
-Route::get('/project-request', [PageController::class, 'project_request'])
-    ->name('project.request');
+
+ 
 
 //แอดมิน
 
-Route::get('/project-status', [PageController::class, 'project_status'])
-    ->name('project.status');
+// Route::get('/project-status', [PageController::class, 'project_status'])
+//     ->name('project.status');
 
 
 

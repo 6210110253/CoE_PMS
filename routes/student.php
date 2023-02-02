@@ -25,4 +25,7 @@ Route::controller(ProjectController::class)->name('student.')->group(function ()
     Route::post('/project/{project}/update','update')
         ->name('project.update');
 
+    
+
+
 });
