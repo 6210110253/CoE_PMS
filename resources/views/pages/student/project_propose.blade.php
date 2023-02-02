@@ -99,7 +99,7 @@
                         <label for="status" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Status <span class="text-red-500">*</span></label>
                         <select name="status" id="status">
                             <option value="">--select status--</option>
-                            <option> draf</option>
+                            <option> draft</option>
                             <option> public</option>
                            
                         </select>
