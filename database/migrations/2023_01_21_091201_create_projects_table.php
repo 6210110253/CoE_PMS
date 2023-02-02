@@ -45,7 +45,8 @@ class CreateProjectsTable extends Migration
              $table->foreignId("approve_by")
                 ->references('id')
                 ->on('users')
-                ->onDelete('cascade');
+                ->onDelete('cascade')
+                ->nullable();
             $table->enum("status", ['draft', 'publish'])->default("draft");
             $table->timestamps();
             $table->softDeletes();

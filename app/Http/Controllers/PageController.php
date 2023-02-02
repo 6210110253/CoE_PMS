@@ -8,33 +8,7 @@ use App\Models\Project;
 
 class PageController extends Controller
 {
-    public function project_select()
-    {
-        $teachers = User::role('teacher')->get();
-        //dd($users);
-        return view('pages.student.project_select', compact('teachers'));
-
-    }
-
-    public function project_list()
-    {
-        return view('pages.student.project_list');
-    }
-
-    public function project_detail()
-    {
-        return view('pages.student.project_detail');
-    }
-
-    public function project_propose()
-    {
-        return view('pages.student.project_propose');
-    }
-
-    public function submission()
-    {
-        return view('pages.student.submission');
-    }
+    
 
     public function project_teacher()
     {
@@ -69,5 +43,8 @@ class PageController extends Controller
         return view('pages.teacher.project_request');
     }
 
+    public function meeting(){
+        return view('pages.student.meeting');
+    }
 
 }
