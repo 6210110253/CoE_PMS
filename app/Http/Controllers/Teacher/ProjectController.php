@@ -25,17 +25,6 @@ class ProjectController extends Controller
         return view('pages.teacher.project_detail_teacher');
 
     }
-    public function project_status()
-    {
-        $project = Project::query()
-        ->with([
-            'project_reservations.users',
-        ])
-        ->get();
-        //dd($project);
-
-        return view('pages.admin.project_status');
-    }
 
     public function project_request(){
         return view('pages.teacher.project_request');
