@@ -25,9 +25,9 @@ class ProjectController extends Controller
 
     public function project_select()
     {
-        $teachers = User::role('teacher')->get();
+        $students = User::role('students')->getStudent();
         //dd($users);
-        return view('pages.student.project_select', compact('teachers'));
+        return view('pages.student.project_select', compact('students'));
 
     }
 

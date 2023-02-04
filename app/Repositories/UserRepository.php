@@ -11,4 +11,10 @@ class UserRepository
        return User::query()->role('student')->get();
 
     }
+
+    public function getTeacher(){
+
+        return User::query()->role('teacher')->get();
+ 
+     }
 }
