@@ -28,7 +28,7 @@
                             d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path>
                     </svg>
 
-                    <span class="mx-3">Dashboard</span>
+                    <span class="mx-3">Home</span>
                 </a>
 
                 @canany('Role access','Role add','Role edit','Role delete')
