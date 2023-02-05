@@ -93,6 +93,15 @@ class ProjectController extends Controller
             $request->file_design = $this->upload($request);
         }
 
+        if(!empty($request->usecase)){
+            $request->name_file = Str::random(20);
+            $request->file = $request->usecase;
+            $request->upload_path = 'projects';
+            $request->usecase = $this->upload($request);
+        }
+
+
+
         return $request;
     }
 
