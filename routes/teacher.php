@@ -3,7 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Teacher\ProjectController;
 
-Route::controller(ProjectController::class)->name('teacher.')->group(function () {
+Route::controller(ProjectController::class)->name('teacher.')->prefix('teacher/')
+    ->group(function () {
 
     Route::get('/project-teacher',  'project_teacher')
         ->name('project.teacher');   

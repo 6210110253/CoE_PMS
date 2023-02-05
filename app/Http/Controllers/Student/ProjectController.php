@@ -8,10 +8,14 @@ use App\Models\User;
 use App\Models\Project;
 use App\Repositories\ProjectRepository;
 use App\Repositories\UserRepository;
+use App\Traits\uploadImage;
+use Illuminate\Support\Str;
 
 
 class ProjectController extends Controller
 {
+    use uploadImage; 
+
     protected $project_repo;
     protected $user_repo;
 
@@ -25,9 +29,9 @@ class ProjectController extends Controller
 
     public function project_select()
     {
-        $students = User::role('students')->getStudent();
+        $teachers = User::role('teacher')->get();
         //dd($users);
-        return view('pages.student.project_select', compact('students'));
+        return view('pages.student.project_select', compact('teachers'));
 
     }
 
@@ -53,6 +57,9 @@ class ProjectController extends Controller
     }
 
     public function store(Request $request){
+
+        $request =  $this->myUploadFile($request);
+
         $this->project_repo->store($request);
         return redirect()->back();
     }
@@ -63,10 +70,30 @@ class ProjectController extends Controller
     }
 
     public function update(Project $project,Request $request){
-        $this->project_repo->variable($project,$request);
-        return redirect()->back();
 
-        
+        $request =  $this->myUploadFile($request);
+
+        $this->project_repo->variable($project,$request);
+        return redirect()->back();  
+    }
+
+    private function myUploadFile($request)
+    {
+        if(!empty($request->file_er_diagram)){
+            $request->name_file = Str::random(20);
+            $request->file = $request->file_er_diagram;
+            $request->upload_path = 'projects';
+            $request->file_er_diagram = $this->upload($request);
+        }
+
+        if(!empty($request->file_design)){
+            $request->name_file = Str::random(20);
+            $request->file = $request->file_design;
+            $request->upload_path = 'projects';
+            $request->file_design = $this->upload($request);
+        }
+
+        return $request;
     }
 
       public function project_teacher()

@@ -8,10 +8,13 @@ use App\Models\User;
 use App\Models\Project;
 use App\Repositories\ProjectRepository;
 use App\Repositories\UserRepository;
+use App\Traits\uploadImage;
 
 
 class ProjectController extends Controller
 {
+    use uploadImage; 
+
     protected $project_repo;
     protected $user_repo;
 
@@ -29,11 +32,17 @@ class ProjectController extends Controller
     }
 
     public function create(){
-        $teachers = $this->user_repo->getTeacher(); 
+
+        $teachers = $this->user_repo->get(); 
         return view('pages.teacher.project_create',compact('teachers'));
     }
 
     public function store(Request $request){
+        if(!empty($request->file_er_diagram)){
+            $request->file = $request->file_er_diagram;
+            $request->upload_path = 'Project';
+            $request->file_er_diagram = $this->upload($request);
+        }
         $this->project_repo->store($request);
         return redirect()->back();
     }
