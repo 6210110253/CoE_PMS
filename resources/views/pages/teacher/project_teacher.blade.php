@@ -215,8 +215,19 @@
                             <br>
 
                             <div class="w-full p-4 text-center bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
-                                <h5 class="mb-2 text-3xl text-left font-bold text-gray-900 dark:text-white">ชื่อโปรเจกต์</h5>
-                                <p class="mb-5 text-left text-gray-500 sm:text-lg dark:text-gray-400">คำอธิบายโปรเจกต์</p>
+                                @foreach ($projects as $project )
+                                <h5 class="mb-2 text-3xl text-left font-bold text-gray-900 dark:text-white">{{ $project->title }}</h5>
+                                <p class="mb-5 text-left text-gray-500 sm:text-lg dark:text-gray-400">{{ $project->detail }}</p>
+
+
+                                @foreach ($project->student_reservetion_list as $key => $member )
+                                <p class="mb-5 text-left text-gray-500 sm:text-lg dark:text-gray-400">{{ $key+1 }}.{{ $member }}</p>
+
+                                @endforeach
+
+
+
+                                </div>
                                 <div class="flex justify-center gap-4 mx-auto">
                                     <a href="#" class="w-1/3 sm:w-auto bg-gray-800 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 text-white rounded-lg inline-flex items-center justify-center px-4 py-2.5 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700">
 
@@ -238,18 +249,22 @@
                                         </div>
                                     </a>
                                 </div>
+                                @endforeach
+
                             </div>
 
                         </div>
                         <div class="hidden p-4 bg-white rounded-lg md:p-8 dark:bg-gray-800" id="about" role="tabpanel" aria-labelledby="about-tab">
                             <div class="w-full p-4 text-center bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
-                                <h5 class="mb-2 text-3xl text-left font-bold text-gray-900 dark:text-white">ชื่อโปรเจกต์</h5>
-                                <p class="mb-5 text-left text-gray-500 sm:text-lg dark:text-gray-400">คำอธิบายโปรเจกต์</p>
+                                @foreach ($projects as $project )
+                                <h5 class="mb-2 text-3xl text-left font-bold text-gray-900 dark:text-white">{{ $project->title }}</h5>
+                                <p class="mb-5 text-left text-gray-500 sm:text-lg dark:text-gray-400">{{ $project->detail }}</p>
                                 <div class="flex justify-center gap-4 mx-auto">
-
                                 </div>
+                                @endforeach
                             </div>
                         </div>
+
                         <div class="hidden p-4 bg-white rounded-lg md:p-8 dark:bg-gray-800" id="faq" role="tabpanel" aria-labelledby="faq-tab">
                             <div class="w-full p-4 text-center bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
                                 <h5 class="mb-2 text-3xl text-left font-bold text-gray-900 dark:text-white">ชื่อโปรเจกต์</h5>

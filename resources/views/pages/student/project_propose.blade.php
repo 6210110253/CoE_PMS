@@ -7,8 +7,8 @@
                 <div class="w-full p-4  bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
 
                     <form id="propose_project"
-                        action="{{ Request::route()->getName() == 'student.project.propose' ?  route('student.project.store') : route('student.project.update', $project) }}" 
-                        method="post" 
+                        action="{{ Request::route()->getName() == 'student.project.propose' ?  route('student.project.store') : route('student.project.update', $project) }}"
+                        method="post"
                         enctype="multipart/form-data" >
                     @csrf
                     <div class="mb-6">
@@ -24,9 +24,9 @@
                     <div class="mb-6">
 
                         <label for="scope" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Scope <span class="text-red-500">*</span></label>
-                        <textarea id="scope" name="scope" rows="4" class="block p-2.5 w-full 
-                            text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 
-                            focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 
+                        <textarea id="scope" name="scope" rows="4" class="block p-2.5 w-full
+                            text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300
+                            focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600
                             dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="Leave a comment...">{{$project->scope ?? ''}}</textarea>
 
@@ -34,10 +34,10 @@
                     <div class="mb-6">
 
                         <label for="objective" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Objective <span class="text-red-500">*</span></label>
-                        <textarea id="objective" name="objective" rows="4" class="block p-2.5 w-full text-sm 
-                            text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 
-                            focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 
-                            dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
+                        <textarea id="objective" name="objective" rows="4" class="block p-2.5 w-full text-sm
+                            text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500
+                            focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400
+                            dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="Leave a comment...">{{$project->objective ?? ''}}</textarea>
 
                     </div>
@@ -45,10 +45,10 @@
                     <div class="mb-6">
 
                         <label for="results" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Results <span class="text-red-500">*</span></label>
-                        <textarea id="results" name="results" rows="4" class="block p-2.5 w-full 
-                            text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 
-                            focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 
-                            dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 
+                        <textarea id="results" name="results" rows="4" class="block p-2.5 w-full
+                            text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300
+                            focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600
+                            dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500
                             dark:focus:border-blue-500" placeholder="Leave a comment...">{{$project->results ?? ''}}</textarea>
 
                     </div>
@@ -56,8 +56,8 @@
                     <div class="mb-6">
 
                         <label for="condition" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Condition</label>
-                        <textarea name="condition" id="condition" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 
-                            rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 
+                        <textarea name="condition" id="condition" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50
+                            rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500
                             dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white
                             dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="Leave a comment...">{{$project->condition ?? ''}}</textarea>
@@ -75,7 +75,7 @@
                     </a>
                     @endif
                     </div>
-  
+
                     <div class="mb-6">
                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="user_avatar">Design File</label>
                     <input name="file_design" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="user_avatar" type="file">
@@ -91,21 +91,33 @@
                     <div class="mb-6">
                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="user_avatar">Use Case</label>
                     <input name="usecase" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="user_avatar" type="file">
-                    
+
                     @if(!empty($project->usecase))
                     <br>
                     <a target="_blank" href="{{ Storage::url($project->usecase) }}">
                       <img src="{{ asset('images\icon_file.png') }}" width="50">
                     </a>
                     @endif
-                
+
                     </div>
 
                     <div class="mb-6">
                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="user_avatar">Other</label>
-                    <input name="file_other" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="user_avatar" type="file">
+                    <input name="file_other[]" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="user_avatar" type="file" multiple="">
+
+                        @if(!empty($project->file_other))
+                        <br>
+                        <div class="flex flex-row gap-2">
+                        @foreach ($project->file_other as $file_other )
+                            <a target="_blank" href="{{ Storage::url($file_other) }}">
+                            <img src="{{ asset('images\icon_file.png') }}" width="50">
+                            </a>
+                        @endforeach
+                        </div>
+                        @endif
+
                     </div>
-                           
+
                     <div class="mb-6">
                         <label for="student_reservetion" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Member <span class="text-red-500">*</span></label>
                         <select name="student_reservetion[]" id="student_reservetion" multiple="multiple" class="select2">
@@ -113,7 +125,18 @@
                             @foreach ($students as $student)
                                  <option value="{{ $student->id }}" {{ !empty($project->student_reservetion) ? in_array($student->id,$project->student_reservetion) ? 'selected' : ''  : '' }}>{{ $student->name }}</option>
                             @endforeach
-                           
+
+                        </select>
+                    </div>
+
+                    <div class="mb-6">
+                        <label for="aprove_by" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Teacher <span class="text-red-500">*</span></label>
+                        <select name="approve_by" id="approve_by" class="select2">
+                            <option value="">--select teacher--</option>
+                            @foreach ($teachers as $teacher)
+                                 <option value="{{ $teacher->id }}" {{ !empty($project->approve_by) ? $project->approve_by == $teacher->id ? 'selected' : ''  : '' }}>{{ $teacher->name }}</option>
+                            @endforeach
+
                         </select>
                     </div>
 
@@ -123,7 +146,7 @@
                             <option value="">--select status--</option>
                             <option value="draft" {{  @$project->status == 'draft' ? 'selected' : '' }}> draft</option>
                             <option value="publish" {{  @$project->status == 'publish' ? 'selected' : '' }}> publish</option>
-                           
+
                         </select>
                     </div>
 
@@ -140,7 +163,7 @@
 <script>
     $("#propose_project").validate({
         rules: {
-            title: { 
+            title: {
                 required: true,
                 maxlength: 250,
                 minlength: 3
@@ -159,10 +182,13 @@
             },
             student_reservetion: {
                 required: true
+            },
+            approve_by: {
+                required: true
             }
-        
 
-        }    
+
+        }
 });
 
 $(document).ready(function() {

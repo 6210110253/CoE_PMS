@@ -14,13 +14,13 @@ use Illuminate\Support\Str;
 
 class ProjectController extends Controller
 {
-    use uploadImage; 
+    use uploadImage;
 
     protected $project_repo;
     protected $user_repo;
 
     public function __construct(
-        ProjectRepository $projectRepository, 
+        ProjectRepository $projectRepository,
         UserRepository $userRepository)
     {
         $this->project_repo = $projectRepository;
@@ -47,8 +47,9 @@ class ProjectController extends Controller
 
     public function create()
     {
-        $students = $this->user_repo->getStudent(); 
-        return view('pages.student.project_propose',compact('students'));
+        $students = $this->user_repo->getStudent();
+        $teachers = $this->user_repo->getTeacher();
+        return view('pages.student.project_propose',compact('students','teachers'));
     }
 
     public function submission()
@@ -65,7 +66,7 @@ class ProjectController extends Controller
     }
 
     public function edit(Project $project){
-        $students = $this->user_repo->getStudent(); 
+        $students = $this->user_repo->getStudent();
         return view('pages.student.project_propose',compact('students','project'));
     }
 
@@ -74,11 +75,12 @@ class ProjectController extends Controller
         $request =  $this->myUploadFile($request);
 
         $this->project_repo->variable($project,$request);
-        return redirect()->back();  
+        return redirect()->back();
     }
 
     private function myUploadFile($request)
     {
+
         if(!empty($request->file_er_diagram)){
             $request->name_file = Str::random(20);
             $request->file = $request->file_er_diagram;
@@ -98,6 +100,18 @@ class ProjectController extends Controller
             $request->file = $request->usecase;
             $request->upload_path = 'projects';
             $request->usecase = $this->upload($request);
+        }
+
+        if(!empty($request->file_other)){
+            $file_other_arr = [];
+            foreach($request->file_other as $other){
+                $request->name_file = Str::random(20);
+                $request->file = $other;
+                $request->upload_path = 'projects';
+                $file_other_arr[] = $this->upload($request);
+            }
+            $request->file_other = $file_other_arr;
+
         }
 
 
@@ -140,6 +154,10 @@ class ProjectController extends Controller
 
     public function meeting(){
         return view('pages.student.meeting');
+    }
+
+    public function view(){
+        return view('pages.student.project_view');
     }
 
 }

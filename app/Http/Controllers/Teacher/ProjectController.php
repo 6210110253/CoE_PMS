@@ -9,31 +9,34 @@ use App\Models\Project;
 use App\Repositories\ProjectRepository;
 use App\Repositories\UserRepository;
 use App\Traits\uploadImage;
-
+use Illuminate\Support\Facades\Auth;
 
 class ProjectController extends Controller
 {
-    use uploadImage; 
+    use uploadImage;
 
     protected $project_repo;
     protected $user_repo;
 
     public function __construct(
-        ProjectRepository $projectRepository, 
+        ProjectRepository $projectRepository,
         UserRepository $userRepository)
     {
         $this->project_repo = $projectRepository;
         $this->user_repo = $userRepository;
+
     }
 
     public function project_teacher()
     {
-        return view('pages.teacher.project_teacher');
+        $projects = $this->project_repo->getProjectByTeacherId(Auth::id());
+
+        return view('pages.teacher.project_teacher', compact('projects'));
     }
 
     public function create(){
 
-        $teachers = $this->user_repo->getTeacher(); 
+        $teachers = $this->user_repo->getTeacher();
         return view('pages.teacher.project_create',compact('teachers'));
     }
 

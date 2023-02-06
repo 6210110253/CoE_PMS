@@ -19,8 +19,8 @@ class CreateProjectsTable extends Migration
                 ->index()
                 ->comment("หัวข้อโครงงาน");
             $table->longText("detail")->comment("รายละเอียด");
-            $table->longText("scope")->comment("ขอบเขต"); 
-            $table->longText("objective")->comment("จุดประสงค์"); 
+            $table->longText("scope")->comment("ขอบเขต");
+            $table->longText("objective")->comment("จุดประสงค์");
             $table->longText("results")->comment("ผลที่คาดหวัง");
             $table->integer("member_count")->comment("จำนวนนักศึกษาที่รับ")->nullable();
             $table->longText("condition")
@@ -47,7 +47,7 @@ class CreateProjectsTable extends Migration
                 ->on('users')
                 ->onDelete('cascade')
                 ->nullable();
-            $table->enum("status", ['draft', 'publish'])->default("draft");
+            $table->enum("status", ['draft', 'publish', 'aprove', 'reject'])->default("draft");
             $table->timestamps();
             $table->softDeletes();
         });
