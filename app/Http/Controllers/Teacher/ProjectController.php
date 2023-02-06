@@ -33,7 +33,7 @@ class ProjectController extends Controller
 
     public function create(){
 
-        $teachers = $this->user_repo->get(); 
+        $teachers = $this->user_repo->getTeacher(); 
         return view('pages.teacher.project_create',compact('teachers'));
     }
 
