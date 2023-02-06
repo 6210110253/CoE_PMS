@@ -8,10 +8,14 @@ use App\Models\User;
 use App\Models\Project;
 use App\Repositories\ProjectRepository;
 use App\Repositories\UserRepository;
+use App\Traits\uploadImage;
+use Illuminate\Support\Str;
 
 
 class ProjectController extends Controller
 {
+    use uploadImage; 
+
     protected $project_repo;
     protected $user_repo;
 
@@ -53,6 +57,9 @@ class ProjectController extends Controller
     }
 
     public function store(Request $request){
+
+        $request =  $this->myUploadFile($request);
+
         $this->project_repo->store($request);
         return redirect()->back();
     }
@@ -63,7 +70,76 @@ class ProjectController extends Controller
     }
 
     public function update(Project $project,Request $request){
+
+        $request =  $this->myUploadFile($request);
+
         $this->project_repo->variable($project,$request);
-        return redirect()->back();
+        return redirect()->back();  
     }
+
+    private function myUploadFile($request)
+    {
+        if(!empty($request->file_er_diagram)){
+            $request->name_file = Str::random(20);
+            $request->file = $request->file_er_diagram;
+            $request->upload_path = 'projects';
+            $request->file_er_diagram = $this->upload($request);
+        }
+
+        if(!empty($request->file_design)){
+            $request->name_file = Str::random(20);
+            $request->file = $request->file_design;
+            $request->upload_path = 'projects';
+            $request->file_design = $this->upload($request);
+        }
+
+        if(!empty($request->usecase)){
+            $request->name_file = Str::random(20);
+            $request->file = $request->usecase;
+            $request->upload_path = 'projects';
+            $request->usecase = $this->upload($request);
+        }
+
+
+
+        return $request;
+    }
+
+      public function project_teacher()
+    {
+        return view('pages.teacher.project_teacher');
+    }
+
+    public function project_create(){
+        return view('pages.teacher.project_create');
+    }
+
+    public function project_propose_to_teacher(){
+        return view('pages.teacher.project_propose_to_teacher');
+    }
+
+    public function project_detail_teacher(){
+        return view('pages.teacher.project_detail_teacher');
+
+    }
+    public function project_status()
+    {
+        $project = Project::query()
+        ->with([
+            'project_reservations.users',
+        ])
+        ->get();
+        //dd($project);
+
+        return view('pages.admin.project_status');
+    }
+
+    public function project_request(){
+        return view('pages.teacher.project_request');
+    }
+
+    public function meeting(){
+        return view('pages.student.meeting');
+    }
+
 }

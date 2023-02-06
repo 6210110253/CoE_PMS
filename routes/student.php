@@ -4,7 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Student\ProjectController;
 
 
-Route::controller(ProjectController::class)->name('student.')->group(function () {
+Route::controller(ProjectController::class)->name('student.')->prefix('student/')
+    ->group(function () {
 
     Route::get('/project-select', 'project_select')
         ->name('project.select');
@@ -24,5 +25,8 @@ Route::controller(ProjectController::class)->name('student.')->group(function ()
         ->name('project.edit');
     Route::post('/project/{project}/update','update')
         ->name('project.update');
+
+    
+
 
 });

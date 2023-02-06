@@ -28,7 +28,7 @@
                             d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path>
                     </svg>
 
-                    <span class="mx-3">Dashboard</span>
+                    <span class="mx-3">Home</span>
                 </a>
 
                 @canany('Role access','Role add','Role edit','Role delete')
@@ -83,7 +83,7 @@
                 @endcanany
 
                 <a class="flex items-center mt-4 py-2 px-6 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100 {{ Route::currentRouteNamed('admin.posts.index') ? 'active' : '' }}"
-                    href="{{ route('project.status')}}">
+                    href="{{ route('admin.project.status')}}">
                     <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -124,8 +124,9 @@
                 </svg>
                 <span class="mx-3">Dashboard</span>
                 </a>
+
                 <a class="flex items-center mt-4 py-2 px-6 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100 {{ Route::currentRouteNamed('admin.mail.index') ? 'active' : '' }}"
-                    href="{{ route('project.teacher') }}">
+                    href="{{ route('teacher.project.teacher') }}">
                     <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -135,8 +136,8 @@
                     <span class="mx-3">Project</span>
                 </a>
                 </a>
-                {{-- <a class="flex items-center mt-4 py-2 px-6 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100 {{ Route::currentRouteNamed('admin.mail.index') ? 'active' : '' }}"
-                href="{{ route('meeting')}}">
+                <a class="flex items-center mt-4 py-2 px-6 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100 {{ Route::currentRouteNamed('admin.mail.index') ? 'active' : '' }}"
+                href="">
                 <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -144,7 +145,7 @@
                     </path>
                 </svg>
                 <span class="mx-3">Meeting</span>
-                </a> --}}
+                </a>
 
 
 @endif
