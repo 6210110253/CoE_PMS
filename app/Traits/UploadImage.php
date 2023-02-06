@@ -216,4 +216,5 @@ trait uploadImage{
         }
         return $text;
     }
+
 }

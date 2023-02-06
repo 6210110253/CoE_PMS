@@ -7,69 +7,99 @@
                 <div class="w-full p-4  bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
 
                     <form id="propose_project"
-                        action="{{ route('teacher.project.store') }}" 
-                        method="post" 
+                        action="{{ route('teacher.project.store') }}"
+                        method="post"
                         enctype="multipart/form-data" >
                         @csrf
                     <div class="mb-6">
                         <label  for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Topic <span class="text-red-500">*</span></label>
-                        <input type="text" id="title" name="title" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="Topic" required>
+                        <input type="text" id="title" name="title" value="{{$project->title ?? ''}}" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="Topic" required>
                     </div>
                     <div class="mb-6">
 
                         <label for="detail" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description <span class="text-red-500">*</span></label>
-                        <textarea id="detail" name="detail" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Leave a comment..."></textarea>
+                        <textarea id="detail" name="detail" rows="4" class="block p-2.5 w-full
+                        text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500
+                         dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                         placeholder="Leave a comment...">{{$project->detail ?? ''}}</textarea>
 
                     </div>
                     <div class="mb-6">
 
                         <label for="scope" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Scope <span class="text-red-500">*</span></label>
-                        <textarea id="scope" name="scope" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Leave a comment..."></textarea>
+                        <textarea id="scope" name="scope" rows="4" class="block p-2.5 w-full
+                         text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500
+                          dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                          placeholder="Leave a comment...">{{$project->scope ?? ''}}</textarea>
 
                     </div>
                     <div class="mb-6">
 
                         <label for="objective" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Objective <span class="text-red-500">*</span></label>
-                        <textarea id="objective" name="objective" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Leave a comment..."></textarea>
+                        <textarea id="objective" name="objective" rows="4" class="block p-2.5 w-full text-sm
+                         text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700
+                        dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="Leave a comment...">{{$project->objective ?? ''}}</textarea>
 
                     </div>
 
                     <div class="mb-6">
 
                         <label for="results" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Results <span class="text-red-500">*</span></label>
-                        <textarea id="results" name="results" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Leave a comment..."></textarea>
+                        <textarea id="results" name="results" rows="4" class="block p-2.5 w-full text-sm
+                         text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500
+                          dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                          placeholder="Leave a comment...">{{$project->results ?? ''}}</textarea>
 
                     </div>
 
                     <div class="mb-6">
 
                         <label for="condition" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Condition</label>
-                        <textarea name="condition" id="condition" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 
-                            rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 
+                        <textarea name="condition" id="condition" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50
+                            rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500
                             dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white
                             dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="Leave a comment..."></textarea>
+                            placeholder="Leave a comment...">{{$project->condition ?? ''}}</textarea>
 
                     </div>
 
                     <div class="mb-6">
                         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="user_avatar">ER Diagram</label>
                         <input name="file_er_diagram" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="user_avatar" type="file">
+                        @if(!empty($project->file_er_diagram))
+                        <br>
+                            <a target="_blank" href="{{ Storage::url($project->file_er_diagram) }}">
+                            <img src="{{ asset('images\icon_file.png') }}" width="50">
+                            </a>
+                        @endif
                     </div>
 
                     <div class="mb-6">
                         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="user_avatar">Design File</label>
-                        <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="user_avatar" type="file">
+                        <input name="file_design" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="user_avatar" type="file">
+                        @if(!empty($project->file_design))
+                        <br>
+                            <a target="_blank" href="{{ Storage::url($project->file_design) }}">
+                            <img src="{{ asset('images\icon_file.png') }}" width="50">
+                            </a>
+                        @endif
                     </div>
 
                     <div class="mb-6">
                         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="user_avatar">Use Case</label>
-                        <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="user_avatar" type="file">
+                        <input name="usecase" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="user_avatar" type="file">
+                        @if(!empty($project->usecase))
+                        <br>
+                            <a target="_blank" href="{{ Storage::url($project->usecase) }}">
+                            <img src="{{ asset('images\icon_file.png') }}" width="50">
+                            </a>
+                        @endif
                     </div>
 
                     <div class="mb-6">
                         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="user_avatar">Other</label>
-                        <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="user_avatar" type="file">
+                        <input name="file_other" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="user_avatar" type="file">
                     </div>
 
                     <div class="mb-6">
@@ -83,7 +113,7 @@
                             <option value="">--select status--</option>
                             <option> draft</option>
                             <option> public</option>
-                           
+
                         </select>
                     </div>
 
@@ -101,7 +131,7 @@
 <script>
     $("#propose_project").validate({
         rules: {
-            title: { 
+            title: {
                 required: true,
                 maxlength: 250,
                 minlength: 3
@@ -121,7 +151,7 @@
             student_reservetion: {
                 required: true
             }
-        
+
 
         }
 
