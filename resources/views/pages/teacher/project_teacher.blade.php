@@ -109,26 +109,27 @@
 
                             <br>
 
-                            <div class="w-full p-4 text-center bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+                            
                                 @foreach ($projects as $project )
-                                <p class="mb-2 text-2xl text-left font-bold text-gray-900 dark:text-white">{{ $project->title }}</p>
-                                <p class="mb-5 text-left text-gray-500 sm:text-lg dark:text-gray-400">รายละเอียด : {{ $project->detail }}</p>
+                                <div class="w-full p-4 text-center bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+                                    <p class="mb-2 text-2xl text-left font-bold text-gray-900 dark:text-white">{{ $project->title }}</p>
+                                    <p class="mb-5 text-left text-gray-500 sm:text-lg dark:text-gray-400">รายละเอียด : {{ $project->detail }}</p>
 
-                                <p class="mb-5 text-left text-gray-500 sm:text-lg dark:text-gray-400">สมาชิกในกลุ่ม : </p>
-                                @if(!empty($project->student_reservetion))
+                                    <p class="mb-5 text-left text-gray-500 sm:text-lg dark:text-gray-400">สมาชิกในกลุ่ม : </p>
+                                    @if(!empty($project->student_reservetion))
 
-                                    @foreach ($project->student_reservetion_list as $key => $member )
-                                    <p class="mb-5 text-left text-gray-500 sm:text-lg dark:text-gray-400">{{ $key+1 }}.{{ $member }}</p>
+                                        @foreach ($project->student_reservetion_list as $key => $member )
+                                        <p class="mb-5 text-left text-gray-500 sm:text-lg dark:text-gray-400">{{ $key+1 }}.{{ $member }}</p>
 
-                                    @endforeach
+                                        @endforeach
+                                        
+                                    @else
+                                        <p class="mb-5 text-left text-gray-500 sm:text-lg dark:text-gray-400">1.{{ $project->member->name }}</p>
                                     
-                                @else
-                                    <p class="mb-5 text-left text-gray-500 sm:text-lg dark:text-gray-400">1.{{ $project->member->name }}</p>
-                                    
-                                @endif
-                               <a href="{{ route('teacher.project.detail.teacher', $project) }}" class="flex justify-left">เพิ่มเติม</a>
+                                    @endif
+                                    <a href="{{ route('teacher.project.detail.teacher', $project) }}" class="flex justify-left">เพิ่มเติม</a>
 
-                                {{-- <div class="flex justify-center gap-4 mx-auto">
+                                <div class="flex justify-center gap-4 mx-auto">
                                     <a href="#" class="w-1/3 sm:w-auto bg-gray-800 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 text-white rounded-lg inline-flex items-center justify-center px-4 py-2.5 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700">
 
                                         <div class="text-left">
@@ -148,13 +149,14 @@
                                             <div class="-mt-1 font-sans text-sm font-semibold">Comment</div>
                                         </div>
                                     </a>
-                                </div> --}}
+                                </div> 
 
 
                                 </div>
-                                @endforeach
-
                             </div>
+                            @endforeach
+
+                            
 
                         </div>
                         <div class="hidden p-4 bg-white rounded-lg md:p-8 dark:bg-gray-800" id="about" role="tabpanel" aria-labelledby="about-tab">
