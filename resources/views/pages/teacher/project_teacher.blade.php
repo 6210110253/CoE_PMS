@@ -132,7 +132,7 @@
                                 
                                <a href="{{ route('teacher.project.detail.teacher') }}" class="flex justify-left">เพิ่มเติม</a>
 
-                                <div class="flex justify-center gap-4 mx-auto">
+                                {{-- <div class="flex justify-center gap-4 mx-auto">
                                     <a href="#" class="w-1/3 sm:w-auto bg-gray-800 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 text-white rounded-lg inline-flex items-center justify-center px-4 py-2.5 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700">
 
                                         <div class="text-left">
@@ -152,7 +152,7 @@
                                             <div class="-mt-1 font-sans text-sm font-semibold">Comment</div>
                                         </div>
                                     </a>
-                                </div>
+                                </div> --}}
 
 
                                 </div>
