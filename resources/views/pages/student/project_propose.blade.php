@@ -134,7 +134,7 @@
                         <select name="approve_by" id="approve_by" class="select2">
                             <option value="">--select teacher--</option>
                             @foreach ($teachers as $teacher)
-                                 <option value="{{ $teacher->id }}" {{ !empty($project->approve_by) ? $project->approve_by == $teacher->id ? 'selected' : ''  : '' }}>{{ $teacher->name }}</option>
+                                 <option value="{{ $teacher->id }}" {{ !empty($project->approve_by) ? $project->approve_by == $teacher->id ? 'selected' : ''  : '' }}> {{ $teacher->name }} </option>
                             @endforeach
 
                         </select>

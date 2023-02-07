@@ -67,7 +67,8 @@ class ProjectController extends Controller
 
     public function edit(Project $project){
         $students = $this->user_repo->getStudent();
-        return view('pages.student.project_propose',compact('students','project'));
+        $teachers = $this->user_repo->getTeacher();
+        return view('pages.student.project_propose',compact('students','project','teachers'));
     }
 
     public function update(Project $project,Request $request){
