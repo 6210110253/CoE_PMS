@@ -18,38 +18,38 @@
                     <div class="mb-6">
 
                         <label for="detail" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description <span class="text-red-500">*</span></label>
-                        <textarea id="detail" name="detail" rows="4" class="block p-2.5 w-full
-                        text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500
-                         dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                         placeholder="Leave a comment...">{{$project->detail ?? ''}}</textarea>
+                        <textarea id="detail" name="detail" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Leave a comment...">{{$project->detail ?? ''}}</textarea>
 
                     </div>
                     <div class="mb-6">
 
                         <label for="scope" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Scope <span class="text-red-500">*</span></label>
                         <textarea id="scope" name="scope" rows="4" class="block p-2.5 w-full
-                         text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500
-                          dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                          placeholder="Leave a comment...">{{$project->scope ?? ''}}</textarea>
+                            text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300
+                            focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600
+                            dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="Leave a comment...">{{$project->scope ?? ''}}</textarea>
 
                     </div>
                     <div class="mb-6">
 
                         <label for="objective" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Objective <span class="text-red-500">*</span></label>
                         <textarea id="objective" name="objective" rows="4" class="block p-2.5 w-full text-sm
-                         text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700
-                        dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="Leave a comment...">{{$project->objective ?? ''}}</textarea>
+                            text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500
+                            focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400
+                            dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="Leave a comment...">{{$project->objective ?? ''}}</textarea>
 
                     </div>
 
                     <div class="mb-6">
 
                         <label for="results" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Results <span class="text-red-500">*</span></label>
-                        <textarea id="results" name="results" rows="4" class="block p-2.5 w-full text-sm
-                         text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500
-                          dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                          placeholder="Leave a comment...">{{$project->results ?? ''}}</textarea>
+                        <textarea id="results" name="results" rows="4" class="block p-2.5 w-full
+                            text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300
+                            focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600
+                            dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500
+                            dark:focus:border-blue-500" placeholder="Leave a comment...">{{$project->results ?? ''}}</textarea>
 
                     </div>
 
@@ -65,47 +65,57 @@
                     </div>
 
                     <div class="mb-6">
-                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="user_avatar">ER Diagram</label>
-                        <input name="file_er_diagram" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="user_avatar" type="file">
-                        @if(!empty($project->file_er_diagram))
-                        <br>
-                            <a target="_blank" href="{{ Storage::url($project->file_er_diagram) }}">
-                            <img src="{{ asset('images\icon_file.png') }}" width="50">
-                            </a>
-                        @endif
+                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="user_avatar">ER Diagram</label>
+                    <input name="file_er_diagram" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="user_avatar" type="file">
+
+                    @if(!empty($project->file_er_diagram))
+                    <br>
+                    <a target="_blank" href="{{ Storage::url($project->file_er_diagram) }}">
+                      <img src="{{ asset('images\icon_file.png') }}" width="50">
+                    </a>
+                    @endif
                     </div>
 
                     <div class="mb-6">
-                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="user_avatar">Design File</label>
-                        <input name="file_design" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="user_avatar" type="file">
-                        @if(!empty($project->file_design))
-                        <br>
-                            <a target="_blank" href="{{ Storage::url($project->file_design) }}">
-                            <img src="{{ asset('images\icon_file.png') }}" width="50">
-                            </a>
-                        @endif
+                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="user_avatar">Design File</label>
+                    <input name="file_design" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="user_avatar" type="file">
+
+                    @if(!empty($project->file_design))
+                    <br>
+                    <a target="_blank" href="{{ Storage::url($project->file_design) }}">
+                      <img src="{{ asset('images\icon_file.png') }}" width="50">
+                    </a>
+                    @endif
                     </div>
 
                     <div class="mb-6">
-                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="user_avatar">Use Case</label>
-                        <input name="usecase" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="user_avatar" type="file">
-                        @if(!empty($project->usecase))
-                        <br>
-                            <a target="_blank" href="{{ Storage::url($project->usecase) }}">
-                            <img src="{{ asset('images\icon_file.png') }}" width="50">
-                            </a>
-                        @endif
-                    </div>
+                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="user_avatar">Use Case</label>
+                    <input name="usecase" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="user_avatar" type="file">
 
-                    <div class="mb-6">
-                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="user_avatar">Other</label>
-                        <input name="file_other" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="user_avatar" type="file">
                     @if(!empty($project->usecase))
+                    <br>
+                    <a target="_blank" href="{{ Storage::url($project->usecase) }}">
+                      <img src="{{ asset('images\icon_file.png') }}" width="50">
+                    </a>
+                    @endif
+
+                    </div>
+
+                    <div class="mb-6">
+                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="user_avatar">Other</label>
+                    <input name="file_other[]" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="user_avatar" type="file" multiple="">
+
+                        @if(!empty($project->file_other))
                         <br>
-                            <a target="_blank" href="{{ Storage::url($project->usecase) }}">
+                        <div class="flex flex-row gap-2">
+                        @foreach ($project->file_other as $file_other )
+                            <a target="_blank" href="{{ Storage::url($file_other) }}">
                             <img src="{{ asset('images\icon_file.png') }}" width="50">
                             </a>
+                        @endforeach
+                        </div>
                         @endif
+
                     </div>
 
                     <div class="mb-6">
@@ -117,10 +127,12 @@
                         <label for="status" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Status <span class="text-red-500">*</span></label>
                         <select name="status" id="status">
                             <option value="">--select status--</option>
-                            <option> draft</option>
-                            <option> public</option>
+                            <option value="draft" {{  @$project->status == 'draft' ? 'selected' : '' }}> draft</option>
+                            <option value="publish" {{  @$project->status == 'publish' ? 'selected' : '' }}> publish</option>
+
                         </select>
                     </div>
+
 
 
 

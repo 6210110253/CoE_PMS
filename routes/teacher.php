@@ -18,5 +18,9 @@ Route::controller(ProjectController::class)->name('teacher.')->prefix('teacher/'
         ->name('project.request');
     Route::post('/project/store','store')
         ->name('project.store');
+    Route::get('/project/edit/{project}','edit')
+        ->name('project.edit');
+    Route::post('/project/{project}/update','update')
+        ->name('project.update');
 
 });
