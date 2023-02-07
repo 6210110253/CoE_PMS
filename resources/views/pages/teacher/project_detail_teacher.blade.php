@@ -15,7 +15,7 @@
                                          Topic
                                      </th>
                                      <td class="px-6 py-4">
-                                         Sliver
+                                        {{-- {{ $project->title }} --}}
                                      </td>
  
                                  </tr>
@@ -24,7 +24,7 @@
                                          Description
                                      </th>
                                      <td class="px-6 py-4">
-                                         White
+                                        {{-- {{ $project->detail }} --}}
                                      </td>
  
                                  </tr>
@@ -98,7 +98,10 @@
                                          Member
                                      </th>
                                      <td class="px-6 py-4">
-                                         Black
+                                        {{-- @foreach ($project->student_reservetion_list as $key => $member )
+                                        <p class="mb-5 text-left text-gray-500 sm:text-lg dark:text-gray-400">{{ $key+1 }}.{{ $member }}</p>
+        
+                                        @endforeach --}}
                                      </td>
  
                                  </tr>
