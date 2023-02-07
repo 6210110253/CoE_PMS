@@ -12,7 +12,7 @@
                             <span class="text-3xl font-bold text-gray-900 dark:text-white"></span>
                             <a href="#" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Back</a>
                         </div>
-        
+
                          <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
  
                              <tbody>
@@ -21,7 +21,7 @@
                                          Topic
                                      </th>
                                      <td class="px-6 py-4">
-                                        {{-- {{ $project->title }} --}}
+                                        {{ $project->title }}
                                      </td>
  
                                  </tr>
@@ -30,7 +30,7 @@
                                          Description
                                      </th>
                                      <td class="px-6 py-4">
-                                        {{-- {{ $project->detail }} --}}
+                                        {{ $project->detail }}
                                      </td>
  
                                  </tr>
@@ -39,7 +39,7 @@
                                          Scope
                                      </th>
                                      <td class="px-6 py-4">
-                                         Black
+                                        {{ $project->scope }}
                                      </td>
  
                                  </tr>
@@ -48,7 +48,7 @@
                                          Objective
                                      </th>
                                      <td class="px-6 py-4">
-                                         Black
+                                        {{ $project->objective }}
                                      </td>
  
                                  </tr>
@@ -57,7 +57,7 @@
                                          Results
                                      </th>
                                      <td class="px-6 py-4">
-                                         Black
+                                        {{ $project->results }}
                                      </td>
  
                                  </tr>
@@ -66,7 +66,12 @@
                                          ER Diagram
                                      </th>
                                      <td class="px-6 py-4">
-                                         Black
+                                        @if(!empty($project->file_er_diagram))
+                                        <br>
+                                        <a target="_blank" href="{{ Storage::url($project->file_er_diagram) }}">
+                                          <img src="{{ asset('images\icon_file.png') }}" width="50">
+                                        </a>
+                                        @endif
                                      </td>
  
                                  </tr>
