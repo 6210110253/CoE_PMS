@@ -43,16 +43,6 @@
                         </div>
                     </div>
 
-
-
-
-
-
-
-
-
-
-
                     </div>
                 </div>
 
@@ -125,12 +115,18 @@
                                 <p class="mb-5 text-left text-gray-500 sm:text-lg dark:text-gray-400">รายละเอียด : {{ $project->detail }}</p>
 
                                 <p class="mb-5 text-left text-gray-500 sm:text-lg dark:text-gray-400">สมาชิกในกลุ่ม : </p>
-                                @foreach ($project->student_reservetion_list as $key => $member )
-                                <p class="mb-5 text-left text-gray-500 sm:text-lg dark:text-gray-400">{{ $key+1 }}.{{ $member }}</p>
+                                @if(!empty($project->student_reservetion))
 
-                                @endforeach
-                                
-                               <a href="{{ route('teacher.project.detail.teacher') }}" class="flex justify-left">เพิ่มเติม</a>
+                                    @foreach ($project->student_reservetion_list as $key => $member )
+                                    <p class="mb-5 text-left text-gray-500 sm:text-lg dark:text-gray-400">{{ $key+1 }}.{{ $member }}</p>
+
+                                    @endforeach
+                                    
+                                @else
+                                    <p class="mb-5 text-left text-gray-500 sm:text-lg dark:text-gray-400">1.{{ $project->member->name }}</p>
+                                    
+                                @endif
+                               <a href="{{ route('teacher.project.detail.teacher', $project) }}" class="flex justify-left">เพิ่มเติม</a>
 
                                 {{-- <div class="flex justify-center gap-4 mx-auto">
                                     <a href="#" class="w-1/3 sm:w-auto bg-gray-800 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 text-white rounded-lg inline-flex items-center justify-center px-4 py-2.5 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700">

@@ -95,8 +95,8 @@ class ProjectController extends Controller
         return view('pages.teacher.project_propose_to_teacher');
     }
 
-    public function project_detail_teacher(){
-        return view('pages.teacher.project_detail_teacher');
+    public function project_detail_teacher(Project $project){
+        return view('pages.teacher.project_detail_teacher',compact('project'));
 
     }
 

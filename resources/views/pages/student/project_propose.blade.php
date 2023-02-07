@@ -11,6 +11,7 @@
                         method="post"
                         enctype="multipart/form-data" >
                     @csrf
+                    <input type="hidden" name="created_by" value="{{ Auth()->user()->id }}">
                     <div class="mb-6">
                         <label  for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Topic <span class="text-red-500">*</span></label>
                         <input type="text" id="title" name="title" value="{{$project->title ?? ''}}" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="Topic" required>
@@ -119,7 +120,7 @@
                     </div>
 
                     <div class="mb-6">
-                        <label for="student_reservetion" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Member <span class="text-red-500">*</span></label>
+                        <label for="student_reservetion" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Member</label>
                         <select name="student_reservetion[]" id="student_reservetion" multiple="multiple" class="select2">
                             <option value="">--select member--</option>
                             @foreach ($students as $student)

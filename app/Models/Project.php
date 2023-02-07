@@ -29,7 +29,7 @@ class Project extends Model
 
     public function getStudentReservetionListAttribute(){
         $users = User::query()->find($this->student_reservetion);
-        $created_by = User::query()->find($this->created_by)->name;
+        $created_by = $this->member->name;
 
 
         $list = [$created_by];
@@ -39,6 +39,10 @@ class Project extends Model
         }
         return $list;
 
+    }
+
+    public function member(){
+        return $this->belongsTo(User::class, 'created_by', 'id');
     }
 
 }

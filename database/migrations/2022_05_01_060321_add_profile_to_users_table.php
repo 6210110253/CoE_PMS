@@ -17,6 +17,9 @@ class AddProfileToUsersTable extends Migration
             $table->string('profile')
             ->after('email')
             ->nullable();
+            $table->enum("type", ['student', 'teacher', 'admin'])
+            ->default("student")
+            ->after('email');
             $table->softDeletes();
         });
     }
@@ -31,7 +34,8 @@ class AddProfileToUsersTable extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->dropColumn([
                 'profile',
-                'deleted_at'
+                'deleted_at',
+                'type'
             ]);
         });
     }

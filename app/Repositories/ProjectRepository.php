@@ -36,12 +36,8 @@ class ProjectRepository
        !isset($params->usecase) ?: $data->usecase = $params->usecase;
        !isset($params->file_other) ?: $data->file_other = $params->file_other;
 
-
-
-         $data->created_by = Auth()->user()->id;
-
-
-
+       !isset($params->created_by) ?: $data->created_by = $params->created_by;
+        // $data->created_by = Auth()->user()->id;
 
        $data->save();
        return $data;
@@ -53,6 +49,11 @@ class ProjectRepository
 
     public function getProjectByTeacherId($id){
 
-        return Project::query()->where('approve_by',$id)->get();
+        return Project::query()
+            ->with([
+                'member'
+            ])
+            ->where('approve_by',$id)
+            ->get();
     }
 }
