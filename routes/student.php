@@ -25,8 +25,10 @@ Route::controller(ProjectController::class)->name('student.')->prefix('student/'
         ->name('project.edit');
     Route::post('/project/{project}/update','update')
         ->name('project.update');
+    Route::get('/project-view', 'project_view')
+        ->name('project.view');
 
-    
+
 
 
 });

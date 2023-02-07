@@ -142,7 +142,7 @@ class ProjectController extends Controller
         return view('pages.student.meeting');
     }
 
-    public function view(){
+    public function project_view(){
         return view('pages.student.project_view');
     }
 
