@@ -22,5 +22,8 @@ Route::controller(ProjectController::class)->name('teacher.')->prefix('teacher/'
         ->name('project.edit');
     Route::post('/project/{project}/update','update')
         ->name('project.update');
+    Route::get('/dashboard', function () {
+            return view('pages.teacher.dashboard');
+        })->name('dashboard');
 
 });
