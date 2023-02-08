@@ -18,7 +18,7 @@
 
                     <div class="flex flex-col items-center pb-10">
                         <br>
-                        <img class="w-24 h-24 mb-3 rounded-full shadow-lg" src="{{ !empty($teacher->profile) ? asset('images/'. $teacher->profile) : asset('images/1651389508_user.avif') }}" alt="Bonnie image"/>
+                        <img class="h-24 w-24 rounded-full object-cover shadow-lg" src="{{ !empty($teacher->profile) ? asset('images/'. $teacher->profile) : asset('images/1651389508_user.avif') }}" alt="Bonnie image"/>
                         <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">Supervisor: {{ $teacher->name }}</h5>
                         <span class="text-sm text-gray-500 dark:text-gray-400">Email: {{ $teacher->email }}</span>
                         <br>
