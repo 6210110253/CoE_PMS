@@ -29,6 +29,10 @@ Route::controller(ProjectController::class)->name('student.')->prefix('student/'
         ->name('project.view');
     Route::get('/student-home', 'student_home')
         ->name('student.home');
+    Route::get('/submit-meeting', 'submit_meeting')
+        ->name('submit.meeting');
+    Route::get('/submit-report', 'submit_report')
+        ->name('submit.report');
 
 
 
