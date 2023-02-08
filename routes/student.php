@@ -27,6 +27,8 @@ Route::controller(ProjectController::class)->name('student.')->prefix('student/'
         ->name('project.update');
     Route::get('/project-view', 'project_view')
         ->name('project.view');
+    Route::get('/student-home', 'student_home')
+        ->name('student.home');
 
 
 

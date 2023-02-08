@@ -2,19 +2,19 @@
     <div>
          <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-200">
              <div class="container mx-auto px-6 py-8">
- 
- 
+
+
                  <div class="w-full p-4 text-center bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
-                   
+
                     <div class="relative overflow-x-auto">
 
                         <div class="flex items-center justify-between">
                             <span class="text-3xl font-bold text-gray-900 dark:text-white"></span>
-                            <a href="#" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Back</a>
+                            <a href="{{ route('teacher.project.teacher') }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Back</a>
                         </div>
 
                          <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
- 
+
                              <tbody>
                                  <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                                      <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
@@ -23,7 +23,7 @@
                                      <td class="px-6 py-4">
                                         {{ $project->title }}
                                      </td>
- 
+
                                  </tr>
                                  <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                                      <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
@@ -32,7 +32,7 @@
                                      <td class="px-6 py-4">
                                         {{ $project->detail }}
                                      </td>
- 
+
                                  </tr>
                                  <tr class="bg-white dark:bg-gray-800">
                                      <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
@@ -41,7 +41,7 @@
                                      <td class="px-6 py-4">
                                         {{ $project->scope }}
                                      </td>
- 
+
                                  </tr>
                                  <tr class="bg-white dark:bg-gray-800">
                                      <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
@@ -50,7 +50,7 @@
                                      <td class="px-6 py-4">
                                         {{ $project->objective }}
                                      </td>
- 
+
                                  </tr>
                                  <tr class="bg-white dark:bg-gray-800">
                                      <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
@@ -59,7 +59,7 @@
                                      <td class="px-6 py-4">
                                         {{ $project->results }}
                                      </td>
- 
+
                                  </tr>
                                  <tr class="bg-white dark:bg-gray-800">
                                      <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
@@ -73,7 +73,7 @@
                                         </a>
                                         @endif
                                      </td>
- 
+
                                  </tr>
                                  <tr class="bg-white dark:bg-gray-800">
                                      <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
@@ -82,7 +82,7 @@
                                      <td class="px-6 py-4">
                                          Black
                                      </td>
- 
+
                                  </tr>
                                  <tr class="bg-white dark:bg-gray-800">
                                      <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
@@ -91,9 +91,9 @@
                                      <td class="px-6 py-4">
                                          Black
                                      </td>
- 
+
                                  </tr>
- 
+
                                  <tr class="bg-white dark:bg-gray-800">
                                      <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                          Other
@@ -101,9 +101,9 @@
                                      <td class="px-6 py-4">
                                          Black
                                      </td>
- 
+
                                  </tr>
- 
+
                                  <tr class="bg-white dark:bg-gray-800">
                                      <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                          Member
@@ -111,10 +111,10 @@
                                      <td class="px-6 py-4">
                                         {{-- @foreach ($project->student_reservetion_list as $key => $member )
                                         <p class="mb-5 text-left text-gray-500 sm:text-lg dark:text-gray-400">{{ $key+1 }}.{{ $member }}</p>
-        
+
                                         @endforeach --}}
                                      </td>
- 
+
                                  </tr>
                              </tbody>
                          </table>
@@ -139,15 +139,15 @@
                         </div>
                     </div>
                  </div>
- 
- 
- 
- 
- 
- 
- 
- 
- 
+
+
+
+
+
+
+
+
+
              </div>
          </main>
      </div>
@@ -171,12 +171,12 @@
                             dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="comment..."></textarea>
                         </div>
-                       
+
                         <button type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">submit</button>
                     </form>
                 </div>
             </div>
         </div>
-    </div> 
+    </div>
  </div>
  </x-app-layout>
