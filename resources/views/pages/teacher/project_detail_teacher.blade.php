@@ -80,7 +80,12 @@
                                          Design File
                                      </th>
                                      <td class="px-6 py-4">
-                                         Black
+                                        @if(!empty($project->file_design))
+                                        <br>
+                                        <a target="_blank" href="{{ Storage::url($project->file_design) }}">
+                                        <img src="{{ asset('images\icon_file.png') }}" width="50">
+                                        </a>
+                                        @endif
                                      </td>
 
                                  </tr>
@@ -89,7 +94,12 @@
                                          Use Case
                                      </th>
                                      <td class="px-6 py-4">
-                                         Black
+                                        @if(!empty($project->usecase))
+                                        <br>
+                                        <a target="_blank" href="{{ Storage::url($project->usecase) }}">
+                                        <img src="{{ asset('images\icon_file.png') }}" width="50">
+                                        </a>
+                                        @endif
                                      </td>
 
                                  </tr>
@@ -99,7 +109,16 @@
                                          Other
                                      </th>
                                      <td class="px-6 py-4">
-                                         Black
+                                        @if(!empty($project->file_other))
+                                        <br>
+                                        <div class="flex flex-row gap-2">
+                                        @foreach ($project->file_other as $file_other )
+                                            <a target="_blank" href="{{ Storage::url($file_other) }}">
+                                            <img src="{{ asset('images\icon_file.png') }}" width="50">
+                                            </a>
+                                        @endforeach
+                                        </div>
+                                        @endif
                                      </td>
 
                                  </tr>
@@ -109,10 +128,17 @@
                                          Member
                                      </th>
                                      <td class="px-6 py-4">
-                                        {{-- @foreach ($project->student_reservetion_list as $key => $member )
-                                        <p class="mb-5 text-left text-gray-500 sm:text-lg dark:text-gray-400">{{ $key+1 }}.{{ $member }}</p>
+                                        @if(!empty($project->student_reservetion))
 
-                                        @endforeach --}}
+                                            @foreach ($project->student_reservetion_list as $key => $member )
+                                            <p class="mb-5 text-left text-gray-500 sm:text-lg dark:text-gray-400">{{ $key+1 }}.{{ $member }}</p>
+
+                                            @endforeach
+
+                                        @else
+                                            <p class="mb-5 text-left text-gray-500 sm:text-lg dark:text-gray-400">1.{{ $project->member->name }}</p>
+
+                                        @endif
                                      </td>
 
                                  </tr>
