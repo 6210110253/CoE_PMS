@@ -146,4 +146,8 @@ class ProjectController extends Controller
         return view('pages.student.project_view');
     }
 
+    public function student_home(){
+        return view('pages.student.student_home');
+    }
+
 }
