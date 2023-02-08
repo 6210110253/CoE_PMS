@@ -4,6 +4,7 @@
              
              <div class="container mx-auto px-6 py-8">
                  <div class="">
+
                      <div class="w-full p-8  bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
          
                          <p class="text-lg text-gray-900 dark:text-white">กำหนดการ</p>
@@ -96,13 +97,11 @@
                      </div>
  
  
-                 <br>
- 
                      <div class="w-full p-8  bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
                          
                          <p class="text-lg text-gray-900 dark:text-white">โปรเจกต์</p>
  
-                     <br>
+                            <br>
                      
                          <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
                              <div class="flex items-center justify-between pb-4 bg-white dark:bg-gray-900">
@@ -195,9 +194,9 @@
 
                      </div>
 
-                     <br>
 
-                     <div class="w-full p-8  bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+
+                     <div class="w-full p-8 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
                          
                         <p class="text-lg text-gray-900 dark:text-white">การส่งงาน</p>
 
@@ -294,7 +293,6 @@
 
                     </div>
 
-                    <br>
 
                     <div class="w-full p-8  bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
                          
