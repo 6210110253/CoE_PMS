@@ -100,14 +100,6 @@ class ProjectController extends Controller
 
     }
 
-    public function project_request(){
-        return view('pages.teacher.project_request');
-    }
-
-    public function meeting(){
-        return view('pages.student.meeting');
-    }
-
     public function edit(Project $project){
         return view('pages.teacher.project_create',compact('project'));
     }
@@ -118,6 +110,13 @@ class ProjectController extends Controller
 
         $this->project_repo->variable($project,$request);
         return redirect()->back();
+    }
+
+    public function meeting(){
+        return view('pages.teacher.meeting');
+    }
+    public function meeting_detail(){
+        return view('pages.teacher.meeting_detail');
     }
 
 }
