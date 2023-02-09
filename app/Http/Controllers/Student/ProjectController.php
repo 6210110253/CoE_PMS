@@ -150,4 +150,14 @@ class ProjectController extends Controller
         return view('pages.student.student_home');
     }
 
+    public function submit_meeting(){
+        return view('pages.student.submit_meeting');
+    }
+
+    public function submit_report(){
+        return view('pages.student.submit_report');
+    }
+
+
+
 }
