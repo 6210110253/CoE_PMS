@@ -8,5 +8,8 @@ Route::controller(ProjectController::class)->name('admin.')->group(function () {
     Route::get('/project-status', [ProjectController::class, 'project_status'])
     ->name('project.status');
 
+    Route::get('/submission', 'submission')
+        ->name('submission');
+
 
 });

@@ -20,4 +20,8 @@ class ProjectController extends Controller
 
         return view('pages.admin.project_status');
     }
+
+    public function submission(){
+        return view('pages.admin.submission');
+    }
 }
