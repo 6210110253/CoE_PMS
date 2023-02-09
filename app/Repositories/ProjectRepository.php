@@ -56,4 +56,9 @@ class ProjectRepository
             ->where('approve_by',$id)
             ->get();
     }
+
+    public function getProjectByTeacherToStudent($id){
+
+        return Project::query()->get();
+    }
 }

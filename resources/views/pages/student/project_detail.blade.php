@@ -21,7 +21,7 @@
                                         Topic
                                     </th>
                                     <td class="px-6 py-4">
-                                        Sliver
+                                        {{ $project->title }}
                                     </td>
 
                                 </tr>
@@ -30,7 +30,7 @@
                                         Description
                                     </th>
                                     <td class="px-6 py-4">
-                                        White
+                                        {{ $project->detail }}
                                     </td>
 
                                 </tr>
@@ -39,7 +39,7 @@
                                         Scope
                                     </th>
                                     <td class="px-6 py-4">
-                                        Black
+                                        {{ $project->scope }}
                                     </td>
 
                                 </tr>
@@ -48,7 +48,7 @@
                                         Objective
                                     </th>
                                     <td class="px-6 py-4">
-                                        Black
+                                        {{ $project->objective }}
                                     </td>
 
                                 </tr>
@@ -57,7 +57,7 @@
                                         Results
                                     </th>
                                     <td class="px-6 py-4">
-                                        Black
+                                        {{ $project->results }}
                                     </td>
 
                                 </tr>
@@ -66,8 +66,13 @@
                                         ER Diagram
                                     </th>
                                     <td class="px-6 py-4">
-                                        Black
-                                    </td>
+                                        @if(!empty($project->file_er_diagram))
+                                        <br>
+                                        <a target="_blank" href="{{ Storage::url($project->file_er_diagram) }}">
+                                          <img src="{{ asset('images\icon_file.png') }}" width="50">
+                                        </a>
+                                        @endif
+                                     </td>
 
                                 </tr>
                                 <tr class="bg-white dark:bg-gray-800">
@@ -75,8 +80,13 @@
                                         Design File
                                     </th>
                                     <td class="px-6 py-4">
-                                        Black
-                                    </td>
+                                        @if(!empty($project->file_design))
+                                        <br>
+                                        <a target="_blank" href="{{ Storage::url($project->file_design) }}">
+                                        <img src="{{ asset('images\icon_file.png') }}" width="50">
+                                        </a>
+                                        @endif
+                                     </td>
 
                                 </tr>
                                 <tr class="bg-white dark:bg-gray-800">
@@ -84,8 +94,13 @@
                                         Use Case
                                     </th>
                                     <td class="px-6 py-4">
-                                        Black
-                                    </td>
+                                        @if(!empty($project->usecase))
+                                        <br>
+                                        <a target="_blank" href="{{ Storage::url($project->usecase) }}">
+                                        <img src="{{ asset('images\icon_file.png') }}" width="50">
+                                        </a>
+                                        @endif
+                                     </td>
 
                                 </tr>
 
@@ -94,17 +109,26 @@
                                         Other
                                     </th>
                                     <td class="px-6 py-4">
-                                        Black
-                                    </td>
+                                        @if(!empty($project->file_other))
+                                        <br>
+                                        <div class="flex flex-row gap-2">
+                                        @foreach ($project->file_other as $file_other )
+                                            <a target="_blank" href="{{ Storage::url($file_other) }}">
+                                            <img src="{{ asset('images\icon_file.png') }}" width="50">
+                                            </a>
+                                        @endforeach
+                                        </div>
+                                        @endif
+                                     </td>
 
                                 </tr>
 
                                 <tr class="bg-white dark:bg-gray-800">
                                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                        Member
+                                        Number Member
                                     </th>
                                     <td class="px-6 py-4">
-                                        Black
+                                        {{ $project->member_count }}
                                     </td>
 
                                 </tr>

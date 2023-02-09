@@ -10,6 +10,7 @@ use App\Repositories\ProjectRepository;
 use App\Repositories\UserRepository;
 use App\Traits\uploadImage;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
 
 
 class ProjectController extends Controller
@@ -37,12 +38,13 @@ class ProjectController extends Controller
 
     public function project_list()
     {
-        return view('pages.student.project_list');
+        $projects = $this->project_repo->getProjectByTeacherToStudent(Auth::id());
+        return view('pages.student.project_list', compact('projects'));
     }
 
-    public function project_detail()
+    public function project_detail(Project $project)
     {
-        return view('pages.student.project_detail');
+        return view('pages.student.project_detail',compact('project'));
     }
 
     public function create()
@@ -121,18 +123,18 @@ class ProjectController extends Controller
     }
 
 
+// //ในหน้าแอดมิน
+//     public function project_status()
+//     {
+//         $project = Project::query()
+//         ->with([
+//             'project_reservations.users',
+//         ])
+//         ->get();
+//         //dd($project);
 
-    public function project_status()
-    {
-        $project = Project::query()
-        ->with([
-            'project_reservations.users',
-        ])
-        ->get();
-        //dd($project);
-
-        return view('pages.admin.project_status');
-    }
+//         return view('pages.admin.project_status');
+//     }
 
     public function project_request(){
         return view('pages.teacher.project_request');
@@ -142,8 +144,10 @@ class ProjectController extends Controller
         return view('pages.student.meeting');
     }
 
-    public function project_view(){
-        return view('pages.student.project_view');
+    public function project_view(Project $project){
+
+
+        return view('pages.student.project_view',compact('project'));
     }
 
     public function student_home(){
