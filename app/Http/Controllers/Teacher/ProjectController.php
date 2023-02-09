@@ -115,8 +115,12 @@ class ProjectController extends Controller
     public function meeting(){
         return view('pages.teacher.meeting');
     }
+
     public function meeting_detail(){
         return view('pages.teacher.meeting_detail');
     }
 
+    public function submission(){
+        return view('pages.teacher.submission');
+    }
 }

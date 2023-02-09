@@ -32,4 +32,6 @@ Route::controller(ProjectController::class)->name('teacher.')->prefix('teacher/'
     Route::get('/meeting-detail','meeting_detail')
         ->name('meeting.datail');
 
+    Route::get('/submission', 'submission')
+        ->name('submission');
 });
