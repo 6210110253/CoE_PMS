@@ -158,6 +158,9 @@ class ProjectController extends Controller
         return view('pages.student.submit_report');
     }
 
+    public function meeting_list(){
+        return view('pages.student.meeting_list');
+    }
 
 
 }
