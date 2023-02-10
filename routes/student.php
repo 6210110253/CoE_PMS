@@ -9,8 +9,8 @@ Route::controller(ProjectController::class)->name('student.')->prefix('student/'
 
     Route::get('/project-select', 'project_select')
         ->name('project.select');
-    
-    
+
+
     Route::get('/project-propose', 'create')
         ->name('project.propose');
     Route::post('/project/store','store')
@@ -38,6 +38,11 @@ Route::controller(ProjectController::class)->name('student.')->prefix('student/'
 
     Route::get('/student-home', 'student_home')
         ->name('student.home');
+
+
+    //TODO::reservation
+    Route::post('student/reservation','reservation')
+        ->name('reservation');
 
 
 

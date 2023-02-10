@@ -11,6 +11,7 @@ use App\Repositories\UserRepository;
 use App\Traits\uploadImage;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
+use App\Repositories\ProjectReservationRepository;
 
 
 class ProjectController extends Controller
@@ -18,14 +19,16 @@ class ProjectController extends Controller
     use uploadImage;
 
     protected $project_repo;
-    protected $user_repo;
+    protected $user_repo, $project_reservation_repo;
 
     public function __construct(
         ProjectRepository $projectRepository,
-        UserRepository $userRepository)
-    {
+        UserRepository $userRepository,
+        ProjectReservationRepository $projectReservationRepository
+    ){
         $this->project_repo = $projectRepository;
         $this->user_repo = $userRepository;
+        $this->project_reservation_repo = $projectReservationRepository;
     }
 
     public function project_select()
@@ -36,7 +39,7 @@ class ProjectController extends Controller
 
     }
 
-  
+
 
 
 
@@ -56,7 +59,22 @@ class ProjectController extends Controller
 
         $request =  $this->myUploadFile($request);
 
-        $this->project_repo->store($request);
+        $project = $this->project_repo->store($request);
+
+        $semester_id = getSemesterActive();
+
+       $user_id = Auth()->id();
+
+       $param = [
+        'project_id' => $project->id,
+        'user_id' => $user_id,
+        'student_reservetion' => $request->student_reservetion,
+        'status' => 'wait',
+        'semester_id' => $semester_id
+       ];
+
+       $obj = $this->project_reservation_repo->store($param);
+
         return redirect()->back();
     }
 
@@ -157,6 +175,32 @@ class ProjectController extends Controller
 
     public function meeting_list(){
         return view('pages.student.meeting_list');
+    }
+
+
+    public function reservation(Request $request){
+
+       $project_id =  $request->project_id;
+
+       $semester_id = getSemesterActive();
+
+       $user_id = Auth()->id();
+
+       $param = [
+        'project_id' => $project_id,
+        'user_id' => $user_id,
+        'student_reservetion' => $request->student_reservetion,
+        'status' => 'wait',
+        'semester_id' => $semester_id
+       ];
+
+       $obj = $this->project_reservation_repo->store($param);
+
+       return \response()->json([
+            'status' => true,
+            'data' => $obj,
+            'massege' => 'sucess'
+        ]);
     }
 
 

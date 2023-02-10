@@ -133,8 +133,12 @@
 
                                 </tr>
 
-                                {{-- <div class="mb-6">
-                                <label for="student_reservetion" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Member</label>
+                                 <tr>
+                                   <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                     Member
+                                    </th>
+                                     <td class="px-6 py-4">
+
                                     <select name="student_reservetion[]" id="student_reservetion" multiple="multiple" class="select2">
                                         <option value="">--select member--</option>
                                         @foreach ($students as $student)
@@ -142,7 +146,8 @@
                                         @endforeach
 
                                     </select>
-                                </div> --}}
+                                    </td>
+                                </tr>
 
 
                             </tbody>
@@ -151,7 +156,7 @@
                                     <a href="#" class="w-1/3 sm:w-auto bg-gray-800 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 text-white rounded-lg inline-flex items-center justify-center px-4 py-2.5 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700">
 
                                         <div class="text-left">
-                                            <div class="-mt-1 font-sans text-sm font-semibold">Reservation</div>
+                                            <div id="reservation" class="-mt-1 font-sans text-sm font-semibold">Reservation</div>
                                         </div>
                                     </a>
 
@@ -173,5 +178,48 @@
             </div>
         </main>
     </div>
+
 </div>
+
+<script>
+
+    $('.select2').select2();
+
+    $('#reservation').click(function(){
+
+        Swal.fire({
+            title: 'Do you want to reservation the project?',
+            showCancelButton: true,
+            confirmButtonText: 'Yes',
+        }).then((result) => {
+
+            if (result.isConfirmed) {
+
+                 $.ajax({
+                    url: "{{ route('student.reservation') }}",
+                    type: "POST",
+                    data: {
+                        _token : $('meta[name="csrf-token"]').attr('content'),
+                        project_id : `{{ $project->id }}`,
+                        student_reservetion: $('#student_reservetion').val(),
+                    },
+                    success: function(result){
+                        if(result.status)
+                        {
+                             Swal.fire('Saved!', '', 'success')
+                        }else{
+                             Swal.fire(result.massege, '', 'error')
+                        }
+                    }
+
+                });
+
+            }
+        })
+
+    })
+
+
+
+</script>
 </x-app-layout>

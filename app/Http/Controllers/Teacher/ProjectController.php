@@ -132,7 +132,8 @@ class ProjectController extends Controller
 
     public function project_detail(Project $project)
     {
+        $students = $this->user_repo->getStudent();
 
-        return view('pages.student.project_detail',compact('project'));
+        return view('pages.student.project_detail',compact('project','students'));
     }
 }
