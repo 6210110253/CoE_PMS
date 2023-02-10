@@ -38,10 +38,7 @@ class ProjectController extends Controller
 
   
 
-    public function project_detail(Project $project)
-    {
-        return view('pages.student.project_detail',compact('project'));
-    }
+
 
     public function create()
     {

@@ -129,4 +129,9 @@ class ProjectController extends Controller
         $projects = $this->project_repo->getProjectByTeacherCreate($id);
         return view('pages.student.project_list', compact('projects'));
     }
+    
+    public function project_detail(Project $project)
+    {
+        return view('pages.student.project_detail',compact('project'));
+    }
 }
