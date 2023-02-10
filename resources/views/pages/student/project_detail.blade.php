@@ -132,8 +132,32 @@
                                     </td>
 
                                 </tr>
+
+                                {{-- <div class="mb-6">
+                                <label for="student_reservetion" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Member</label>
+                                    <select name="student_reservetion[]" id="student_reservetion" multiple="multiple" class="select2">
+                                        <option value="">--select member--</option>
+                                        @foreach ($students as $student)
+                                        <option value="{{ $student->id }}" {{ !empty($project->student_reservetion) ? in_array($student->id,$project->student_reservetion) ? 'selected' : ''  : '' }}>{{ $student->name }}</option>
+                                        @endforeach
+
+                                    </select>
+                                </div> --}}
+
+
                             </tbody>
                         </table>
+                                <div class="flex justify-center gap-4 mx-auto">
+                                    <a href="#" class="w-1/3 sm:w-auto bg-gray-800 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 text-white rounded-lg inline-flex items-center justify-center px-4 py-2.5 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700">
+
+                                        <div class="text-left">
+                                            <div class="-mt-1 font-sans text-sm font-semibold">Reservation</div>
+                                        </div>
+                                    </a>
+
+
+
+                                </div>
                     </div>
 
                 </div>

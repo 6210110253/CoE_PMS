@@ -145,9 +145,9 @@
 					</tr>
 				</thead>
 				<tbody>
-                    @foreach ($projects as $project )
+
 					<tr class="text-center">
-						<td>{{ $project->title }}</td>
+						<td></td>
 						<td>********</td>
 						<td>******</td>
 						<td>
@@ -162,7 +162,7 @@
                                 <a href="#" class="px-4 py-1 text-sm text-white bg-green-400 rounded">Action</a>
                         </td>
 					</tr>
-                    @endforeach
+
 
 				</tbody>
 
