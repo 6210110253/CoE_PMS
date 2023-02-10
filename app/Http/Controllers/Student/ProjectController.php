@@ -36,11 +36,7 @@ class ProjectController extends Controller
 
     }
 
-    public function project_list()
-    {
-        $projects = $this->project_repo->getProjectByTeacherToStudent(Auth::id());
-        return view('pages.student.project_list', compact('projects'));
-    }
+  
 
     public function project_detail(Project $project)
     {

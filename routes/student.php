@@ -9,8 +9,7 @@ Route::controller(ProjectController::class)->name('student.')->prefix('student/'
 
     Route::get('/project-select', 'project_select')
         ->name('project.select');
-    Route::get('/project-list', 'project_list')
-        ->name('project.list');
+    
     Route::get('/project-detail', 'project_detail')
         ->name('project.detail');
     Route::get('/project-propose', 'create')
