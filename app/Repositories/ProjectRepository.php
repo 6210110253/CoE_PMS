@@ -59,6 +59,17 @@ class ProjectRepository
 
     public function getProjectByTeacherToStudent($id){
 
-        return Project::query()->get();
+        return Project::query()->publish()->get();
     }
+
+    public function getProjectByTeacherCreate($id){
+
+        return Project::query()
+            ->where('created_by',$id)
+            ->publish()
+            ->get();
+    }
+
+
+ 
 }

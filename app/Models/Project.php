@@ -45,4 +45,9 @@ class Project extends Model
         return $this->belongsTo(User::class, 'created_by', 'id');
     }
 
+    public function scopePublish($query)
+    {
+        return $query->where('status', 'publish');
+    }
+
 }

@@ -123,4 +123,10 @@ class ProjectController extends Controller
     public function submission(){
         return view('pages.teacher.submission');
     }
+
+    public function project_list($id)
+    {
+        $projects = $this->project_repo->getProjectByTeacherCreate($id);
+        return view('pages.student.project_list', compact('projects'));
+    }
 }
