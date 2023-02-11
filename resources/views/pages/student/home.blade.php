@@ -83,14 +83,21 @@
 
                         </div>
 
+
+
+
+                </div>
                 </div>
 
-                <br>
+
+
                  <div class="">
+
+
 
                      <div class="w-full p-8  bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
 
-                         <p class="text-lg text-gray-900 dark:text-white">กำหนดการ</p>
+                         <p class="text-lg text-gray-900 dark:text-white">ระเบียบการ</p>
 
                          <div class="relative overflow-x-auto">
                                  <div class="flex justify-end pb-4 bg-white dark:bg-gray-900">
@@ -179,7 +186,7 @@
 
                      </div>
 
- <br>
+                        <br>
                      <div class="w-full p-8  bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
 
                          <p class="text-lg text-gray-900 dark:text-white">ตัวอย่างโปรเจกต์</p>
@@ -277,8 +284,9 @@
 
                      </div>
 
- <br>
-                    <div class="w-full p-8 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+                    <br>
+
+                     <div class="w-full p-8 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
 
                         <p class="text-lg text-gray-900 dark:text-white">กำหนดการ</p>
 
@@ -374,7 +382,8 @@
                         </div>
 
                     </div>
- <br>
+
+                    <br>
                     <div class="w-full p-8  bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
 
                         <p class="text-lg text-gray-900 dark:text-white">การนัดหมาย</p>

@@ -9,198 +9,88 @@
                 </div>
                 <br>
 
-<!DOCTYPE html>
-<html lang="en" class="antialiased">
 
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>DataTables </title>
-	<meta name="description" content="">
-	<meta name="keywords" content="">
-	<link href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" rel=" stylesheet">
-	<!--Replace with your tailwind.css once created-->
+                <div class="w-full p-8  bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
 
+                         <p class="text-lg text-gray-900 dark:text-white">ข้อมูลการจองและเสนอโปรเจกต์</p>
 
-	<!--Regular Datatables CSS-->
-	<link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
-	<!--Responsive Extension Datatables CSS-->
-	<link href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" rel="stylesheet">
-
-	<style>
-		/*Overrides for Tailwind CSS */
-
-		/*Form fields*/
-		.dataTables_wrapper select,
-		.dataTables_wrapper .dataTables_filter input {
-			color: #4a5568;
-			/*text-gray-700*/
-			padding-left: 1rem;
-			/*pl-4*/
-			padding-right: 1rem;
-			/*pl-4*/
-			padding-top: .5rem;
-			/*pl-2*/
-			padding-bottom: .5rem;
-			/*pl-2*/
-			line-height: 1.25;
-			/*leading-tight*/
-			border-width: 2px;
-			/*border-2*/
-			border-radius: .25rem;
-			border-color: #edf2f7;
-			/*border-gray-200*/
-			background-color: #edf2f7;
-			/*bg-gray-200*/
-		}
-
-		/*Row Hover*/
-		table.dataTable.hover tbody tr:hover,
-		table.dataTable.display tbody tr:hover {
-			background-color: #ebf4ff;
-			/*bg-indigo-100*/
-		}
-
-		/*Pagination Buttons*/
-		.dataTables_wrapper .dataTables_paginate .paginate_button {
-			font-weight: 700;
-			/*font-bold*/
-			border-radius: .25rem;
-			/*rounded*/
-			border: 1px solid transparent;
-			/*border border-transparent*/
-		}
-
-		/*Pagination Buttons - Current selected */
-		.dataTables_wrapper .dataTables_paginate .paginate_button.current {
-			color: #fff !important;
-			/*text-white*/
-			box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .06);
-			/*shadow*/
-			font-weight: 700;
-			/*font-bold*/
-			border-radius: .25rem;
-			/*rounded*/
-			background: #667eea !important;
-			/*bg-indigo-500*/
-			border: 1px solid transparent;
-			/*border border-transparent*/
-		}
-
-		/*Pagination Buttons - Hover */
-		.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
-			color: #fff !important;
-			/*text-white*/
-			box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .06);
-			/*shadow*/
-			font-weight: 700;
-			/*font-bold*/
-			border-radius: .25rem;
-			/*rounded*/
-			background: #667eea !important;
-			/*bg-indigo-500*/
-			border: 1px solid transparent;
-			/*border border-transparent*/
-		}
-
-		/*Add padding to bottom border */
-		table.dataTable.no-footer {
-			border-bottom: 1px solid #e2e8f0;
-			/*border-b-1 border-gray-300*/
-			margin-top: 0.75em;
-			margin-bottom: 0.75em;
-		}
-
-		/*Change colour of responsive icon*/
-		table.dataTable.dtr-inline.collapsed>tbody>tr>td:first-child:before,
-		table.dataTable.dtr-inline.collapsed>tbody>tr>th:first-child:before {
-			background-color: #667eea !important;
-			/*bg-indigo-500*/
-		}
-	</style>
+                         <div class="relative overflow-x-auto">
+                                 <div class="flex justify-end pb-4 bg-white dark:bg-gray-900">
+                                     <label for="table-search" class="sr-only">Search</label>
+                                     <div class="relative mt-1">
+                                         <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                             <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path></svg>
+                                         </div>
+                                         <input type="text" id="table-search" class="block p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search for items">
+                                     </div>
+                                 </div>
+                             <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                                 <thead class="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400">
+                                     <tr>
+                                         <th scope="col" class="px-6 py-3 rounded-l-lg">
+                                             หัวข้อ
+                                         </th>
+                                         <th scope="col" class="px-6 py-3">
+                                             ชื่ออาจารย์
+                                         </th>
+                                         <th scope="col" class="px-6 py-3 rounded-r-lg">
+                                             type
+                                         </th>
+                                         <th scope="col" class="px-6 py-3 rounded-r-lg">
+                                             รายละเอียด
+                                         </th>
+                                         <th scope="col" class="px-6 py-3 rounded-r-lg">
+                                             สถานะ
+                                         </th>
+                                         <th scope="col" class="px-6 py-3 rounded-r-lg">
+                                             Action
+                                         </th>
+                                     </tr>
+                                 </thead>
+                                 <tbody>
+                                     <tr class="bg-white dark:bg-gray-800">
+                                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                             Apple MacBook Pro 17"
+                                         </th>
+                                         <td class="px-6 py-4">
+                                             1
+                                         </td>
+                                         <td class="px-6 py-4">
+                                             สามารถจองโปรเจกได้/เสนอโปรเจกต์
+                                         </td>
+                                         <td class="px-6 py-4">
+                                             View detail
+                                         </td>
+                                         <td class="px-6 py-4">
+                                             wait, Reject, Aprove
+                                         </td>
+                                         <td class="px-6 py-4">
+                                             Cancel
+                                         </td>
+                                     </tr>
 
 
-
-</head>
-
-<body class="bg-gray-100 text-gray-900 tracking-wider leading-normal">
-
-
-	<!--Container-->
-	<div class="container w-full   mx-auto px-2">
-
-		<!--Card-->
-		<div id='recipients' class="p-8 mt-6 lg:mt-0 rounded shadow bg-white">
-
-			<table id="example" class="stripe hover" style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
-				<thead>
-					<tr class="text-center">
-						<th data-priority="1">No.</th>
-						<th data-priority="2">Topic</th>
-						<th data-priority="3">Supervisor</th>
-						<th data-priority="4">Detail</th>
-						<th data-priority="5">Status</th>
-						<th data-priority="6">Action</th>
-					</tr>
-				</thead>
-				<tbody>
-
-					<tr class="text-center">
-						<td></td>
-						<td>********</td>
-						<td>******</td>
-						<td>
-                        <a href="#" class="flex justify-left  text-blue-600">View more </a>
-
-                        </td>
-						 <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                            <span
-                                class="inline-flex px-2 text-xs font-semibold leading-5 text-green-800 bg-green-100 rounded-full">Wait</span>
-                        </td>
-						<td class="px-6 py-4">
-                                <a href="#" class="px-4 py-1 text-sm text-white bg-green-400 rounded">Action</a>
-                        </td>
-					</tr>
-
-
-				</tbody>
-
-			</table>
-
-		</div>
-		<!--/Card-->
+                                 </tbody>
+                                 <tfoot>
+                                     <tr class="font-semibold text-gray-900 dark:text-white">
+                                         <th scope="row" class="px-6 py-3 text-base">Total</th>
+                                         <td class="px-6 py-3">3</td>
+                                         <td class="px-6 py-3">21,000</td>
+                                         <td class="px-6 py-4">$2999</td>
+                                         <td class="px-6 py-3">21,000</td>
+                                         <td class="px-6 py-4">$2999</td>
+                                     </tr>
+                                 </tfoot>
+                             </table>
+                         </div>
 
 
 
 
-	</div>
-	<!--/container-->
+                     </div>
 
 
 
-
-
-	<!-- jQuery -->
-	<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-
-	<!--Datatables -->
-	<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-	<script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
-	<script>
-		$(document).ready(function() {
-
-			var table = $('#example').DataTable({
-					responsive: true
-				})
-				.columns.adjust()
-				.responsive.recalc();
-		});
-	</script>
-
-</body>
-
-</html>
 
 
 
