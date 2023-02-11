@@ -12,7 +12,7 @@
 
                 <div class="w-full p-8  bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
 
-                         <p class="text-lg text-gray-900 dark:text-white">ข้อมูลการจองและเสนอโปรเจกต์</p>
+                         <p class="text-lg text-gray-900 dark:text-white">ข้อมูลกำลังดำเนินการที่จองและเสนอ</p>
 
                          <div class="relative overflow-x-auto">
                                  <div class="flex justify-end pb-4 bg-white dark:bg-gray-900">
@@ -34,44 +34,49 @@
                                              ชื่ออาจารย์
                                          </th>
                                          <th scope="col" class="px-6 py-3 rounded-r-lg">
-                                             type
-                                         </th>
-                                         <th scope="col" class="px-6 py-3 rounded-r-lg">
-                                             รายละเอียด
-                                         </th>
-                                         <th scope="col" class="px-6 py-3 rounded-r-lg">
                                              สถานะ
                                          </th>
+
                                          <th scope="col" class="px-6 py-3 rounded-r-lg">
                                              Action
                                          </th>
                                      </tr>
                                  </thead>
                                  <tbody>
+                                    @foreach ($project_bookings as $project_booking)
+                                        
+                                    
                                      <tr class="bg-white dark:bg-gray-800">
                                          <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                             Apple MacBook Pro 17"
+                                            {{ $project_booking->project->title }}
+                                            <br>
+                                            @if( $project_booking->type == 'propose' )
+                                                <span class="bg-purple-200 text-purple-600 py-1 px-3 mt-2 rounded-full text-xs">propose</span>
+                                            @else 
+                                                <span class="bg-green-200 text-purple-600 py-1  px-3 mt-2 rounded-full text-xs">reservetion</span>
+                                            @endif
                                          </th>
                                          <td class="px-6 py-4">
-                                             1
+                                            อาจารย์ {{ $project_booking->project->teacher->name }}
+                                         </td>
+                                        
+                                         <td class="px-6 py-4">
+                                            {{ $project_booking->status }}
                                          </td>
                                          <td class="px-6 py-4">
-                                             สามารถจองโปรเจกได้/เสนอโปรเจกต์
-                                         </td>
-                                         <td class="px-6 py-4">
-                                             View detail
-                                         </td>
-                                         <td class="px-6 py-4">
-                                             wait, Reject, Aprove
-                                         </td>
-                                         <td class="px-6 py-4">
-                                             Cancel
+                                            @if($project_booking->status == 'wait')
+                                             <button class="cancel" data-id="{{ $project_booking->id }}"> Cancel</button>
+                                            @elseif($project_booking->status == 'reject')
+                
+                                             <button class="comment" data-id="{{ $project_booking->id }}"> View comment</button>
+                                            @endif
                                          </td>
                                      </tr>
-
+                                    @endforeach
 
                                  </tbody>
-                                 <tfoot>
+                                 {{-- <tfoot>
+                                    
                                      <tr class="font-semibold text-gray-900 dark:text-white">
                                          <th scope="row" class="px-6 py-3 text-base">Total</th>
                                          <td class="px-6 py-3">3</td>
@@ -80,14 +85,17 @@
                                          <td class="px-6 py-3">21,000</td>
                                          <td class="px-6 py-4">$2999</td>
                                      </tr>
-                                 </tfoot>
+                                 </tfoot> --}}
                              </table>
                          </div>
 
 
 
 
-                     </div>
+                </div>
+
+                <br>
+
 
 
 

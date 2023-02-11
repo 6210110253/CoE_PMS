@@ -23,6 +23,7 @@ class ProjectReservationRepository
         !isset($param->status) ?: $data->status  = $param->status;
         !isset($param->semester_id) ?: $data->semester_id  = $param->semester_id;
         !isset($param->comment) ?: $data->comment  = $param->comment;
+        !isset($param->type) ?: $data->type  = $param->type;
 
         $data->save();
 
@@ -30,4 +31,21 @@ class ProjectReservationRepository
 
 
     }
+
+    public function getProjectBooking($user_id){
+        
+        return ProjectReservation::query()
+            ->with([
+                'project.teacher', 
+                'user'
+            ])
+            ->whereIn('status', ["wait", "reject"]) //whereสำหรับหลายค่า ,and
+            ->where(function($q) use ($user_id){
+                $q->orWhere('user_id',$user_id ) // or
+                  ->orWhereJsonContains('student_reservetion', ["$user_id"]); //ใช้สำหรับค่า json
+            })
+        
+            ->get();
+    }
+
 }
