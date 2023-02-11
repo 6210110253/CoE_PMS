@@ -13,9 +13,10 @@
 
 
             <div class="px-5 pb-5">
+                <br>
 
                 <a >
-                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Topic: {{ $project->title }}</h5>
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"> {{ $project->title }}</h5>
                     <p class="font-normal text-gray-700 dark:text-gray-400">Description : {{ $project->detail }}</p>
                 </a>
 
