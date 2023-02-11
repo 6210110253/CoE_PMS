@@ -42,7 +42,6 @@ class ProjectController extends Controller
     }
 
     public function store(Request $request){
-
         $request =  $this->myUploadFile($request);
 
         $this->project_repo->store($request);

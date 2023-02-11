@@ -33,8 +33,14 @@ class ProjectReservation extends Model
     public function users(){
         return $this->belongsToMany(User::class,
         'project_reservation_relates',
-
-        
         );
     }
+
+    public function project(){
+        return $this->belongsTo(Project::class);
+    }
+
+    
+
+ 
 }

@@ -155,10 +155,13 @@ class ProjectController extends Controller
         return view('pages.student.meeting');
     }
 
-    public function project_view(Project $project){
+    public function project_view(){
 
-
-        return view('pages.student.project_view',compact('project'));
+        //ฝั่งใช้งาน
+        $project_bookings = $this->project_reservation_repo->getProjectBooking(Auth::id());
+        // dd($project_bookings);
+       
+        return view('pages.student.project_view', compact('project_bookings'));
     }
 
     public function student_home(){
@@ -191,7 +194,8 @@ class ProjectController extends Controller
         'user_id' => $user_id,
         'student_reservetion' => $request->student_reservetion,
         'status' => 'wait',
-        'semester_id' => $semester_id
+        'semester_id' => $semester_id,
+        'type' => 'reservation'
        ];
 
        $obj = $this->project_reservation_repo->store($param);

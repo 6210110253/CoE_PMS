@@ -50,4 +50,8 @@ class Project extends Model
         return $query->where('status', 'publish');
     }
 
+    public function teacher(){
+        return $this->belongsTo(User::class, 'approve_by', 'id');
+    }
+
 }
