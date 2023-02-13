@@ -164,7 +164,6 @@
 
             </div>
         </main>
-    </div>
 </div>
 <script>
     $("#propose_project").validate({

@@ -1,9 +1,10 @@
 <x-app-layout>
     <div>
         <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-200">
-             <div class="container mx-auto px-6 py-8">
+
+            <div class="container mx-auto px-6 py-8">
                 <div class="flex justify-center gap-4" >
-                    
+
                     <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
 
                         <svg class=" w-10 h-10 mb-2 text-gray-500 dark:text-gray-400" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5 5a3 3 0 015-2.236A3 3 0 0114.83 6H16a2 2 0 110 4h-5V9a1 1 0 10-2 0v1H4a2 2 0 110-4h1.17C5.06 5.687 5 5.35 5 5zm4 1V5a1 1 0 10-1 1h1zm3 0a1 1 0 10-1-1v1h1z" clip-rule="evenodd"></path><path d="M9 11H3v5a2 2 0 002 2h4v-7zM11 18h4a2 2 0 002-2v-5h-6v7z"></path></svg>
@@ -41,11 +42,7 @@
                     </div>
 
                 </div>
-                
-
                 <br>
-
-
                 <div class="w-full bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                     <div class="sm:hidden">
                         <label for="tabs" class="sr-only">Select tab</label>
@@ -105,8 +102,7 @@
                             </div>
 
                             <br>
-
-
+                            <div>
                                 @foreach ($projects as $project )
                                 <div class="w-full p-4 text-center bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
                                     <p class="mb-2 text-2xl text-left font-bold text-gray-900 dark:text-white">{{ $project->title }}</p>
@@ -150,12 +146,17 @@
 
 
                                 </div>
+                                <br>
+                                @endforeach
+
                             </div>
-                            @endforeach
 
 
 
-                        </div>
+
+
+
+                    </div>
                         <div class="hidden p-4 bg-white rounded-lg md:p-8 dark:bg-gray-800" id="about" role="tabpanel" aria-labelledby="about-tab">
                             <div class="w-full p-4 text-center bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
                                 @foreach ($projects as $project )
@@ -173,27 +174,9 @@
                                 <p class="mb-5 text-left text-gray-500 sm:text-lg dark:text-gray-400">คำอธิบายโปรเจกต์</p>
 
                             </div>
-                    </div>
+                        </div>
                 </div>
-
-
-
-
-                
-
-
-
-
-
-
-
-
-
-
-
-
-
-             </div>
+            </div>
         </main>
     </div>
 </x-app-layout>
