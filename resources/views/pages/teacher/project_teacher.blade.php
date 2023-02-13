@@ -54,7 +54,7 @@
                     </div>
                     <ul class="hidden text-sm font-medium text-center text-gray-500 divide-x divide-gray-200 rounded-lg sm:flex dark:divide-gray-600 dark:text-gray-400" id="fullWidthTab" data-tabs-toggle="#fullWidthTabContent" role="tablist">
                         <li class="w-full">
-                            <button id="stats-tab" data-tabs-target="#stats" type="button" role="tab" aria-controls="stats" aria-selected="true" class="inline-block w-full p-4 rounded-tl-lg bg-gray-50 hover:bg-gray-100 focus:outline-none dark:bg-gray-700 dark:hover:bg-gray-600">โปรเจกต์ทั้งหมด</button>
+                            <button id="stats-tab" data-tabs-target="#stats" type="button" role="tab" aria-controls="stats" aria-selected="true" class="inline-block w-full p-4 rounded-tl-lg bg-gray-50 hover:bg-gray-100 focus:outline-none dark:bg-gray-700 dark:hover:bg-gray-600">โปรเจกต์ที่นักศึกษาเสนอหรือจองเข้ามา</button>
                         </li>
                         <li class="w-full">
                             <button id="about-tab" data-tabs-target="#about" type="button" role="tab" aria-controls="about" aria-selected="false" class="inline-block w-full p-4 bg-gray-50 hover:bg-gray-100 focus:outline-none dark:bg-gray-700 dark:hover:bg-gray-600">โปรเจกต์ที่อาจารย์สร้าง</button>
@@ -88,9 +88,9 @@
                                 <!-- Dropdown menu -->
                                     <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
                                         <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
-                                             <li>
+                                             {{-- <li>
                                                 <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">โปรเจกต์ทั้งหมด</a>
-                                            </li>
+                                            </li> --}}
                                             <li>
                                                 <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">โปรเจกต์ที่นักศึกษาจอง</a>
                                             </li>
@@ -144,18 +144,11 @@
                                     </a>
                                 </div>
 
-
                                 </div>
                                 <br>
                                 @endforeach
 
                             </div>
-
-
-
-
-
-
                     </div>
                         <div class="hidden p-4 bg-white rounded-lg md:p-8 dark:bg-gray-800" id="about" role="tabpanel" aria-labelledby="about-tab">
                             {{-- @foreach ($projects as $project )
