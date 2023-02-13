@@ -158,15 +158,17 @@
 
                     </div>
                         <div class="hidden p-4 bg-white rounded-lg md:p-8 dark:bg-gray-800" id="about" role="tabpanel" aria-labelledby="about-tab">
+                            @foreach ($projects as $project )
                             <div class="w-full p-4 text-center bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
-                                @foreach ($projects as $project )
+
                                 <h5 class="mb-2 text-3xl text-left font-bold text-gray-900 dark:text-white">{{ $project->title }}</h5>
                                 <p class="mb-5 text-left text-gray-500 sm:text-lg dark:text-gray-400">{{ $project->detail }}</p>
-                                <div class="flex justify-center gap-4 mx-auto">
-                                </div>
-                                @endforeach
+
                             </div>
+                            <br>
+                            @endforeach
                         </div>
+                        <br>
 
                         <div class="hidden p-4 bg-white rounded-lg md:p-8 dark:bg-gray-800" id="faq" role="tabpanel" aria-labelledby="faq-tab">
                             <div class="w-full p-4 text-center bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
