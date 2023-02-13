@@ -48,4 +48,19 @@ class ProjectReservationRepository
             ->get();
     }
 
+    public function getProjectTest($id){
+
+        return ProjectReservation::query()
+            ->with([
+                'project'
+            ])
+            ->whereIn('status', ["wait", "reject"])
+            ->where('teacher_id',$id)
+            ->get();
+    }
+
+    
+
+    
+
 }

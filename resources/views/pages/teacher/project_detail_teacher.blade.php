@@ -22,7 +22,7 @@
                                          Topic
                                      </th>
                                      <td class="px-6 py-4">
-                                        {{ $project->title }}
+                                        {{  $project_reservation->project->title }}
                                      </td>
 
                                  </tr>
@@ -31,7 +31,8 @@
                                          Description
                                      </th>
                                      <td class="px-6 py-4">
-                                        {{ $project->detail }}
+                                        
+                                        {{ $project_reservation->project->detail}}
                                      </td>
 
                                  </tr>
@@ -40,7 +41,7 @@
                                          Scope
                                      </th>
                                      <td class="px-6 py-4">
-                                        {{ $project->scope }}
+                                        {{ $project_reservation->project->scope }}
                                      </td>
 
                                  </tr>
@@ -49,7 +50,7 @@
                                          Objective
                                      </th>
                                      <td class="px-6 py-4">
-                                        {{ $project->objective }}
+                                        {{ $project_reservation->project->objective }}
                                      </td>
 
                                  </tr>
@@ -58,7 +59,7 @@
                                          Results
                                      </th>
                                      <td class="px-6 py-4">
-                                        {{ $project->results }}
+                                        {{ $project_reservation->project->results }}
                                      </td>
 
                                  </tr>
@@ -67,9 +68,9 @@
                                          ER Diagram
                                      </th>
                                      <td class="px-6 py-4">
-                                        @if(!empty($project->file_er_diagram))
+                                        @if(!empty($project_reservation->project->file_er_diagram))
                                         <br>
-                                        <a target="_blank" href="{{ Storage::url($project->file_er_diagram) }}">
+                                        <a target="_blank" href="{{ Storage::url($project_reservation->project->file_er_diagram) }}">
                                           <img src="{{ asset('images\icon_file.png') }}" width="50">
                                         </a>
                                         @endif
@@ -81,9 +82,9 @@
                                          Design File
                                      </th>
                                      <td class="px-6 py-4">
-                                        @if(!empty($project->file_design))
+                                        @if(!empty($project_reservation->project->file_design))
                                         <br>
-                                        <a target="_blank" href="{{ Storage::url($project->file_design) }}">
+                                        <a target="_blank" href="{{ Storage::url($project_reservation->project->file_design) }}">
                                         <img src="{{ asset('images\icon_file.png') }}" width="50">
                                         </a>
                                         @endif
@@ -95,9 +96,9 @@
                                          Use Case
                                      </th>
                                      <td class="px-6 py-4">
-                                        @if(!empty($project->usecase))
+                                        @if(!empty($project_reservation->project->usecase))
                                         <br>
-                                        <a target="_blank" href="{{ Storage::url($project->usecase) }}">
+                                        <a target="_blank" href="{{ Storage::url($project_reservation->project->usecase) }}">
                                         <img src="{{ asset('images\icon_file.png') }}" width="50">
                                         </a>
                                         @endif
@@ -110,10 +111,10 @@
                                          Other
                                      </th>
                                      <td class="px-6 py-4">
-                                        @if(!empty($project->file_other))
+                                        @if(!empty($project_reservation->project->file_other))
                                         <br>
                                         <div class="flex flex-row gap-2">
-                                        @foreach ($project->file_other as $file_other )
+                                        @foreach ($project_reservation->project->file_other as $file_other )
                                             <a target="_blank" href="{{ Storage::url($file_other) }}">
                                             <img src="{{ asset('images\icon_file.png') }}" width="50">
                                             </a>
@@ -129,9 +130,9 @@
                                          Member
                                      </th>
                                      <td class="px-6 py-4">
-                                        @if(!empty($project->student_reservetion))
+                                        {{-- @if(!empty($project_reservation->student_reservetion))
 
-                                            @foreach ($project->student_reservetion_list as $key => $member )
+                                            @foreach ($project_reservation->student_reservetion_list as $key => $member )
                                             <p class="font-medium mb-5 text-left text-gray-400 sm:text-lg dark:text-gray-400">{{ $key+1 }}.{{ $member }}</p>
 
                                             @endforeach
@@ -139,7 +140,7 @@
                                         @else
                                             <p class="font-medium mb-5 text-left text-gray-500 sm:text-lg dark:text-gray-400">1.{{ $project->member->name }}</p>
 
-                                        @endif
+                                        @endif --}}
                                      </td>
 
                                  </tr>

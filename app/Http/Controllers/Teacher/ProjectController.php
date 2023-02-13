@@ -6,11 +6,13 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Project;
+use App\Models\ProjectReservation;
 use App\Repositories\ProjectRepository;
 use App\Repositories\UserRepository;
 use App\Traits\uploadImage;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
+use App\Repositories\ProjectReservationRepository;
 
 class ProjectController extends Controller
 {
@@ -18,26 +20,32 @@ class ProjectController extends Controller
 
     protected $project_repo;
     protected $user_repo;
+    
 
     public function __construct(
         ProjectRepository $projectRepository,
-        UserRepository $userRepository)
+        UserRepository $userRepository,
+        ProjectReservationRepository $projectReservationRepository
+        )
     {
         $this->project_repo = $projectRepository;
         $this->user_repo = $userRepository;
+        $this->project_reservation_repo = $projectReservationRepository;
 
     }
 
     public function project_teacher()
     {
-        $projects = $this->project_repo->getProjectByTeacherId(Auth::id());
-
-        return view('pages.teacher.project_teacher', compact('projects'));
+        // $projects = $this->project_repo->getProjectByTeacherId(Auth::id());
+        $project_reservations = $this->project_reservation_repo->getProjectTest(Auth::id());
+   
+        
+        return view('pages.teacher.project_teacher', compact('project_reservations'));
     }
 
     public function create(){
 
-        $teachers = $this->user_repo->getTeacher();
+        $teachers = $this->project_reservation_repo->getTeacher();
         return view('pages.teacher.project_create',compact('teachers'));
     }
 
@@ -94,8 +102,8 @@ class ProjectController extends Controller
         return view('pages.teacher.project_propose_to_teacher');
     }
 
-    public function project_detail_teacher(Project $project){
-        return view('pages.teacher.project_detail_teacher',compact('project'));
+    public function project_detail_teacher(ProjectReservation $project_reservation){
+        return view('pages.teacher.project_detail_teacher', compact('project_reservation'));
 
     }
 

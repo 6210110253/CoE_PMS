@@ -27,19 +27,19 @@ class Project extends Model
         return $this->hasOne(ProjectReservation::class);
     }
 
-    public function getStudentReservetionListAttribute(){
-        $users = User::query()->find($this->student_reservetion);
-        $created_by = $this->member->name;
+    // public function getStudentReservetionListAttribute(){
+    //     $users = User::query()->find($this->student_reservetion);
+    //     $created_by = $this->member->name;
 
 
-        $list = [$created_by];
-        foreach($users as $item){
-            $list[] = $item->name;
+    //     $list = [$created_by];
+    //     foreach($users as $item){
+    //         $list[] = $item->name;
 
-        }
-        return $list;
+    //     }
+    //     return $list;
 
-    }
+    // }
 
     public function member(){
         return $this->belongsTo(User::class, 'created_by', 'id');
