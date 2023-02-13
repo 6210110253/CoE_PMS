@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Repositories;
+use App\Models\User;
 
 use App\Models\ProjectReservation;
 
@@ -33,10 +34,10 @@ class ProjectReservationRepository
     }
 
     public function getProjectBooking($user_id){
-        
+
         return ProjectReservation::query()
             ->with([
-                'project.teacher', 
+                'project.teacher',
                 'user'
             ])
             ->whereIn('status', ["wait", "reject"]) //whereสำหรับหลายค่า ,and
@@ -44,7 +45,7 @@ class ProjectReservationRepository
                 $q->orWhere('user_id',$user_id ) // or
                   ->orWhereJsonContains('student_reservetion', ["$user_id"]); //ใช้สำหรับค่า json
             })
-        
+
             ->get();
     }
 
@@ -59,8 +60,12 @@ class ProjectReservationRepository
             ->get();
     }
 
-    
+    public function getTeacher(){
 
-    
+        return User::query()->role('teacher')->get();
+
+     }
+
+
 
 }

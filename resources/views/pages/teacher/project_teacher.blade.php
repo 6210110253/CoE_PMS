@@ -66,7 +66,7 @@
                     <div id="fullWidthTabContent" class="border-t border-gray-200 dark:border-gray-600">
                         <div class="hidden p-4 bg-white rounded-lg md:p-8 dark:bg-gray-800" id="stats" role="tabpanel" aria-labelledby="stats-tab">
 
-                            <div class = "flex justify-end">
+                            <div class = "flex justify-end gap-4">
 
                                 <button id="dropdownDefaultButton" data-dropdown-toggle="years" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">ปีการศึกษา<svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
                                 <!-- Dropdown menu -->
@@ -104,62 +104,49 @@
                             <br>
                             <div>
                                 @foreach ($project_reservations as $project_reservation )
-                                <div class="w-full p-4 text-center bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
-                                    <p class="mb-2 text-2xl text-left font-bold text-gray-900 dark:text-white">{{ $project_reservation->project->title }}</p>
-                                    <p class="mb-5 text-left text-gray-500 sm:text-lg dark:text-gray-400">รายละเอียด : {{ $project_reservation->project->detail }}</p>
+                                <div class="w-full  bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
 
-                                    {{-- <p class="mb-5 text-left text-gray-500 sm:text-lg dark:text-gray-400">สมาชิกในกลุ่ม : </p>
-                                    @if(!empty($project->student_reservetion))
+                                    <div class="px-5 pb-5">
+                                        <br>
 
-                                        @foreach ($project->student_reservetion_list as $key => $member )
-                                        <p class="mb-5 text-left text-gray-500 sm:text-lg dark:text-gray-400">{{ $key+1 }}.{{ $member }}</p>
+                                        <a >
+                                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"> {{ $project_reservation->project->title }} <span class="bg-purple-200 text-purple-600 py-1 px-3 mt-2 rounded-full text-xs">{{ $project_reservation->type }}</span></p></h5>
+                                            <p class="font-normal text-gray-700 dark:text-gray-400">Description : {{ $project_reservation->project->detail }}</p>
+                                        </a>
 
-                                        @endforeach
 
-                                    @else
-                                        <p class="mb-5 text-left text-gray-500 sm:text-lg dark:text-gray-400">1.{{ $project->member->name }}</p>
+                                        <div class="flex items-center justify-between">
 
-                                    @endif --}}
-                                    <a href="{{ route('teacher.project.detail.teacher', $project_reservation) }}" class="flex justify-left  text-blue-600">View more</a>
-
-                                <div class="flex justify-center gap-4 mx-auto">
-                                    <a href="#" class="w-1/3 sm:w-auto bg-gray-800 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 text-white rounded-lg inline-flex items-center justify-center px-4 py-2.5 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700">
-
-                                        <div class="text-left">
-                                            <div class="-mt-1 font-sans text-sm font-semibold">Accect</div>
+                                             <a href="{{ route('teacher.project.detail.teacher', $project_reservation) }}" class="flex justify-left  text-blue-600">View more</a>
                                         </div>
-                                    </a>
+                                    </div>
 
-                                    <a href="#" class="w-1/3 sm:w-auto bg-gray-800 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 text-white rounded-lg inline-flex items-center justify-center px-4 py-2.5 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700">
-
-                                        <div class="text-left">
-                                            <div class="-mt-1 font-sans text-sm font-semibold">Deny</div>
-                                        </div>
-                                    </a>
-                                    <a href="#" class="w-1/3 sm:w-auto bg-gray-800 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 text-white rounded-lg inline-flex items-center justify-center px-4 py-2.5 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700">
-
-                                        <div class="text-left">
-                                            <div class="-mt-1 font-sans text-sm font-semibold">Comment</div>
-                                        </div>
-                                    </a>
+                                    <br>
                                 </div>
 
-                                </div>
-                                <br>
                                 @endforeach
 
                             </div>
+
+
+
+                        </div>
                     </div>
                         <div class="hidden p-4 bg-white rounded-lg md:p-8 dark:bg-gray-800" id="about" role="tabpanel" aria-labelledby="about-tab">
-                            {{-- @foreach ($projects as $project )
+
+                             @foreach ($projects as $project )
                             <div class="w-full p-4 text-center bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
 
                                 <h5 class="mb-2 text-3xl text-left font-bold text-gray-900 dark:text-white">{{ $project->title }}</h5>
                                 <p class="mb-5 text-left text-gray-500 sm:text-lg dark:text-gray-400">{{ $project->detail }}</p>
+                                <div class="flex items-center justify-between">
+
+                                    <a href="{{ route('teacher.project.detail.teacher', $project) }}" class="flex justify-left  text-blue-600">View more</a>
+                                </div>
 
                             </div>
                             <br>
-                            @endforeach --}}
+                            @endforeach
                         </div>
                         <br>
 
@@ -170,6 +157,9 @@
 
                             </div>
                         </div>
+
+
+
                 </div>
             </div>
         </main>

@@ -20,7 +20,7 @@ class ProjectController extends Controller
 
     protected $project_repo;
     protected $user_repo;
-    
+
 
     public function __construct(
         ProjectRepository $projectRepository,
@@ -36,11 +36,12 @@ class ProjectController extends Controller
 
     public function project_teacher()
     {
-        // $projects = $this->project_repo->getProjectByTeacherId(Auth::id());
+        $projects = $this->project_repo->getProjectByTeacherCreate(Auth::id());
+        //$teachers = User::role('teacher')->get();
         $project_reservations = $this->project_reservation_repo->getProjectTest(Auth::id());
-   
-        
-        return view('pages.teacher.project_teacher', compact('project_reservations'));
+
+
+        return view('pages.teacher.project_teacher', compact('project_reservations', 'projects'));
     }
 
     public function create(){
