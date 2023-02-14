@@ -116,48 +116,25 @@
                                      </tr>
                                  </thead>
                                  <tbody>
-                                     <tr class="bg-white dark:bg-gray-800">
-                                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                             Apple MacBook Pro 17"
-                                         </th>
-                                         <td class="px-6 py-4">
-                                             1
-                                         </td>
-                                         <td class="px-6 py-4">
-                                             $2999
-                                         </td>
-                                         <td class="px-6 py-4">
-                                             $2999
-                                         </td>
-                                     </tr>
-                                     <tr class="bg-white dark:bg-gray-800">
-                                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                             Microsoft Surface Pro
-                                         </th>
-                                         <td class="px-6 py-4">
-                                             1
-                                         </td>
-                                         <td class="px-6 py-4">
-                                             $1999
-                                         </td>
-                                         <td class="px-6 py-4">
-                                             $2999
-                                         </td>
-                                     </tr>
-                                     <tr class="bg-white dark:bg-gray-800">
-                                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                             Magic Mouse 2
-                                         </th>
-                                         <td class="px-6 py-4">
-                                         1
-                                         </td>
-                                         <td class="px-6 py-4">
-                                             $99
-                                         </td>
-                                         <td class="px-6 py-4">
-                                             $2999
-                                         </td>
-                                     </tr>
+                                    <tbody>
+                                        @foreach ($announcements as $announcement)
+                                         <tr class="bg-white dark:bg-gray-800">
+                                             <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                {{ $announcement->title }}
+                                            </th>
+                                             <td class="px-6 py-4">
+                                                {{ $announcement->start }}
+                                             </td>
+                                             <td class="px-6 py-4">
+                                                {{ $announcement->finish }}
+                                             </td>
+                                             <td class="px-6 py-4">
+                                                {{ $announcement->status }}
+                                             </td>
+                                            
+                                         </tr>
+                                          @endforeach
+                                     </tbody>
                                  </tbody>
                                  <tfoot>
                                      <tr class="font-semibold text-gray-900 dark:text-white">

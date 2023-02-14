@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Project;
+use App\Models\Announcement;
 use App\Repositories\ProjectRepository;
 use App\Repositories\UserRepository;
 use App\Traits\uploadImage;
@@ -24,7 +25,8 @@ class ProjectController extends Controller
     public function __construct(
         ProjectRepository $projectRepository,
         UserRepository $userRepository,
-        ProjectReservationRepository $projectReservationRepository
+        ProjectReservationRepository $projectReservationRepository,
+        
     ){
         $this->project_repo = $projectRepository;
         $this->user_repo = $userRepository;
@@ -165,7 +167,9 @@ class ProjectController extends Controller
     }
 
     public function student_home(){
-        return view('pages.student.student_home');
+        $announcements =  Announcement::all();
+        
+        return view('pages.student.student_home', compact('announcements'));
     }
 
     public function submit_meeting(){
@@ -179,6 +183,8 @@ class ProjectController extends Controller
     public function meeting_list(){
         return view('pages.student.meeting_list');
     }
+
+  
 
 
     public function reservation(Request $request){

@@ -29,9 +29,8 @@ Route::controller(ProjectController::class)->name('teacher.')->prefix('teacher/'
     Route::get('/project-detail/{project}', 'project_detail')
         ->name('project.detail');
 
-    Route::get('/dashboard', function () {
-            return view('pages.teacher.dashboard');
-        })->name('dashboard');
+    Route::get('/dashboard','dashboard' )
+        ->name('dashboard');
 
     Route::get('/meeting','meeting')
         ->name('meeting');

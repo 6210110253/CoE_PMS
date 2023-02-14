@@ -22,4 +22,10 @@ class AnnouncementsRepository
        $data->save();
        return $data;
     }
+
+    public function getAnnouncement(Announcement $data){
+        return $data;
+    }
+
+    
 }

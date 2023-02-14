@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Project;
 use App\Models\ProjectReservation;
+use App\Models\Announcement;
 use App\Repositories\ProjectRepository;
 use App\Repositories\UserRepository;
 use App\Traits\uploadImage;
@@ -147,5 +148,11 @@ class ProjectController extends Controller
         $students = $this->user_repo->getStudent();
 
         return view('pages.student.project_detail',compact('project','students'));
+    }
+
+    public function dashboard(){
+        $announcements =  Announcement::all();
+
+        return view('pages.teacher.dashboard', compact('announcements'));
     }
 }
