@@ -129,22 +129,11 @@
 
                                  <tr class="bg-white dark:bg-gray-800">
                                      <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                         Member
+                                        Number Member
                                      </th>
-                                     {{-- <td class="px-6 py-4">
-                                        @if(!empty($project->student_reservetion))
-
-                                            @foreach ($project->student_reservetion_list as $key => $member )
-                                            <p class="font-medium mb-5 text-left text-gray-400 sm:text-lg dark:text-gray-400">{{ $key+1 }}.{{ $member }}</p>
-
-                                            @endforeach
-
-                                        @else
-                                            <p class="font-medium mb-5 text-left text-gray-500 sm:text-lg dark:text-gray-400">1.{{ $project->member->name }}</p>
-
-                                        @endif
-                                     </td> --}}
-
+                                     <td>
+                                        {{ $project->member_count}}
+                                     </td>
                                  </tr>
                              </tbody>
                          </table>
