@@ -61,7 +61,6 @@ class ProjectRepository
 
         return Project::query()
             ->where('created_by',$id)
-            ->publish()
             ->get();
     }
 

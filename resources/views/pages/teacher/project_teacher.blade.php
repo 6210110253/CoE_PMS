@@ -154,7 +154,13 @@
                                         <br>
 
                                         <a >
-                                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"> {{ $project->title }}</h5>
+                                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"> {{ $project->title }}
+                                            @if( $project->status == 'publish' )
+                                                <span class="bg-purple-200 text-purple-600 py-1 px-3 mt-2 rounded-full text-xs">publish</span>
+                                            @else 
+                                                <span class="bg-green-200 text-purple-600 py-1  px-3 mt-2 rounded-full text-xs">draft</span>
+                                            @endif
+                                            </h5>
                                             <p class="font-normal text-gray-700 dark:text-gray-400">Description : {{ $project->detail }}</p>
                                         </a>
 
