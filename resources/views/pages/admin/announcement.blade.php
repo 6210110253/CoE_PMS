@@ -16,7 +16,7 @@
                     @csrf
                         <div class="mb-6">
                             <label for="topic" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Title</label>
-                            <input type="text" name="title" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="เลือกชื่ออาจารย์" required>
+                            <input type="text" name="title" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="หัวข้อ" required>
                         </div>
 
                         {{-- <div class="mb-6">
@@ -31,32 +31,30 @@
 
                         <div class="formkit-outer" data-family="text" data-type="datetime-local" data-invalid="true">
                             <div class="formkit-wrapper">
-                              <label class="formkit-label" for="input_0">End of the world</label>
+                              <label class="formkit-label" for="input_0">Start Date/Time</label>
                               <div class="formkit-inner">
-                                <input class="formkit-input" type="datetime-local" name="start" id="input_0" aria-describedby="help-input_0 input_0-rule_date_after">
+                                <input class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" type="datetime-local" name="start" id="input_0" aria-describedby="help-input_0 input_0-rule_date_after">
                               </div>
                             </div>
-                            <div class="formkit-help" id="help-input_0">When will the end of the world take place?</div>
-                            <ul class="formkit-messages">
-                              <li class="formkit-message" id="input_0-rule_date_after" data-message-type="validation">End of the world must be in the future.</li>
-                            </ul>
+
+
                           </div>
+                          <br>
 
                           <div class="formkit-outer" data-family="text" data-type="datetime-local" data-invalid="true">
                             <div class="formkit-wrapper">
-                              <label class="formkit-label" for="input_0">End of the world</label>
+                              <label class="formkit-label" for="input_0">End Date/Time</label>
                               <div class="formkit-inner">
-                                <input class="formkit-input" type="datetime-local" name="finish" id="input_0" aria-describedby="help-input_0 input_0-rule_date_after">
+                                <input class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" type="datetime-local" name="finish" id="input_0" aria-describedby="help-input_0 input_0-rule_date_after">
                               </div>
                             </div>
-                            <div class="formkit-help" id="help-input_0">When will the end of the world take place?</div>
-                            <ul class="formkit-messages">
-                              <li class="formkit-message" id="input_0-rule_date_after" data-message-type="validation">End of the world must be in the future.</li>
-                            </ul>
-                          </div>
 
-                            
-    
+
+                          </div>
+                          <br>
+
+
+
 
 
 

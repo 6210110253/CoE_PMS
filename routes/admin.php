@@ -16,6 +16,8 @@ Route::controller(ProjectController::class)->name('admin.')->prefix('admin/')->g
         ->name('management');
 
 
+
+
 });
 
 Route::controller(AnnouncementController::class)->name('admin.')->prefix('admin/')
@@ -27,8 +29,7 @@ Route::controller(AnnouncementController::class)->name('admin.')->prefix('admin/
     Route::post('/announcement/store', 'store')
     ->name('announcement.store');
 
- 
+
 
 
 });
-

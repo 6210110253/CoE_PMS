@@ -70,8 +70,13 @@
 
 
                         <div class="w-full p-8  bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
-
+                            <div class="flex items-center justify-between">
+                                <span class="text-3xl font-bold text-gray-900 dark:text-white"></span>
+                                <a href="{{ route('admin.announcement')  }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Create Announcement</a>
+                             </div>
                             <p class="text-lg text-gray-900 dark:text-white">กำหนดการ</p>
+
+
 
                             <div class="relative overflow-x-auto">
                                     <div class="flex justify-end pb-4 bg-white dark:bg-gray-900">
@@ -100,58 +105,28 @@
                                             </th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr class="bg-white dark:bg-gray-800">
-                                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                                Apple MacBook Pro 17"
-                                            </th>
-                                            <td class="px-6 py-4">
-                                                1
-                                            </td>
-                                            <td class="px-6 py-4">
-                                                $2999
-                                            </td>
-                                            <td class="px-6 py-4">
-                                                $2999
-                                            </td>
-                                        </tr>
-                                        <tr class="bg-white dark:bg-gray-800">
-                                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                                Microsoft Surface Pro
-                                            </th>
-                                            <td class="px-6 py-4">
-                                                1
-                                            </td>
-                                            <td class="px-6 py-4">
-                                                $1999
-                                            </td>
-                                            <td class="px-6 py-4">
-                                                $2999
-                                            </td>
-                                        </tr>
-                                        <tr class="bg-white dark:bg-gray-800">
-                                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                                Magic Mouse 2
-                                            </th>
-                                            <td class="px-6 py-4">
-                                            1
-                                            </td>
-                                            <td class="px-6 py-4">
-                                                $99
-                                            </td>
-                                            <td class="px-6 py-4">
-                                                $2999
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                    <tfoot>
-                                        <tr class="font-semibold text-gray-900 dark:text-white">
-                                            <th scope="row" class="px-6 py-3 text-base">Total</th>
-                                            <td class="px-6 py-3">3</td>
-                                            <td class="px-6 py-3">21,000</td>
-                                            <td class="px-6 py-4">$2999</td>
-                                        </tr>
-                                    </tfoot>
+                                    {{-- <tbody>
+                                    @foreach ($announcements as $announcement)
+                                     <tr class="bg-white dark:bg-gray-800">
+
+
+                                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                            {{ $announcement->title }}
+                                        </th>
+                                         <td class="px-6 py-4">
+                                            {{ $announcement->start }}
+                                         </td>
+                                         <td class="px-6 py-4">
+                                            {{ $announcement->finish }}
+                                         </td>
+                                         <td class="px-6 py-4">
+                                            {{ $announcement->status }}
+                                         </td>
+
+                                     </tr>
+                                      @endforeach
+                                 </tbody> --}}
+
                                 </table>
                             </div>
 

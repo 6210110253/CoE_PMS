@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Project;
 
+
 class ProjectController extends Controller
 {
     public function project_status()
@@ -28,4 +29,6 @@ class ProjectController extends Controller
     public function management(){
         return view('pages.admin.management');
     }
+
+
 }
