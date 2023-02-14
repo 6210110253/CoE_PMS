@@ -73,6 +73,19 @@
                         </div>
                         </div>
 
+                        <div class="formkit-outer" data-family="text" data-type="datetime-local" data-invalid="true">
+                        <div class="formkit-wrapper">
+                            <label class="formkit-label" for="input_0">End of the world</label>
+                            <div class="formkit-inner">
+                            <input class="formkit-input" type="datetime-local" name="datetime-local_1" id="input_0" aria-describedby="help-input_0 input_0-rule_date_after">
+                            </div>
+                        </div>
+                        <div class="formkit-help" id="help-input_0">When will the end of the world take place?</div>
+                        <ul class="formkit-messages">
+                            <li class="formkit-message" id="input_0-rule_date_after" data-message-type="validation">End of the world must be in the future.</li>
+                        </ul>
+                        </div>
+
                         <div class="mb-6">
                         <label for="status" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Status <span class="text-red-500">*</span></label>
                         <select name="status" id="status">
