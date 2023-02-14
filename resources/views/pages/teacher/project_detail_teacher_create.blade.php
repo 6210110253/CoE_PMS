@@ -33,7 +33,7 @@
                                          Description
                                      </th>
                                      <td class="px-6 py-4">
-                                        
+
                                         {{ $project->detail}}
                                      </td>
 
@@ -72,7 +72,7 @@
                                      <td class="px-6 py-4">
                                         @if(!empty($project->file_er_diagram))
                                         <br>
-                                        <a target="_blank" href="{{ Storage::url($project_reservation->project->file_er_diagram) }}">
+                                        <a target="_blank" href="{{ Storage::url($project->file_er_diagram) }}">
                                           <img src="{{ asset('images\icon_file.png') }}" width="50">
                                         </a>
                                         @endif
@@ -86,7 +86,7 @@
                                      <td class="px-6 py-4">
                                         @if(!empty($project->file_design))
                                         <br>
-                                        <a target="_blank" href="{{ Storage::url($project_reservation->project->file_design) }}">
+                                        <a target="_blank" href="{{ Storage::url($project->file_design) }}">
                                         <img src="{{ asset('images\icon_file.png') }}" width="50">
                                         </a>
                                         @endif
@@ -100,7 +100,7 @@
                                      <td class="px-6 py-4">
                                         @if(!empty($project->usecase))
                                         <br>
-                                        <a target="_blank" href="{{ Storage::url($project_reservation->project->usecase) }}">
+                                        <a target="_blank" href="{{ Storage::url($project->usecase) }}">
                                         <img src="{{ asset('images\icon_file.png') }}" width="50">
                                         </a>
                                         @endif

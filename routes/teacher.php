@@ -7,7 +7,7 @@ Route::controller(ProjectController::class)->name('teacher.')->prefix('teacher/'
     ->group(function () {
 
     Route::get('/project-teacher',  'project_teacher')
-        ->name('project.teacher');   
+        ->name('project.teacher');
     Route::get('/project-create', 'create')
         ->name('project.create');
     Route::get('/project-propose-to-teacher', 'project_propose_to_teacher')
