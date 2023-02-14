@@ -1,17 +1,18 @@
 <?php
 
 namespace App\Repositories;
+use App\Models\Announcement;
 
 class AnnouncementsRepository
 {
     public function store($params){
-        $data = new Project();
+        $data = new Announcement();
         return $this->variable($data , $params);
 
     }
 
     //แก้ไข
-    public function variable(Project $data , $params){
+    public function variable(Announcement $data , $params){
        $params = (object)$params;
 
        !isset($params->title) ?: $data->title = $params->title;
