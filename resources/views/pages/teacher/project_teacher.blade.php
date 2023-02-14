@@ -121,9 +121,9 @@
                                         </div>
                                     </div>
 
-                                    <br>
+                                    
                                 </div>
-
+                                <br>
                                 @endforeach
 
                             </div>
@@ -134,19 +134,34 @@
                     </div>
                         <div class="hidden p-4 bg-white rounded-lg md:p-8 dark:bg-gray-800" id="about" role="tabpanel" aria-labelledby="about-tab">
 
-                             @foreach ($projects as $project )
-                            <div class="w-full p-4 text-center bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
 
-                                <h5 class="mb-2 text-3xl text-left font-bold text-gray-900 dark:text-white">{{ $project->title }}</h5>
-                                <p class="mb-5 text-left text-gray-500 sm:text-lg dark:text-gray-400">{{ $project->detail }}</p>
-                                <div class="flex items-center justify-between">
+                            <div>
+                                @foreach ($projects as $project )
+                                <div class="w-full  bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
 
-                                    <a href="{{ route('teacher.project.detail.teacher', $project) }}" class="flex justify-left  text-blue-600">View more</a>
+                                    <div class="px-5 pb-5">
+                                        <br>
+
+                                        <a >
+                                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"> {{ $project->title }}</h5>
+                                            <p class="font-normal text-gray-700 dark:text-gray-400">Description : {{ $project->detail }}</p>
+                                        </a>
+
+
+                                        <div class="flex items-center justify-between">
+
+                                             <a href="{{ route('teacher.project.detail.teacher.create', $project) }}" class="flex justify-left  text-blue-600">View more</a>
+                                        </div>
+                                    </div>
+
+                                    
                                 </div>
+                                <br>
+                                @endforeach
 
                             </div>
-                            <br>
-                            @endforeach
+
+                     
                         </div>
                         <br>
 

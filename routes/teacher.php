@@ -14,6 +14,8 @@ Route::controller(ProjectController::class)->name('teacher.')->prefix('teacher/'
         ->name('project.propose.to.teacher');
     Route::get('/project-detail-teacher/{project_reservation}', 'project_detail_teacher')
         ->name('project.detail.teacher');
+    Route::get('/project-detail-teacher-create/{project}', 'project_detail_teacher_create')
+        ->name('project.detail.teacher.create');
     Route::get('/project-request', 'project_request')
         ->name('project.request');
     Route::post('/project/store','store')

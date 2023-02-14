@@ -49,7 +49,7 @@ class ProjectReservationRepository
             ->get();
     }
 
-    public function getProjectTest($id){
+    public function getProjectReservations($id){
 
         return ProjectReservation::query()
             ->with([

@@ -38,7 +38,7 @@ class ProjectController extends Controller
     {
         $projects = $this->project_repo->getProjectByTeacherCreate(Auth::id());
         //$teachers = User::role('teacher')->get();
-        $project_reservations = $this->project_reservation_repo->getProjectTest(Auth::id());
+        $project_reservations = $this->project_reservation_repo->getProjectReservations(Auth::id());
 
 
         return view('pages.teacher.project_teacher', compact('project_reservations', 'projects'));
@@ -106,6 +106,10 @@ class ProjectController extends Controller
     public function project_detail_teacher(ProjectReservation $project_reservation){
         return view('pages.teacher.project_detail_teacher', compact('project_reservation'));
 
+    }
+
+    public function project_detail_teacher_create(Project $project){
+        return view('pages.teacher.project_detail_teacher_create', compact('project'));
     }
 
     public function edit(Project $project){
