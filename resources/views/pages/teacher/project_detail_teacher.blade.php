@@ -131,17 +131,17 @@
                                          Member
                                      </th>
                                      <td class="px-6 py-4">
-                                        {{-- @if(!empty($project_reservation->student_reservetion))
+                                        @if(!empty($project_reservation->student_reservetion))
 
                                             @foreach ($project_reservation->student_reservetion_list as $key => $member )
-                                            <p class="font-medium mb-5 text-left text-gray-400 sm:text-lg dark:text-gray-400">{{ $key+1 }}.{{ $member }}</p>
+                                                <p class="font-normal text-gray-700 dark:text-gray-400">{{ $key+1 }}.{{ $member }}</p>
 
                                             @endforeach
 
                                         @else
-                                            <p class="font-medium mb-5 text-left text-gray-500 sm:text-lg dark:text-gray-400">1.{{ $project->member->name }}</p>
+                                            <p class="font-normal text-gray-700 dark:text-gray-400">1.{{ $project_reservation->member->name }}</p>
 
-                                        @endif --}}
+                                        @endif
                                      </td>
 
                                  </tr>

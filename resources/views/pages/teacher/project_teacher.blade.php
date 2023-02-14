@@ -112,6 +112,17 @@
                                         <a >
                                             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"> {{ $project_reservation->project->title }} <span class="bg-purple-200 text-purple-600 py-1 px-3 mt-2 rounded-full text-xs">{{ $project_reservation->type }}</span></p></h5>
                                             <p class="font-normal text-gray-700 dark:text-gray-400">Description : {{ $project_reservation->project->detail }}</p>
+                                            @if(!empty($project_reservation->student_reservetion))
+
+                                                @foreach ($project_reservation->student_reservetion_list as $key => $member )
+                                                    <p class="font-normal text-gray-700 dark:text-gray-400">{{ $key+1 }}.{{ $member }}</p>
+
+                                                @endforeach
+
+                                            @else
+                                                <p class="font-normal text-gray-700 dark:text-gray-400">1.{{ $project_reservation->member->name }}</p>
+
+                                            @endif
                                         </a>
 
 

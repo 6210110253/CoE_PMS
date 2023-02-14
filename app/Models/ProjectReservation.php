@@ -17,6 +17,8 @@ class ProjectReservation extends Model
         'student_reservetion' => Json::class,
     ];
 
+    protected $appends = ['student_reservetion_list'];
+
     public function user(){
         return $this->belongsTo(User::class);
     }
@@ -43,6 +45,21 @@ class ProjectReservation extends Model
     public function member(){
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
+
+    public function getStudentReservetionListAttribute(){
+        $users = User::query()->find($this->student_reservetion);
+        $created_by = $this->member->name;
+
+
+        $list = [$created_by];
+        foreach($users as $item){
+            $list[] = $item->name;
+
+        }
+        return $list;
+
+    }
+
 
     
 
