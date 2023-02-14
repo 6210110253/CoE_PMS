@@ -2,12 +2,11 @@
     <div>
          <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-200">
 
-             <div class="container mx-auto px-6 py-8">
-                 <div class="">
+                <div class="container mx-auto px-6 py-8">
 
-                     <div class="w-full p-8 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+                    <div class="w-full p-8 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
 
-                        <p class="text-lg text-gray-900 dark:text-white">การส่งงาน</p>
+                        <p class="text-lg text-gray-900 dark:text-white">กำหนดการ</p>
 
                             <br>
 
@@ -62,7 +61,7 @@
                                             Topic
                                         </th>
                                         <th scope="col" class="px-6 py-3">
-                                            file
+                                            Supervisor
                                         </th>
                                         <th scope="col" class="px-6 py-3">
                                             Year
@@ -101,13 +100,8 @@
                         </div>
 
                     </div>
-
-
-
-              </div>
-             </div>
-         </main>
-     </div>
+            </div>
+        </main>
  </div>
  </x-app-layout>
 
