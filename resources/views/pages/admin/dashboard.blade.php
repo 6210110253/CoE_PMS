@@ -91,18 +91,19 @@
                                 <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                                     <thead class="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400">
                                         <tr>
-                                            <th scope="col" class="px-6 py-3 rounded-l-lg">
+                                            <th scope="col" class="px-6 py-3 ">
                                                 หัวข้อ
                                             </th>
                                             <th scope="col" class="px-6 py-3">
                                                 วันที่ส่ง
                                             </th>
-                                            <th scope="col" class="px-6 py-3 rounded-r-lg">
+                                            <th scope="col" class="px-6 py-3 ">
                                                 วันที่สิ้นสุดการส่ง
                                             </th>
-                                            <th scope="col" class="px-6 py-3 rounded-r-lg">
-                                                สถานะ
+                                            <th scope="col" class="px-6 py-3 ">
+                                                วันที่ส่ง
                                             </th>
+
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -123,6 +124,7 @@
                                             <span class="bg-purple-200 text-purple-600 py-1 px-3 mt-2 rounded-full text-xs">{{ $announcement->status }}</span>
 
                                          </td>
+
 
                                      </tr>
                                       @endforeach
