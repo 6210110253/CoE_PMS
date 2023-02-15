@@ -155,4 +155,5 @@ class ProjectController extends Controller
 
         return view('pages.teacher.dashboard', compact('announcements'));
     }
+
 }
