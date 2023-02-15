@@ -60,7 +60,7 @@
                             <button id="about-tab" data-tabs-target="#about" type="button" role="tab" aria-controls="about" aria-selected="false" class="inline-block w-full p-4 bg-gray-50 hover:bg-gray-100 focus:outline-none dark:bg-gray-700 dark:hover:bg-gray-600">โปรเจกต์ที่อาจารย์สร้าง</button>
                         </li>
                         <li class="w-full">
-                            <button id="faq-tab" data-tabs-target="#faq" type="button" role="tab" aria-controls="faq" aria-selected="false" class="inline-block w-full p-4 rounded-tr-lg bg-gray-50 hover:bg-gray-100 focus:outline-none dark:bg-gray-700 dark:hover:bg-gray-600">โปรเจกต์ที่สำเร็จ</button>
+                            <button id="faq-tab" data-tabs-target="#faq" type="button" role="tab" aria-controls="faq" aria-selected="false" class="inline-block w-full p-4 rounded-tr-lg bg-gray-50 hover:bg-gray-100 focus:outline-none dark:bg-gray-700 dark:hover:bg-gray-600">โปรเจกต์ที่ดูแลอยู่</button>
                         </li>
                     </ul>
                     <div id="fullWidthTabContent" class="border-t border-gray-200 dark:border-gray-600">
@@ -157,7 +157,7 @@
                                             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"> {{ $project->title }}
                                             @if( $project->status == 'publish' )
                                                 <span class="bg-purple-200 text-purple-600 py-1 px-3 mt-2 rounded-full text-xs">publish</span>
-                                            @else 
+                                            @else
                                                 <span class="bg-green-200 text-purple-600 py-1  px-3 mt-2 rounded-full text-xs">draft</span>
                                             @endif
                                             </h5>

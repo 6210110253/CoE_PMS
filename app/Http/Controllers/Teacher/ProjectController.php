@@ -14,6 +14,8 @@ use App\Traits\uploadImage;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use App\Repositories\ProjectReservationRepository;
+use App\Repositories\ProjectListRepository;
+
 
 class ProjectController extends Controller
 {
@@ -26,12 +28,14 @@ class ProjectController extends Controller
     public function __construct(
         ProjectRepository $projectRepository,
         UserRepository $userRepository,
-        ProjectReservationRepository $projectReservationRepository
+        ProjectReservationRepository $projectReservationRepository,
+        ProjectListRepository $projectListRepository
         )
     {
         $this->project_repo = $projectRepository;
         $this->user_repo = $userRepository;
         $this->project_reservation_repo = $projectReservationRepository;
+        $this->project_list_repo = $projectListRepository;
 
     }
 
@@ -105,6 +109,7 @@ class ProjectController extends Controller
     }
 
     public function project_detail_teacher(ProjectReservation $project_reservation){
+
         return view('pages.teacher.project_detail_teacher', compact('project_reservation'));
 
     }
@@ -155,5 +160,36 @@ class ProjectController extends Controller
 
         return view('pages.teacher.dashboard', compact('announcements'));
     }
+
+    public function updateStatus(Request $request){
+
+        $id = $request->project_reservation_id;
+        $status = $request->status;
+        $comment = $request->comment;
+
+
+        $obj = $this->project_reservation_repo->updateStatus($id, $status, $comment);
+
+        if($status == 'approve'){
+
+            $users = $this->project_reservation_repo->getProjectReservationsNotById($id);
+
+            $this->project_list_repo->store([
+                'project_reservation_id' => $id,
+                'approve_by' => $request->teacher_id,
+                'student_reservetion' => $users,
+                'status' => 'Pre-Project'
+            ]);
+        }
+
+        return \response()->json([
+            'status' => true,
+            'data' => $obj,
+            'massege' => 'sucess'
+        ]);
+
+    }
+
+
 
 }

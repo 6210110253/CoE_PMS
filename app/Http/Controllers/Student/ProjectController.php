@@ -26,7 +26,7 @@ class ProjectController extends Controller
         ProjectRepository $projectRepository,
         UserRepository $userRepository,
         ProjectReservationRepository $projectReservationRepository,
-        
+
     ){
         $this->project_repo = $projectRepository;
         $this->user_repo = $userRepository;
@@ -72,7 +72,8 @@ class ProjectController extends Controller
         'user_id' => $user_id,
         'student_reservetion' => $request->student_reservetion,
         'status' => 'wait',
-        'semester_id' => $semester_id
+        'semester_id' => $semester_id,
+        'teacher_id' => $request->approve_by
        ];
 
        $obj = $this->project_reservation_repo->store($param);
@@ -162,13 +163,13 @@ class ProjectController extends Controller
         //ฝั่งใช้งาน
         $project_bookings = $this->project_reservation_repo->getProjectBooking(Auth::id());
         // dd($project_bookings);
-       
+
         return view('pages.student.project_view', compact('project_bookings'));
     }
 
     public function student_home(){
         $announcements =  Announcement::all();
-        
+
         return view('pages.student.student_home', compact('announcements'));
     }
 
@@ -184,7 +185,7 @@ class ProjectController extends Controller
         return view('pages.student.meeting_list');
     }
 
-  
+
 
 
     public function reservation(Request $request){
@@ -201,7 +202,8 @@ class ProjectController extends Controller
         'student_reservetion' => $request->student_reservetion,
         'status' => 'wait',
         'semester_id' => $semester_id,
-        'type' => 'reservation'
+        'type' => 'reservation',
+        'teacher_id' => $this->project_repo->getProjectById($project_id)->approve_by
        ];
 
        $obj = $this->project_reservation_repo->store($param);

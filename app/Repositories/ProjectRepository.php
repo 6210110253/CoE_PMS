@@ -64,6 +64,12 @@ class ProjectRepository
             ->get();
     }
 
+    public function getProjectById($id){
 
- 
+        return Project::query()->find($id);
+    }
+
+
+
+
 }
