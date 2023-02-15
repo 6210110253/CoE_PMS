@@ -105,7 +105,7 @@
                                             </th>
                                         </tr>
                                     </thead>
-                                    {{-- <tbody>
+                                    <tbody>
                                     @foreach ($announcements as $announcement)
                                      <tr class="bg-white dark:bg-gray-800">
 
@@ -125,7 +125,7 @@
 
                                      </tr>
                                       @endforeach
-                                 </tbody> --}}
+                                 </tbody>
 
                                 </table>
                             </div>
