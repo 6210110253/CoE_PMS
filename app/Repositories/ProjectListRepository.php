@@ -26,7 +26,11 @@ class ProjectListRepository
        return $data;
     }
 
-    public function getProjectListAll($params){
-  
+    public function getProjectListAll($teacher_id){
+      return ProjectList::query()
+         ->where('approve_by',$teacher_id)
+         ->get();
+      
+
   }
 }

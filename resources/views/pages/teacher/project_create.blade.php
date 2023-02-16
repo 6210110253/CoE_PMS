@@ -20,6 +20,14 @@
                         @csrf
                         <input type="hidden" name="created_by" value="{{ Auth()->user()->id }}">
                         <input type="hidden" name="approve_by" value="{{ Auth()->user()->id }}">
+                        <div class="mb-6">
+                            <label for="semester" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Year <span class="text-red-500">*</span></label>
+                            <select name="semester" id="semester">
+                                <option value="">--select status--</option>
+                                <option value="draft" {{  @$project->status == 'draft' ? 'selected' : '' }}> 2566</option>
+                                <option value="publish" {{  @$project->status == 'publish' ? 'selected' : '' }}> 2567</option>
+                            </select>
+                        </div>
                     <div class="mb-6">
                         <label  for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Topic <span class="text-red-500">*</span></label>
                         <input type="text" id="title" name="title" value="{{$project->title ?? ''}}" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="Topic" required>
