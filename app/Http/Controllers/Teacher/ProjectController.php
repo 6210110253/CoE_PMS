@@ -45,6 +45,8 @@ class ProjectController extends Controller
         //$teachers = User::role('teacher')->get();
         $project_reservations = $this->project_reservation_repo->getProjectReservations(Auth::id());
 
+        $project_list = $this->project_list_repo->getProjectListAll();
+
 
         return view('pages.teacher.project_teacher', compact('project_reservations', 'projects'));
     }

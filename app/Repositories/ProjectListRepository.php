@@ -25,4 +25,8 @@ class ProjectListRepository
        $data->save();
        return $data;
     }
+
+    public function getProjectListAll($params){
+  
+  }
 }
