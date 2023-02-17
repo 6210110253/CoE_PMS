@@ -110,7 +110,6 @@
                                         <br>
 
                                         <a >
-<<<<<<< HEAD
                                             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"> {{ $project_reservation->project->title }}
                                                  <span class="bg-purple-200 text-purple-600 py-1 px-3 mt-2 rounded-full text-xs">{{ $project_reservation->type }}
                                                  </span>
@@ -118,17 +117,6 @@
 
 
                                             </p></h5>
-=======
-                                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"> {{ $project_reservation->project->title }} 
-                                                @if( $project_reservation->type == 'propose' )
-                                                    <span class="bg-purple-200 text-purple-600 py-1 px-3 mt-2 rounded-full text-xs">propose</span>
-                                                @else
-                                                    <span class="bg-green-200 text-purple-600 py-1  px-3 mt-2 rounded-full text-xs">reservation</span>
-                                                 @endif
-
-                                                <span class="bg-gray-200 text-black-600 py-1 px-3 mt-2 rounded-full text-xs">{{ $project_reservation->status }}</span>
-                                            </h5>
->>>>>>> de2312fffde20448d669d9fc4e3faf406e8db063
 
                                             <p class="font-normal text-gray-700 dark:text-gray-400">Description : {{ $project_reservation->project->detail }}</p>
 

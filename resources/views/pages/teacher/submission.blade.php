@@ -75,25 +75,32 @@
                                     <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
 
                                         <td class="px-6 py-4">
-                                            SEO Specialist
+                                            6210110566
                                         </td>
                                         <td class="px-6 py-4">
-                                            SEO Specialist
+                                            นางสาววรนุช แดงวรวิทย์
                                         </td>
 
                                         <td class="px-6 py-4">
                                             <div class="flex items-center">
-                                                <div class="h-2.5 w-2.5 rounded-full bg-red-500 mr-2"></div> Offline
+                                                <div class="h-2.5 w-2.5 rounded-full bg-red-500 mr-2"></div> ส่งแล้ว
                                             </div>
                                         </td>
                                         <td class="px-6 py-4">
-                                            SEO Specialist
+                                            ชื่อโปรเจกต์
                                         </td>
                                         <td class="px-6 py-4">
-                                            SEO Specialist
+                                            {{-- @if()
+                                            @elseif()
+                                            @endif --}}
+                                            <span>เนื้อหา</span>
+                                            <a target="_blank" href="">
+                                                <img src="{{ asset('images\icon_file.png') }}" width="25">
+                                            </a>
+
                                         </td>
                                         <td class="px-6 py-4">
-                                            SEO Specialist
+                                            2565
                                         </td>
                                     </tr>
                                 </tbody>
