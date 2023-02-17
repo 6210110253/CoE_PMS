@@ -14,6 +14,8 @@ Route::controller(ProjectController::class)->name('admin.')->prefix('admin/')->g
 
     Route::get('/management', 'management')
         ->name('management');
+    Route::get('/form-create-submission', 'form_create_submission')
+        ->name('form.create.submission');
 
 
 
