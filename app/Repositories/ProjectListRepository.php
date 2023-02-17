@@ -25,4 +25,12 @@ class ProjectListRepository
        $data->save();
        return $data;
     }
+
+    public function getProjectListAll($teacher_id){
+      return ProjectList::query()
+         ->where('approve_by',$teacher_id)
+         ->get();
+      
+
+  }
 }

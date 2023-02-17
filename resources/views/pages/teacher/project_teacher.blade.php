@@ -110,6 +110,7 @@
                                         <br>
 
                                         <a >
+<<<<<<< HEAD
                                             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"> {{ $project_reservation->project->title }}
                                                  <span class="bg-purple-200 text-purple-600 py-1 px-3 mt-2 rounded-full text-xs">{{ $project_reservation->type }}
                                                  </span>
@@ -117,6 +118,17 @@
 
 
                                             </p></h5>
+=======
+                                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"> {{ $project_reservation->project->title }} 
+                                                @if( $project_reservation->type == 'propose' )
+                                                    <span class="bg-purple-200 text-purple-600 py-1 px-3 mt-2 rounded-full text-xs">propose</span>
+                                                @else
+                                                    <span class="bg-green-200 text-purple-600 py-1  px-3 mt-2 rounded-full text-xs">reservation</span>
+                                                 @endif
+
+                                                <span class="bg-gray-200 text-black-600 py-1 px-3 mt-2 rounded-full text-xs">{{ $project_reservation->status }}</span>
+                                            </h5>
+>>>>>>> de2312fffde20448d669d9fc4e3faf406e8db063
 
                                             <p class="font-normal text-gray-700 dark:text-gray-400">Description : {{ $project_reservation->project->detail }}</p>
 
@@ -133,11 +145,9 @@
 
                                             @endif
                                         </a>
-
-
-                                        <div class="flex items-center justify-between">
-
-                                             <a href="{{ route('teacher.project.detail.teacher', $project_reservation) }}" class="flex justify-left  text-blue-600">View more</a>
+                                        <br>
+                                        <div class="flexcenter justify-between">
+                                            <a href="{{ route('teacher.project.detail.teacher', $project_reservation) }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">View more</a>
                                         </div>
                                     </div>
 
@@ -175,10 +185,10 @@
                                             <p class="font-normal text-gray-700 dark:text-gray-400">Description : {{ $project->detail }}</p>
                                         </a>
 
+                                        <br>
 
                                         <div class="flex items-center justify-between">
-
-                                             <a href="{{ route('teacher.project.detail.teacher.create', $project) }}" class="flex justify-left  text-blue-600">View more</a>
+                                            <a href="{{ route('teacher.project.detail.teacher.create', $project) }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">View more</a>
                                         </div>
                                     </div>
 
