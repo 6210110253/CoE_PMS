@@ -3,6 +3,47 @@
         <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-200">
             <div class="container mx-auto px-6 py-8">
 
+
+                <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+
+                        <tbody>
+                            <tr class="bg-white  dark:bg-gray-800 dark:border-gray-700">
+                                <td class="px-6 py-2">
+                                    ชื่อโปรเจกต์
+                                </td>
+                                <th scope="row" class="px-6 py-4 font-medium text-gray-900  dark:text-white">
+                                    Apple MacBook Pro 17"
+                                </th>
+
+
+                            </tr>
+
+                            <tr class="bg-white border-b dark:bg-gray-800">
+                                <td class="px-6 py-2">
+                                    อาจารย์ที่ปรึกษา
+                                </td>
+                                <th scope="row" class="px-6 py-4 font-medium text-gray-900  dark:text-white">
+                                    Magic Mouse 2
+                                </th>
+
+                            </tr>
+                            <tr class="bg-white border-b dark:bg-gray-800">
+                                <td class="px-6 py-2">
+                                    ผู้ร่วมโปรเจค
+                                </td>
+                                <th scope="row" class="px-6 py-4 font-medium text-gray-900  dark:text-white">
+                                    1.AAAAAAA
+                                    2.BBBBBBB
+                                </th>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <br>
+
+
                 <div class="w-full p-4 text-center bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
 
                     <div class="w-full bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
@@ -84,7 +125,7 @@
                                                         <td class="px-6 py-4">
                                                             <div class="flex space-x-2 justify-center">
                                                                 <div>
-                                                                    <a href="{{ route('student.submit.meeting') }}" type="button" class="text-green bg-[#050708] hover:bg-[#050708]/90 focus:ring-4 focus:outline-none focus:ring-[#050708]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#050708]/50 dark:hover:bg-[#050708]/30 mr-2 mb-2">
+                                                                    <a href="{{ route('student.submit.meeting') }}" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-[#050708]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center  mr-2 mb-2">
                                                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                                                         <path stroke-linecap="round" stroke-linejoin="round" d="M15 11.25l-3-3m0 0l-3 3m3-3v7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                                                     </svg>
@@ -96,45 +137,7 @@
                                                         </td>
                                                     </tr>
                                                 </tbody>
-                                                <tbody>
-                                                    <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
 
-                                                        <td class="px-6 py-4">
-                                                            SEO Specialist
-                                                        </td>
-                                                        <td class="px-6 py-4">
-                                                            SEO Specialist
-                                                        </td>
-                                                        <td class="px-6 py-4">
-                                                            SEO Specialist
-                                                        </td>
-                                                        <td class="px-6 py-4">
-                                                            SEO Specialist
-                                                        </td>
-                                                        <td class="px-6 py-4">
-                                                            <div class="flex items-center">
-                                                                <div class="h-2.5 w-2.5 rounded-full bg-red-500 mr-2"></div> Offline
-                                                            </div>
-                                                        </td>
-
-                                                        <td class="px-6 py-4">
-                                                            SEO Specialist
-                                                        </td>
-                                                        <td class="px-6 py-4">
-                                                            <div class="flex space-x-2 justify-center">
-                                                                <div>
-                                                                    <a href="{{ route('student.submit.report') }}" type="button" class="text-green bg-[#050708] hover:bg-[#050708]/90 focus:ring-4 focus:outline-none focus:ring-[#050708]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#050708]/50 dark:hover:bg-[#050708]/30 mr-2 mb-2">
-                                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 11.25l-3-3m0 0l-3 3m3-3v7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                                                    </svg>
-
-                                                                    Submission
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
                                             </table>
 
 
@@ -197,7 +200,7 @@
                                                         <td class="px-6 py-4">
                                                             <div class="flex space-x-2 justify-center">
                                                                 <div>
-                                                                    <a href="{{ route('student.submit.meeting') }}" type="button" class="text-green bg-[#050708] hover:bg-[#050708]/90 focus:ring-4 focus:outline-none focus:ring-[#050708]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#050708]/50 dark:hover:bg-[#050708]/30 mr-2 mb-2">
+                                                                    <a href="{{ route('student.submit.meeting') }}" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 mb-2">
                                                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                                                         <path stroke-linecap="round" stroke-linejoin="round" d="M15 11.25l-3-3m0 0l-3 3m3-3v7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                                                     </svg>
@@ -209,45 +212,7 @@
                                                         </td>
                                                     </tr>
                                                 </tbody>
-                                                <tbody>
-                                                    <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
 
-                                                        <td class="px-6 py-4">
-                                                            SEO Specialist
-                                                        </td>
-                                                        <td class="px-6 py-4">
-                                                            SEO Specialist
-                                                        </td>
-                                                        <td class="px-6 py-4">
-                                                            SEO Specialist
-                                                        </td>
-                                                        <td class="px-6 py-4">
-                                                            SEO Specialist
-                                                        </td>
-                                                        <td class="px-6 py-4">
-                                                            <div class="flex items-center">
-                                                                <div class="h-2.5 w-2.5 rounded-full bg-red-500 mr-2"></div> Offline
-                                                            </div>
-                                                        </td>
-
-                                                        <td class="px-6 py-4">
-                                                            SEO Specialist
-                                                        </td>
-                                                        <td class="px-6 py-4">
-                                                            <div class="flex space-x-2 justify-center">
-                                                                <div>
-                                                                    <a href="{{ route('student.submit.report') }}" type="button" class="text-green bg-[#050708] hover:bg-[#050708]/90 focus:ring-4 focus:outline-none focus:ring-[#050708]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#050708]/50 dark:hover:bg-[#050708]/30 mr-2 mb-2">
-                                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 11.25l-3-3m0 0l-3 3m3-3v7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                                                    </svg>
-
-                                                                    Submission
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
                                             </table>
 
                             </div>
@@ -308,7 +273,7 @@
                                                         <td class="px-6 py-4">
                                                             <div class="flex space-x-2 justify-center">
                                                                 <div>
-                                                                    <a href="{{ route('student.submit.meeting') }}" type="button" class="text-green bg-[#050708] hover:bg-[#050708]/90 focus:ring-4 focus:outline-none focus:ring-[#050708]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#050708]/50 dark:hover:bg-[#050708]/30 mr-2 mb-2">
+                                                                    <a href="{{ route('student.submit.meeting') }}" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-[#050708]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#050708]/50 dark:hover:bg-[#050708]/30 mr-2 mb-2">
                                                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                                                         <path stroke-linecap="round" stroke-linejoin="round" d="M15 11.25l-3-3m0 0l-3 3m3-3v7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                                                     </svg>
@@ -321,45 +286,7 @@
                                                         </td>
                                                     </tr>
                                                 </tbody>
-                                                <tbody>
-                                                    <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
 
-                                                        <td class="px-6 py-4">
-                                                            SEO Specialist
-                                                        </td>
-                                                        <td class="px-6 py-4">
-                                                            SEO Specialist
-                                                        </td>
-                                                        <td class="px-6 py-4">
-                                                            SEO Specialist
-                                                        </td>
-                                                        <td class="px-6 py-4">
-                                                            SEO Specialist
-                                                        </td>
-                                                        <td class="px-6 py-4">
-                                                            <div class="flex items-center">
-                                                                <div class="h-2.5 w-2.5 rounded-full bg-red-500 mr-2"></div> Offline
-                                                            </div>
-                                                        </td>
-
-                                                        <td class="px-6 py-4">
-                                                            SEO Specialist
-                                                        </td>
-                                                        <td class="px-6 py-4">
-                                                            <div class="flex space-x-2 justify-center">
-                                                                <div>
-                                                                    <a href="{{ route('student.submit.report') }}" type="button" class="text-green bg-[#050708] hover:bg-[#050708]/90 focus:ring-4 focus:outline-none focus:ring-[#050708]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#050708]/50 dark:hover:bg-[#050708]/30 mr-2 mb-2">
-                                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 11.25l-3-3m0 0l-3 3m3-3v7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                                                    </svg>
-
-                                                                    Submission
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
                                             </table>
                             </div>
                         </div>
