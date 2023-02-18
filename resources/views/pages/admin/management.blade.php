@@ -48,9 +48,6 @@
                                          <th scope="col" class="px-6 py-3 rounded-r-lg">
                                              Year
                                          </th>
-                                         <th scope="col" class="px-6 py-3 rounded-r-lg">
-                                             Action
-                                         </th>
                                      </tr>
                                  </thead>
                                  <tbody>
@@ -64,21 +61,7 @@
                                          <td class="px-6 py-4">
                                              $2999
                                          </td>
-                                         <td class="px-6 py-4">
-                                            Toggle
-                                         </td>
                                      </tr>
-
-
-                                 </tbody>
-                                 <tfoot>
-                                     <tr class="font-semibold text-gray-900 dark:text-white">
-                                         <th scope="row" class="px-6 py-3 text-base">Total</th>
-                                         <td class="px-6 py-3">3</td>
-                                         <td class="px-6 py-3">21,000</td>
-                                         <td class="px-6 py-4">$2999</td>
-                                     </tr>
-                                 </tfoot>
                              </table>
                          </div>
 
