@@ -25,12 +25,15 @@
 
                                  </div> --}}
 
-                            <form class="flex flex-justify-left gap-4" method="post" action="#">
+                            <form class="flex flex-justify-left gap-4" 
+                                method="post" 
+                                action=" {{ route('admin.semester.store') }}">
+                                @csrf
                                 <label class="">Name</label>
-                                <input type="text" id="table-search" class="block p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="กรอกข้อมูล">
+                                <input type="text" name="name" id="table-search" class="block p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="กรอกข้อมูล">
 
-                                <label class="">year</label>
-                                <input type="text" id="table-search" class="block p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="กรอกข้อมูล">
+                                <label class="">Year</label>
+                                <input type="text"  name="year" id="table-search" class="block p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="กรอกข้อมูล">
 
                                 <button type="submit" class="text-white  bg-green-500 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Create</button>
                             </form>
@@ -48,20 +51,30 @@
                                          <th scope="col" class="px-6 py-3 rounded-r-lg">
                                              Year
                                          </th>
+                                         <th scope="col" class="px-6 py-3 rounded-r-lg">
+                                            Action
+                                        </th>
                                      </tr>
                                  </thead>
                                  <tbody>
+                                    {{-- @foreach ($semester as $semester) --}}
+                                        
+                                   
                                      <tr class="bg-white dark:bg-gray-800">
                                          <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                             Apple MacBook Pro 17"
+                                             {{-- {{ $semester->id }} --}}
                                          </th>
                                          <td class="px-6 py-4">
-                                             1
+                                            {{-- {{ $semester->name }} --}}
                                          </td>
                                          <td class="px-6 py-4">
-                                             $2999
+                                            {{-- {{ $semester->year }} --}}
                                          </td>
-                                     </tr>
+                                         <td class="px-6 py-4">
+                                            <a href="">Delete</a>
+                                        </td>
+                                     </tr> 
+                                     {{-- @endforeach --}}
                              </table>
                          </div>
 
@@ -113,9 +126,9 @@
                                          <th scope="col" class="px-6 py-3 ">
                                              Process
                                          </th>
-                                         <th scope="col" class="px-6 py-3 >
-                                             START DATE
-                                         </th>
+                                         <th scope="col" class="px-6 py-3 ">
+                                            START DATE
+                                        </th>
                                          <th scope="col" class="px-6 py-3 ">
                                              EXTENDED DATE
                                          </th>
@@ -146,6 +159,10 @@
                                          </td>
                                          <td class="px-6 py-4">
                                             Toggle
+                                         </td>
+                                         <td class="px-6 py-4">
+                                            <a href="">Delete</a>
+                                            <a href="">Edit</a>
                                          </td>
                                      </tr>
 

@@ -41,10 +41,6 @@ class ProjectController extends Controller
 
     }
 
-
-
-
-
     public function create()
     {
         $students = $this->user_repo->getStudent();
@@ -184,9 +180,6 @@ class ProjectController extends Controller
     public function meeting_list(){
         return view('pages.student.meeting_list');
     }
-
-
-
 
     public function reservation(Request $request){
 

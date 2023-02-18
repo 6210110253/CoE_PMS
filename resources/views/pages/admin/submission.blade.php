@@ -62,7 +62,7 @@
                                             Topic
                                         </th>
                                         <th scope="col" class="px-6 py-3">
-                                            file
+                                            detail
                                         </th>
                                         <th scope="col" class="px-6 py-3">
                                             Year
@@ -75,25 +75,28 @@
                                     <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
 
                                         <td class="px-6 py-4">
-                                            SEO Specialist
+                                            6210110566
                                         </td>
                                         <td class="px-6 py-4">
-                                            SEO Specialist
+                                            นางสาววรนุช แดงวรวิทย์
                                         </td>
 
                                         <td class="px-6 py-4">
                                             <div class="flex items-center">
-                                                <div class="h-2.5 w-2.5 rounded-full bg-red-500 mr-2"></div> Offline
+                                                <div class="h-2.5 w-2.5 rounded-full bg-red-500 mr-2"></div> ส่งแล้ว
                                             </div>
                                         </td>
                                         <td class="px-6 py-4">
-                                            SEO Specialist
+                                            ชื่อโปรเจกต์
                                         </td>
                                         <td class="px-6 py-4">
-                                            SEO Specialist
+                                            <span class="text-3xl font-bold text-gray-900 dark:text-white"></span>
+                                            <a href="{{ route('admin.submission.detail') }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">View Detail</a>
+                                            
+
                                         </td>
                                         <td class="px-6 py-4">
-                                            SEO Specialist
+                                            2565
                                         </td>
                                     </tr>
                                 </tbody>
@@ -110,4 +113,6 @@
      </div>
  </div>
  </x-app-layout>
+
+
 

@@ -39,6 +39,8 @@ Route::controller(ProjectController::class)->name('teacher.')->prefix('teacher/'
 
     Route::get('/submission', 'submission')
         ->name('submission');
+    Route::get('/submission/detail', 'submission_detail')
+        ->name('submission.detail');
 
     Route::post('/project/reservation/update_status', 'updateStatus')
         ->name('project.reservation.update_status');

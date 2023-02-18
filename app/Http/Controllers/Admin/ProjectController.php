@@ -26,9 +26,9 @@ class ProjectController extends Controller
         return view('pages.admin.submission');
     }
 
-    public function management(){
-        return view('pages.admin.management');
-    }
+    public function submission_detail(){
+        return view('pages.admin.submission_detail');
+    } 
 
     public function form_create_submission(){
         return view('pages.admin.form_create_submission');
