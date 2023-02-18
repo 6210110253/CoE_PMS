@@ -21,7 +21,6 @@ class CreateProjectReservationsTable extends Migration
             $table->enum("status", ['wait', 'approve', 'reject', 'remove'])->default('wait');
             $table->foreignId('semester_id')->constrained()->cascadeOnDelete();
             $table->longText("comment")->nullable();
-
             $table->timestamps();
             $table->softDeletes();
 

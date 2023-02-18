@@ -21,6 +21,7 @@ class CreateProjectListsTable extends Migration
                 ->on('users')
                 ->onDelete('cascade');
             $table->json('student_reservetion')->nullable()->comment("เก็บรายชื่อนักศึกษาที่ร่วมโปรเจค");
+            $table->foreignId('semester_id')->constrained()->cascadeOnDelete();
             $table->enum("status", ['Pre-Project', 'Project I', 'Project II', 'Finished', 'Cancel'])->default('Pre-Project');
             $table->timestamps();
         });
