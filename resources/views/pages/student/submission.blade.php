@@ -80,9 +80,9 @@
                                         <th scope="col" class="px-6 py-3">
                                             Name
                                         </th>
-                                        {{-- <th scope="col" class="px-6 py-3">
+                                        <th scope="col" class="px-6 py-3">
                                             Round
-                                        </th> --}}
+                                        </th>
                                         <th scope="col" class="px-6 py-3">
                                             Start Date
                                         </th>
@@ -105,6 +105,9 @@
 
                                         <td class="px-6 py-4">
                                             Meeting Mid 1
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            midterm
                                         </td>
                                         <td class="px-6 py-4">
                                             21 November 2022, 12:00 AM
