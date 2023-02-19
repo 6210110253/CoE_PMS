@@ -31,7 +31,6 @@ class Project extends Model
         $users = User::query()->find($this->student_reservetion);
         $created_by = $this->member->name;
 
-
         $list = [$created_by];
         foreach($users as $item){
             $list[] = $item->name;
