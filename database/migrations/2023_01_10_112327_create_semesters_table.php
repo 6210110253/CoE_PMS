@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->year('year');
-            //$table->boolean('is_active')->default(0);
+            $table->boolean('is_active')->default(0);
             $table->timestamps();
             $table->softDeletes();
         });

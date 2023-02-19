@@ -23,4 +23,9 @@ class SemesterRepository
        $data->save();
        return $data;
     }
+
+    public function getAll(){
+
+        return Semester::query()->where('is_active', 1)->get();
+    }
 }
