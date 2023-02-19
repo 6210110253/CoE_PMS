@@ -15,6 +15,9 @@ class CreateProjectsTable extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('semester_id')
+                ->constrained()
+                ->cascadeOnDelete();
             $table->string("title")
                 ->index()
                 ->comment("หัวข้อโครงงาน");
