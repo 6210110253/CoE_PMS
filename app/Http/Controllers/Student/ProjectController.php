@@ -13,6 +13,7 @@ use App\Traits\uploadImage;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use App\Repositories\ProjectReservationRepository;
+use App\Repositories\SemesterRepository;
 
 
 class ProjectController extends Controller
@@ -20,17 +21,19 @@ class ProjectController extends Controller
     use uploadImage;
 
     protected $project_repo;
-    protected $user_repo, $project_reservation_repo;
+    protected $user_repo, $project_reservation_repo, $semester_repo;
 
     public function __construct(
         ProjectRepository $projectRepository,
         UserRepository $userRepository,
         ProjectReservationRepository $projectReservationRepository,
+        SemesterRepository $semesterRepository,
 
     ){
         $this->project_repo = $projectRepository;
         $this->user_repo = $userRepository;
         $this->project_reservation_repo = $projectReservationRepository;
+        $this->semester_repo = $semesterRepository;
     }
 
     public function project_select()
@@ -45,7 +48,8 @@ class ProjectController extends Controller
     {
         $students = $this->user_repo->getStudent();
         $teachers = $this->user_repo->getTeacher();
-        return view('pages.student.project_propose',compact('students','teachers'));
+        $semesters = $this->semester_repo->getAll();
+        return view('pages.student.project_propose',compact('students','teachers','semesters'));
     }
 
     public function submission()
@@ -55,11 +59,13 @@ class ProjectController extends Controller
 
     public function store(Request $request){
 
+
         $request =  $this->myUploadFile($request);
 
         $project = $this->project_repo->store($request);
 
-        $semester_id = getSemesterActive();
+        $semester_id = $request->semester_id;
+
 
        $user_id = Auth()->id();
 
@@ -80,14 +86,20 @@ class ProjectController extends Controller
     public function edit(Project $project){
         $students = $this->user_repo->getStudent();
         $teachers = $this->user_repo->getTeacher();
-        return view('pages.student.project_propose',compact('students','project','teachers'));
+        $semesters = $this->semester_repo->getAll();
+        return view('pages.student.project_propose',compact('students','project','teachers','semesters'));
     }
 
     public function update(Project $project,Request $request){
 
+
         $request =  $this->myUploadFile($request);
 
-        $this->project_repo->variable($project,$request);
+        $project = $this->project_repo->variable($project,$request);
+        $project->reservation()->update([
+            'semester_id' => $request->semester_id
+            // 'comment' => 'edit '.$project->title
+        ]);
         return redirect()->back();
     }
 
@@ -185,7 +197,7 @@ class ProjectController extends Controller
 
        $project_id =  $request->project_id;
 
-       $semester_id = getSemesterActive();
+    //    $semester_id = getSemesterActive();
 
        $user_id = Auth()->id();
 
