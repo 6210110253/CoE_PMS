@@ -13,7 +13,7 @@
                 <div class="w-full p-4  bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
 
                     <form id="project_teacher"
-                   
+
                         action=" {{ Request::route()->getName() == 'teacher.project.create' ?  route('teacher.project.store') : route('teacher.project.update', $project) }}"
                         method="post"
                         enctype="multipart/form-data" >
@@ -22,10 +22,12 @@
                         <input type="hidden" name="approve_by" value="{{ Auth()->user()->id }}">
                         <div class="mb-6">
                             <label for="semester" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Year <span class="text-red-500">*</span></label>
-                            <select name="semester" id="semester">
-                                <option value="">--select status--</option>
-                                <option value="draft" {{  @$project->status == 'draft' ? 'selected' : '' }}> 2566</option>
-                                <option value="publish" {{  @$project->status == 'publish' ? 'selected' : '' }}> 2567</option>
+                            <select name="semester_id" id="semester">
+                                <option value="">--select semester--</option>
+                                @foreach ($semesters as $semester)
+                                <option value="{{$semester->id }}" {{ !empty($project) ? $project->semester_id == $semester->id ? 'selected' : ''  : '' }}> {{$semester->name }}</option>
+                                @endforeach
+
                             </select>
                         </div>
                     <div class="mb-6">

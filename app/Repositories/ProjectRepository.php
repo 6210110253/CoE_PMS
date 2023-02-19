@@ -26,6 +26,7 @@ class ProjectRepository
        !isset($params->member_count	) ?: $data->member_count = $params->member_count;
        !isset($params->condition) ?: $data->condition = $params->condition;
        !isset($params->student_reservetion) ?: $data->student_reservetion = $params->student_reservetion;
+       !isset($params->semester_id) ?: $data->semester_id = $params->semester_id;
 
        !isset($params->approve_by ) ?: $data->approve_by  = $params->approve_by;
 

@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use App\Repositories\ProjectReservationRepository;
 use App\Repositories\ProjectListRepository;
+use App\Repositories\SemesterRepository;
 
 
 class ProjectController extends Controller
@@ -22,20 +23,22 @@ class ProjectController extends Controller
     use uploadImage;
 
     protected $project_repo;
-    protected $user_repo;
+    protected $user_repo, $semester_repo;
 
 
     public function __construct(
         ProjectRepository $projectRepository,
         UserRepository $userRepository,
         ProjectReservationRepository $projectReservationRepository,
-        ProjectListRepository $projectListRepository
+        ProjectListRepository $projectListRepository,
+        SemesterRepository $semesterRepository
         )
     {
         $this->project_repo = $projectRepository;
         $this->user_repo = $userRepository;
         $this->project_reservation_repo = $projectReservationRepository;
         $this->project_list_repo = $projectListRepository;
+        $this->semester_repo = $semesterRepository;
 
     }
 
@@ -47,16 +50,14 @@ class ProjectController extends Controller
 
         $project_list = $this->project_list_repo->getProjectListAll(Auth::id());
 
-       
-
-
         return view('pages.teacher.project_teacher', compact('project_reservations', 'projects'));
     }
 
     public function create(){
 
         $teachers = $this->project_reservation_repo->getTeacher();
-        return view('pages.teacher.project_create',compact('teachers'));
+        $semesters = $this->semester_repo->getAll();
+        return view('pages.teacher.project_create',compact('teachers', 'semesters'));
     }
 
     public function store(Request $request){
@@ -123,7 +124,8 @@ class ProjectController extends Controller
     }
 
     public function edit(Project $project){
-        return view('pages.teacher.project_create',compact('project'));
+        $semesters = $this->semester_repo->getAll();
+        return view('pages.teacher.project_create',compact('project', 'semesters'));
     }
 
     public function update(Project $project,Request $request){
@@ -148,7 +150,7 @@ class ProjectController extends Controller
 
     public function submission_detail(){
         return view('pages.teacher.submission_detail');
-    } 
+    }
 
     public function project_list($id)
     {
@@ -158,7 +160,7 @@ class ProjectController extends Controller
 
     public function project_detail(Project $project)
     {
-    
+
         $students = $this->user_repo->getStudent();
 
         return view('pages.student.project_detail',compact('project','students'));
@@ -199,7 +201,7 @@ class ProjectController extends Controller
 
     }
 
-  
+
 
 
 

@@ -59,12 +59,9 @@ class ProjectController extends Controller
 
     public function store(Request $request){
 
-
         $request =  $this->myUploadFile($request);
 
         $project = $this->project_repo->store($request);
-
-        $semester_id = $request->semester_id;
 
 
        $user_id = Auth()->id();
@@ -74,7 +71,6 @@ class ProjectController extends Controller
         'user_id' => $user_id,
         'student_reservetion' => $request->student_reservetion,
         'status' => 'wait',
-        'semester_id' => $semester_id,
         'teacher_id' => $request->approve_by
        ];
 
@@ -96,10 +92,10 @@ class ProjectController extends Controller
         $request =  $this->myUploadFile($request);
 
         $project = $this->project_repo->variable($project,$request);
-        $project->reservation()->update([
-            'semester_id' => $request->semester_id
-            // 'comment' => 'edit '.$project->title
-        ]);
+        // $project->reservation()->update([
+        //     'semester_id' => $request->semester_id
+        //     // 'comment' => 'edit '.$project->title
+        // ]);
         return redirect()->back();
     }
 
@@ -197,8 +193,6 @@ class ProjectController extends Controller
 
        $project_id =  $request->project_id;
 
-    //    $semester_id = getSemesterActive();
-
        $user_id = Auth()->id();
 
        $param = [
@@ -206,7 +200,6 @@ class ProjectController extends Controller
         'user_id' => $user_id,
         'student_reservetion' => $request->student_reservetion,
         'status' => 'wait',
-        'semester_id' => $semester_id,
         'type' => 'reservation',
         'teacher_id' => $this->project_repo->getProjectById($project_id)->approve_by
        ];

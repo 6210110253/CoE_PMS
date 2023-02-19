@@ -23,7 +23,6 @@ class ProjectReservationRepository
         !isset($param->user_id) ?: $data->user_id   = $param->user_id;
         !isset($param->student_reservetion) ?: $data->student_reservetion  = $param->student_reservetion;
         !isset($param->status) ?: $data->status  = $param->status;
-        !isset($param->semester_id) ?: $data->semester_id  = $param->semester_id;
         !isset($param->comment) ?: $data->comment  = $param->comment;
         !isset($param->type) ?: $data->type  = $param->type;
         !isset($param->teacher_id) ?: $data->teacher_id  = $param->teacher_id;
