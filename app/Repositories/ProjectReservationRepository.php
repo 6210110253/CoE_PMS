@@ -76,7 +76,7 @@ class ProjectReservationRepository
 
      }
 
-     public function updateStatus($id, $status, $comment=''){
+     public function updateStatus($id, $status, $comment='',$semester_id){
 
         $project_reser = $this->getById($id);
         $project_reser->status = $status;

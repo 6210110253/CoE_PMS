@@ -216,7 +216,8 @@
                                     project_reservation_id : `{{ $project_reservation->id }}`,
                                     status : 'approve',
                                     comment : '',
-                                    teacher_id : "{{ Auth::id() }}"
+                                    teacher_id : "{{ Auth::id() }}",
+                                    semester_id : '1'
                                 },
                                 success: function(result){
                                     if(result.status)
@@ -266,7 +267,8 @@
                                     project_reservation_id : `{{ $project_reservation->id }}`,
                                     status : 'reject',
                                     comment : result.value,
-                                    teacher_id : "{{ Auth::id() }}"
+                                    teacher_id : "{{ Auth::id() }}",
+                                    semester_id : '1' ,
                                 },
                                 success: function(result){
                                     if(result.status)

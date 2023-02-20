@@ -177,9 +177,10 @@ class ProjectController extends Controller
         $id = $request->project_reservation_id;
         $status = $request->status;
         $comment = $request->comment;
+        $semester_id = $request->semester_id;
 
 
-        $obj = $this->project_reservation_repo->updateStatus($id, $status, $comment);
+        $obj = $this->project_reservation_repo->updateStatus($id, $status, $comment,$semester_id);
 
         if($status == 'approve'){
 
@@ -189,7 +190,9 @@ class ProjectController extends Controller
                 'project_reservation_id' => $id,
                 'approve_by' => $request->teacher_id,
                 'student_reservetion' => $users,
-                'status' => 'Pre-Project'
+                'status' => 'Pre-Project',
+                'semester_id' => $semester_id
+
             ]);
         }
 
