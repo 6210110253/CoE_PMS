@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\SemesterController;
+use App\Http\Controllers\Admin\JobProcessedsController;
 
 Route::controller(ProjectController::class)->name('admin.')->prefix('admin/')->group(function () {
 
@@ -14,13 +15,6 @@ Route::controller(ProjectController::class)->name('admin.')->prefix('admin/')->g
 
         Route::get('/submission/detail', 'submission_detail')
         ->name('submission.detail');
-
-
-    Route::get('/form-create-submission', 'form_create_submission')
-        ->name('form.create.submission');
-
-    Route::get('/form-create-submission', 'form_create_submission')
-        ->name('form.create.submission');
 
     Route::get('/old_project', 'old_project')
         ->name('old.project');
@@ -51,7 +45,22 @@ Route::controller(SemesterController::class)->name('admin.')->prefix('admin/')
     ->name('semester.store');
 
 
+    
 
+});
 
+Route::controller(JobProcessedsController::class)->name('admin.')->prefix('admin/')
+    ->group(function () {
+
+    Route::get('/form/create/submission', 'create')
+        ->name('form.create.submission');
+    Route::post('/submission/store', 'store')
+    ->name('submission.store');
+    Route::get('/submission/edit/{jobprocess}','edit')
+        ->name('submission.edit');
+    Route::post('/submission/{jobprocess}/update','update')
+        ->name('submission.update');
+
+    
 
 });

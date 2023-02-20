@@ -1,16 +1,17 @@
 <?php
 
 namespace App\Repositories;
+use App\Models\JobProcess;
 
 class JobProcessesRepository
 {
     public function store($params){
-        $data = new ProjectList();
+        $data = new JobProcess();
         return $this->variable($data , $params);
 
     }
 
-    public function variable(ProjectList $data , $params){
+    public function variable(JobProcess $data , $params){
 
        $params = (object)$params;
 
