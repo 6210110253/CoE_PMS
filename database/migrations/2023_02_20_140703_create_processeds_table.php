@@ -54,7 +54,7 @@ return new class extends Migration
                 ->constrained()
                 ->cascadeOnDelete()
                 ->nullable();
-            $table->dateTime("end_meeting")
+            $table->dateTime("date_meeting")
                 ->nullable();
             $table->timestamps();
 
