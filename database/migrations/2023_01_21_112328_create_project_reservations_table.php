@@ -19,7 +19,6 @@ class CreateProjectReservationsTable extends Migration
             $table->foreignId('user_id')->constrained()->cascadeOnDelete()->comment("รหัสนักศึกษาที่ทำการจอง");
             $table->json('student_reservetion')->nullable()->comment('เก็บรายชื่อนักศึกษาที่ร่วมโปรเจค');
             $table->enum("status", ['wait', 'approve', 'reject', 'remove'])->default('wait');
-
             $table->longText("comment")->nullable();
             $table->timestamps();
             $table->softDeletes();
