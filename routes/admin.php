@@ -15,12 +15,15 @@ Route::controller(ProjectController::class)->name('admin.')->prefix('admin/')->g
         Route::get('/submission/detail', 'submission_detail')
         ->name('submission.detail');
 
-  
+
     Route::get('/form-create-submission', 'form_create_submission')
         ->name('form.create.submission');
 
-        Route::get('/form-create-submission', 'form_create_submission')
+    Route::get('/form-create-submission', 'form_create_submission')
         ->name('form.create.submission');
+
+    Route::get('/old_project', 'old_project')
+        ->name('old.project');
 
 });
 
@@ -47,7 +50,7 @@ Route::controller(SemesterController::class)->name('admin.')->prefix('admin/')
     Route::post('/semester/store', 'store')
     ->name('semester.store');
 
-  
+
 
 
 
