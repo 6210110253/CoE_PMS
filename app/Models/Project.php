@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\ProjectReservation;
+use App\Models\Semester;
 use App\Casts\Json;
 
 class Project extends Model
@@ -61,4 +62,9 @@ class Project extends Model
     //     return $this->hasOne(ProjectReservation::class);
     // }
 
+    public function semester (){
+        return $this->belongsTo(Semester::class);
+    }
+
+    
 }

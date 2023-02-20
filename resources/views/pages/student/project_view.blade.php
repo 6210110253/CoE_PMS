@@ -42,39 +42,7 @@
                                          </th>
                                      </tr>
                                  </thead>
-                                 <tbody>
-                                    @foreach ($project_bookings as $project_booking)
-                                        
-                                    
-                                     <tr class="bg-white dark:bg-gray-800">
-                                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                            {{ $project_booking->project->title }}
-                                            <br>
-                                            @if( $project_booking->type == 'propose' )
-                                                <span class="bg-purple-200 text-purple-600 py-1 px-3 mt-2 rounded-full text-xs">propose</span>
-                                            @else 
-                                                <span class="bg-green-200 text-purple-600 py-1  px-3 mt-2 rounded-full text-xs">reservetion</span>
-                                            @endif
-                                         </th>
-                                         <td class="px-6 py-4">
-                                            อาจารย์ {{ $project_booking->project->teacher->name }}
-                                         </td>
-                                        
-                                         <td class="px-6 py-4">
-                                            {{ $project_booking->status }}
-                                         </td>
-                                         <td class="px-6 py-4">
-                                            @if($project_booking->status == 'wait')
-                                             <button class="cancel" data-id="{{ $project_booking->id }}"> Cancel</button>
-                                            @elseif($project_booking->status == 'reject')
-                
-                                             <button class="comment" data-id="{{ $project_booking->id }}"> View comment</button>
-                                            @endif
-                                         </td>
-                                     </tr>
-                                    @endforeach
-
-                                 </tbody>
+                                
                                  {{-- <tfoot>
                                     
                                      <tr class="font-semibold text-gray-900 dark:text-white">
