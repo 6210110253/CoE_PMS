@@ -28,4 +28,9 @@ class SemesterRepository
 
         return Semester::query()->where('is_active', 1)->get();
     }
+
+    public function getSemester(){
+
+        return Semester::all();
+    }
 }

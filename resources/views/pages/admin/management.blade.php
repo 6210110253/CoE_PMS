@@ -1,4 +1,17 @@
 <x-app-layout>
+    <style>
+/* CHECKBOX TOGGLE SWITCH */
+/* @apply rules for documentation, these do not work as inline style */
+.toggle-checkbox:checked {
+  @apply: right-0 border-green-400;
+  right: 0;
+  border-color: #68D391;
+}
+.toggle-checkbox:checked + .toggle-label {
+  @apply: bg-green-400;
+  background-color: #68D391;
+}
+</style>
     <div>
          <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-200">
 
@@ -25,8 +38,8 @@
 
                                  </div> --}}
 
-                            <form class="flex flex-justify-left gap-4" 
-                                method="post" 
+                            <form class="flex flex-justify-left gap-4"
+                                method="post"
                                 action=" {{ route('admin.semester.store') }}">
                                 @csrf
                                 <label class="">Name</label>
@@ -57,25 +70,29 @@
                                      </tr>
                                  </thead>
                                  <tbody>
-                                    {{-- @foreach ($semester as $semester) --}}
-                                        
-                                   
+                                    @foreach ($semesters as $semester)
+
                                      <tr class="bg-white dark:bg-gray-800">
                                          <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                             {{-- {{ $semester->id }} --}}
+                                             {{ $semester->id }}
                                          </th>
                                          <td class="px-6 py-4">
-                                            {{-- {{ $semester->name }} --}}
+                                            {{ $semester->name }}
                                          </td>
                                          <td class="px-6 py-4">
-                                            {{-- {{ $semester->year }} --}}
+                                            {{ $semester->year }}
                                          </td>
                                          <td class="px-6 py-4">
-                                            <a href="">Delete</a>
+                                            <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
+                                                <input type="checkbox" name="toggle" id="toggle" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer"/>
+                                                <label for="toggle" class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"></label>
+                                            </div>
+                                            <label for="toggle" class="text-xs text-gray-700">Active</label>
                                         </td>
-                                     </tr> 
-                                     {{-- @endforeach --}}
+                                     </tr>
+                                     @endforeach
                              </table>
+
                          </div>
 
 
