@@ -162,7 +162,7 @@
                             <a href="#" id="accept" class="text-white bg-green-500 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center  ">Accept</a>
                         </div>
 
-                        <button id="reject" data-modal-target="authentication-modal" data-modal-toggle="authentication-modal" class="block text-white bg-red-500 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center " type="button">
+                        <button id="reject" class="block text-white bg-red-500 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center " type="button">
                             Reject
                         </button>
                         @elseif($project_reservation->status == 'remove')
@@ -268,7 +268,7 @@
                                     status : 'reject',
                                     comment : result.value,
                                     teacher_id : "{{ Auth::id() }}",
-                                    semester_id : '1' ,
+                                    semester_id : '{{ $project_reservation->project->semester_id }}' ,
                                 },
                                 success: function(result){
                                     if(result.status)
