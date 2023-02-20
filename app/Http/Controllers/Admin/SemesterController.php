@@ -12,13 +12,14 @@ class SemesterController extends Controller
 
     public function __construct(
         SemesterRepository $semesterRepository,
-        
+
     ){
         $this->semester_repo = $semesterRepository;
     }
 
     public function management(){
-        return view('pages.admin.management');
+        $semesters = $this->semester_repo->getSemester();
+        return view('pages.admin.management', compact('semesters'));
     }
 
     public function store(Request $request)
