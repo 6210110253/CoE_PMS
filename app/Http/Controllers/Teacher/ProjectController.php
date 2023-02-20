@@ -152,6 +152,10 @@ class ProjectController extends Controller
         return view('pages.teacher.submission_detail');
     }
 
+    public function old_project(){
+        return view('pages.teacher.old_project');
+    }
+
     public function project_list($id)
     {
         $projects = $this->project_repo->getProjectByTeacherCreate($id);
