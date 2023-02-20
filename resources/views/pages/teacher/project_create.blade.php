@@ -25,7 +25,7 @@
                             <select name="semester_id" id="semester">
                                 <option value="">--select semester--</option>
                                 @foreach ($semesters as $semester)
-                                <option value="{{$semester->id }}" {{ !empty($project) ? $project->semester_id == $semester->id ? 'selected' : ''  : '' }}> {{$semester->name }}</option>
+                                <option value="{{$semester->id }}" {{ !empty($project->semester_id) ? $project->semester_id == $semester->id ? 'selected' : ''  : '' }}> {{$semester->name }}</option>
                                 @endforeach
 
                             </select>

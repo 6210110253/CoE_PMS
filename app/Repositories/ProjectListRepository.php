@@ -20,6 +20,7 @@ class ProjectListRepository
        !isset($params->project_reservation_id) ?: $data->project_reservation_id = $params->project_reservation_id;
        !isset($params->approve_by) ?: $data->approve_by = $params->approve_by;
        !isset($params->student_reservetion) ?: $data->student_reservetion = $params->student_reservetion;
+       !isset($params->semester_id) ?: $data->semester_id = $params->semester_id;
        !isset($params->status) ?: $data->status = $params->status;
 
        $data->save();

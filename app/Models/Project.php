@@ -53,12 +53,12 @@ class Project extends Model
         return $this->belongsTo(User::class, 'approve_by', 'id');
     }
 
-    public function reservations(){
-        return $this->hasMany(ProjectReservation::class);
-    }
+    // public function reservations(){
+    //     return $this->hasMany(ProjectReservation::class);
+    // }
 
-    public function reservation(){
-        return $this->hasOne(ProjectReservation::class);
-    }
+    // public function reservation(){
+    //     return $this->hasOne(ProjectReservation::class);
+    // }
 
 }
