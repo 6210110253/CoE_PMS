@@ -57,9 +57,9 @@
                                          <td class="px-6 py-4">
                                             {{ $announcement->finish }}
                                          </td>
-                                         <td class="px-6 py-4">
-                                            {{ $announcement->status }}
-                                         </td>
+                                        <td class="px-6 py-4">
+                                            <span class="bg-purple-200 text-purple-600 py-1 px-3 mt-2 rounded-full text-xs">{{ $announcement->status }}</span>
+                                        </td>
 
                                      </tr>
                                       @endforeach

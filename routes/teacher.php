@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Teacher\ProjectController;
+use App\Http\Controllers\Teacher\AnnouncementController;
+
+
+
 
 Route::controller(ProjectController::class)->name('teacher.')->prefix('teacher/')
     ->group(function () {
