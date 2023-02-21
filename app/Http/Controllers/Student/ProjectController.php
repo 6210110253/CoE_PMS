@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Repositories\ProjectReservationRepository;
 use App\Repositories\SemesterRepository;
 use App\Repositories\ProjectListRepository;
+use App\Repositories\JobProcessesRepository;
 
 
 class ProjectController extends Controller
@@ -29,7 +30,8 @@ class ProjectController extends Controller
         UserRepository $userRepository,
         ProjectReservationRepository $projectReservationRepository,
         SemesterRepository $semesterRepository,
-        ProjectListRepository $projectListRepository
+        ProjectListRepository $projectListRepository,
+        JobProcessesRepository $jobProcessesRepository
 
     ){
         $this->project_repo = $projectRepository;
@@ -37,6 +39,7 @@ class ProjectController extends Controller
         $this->project_reservation_repo = $projectReservationRepository;
         $this->semester_repo = $semesterRepository;
         $this->project_list_repo=$projectListRepository;
+        $this->job_processes_repo = $jobProcessesRepository;
     }
 
     public function project_select()
@@ -57,9 +60,10 @@ class ProjectController extends Controller
 
     public function submission()
     {
-        $project_lists = $this->project_list_repo->getProjectListAll(Auth::id());
-        dd($project_lists);
-        return view('pages.student.submission');
+        // $project_lists = $this->project_list_repo->getProjectListAll(Auth::id());
+        // dd($project_lists);
+        $job_pros = $this->job_processes_repo->getJobProcess();
+        return view('pages.student.submission', compact('job_pros'));
     }
 
     public function store(Request $request){

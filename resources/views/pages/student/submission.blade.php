@@ -90,6 +90,9 @@
                                             Extended Date
                                         </th>
                                         <th scope="col" class="px-6 py-3">
+                                            Type
+                                        </th>
+                                        <th scope="col" class="px-6 py-3">
                                             Status
                                         </th>
                                         <th scope="col" class="px-6 py-3">
@@ -101,19 +104,23 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach ($job_pros as $job_pro)
                                     <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
 
                                         <td class="px-6 py-4">
-                                            Meeting Mid 1
+                                           {{ $job_pro->process }}
                                         </td>
                                         <td class="px-6 py-4">
-                                            semester
+                                            {{ $job_pro->semester_id }}
                                         </td>
                                         <td class="px-6 py-4">
-                                            21 November 2022, 12:00 AM
+                                            {{ $job_pro->start_date }}
                                         </td>
                                         <td class="px-6 py-4">
-                                            27 November 2022, 11:59 PM
+                                            {{ $job_pro->end_date }}
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            {{ $job_pro->type }}
                                         </td>
                                         <td class="px-6 py-4">
                                             <div class="flex items-center">
@@ -138,6 +145,7 @@
                                             </div>
                                         </td>
                                     </tr>
+                                    @endforeach
                                 </tbody>
 
                             </table>

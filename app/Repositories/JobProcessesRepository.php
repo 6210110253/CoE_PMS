@@ -34,4 +34,8 @@ class JobProcessesRepository
     public function getJobProcess(){
         return JobProcess::all();
     }
+
+    public function getMyJobProcess($student_id){
+        return JobProcess::all();
+    }
 }

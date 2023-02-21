@@ -9,7 +9,7 @@ use App\Repositories\JobProcessesRepository;
 
 class SemesterController extends Controller
 {
-    protected $semester_repo;
+    protected $semester_repo,$job_processes_repo;
 
     public function __construct(
         SemesterRepository $semesterRepository,
