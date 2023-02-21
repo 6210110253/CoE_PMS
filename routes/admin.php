@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\SemesterController;
 use App\Http\Controllers\Admin\JobProcessedsController;
+use App\Http\Controllers\Admin\AnnouncementController;
+
 
 Route::controller(ProjectController::class)->name('admin.')->prefix('admin/')->group(function () {
 
@@ -45,13 +47,13 @@ Route::controller(SemesterController::class)->name('admin.')->prefix('admin/')
     ->name('semester.store');
 
 
-    
+
 
 });
 
 Route::controller(JobProcessedsController::class)->name('admin.')->prefix('admin/')
     ->group(function () {
-    
+
     Route::get('/form/create/submission', 'create')
         ->name('form.create.submission');
     Route::post('/submission/store', 'store')
@@ -61,6 +63,6 @@ Route::controller(JobProcessedsController::class)->name('admin.')->prefix('admin
     Route::post('/submission/{jobprocess}/update','update')
         ->name('submission.update');
 
-    
+
 
 });

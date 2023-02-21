@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Student\ProjectController;
+use App\Http\Controllers\Student\AnnouncementController;
 
 
 Route::controller(ProjectController::class)->name('student.')->prefix('student/')
