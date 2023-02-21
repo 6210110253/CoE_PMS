@@ -111,7 +111,7 @@
                                            {{ $job_pro->process }}
                                         </td>
                                         <td class="px-6 py-4">
-                                            {{ $job_pro->semester_id }}
+                                            {{ $job_pro->semester->name }}
                                         </td>
                                         <td class="px-6 py-4">
                                             {{ $job_pro->start_date }}

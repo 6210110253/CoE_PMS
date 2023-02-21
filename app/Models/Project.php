@@ -62,7 +62,7 @@ class Project extends Model
     //     return $this->hasOne(ProjectReservation::class);
     // }
 
-    public function semester (){
+    public function semester(){
         return $this->belongsTo(Semester::class);
     }
 

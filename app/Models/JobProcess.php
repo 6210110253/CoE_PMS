@@ -11,4 +11,9 @@ class JobProcess extends Model
 {
     use HasFactory;
 
+    public function semester(){
+        return $this->belongsTo(Semester::class);
+    }
+
+
 }

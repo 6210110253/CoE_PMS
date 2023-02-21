@@ -1,16 +1,17 @@
 <?php
 
 namespace App\Repositories;
+use App\Models\Processed;
 
 class ProcessedsRepository
 {
     public function store($params){
-        $data = new ProjectList();
+        $data = new Processed();
         return $this->variable($data , $params);
 
     }
 
-    public function variable(ProjectList $data , $params){
+    public function variable(Processed $data , $params){
 
        $params = (object)$params;
 
@@ -31,4 +32,11 @@ class ProcessedsRepository
        $data->save();
        return $data;
     }
+
+    // public function getJobProcessById($id){
+    //     return Processed::query()
+    //         ->where('id',$id)
+    //         ->get();
+    // }
 }
+
