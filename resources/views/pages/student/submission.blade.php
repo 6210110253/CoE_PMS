@@ -72,7 +72,7 @@
                     <div id="fullWidthTabContent" class="border-t border-gray-200 dark:border-gray-600">
                         <div class="hidden p-4 bg-white rounded-lg md:p-8 dark:bg-gray-800" id="stats" role="tabpanel" aria-labelledby="stats-tab">
 
-                            
+
                             <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                                     <tr>
@@ -107,7 +107,7 @@
                                             Meeting Mid 1
                                         </td>
                                         <td class="px-6 py-4">
-                                            midterm
+                                            semester
                                         </td>
                                         <td class="px-6 py-4">
                                             21 November 2022, 12:00 AM
@@ -180,7 +180,7 @@
                                             SEO Specialist
                                         </td>
                                         <td class="px-6 py-4">
-                                            SEO Specialist
+                                            semester
                                         </td>
                                         <td class="px-6 py-4">
                                             SEO Specialist
@@ -219,7 +219,7 @@
 
 
                         </div>
-                      
+
 
                         <div class="hidden p-4 bg-white rounded-lg md:p-8 dark:bg-gray-800" id="faq" role="tabpanel" aria-labelledby="faq-tab">
                             <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
@@ -256,7 +256,7 @@
                                             SEO Specialist
                                         </td>
                                         <td class="px-6 py-4">
-                                            SEO Specialist
+                                            semester
                                         </td>
                                         <td class="px-6 py-4">
                                             SEO Specialist
@@ -301,7 +301,7 @@
                 </div>
 
 
-                
+
             </div>
         </main>
     </div>
