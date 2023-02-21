@@ -27,11 +27,26 @@ class ProjectListRepository
        return $data;
     }
 
-    public function getProjectListAll($teacher_id){
-      return ProjectList::query()
-         ->where('approve_by',$teacher_id)
-         ->get();
-      
+   //  public function getById($student_id){
 
-  }
+   //    return ProjectList::query()->find($student_id);
+   // }
+
+    public function getProjectListAll($student_id){
+
+   //    $users = [];
+
+   //    $my_project = $this->getById($student_id);
+
+   //    if(count($my_project->student_reservetion) > 0){
+   //       foreach($my_project->student_reservetion as $user){
+   //            $users[] = strval($user);
+   //       }
+   //   }
+   
+      return ProjectList::query()
+         ->whereJsonContains('student_reservation', $student_id)
+         ->get();
+    }
+      
 }

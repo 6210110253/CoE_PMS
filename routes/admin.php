@@ -51,7 +51,7 @@ Route::controller(SemesterController::class)->name('admin.')->prefix('admin/')
 
 Route::controller(JobProcessedsController::class)->name('admin.')->prefix('admin/')
     ->group(function () {
-
+    
     Route::get('/form/create/submission', 'create')
         ->name('form.create.submission');
     Route::post('/submission/store', 'store')

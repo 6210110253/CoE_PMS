@@ -14,6 +14,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use App\Repositories\ProjectReservationRepository;
 use App\Repositories\SemesterRepository;
+use App\Repositories\ProjectListRepository;
 
 
 class ProjectController extends Controller
@@ -28,12 +29,14 @@ class ProjectController extends Controller
         UserRepository $userRepository,
         ProjectReservationRepository $projectReservationRepository,
         SemesterRepository $semesterRepository,
+        ProjectListRepository $projectListRepository
 
     ){
         $this->project_repo = $projectRepository;
         $this->user_repo = $userRepository;
         $this->project_reservation_repo = $projectReservationRepository;
         $this->semester_repo = $semesterRepository;
+        $this->project_list_repo=$projectListRepository;
     }
 
     public function project_select()
@@ -54,6 +57,8 @@ class ProjectController extends Controller
 
     public function submission()
     {
+        $project_lists = $this->project_list_repo->getProjectListAll(Auth::id());
+        dd($project_lists);
         return view('pages.student.submission');
     }
 

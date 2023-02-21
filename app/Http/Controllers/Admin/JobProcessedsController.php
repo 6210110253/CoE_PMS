@@ -19,6 +19,11 @@ class JobProcessedsController extends Controller
     }
 
 
+    public function index(){
+       $job_pros = $this->job_processes_repo->getJobProcess();
+        return  view('pages.admin.management',compact($job_pros));
+    }
+
     public function create()
     {
         $semesters = $this->semester_repo->getAll();
@@ -36,8 +41,8 @@ class JobProcessedsController extends Controller
         return view('pages.admin.form_create_submission',compact('semesters'));
     }
 
-    public function update(Project $project,Request $request){
-        $project = $this->semester_repo->variable($project,$request);
+    public function update(JobProcess $jobprocess,Request $request){
+        $project = $this->semester_repo->variable($jobprocess,$request);
   
         return redirect()->back();
     }

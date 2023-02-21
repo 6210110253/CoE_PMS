@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('job_processes', function (Blueprint $table) {
             $table->id();
             $table->enum("process", ['Pre-Project', 'Project I', 'Project II', 'Finished', 'Cancel'])->default('Pre-Project');
-            $table->foreignId('semester_id')
+            $table->integer('semester_id')
                 ->constrained()
                 ->cascadeOnDelete()
                 ->nullable();

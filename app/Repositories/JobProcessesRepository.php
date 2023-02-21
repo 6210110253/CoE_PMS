@@ -30,4 +30,8 @@ class JobProcessesRepository
        $data->save();
        return $data;
     }
+
+    public function getJobProcess(){
+        return JobProcess::all();
+    }
 }
