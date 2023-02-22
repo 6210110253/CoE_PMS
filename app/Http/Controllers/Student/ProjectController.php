@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Project;
 use App\Models\Announcement;
+use App\Models\JobProcess;
 use App\Repositories\ProjectRepository;
 use App\Repositories\UserRepository;
 use App\Traits\uploadImage;
@@ -46,7 +47,7 @@ class ProjectController extends Controller
     {
         $teachers = User::role('teacher')->get();
         //dd($users);
-        return view('pages.student.project_select', compact('teachers'));
+        return view('pages.student.project.project_select', compact('teachers'));
 
     }
 
@@ -55,7 +56,7 @@ class ProjectController extends Controller
         $students = $this->user_repo->getStudent();
         $teachers = $this->user_repo->getTeacher();
         $semesters = $this->semester_repo->getAll();
-        return view('pages.student.project_propose',compact('students','teachers','semesters'));
+        return view('pages.student.project.project_propose',compact('students','teachers','semesters'));
     }
 
     public function submission()
@@ -63,7 +64,13 @@ class ProjectController extends Controller
         // $project_lists = $this->project_list_repo->getProjectListAll(Auth::id());
         // dd($project_lists);
         $job_pros = $this->job_processes_repo->getJobProcess();
-        return view('pages.student.submission', compact('job_pros'));
+        return view('pages.student.submission.submission', compact('job_pros'));
+    }
+
+    public function submit_meeting_store(Request $request){
+        $processes = $this->processeds_repo->store($request);
+
+        return view('pages.student.submission.submit_meeting');
     }
 
     public function store(Request $request){
@@ -92,7 +99,7 @@ class ProjectController extends Controller
         $students = $this->user_repo->getStudent();
         $teachers = $this->user_repo->getTeacher();
         $semesters = $this->semester_repo->getAll();
-        return view('pages.student.project_propose',compact('students','project','teachers','semesters'));
+        return view('pages.student.project.project_propose',compact('students','project','teachers','semesters'));
     }
 
     public function update(Project $project,Request $request){
@@ -177,7 +184,7 @@ class ProjectController extends Controller
         $project_bookings = $this->project_reservation_repo->getProjectBooking(Auth::id());
         // dd($project_bookings);
 
-        return view('pages.student.project_view', compact('project_bookings'));
+        return view('pages.student.project.project_view', compact('project_bookings'));
     }
 
     public function student_home(){
@@ -186,8 +193,8 @@ class ProjectController extends Controller
         return view('pages.student.student_home', compact('announcements'));
     }
 
-    public function submit_meeting(){
-        return view('pages.student.submit_meeting');
+    public function submit_meeting(JobProcess $job_process){
+        return view('pages.student.submission.submit_meeting', compact('job_process'));
     }
 
     public function submit_report(){

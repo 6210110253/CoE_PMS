@@ -23,18 +23,20 @@ Route::controller(ProjectController::class)->name('student.')->prefix('student/'
     Route::get('/project-view', 'project_view')
         ->name('project.view');
 
-    Route::get('/submission', 'submission')
-        ->name('submission');
+    
     Route::get('/meeting','meeting')
         ->name('meeting');
     Route::get('/meeting-list','meeting_list')
         ->name('meeting.list');
-
+    
+    Route::get('/submission', 'submission')
+        ->name('submission');
     Route::get('/submit-meeting', 'submit_meeting')
         ->name('submit.meeting');
+    Route::post('/submit-meeting/store', 'submit_meeting_store')
+        ->name('submit.meeting.store');
     Route::get('/submit-report', 'submit_report')
         ->name('submit.report');
-
 
 
     Route::get('/student-home', 'student_home')

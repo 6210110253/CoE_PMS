@@ -157,7 +157,7 @@ class ProjectController extends Controller
     public function project_list($id)
     {
         $projects = $this->project_repo->getProjectByTeacherCreate($id);
-        return view('pages.student.project_list', compact('projects'));
+        return view('pages.student.project.project_list', compact('projects'));
     }
 
     public function project_detail(Project $project)
@@ -165,7 +165,7 @@ class ProjectController extends Controller
 
         $students = $this->user_repo->getStudent();
 
-        return view('pages.student.project_detail',compact('project','students'));
+        return view('pages.student.project.project_detail',compact('project','students'));
     }
 
     public function dashboard(){
