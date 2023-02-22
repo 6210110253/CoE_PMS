@@ -31,7 +31,7 @@ Route::controller(ProjectController::class)->name('student.')->prefix('student/'
     
     Route::get('/submission', 'submission')
         ->name('submission');
-    Route::get('/submit-meeting', 'submit_meeting')
+    Route::get('/submit-meeting/{JobProcess}', 'formProcess')
         ->name('submit.meeting');
     Route::post('/submit-meeting/store', 'submit_meeting_store')
         ->name('submit.meeting.store');

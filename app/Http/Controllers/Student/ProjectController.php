@@ -17,6 +17,8 @@ use App\Repositories\ProjectReservationRepository;
 use App\Repositories\SemesterRepository;
 use App\Repositories\ProjectListRepository;
 use App\Repositories\JobProcessesRepository;
+use App\Enums\ProcessesEnum;
+use App\Repositories\ProcessedsRepository;
 
 
 class ProjectController extends Controller
@@ -24,7 +26,7 @@ class ProjectController extends Controller
     use uploadImage;
 
     protected $project_repo;
-    protected $user_repo, $project_reservation_repo, $semester_repo;
+    protected $user_repo, $project_reservation_repo, $semester_repo,$processes_repo;
 
     public function __construct(
         ProjectRepository $projectRepository,
@@ -32,7 +34,8 @@ class ProjectController extends Controller
         ProjectReservationRepository $projectReservationRepository,
         SemesterRepository $semesterRepository,
         ProjectListRepository $projectListRepository,
-        JobProcessesRepository $jobProcessesRepository
+        JobProcessesRepository $jobProcessesRepository,
+        ProcessedsRepository $processedsRepository
 
     ){
         $this->project_repo = $projectRepository;
@@ -41,6 +44,7 @@ class ProjectController extends Controller
         $this->semester_repo = $semesterRepository;
         $this->project_list_repo=$projectListRepository;
         $this->job_processes_repo = $jobProcessesRepository;
+        $this->processes_repo = $processedsRepository;
     }
 
     public function project_select()
@@ -61,10 +65,31 @@ class ProjectController extends Controller
 
     public function submission()
     {
-        // $project_lists = $this->project_list_repo->getProjectListAll(Auth::id());
-        // dd($project_lists);
-        $job_pros = $this->job_processes_repo->getJobProcess();
-        return view('pages.student.submission.submission', compact('job_pros'));
+        $projectList = hasProjectList(Auth::id());
+        if(empty($projectList)){
+            abort(403,'คุณยังไม่มีโปรเจกต์');
+        }
+        $my_project = $projectList->reservaton?->project?->id ?? 0;
+        $job_pro_masters = $this->job_processes_repo->getJobProcess();
+        $job_pro_groups = [];
+
+        foreach($job_pro_masters as $key => $job_pro_group)
+        {
+            foreach($job_pro_group as $job)
+            {
+                $process = $this->processes_repo->getJobProcessById($job->id,$my_project);
+                $processed = $process;
+
+                $job_pro_groups[$key][] = $job->toArray() + [
+                    'data' => $job,
+                    'semester_name' => $job->semester->name,
+                    'processed' => $processed
+                ];
+            }
+        }
+
+
+        return view('pages.student.submission.submission', compact('job_pro_groups'));
     }
 
     public function submit_meeting_store(Request $request){
@@ -193,7 +218,8 @@ class ProjectController extends Controller
         return view('pages.student.student_home', compact('announcements'));
     }
 
-    public function submit_meeting(JobProcess $job_process){
+    public function formProcess(Request $request){
+        $job_process = $this->job_processes_repo->find($request->JobProcess);
         return view('pages.student.submission.submit_meeting', compact('job_process'));
     }
 

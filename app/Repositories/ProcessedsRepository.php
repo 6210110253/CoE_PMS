@@ -5,6 +5,12 @@ use App\Models\Processed;
 
 class ProcessedsRepository
 {
+
+    public function find($id)
+    {
+        return Processed::query()->findOrfail($id);
+    }
+
     public function store($params){
         $data = new Processed();
         return $this->variable($data , $params);
@@ -33,10 +39,11 @@ class ProcessedsRepository
        return $data;
     }
 
-    // public function getJobProcessById($id){
-    //     return Processed::query()
-    //         ->where('id',$id)
-    //         ->get();
-    // }
+    public function getJobProcessById($job_process_id,$project_id){
+        return Processed::query()
+            ->where('job_process_id',$job_process_id)
+            ->where('project_id',$project_id)
+            ->first();
+    }
 }
 

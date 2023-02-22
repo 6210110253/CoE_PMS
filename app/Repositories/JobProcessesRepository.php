@@ -2,9 +2,16 @@
 
 namespace App\Repositories;
 use App\Models\JobProcess;
+use App\Enums\ProcessesEnum;
 
 class JobProcessesRepository
 {
+
+    public function find($id)
+    {
+        return JobProcess::query()->findOrfail($id);
+    }
+
     public function store($params){
         $data = new JobProcess();
         return $this->variable($data , $params);
@@ -32,10 +39,16 @@ class JobProcessesRepository
     }
 
     public function getJobProcess(){
-        return JobProcess::all();
+        return JobProcess::query()
+            ->whereNot('process', ProcessesEnum::CANCEL)
+            ->where('status','publish')
+            ->orderBy('updated_at','DESC')
+            ->get()
+            ->groupBy('process');
+
     }
 
     public function getMyJobProcess($student_id){
-        return JobProcess::all();
+        return JobProcess::query()->get();
     }
 }

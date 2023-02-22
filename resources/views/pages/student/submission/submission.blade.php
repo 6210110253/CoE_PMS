@@ -53,32 +53,33 @@
                         </select>
                     </div>
                     <ul class="hidden text-sm font-medium text-center text-gray-500 divide-x divide-gray-200 rounded-lg sm:flex dark:divide-gray-600 dark:text-gray-400" id="fullWidthTab" data-tabs-toggle="#fullWidthTabContent" role="tablist">
+                        @foreach($job_pro_groups as $key => $job_pro)
+                        @php 
+                         $group=  Illuminate\Support\Str::camel($key);
+                        @endphp
                         <li class="w-full">
-                            <button id="stats-tab" data-tabs-target="#stats" type="button" role="tab" aria-controls="stats" aria-selected="true" class="inline-block w-full p-4 rounded-tl-lg bg-gray-50 hover:bg-gray-100 focus:outline-none dark:bg-gray-700 dark:hover:bg-gray-600">
-                                PreProject
+                            <button id="{{ $group }}-tab" data-tabs-target="#{{ $group }}" type="button" role="tab" aria-controls="{{  $group }}" 
+                            aria-selected="{{  $group == 'Pre-Project' ? 'true' : 'false' }}" class="inline-block w-full p-4 rounded-tl-lg bg-gray-50 hover:bg-gray-100 focus:outline-none dark:bg-gray-700 dark:hover:bg-gray-600">
+                                {{ $key }}
                             </button>
                         </li>
-                        <li class="w-full">
-                            <button id="about-tab" data-tabs-target="#about" type="button" role="tab" aria-controls="about" aria-selected="false" class="inline-block w-full p-4 bg-gray-50 hover:bg-gray-100 focus:outline-none dark:bg-gray-700 dark:hover:bg-gray-600">
-                                Project I
-                            </button>
-                        </li>
-                        <li class="w-full">
-                            <button id="faq-tab" data-tabs-target="#faq" type="button" role="tab" aria-controls="faq" aria-selected="false" class="inline-block w-full p-4 rounded-tr-lg bg-gray-50 hover:bg-gray-100 focus:outline-none dark:bg-gray-700 dark:hover:bg-gray-600">
-                                Project II
-                            </button>
-                        </li>
+                        @endforeach
+                       
                     </ul>
                     <div id="fullWidthTabContent" class="border-t border-gray-200 dark:border-gray-600">
-                        <div class="hidden p-4 bg-white rounded-lg md:p-8 dark:bg-gray-800" id="stats" role="tabpanel" aria-labelledby="stats-tab">
+                        @foreach($job_pro_groups as $group => $job_pros)
+                        @php 
+                        $group=  Illuminate\Support\Str::camel( $group);
+                       @endphp
+                        <div class="hidden p-4 bg-white rounded-lg md:p-8 dark:bg-gray-800" id="{{ $group }}" role="tabpanel" aria-labelledby="{{ $group }}-tab">
 
 
-                            <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                        
+                           <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                                     <tr>
-
                                         <th scope="col" class="px-6 py-3">
-                                            Name
+                                            Topic
                                         </th>
                                         <th scope="col" class="px-6 py-3">
                                             Round
@@ -104,27 +105,30 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($job_pros as $job_pro)
+                                    @forelse ($job_pros as $job_pro)
                                     <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
 
                                         <td class="px-6 py-4">
-                                           {{ $job_pro->process }}
+                                            {{ $job_pro['topic'] }}
                                         </td>
                                         <td class="px-6 py-4">
-                                            {{ $job_pro->semester->name }}
+                                            {{ $job_pro['semester_name'] }}
                                         </td>
                                         <td class="px-6 py-4">
-                                            {{ $job_pro->start_date }}
+                                            {{ $job_pro['start_date'] }}
                                         </td>
                                         <td class="px-6 py-4">
-                                            {{ $job_pro->end_date }}
+                                            {{ $job_pro['end_date'] }}
                                         </td>
                                         <td class="px-6 py-4">
-                                            {{ $job_pro->type }}
+                                            {{ $job_pro['type'] }}
                                         </td>
                                         <td class="px-6 py-4">
                                             <div class="flex items-center">
-                                                <div class="h-2.5 w-2.5 rounded-full bg-red-500 mr-2"></div>    ส่งแล้ว
+                                                @if(!empty($job_pro['processed']))
+                                                <div class="h-2.5 w-2.5 rounded-full bg-green-500 mr-2"></div>    ส่งแล้ว
+                                                @else 
+                                                <div class="h-2.5 w-2.5 rounded-full bg-red-500 mr-2"></div>    ยังไม่ส่ง                                                @endif
                                             </div>
                                         </td>
 
@@ -134,182 +138,34 @@
                                         <td class="px-6 py-4">
                                             <div class="flex space-x-2 justify-center">
                                                 <div>
-                                                    <a href="{{ route('student.submit.meeting', $job_pro) }}" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-[#050708]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center  mr-2 mb-2">
+                                                    @if(empty($job_pro['processed']))
+                                                    <a href="{{ route('student.submit.meeting', $job_pro['id']) }}" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-[#050708]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center  mr-2 mb-2">
                                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                                         <path stroke-linecap="round" stroke-linejoin="round" d="M15 11.25l-3-3m0 0l-3 3m3-3v7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                                     </svg>
 
                                                     Submission
                                                     </a>
+                                                    @endif
                                                 </div>
                                             </div>
                                         </td>
                                     </tr>
-                                    @endforeach
-                                </tbody>
-
-                            </table>
-
-
-                        </div>
-                    </div>
-                        <div class="hidden p-4 bg-white rounded-lg md:p-8 dark:bg-gray-800" id="about" role="tabpanel" aria-labelledby="about-tab">
-                            <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                    @empty
                                     <tr>
-
-                                        <th scope="col" class="px-6 py-3">
-                                            Name
-                                        </th>
-                                        <th scope="col" class="px-6 py-3">
-                                            Round
-                                        </th>
-                                        <th scope="col" class="px-6 py-3">
-                                            Start Date
-                                        </th>
-                                        <th scope="col" class="px-6 py-3">
-                                            Extended Date
-                                        </th>
-                                        <th scope="col" class="px-6 py-3">
-                                            Status
-                                        </th>
-                                        <th scope="col" class="px-6 py-3">
-                                            Time Remainning
-                                        </th>
-                                        <th scope="col" class="px-6 py-3">
-                                            Action
-                                        </th>
+                                       <td colspan="7">No information</td> 
                                     </tr>
-                                </thead>
-                                <tbody>
-                                    <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
-
-                                        <td class="px-6 py-4">
-                                            SEO Specialist
-                                        </td>
-                                        <td class="px-6 py-4">
-                                            semester
-                                        </td>
-                                        <td class="px-6 py-4">
-                                            SEO Specialist
-                                        </td>
-                                        <td class="px-6 py-4">
-                                            SEO Specialist
-                                        </td>
-                                        <td class="px-6 py-4">
-                                            <div class="flex items-center">
-                                                <div class="h-2.5 w-2.5 rounded-full bg-red-500 mr-2"></div> Offline
-                                            </div>
-                                        </td>
-
-                                        <td class="px-6 py-4">
-                                            SEO Specialist
-                                        </td>
-                                        <td class="px-6 py-4">
-                                            <div class="flex space-x-2 justify-center">
-                                                <div>
-                                                    <a href="{{ route('student.submit.meeting') }}" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-[#050708]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center  mr-2 mb-2">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 11.25l-3-3m0 0l-3 3m3-3v7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                                    </svg>
-
-                                                    Submission
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                    @endforelse
                                 </tbody>
 
-                            </table>
-
-
+                            </table> 
 
 
                         </div>
-
-
-                        <div class="hidden p-4 bg-white rounded-lg md:p-8 dark:bg-gray-800" id="faq" role="tabpanel" aria-labelledby="faq-tab">
-                            <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                                    <tr>
-
-                                        <th scope="col" class="px-6 py-3">
-                                            Name
-                                        </th>
-                                        <th scope="col" class="px-6 py-3">
-                                            Round
-                                        </th>
-                                        <th scope="col" class="px-6 py-3">
-                                            Start Date
-                                        </th>
-                                        <th scope="col" class="px-6 py-3">
-                                            Extended Date
-                                        </th>
-                                        <th scope="col" class="px-6 py-3">
-                                            Status
-                                        </th>
-                                        <th scope="col" class="px-6 py-3">
-                                            Time Remainning
-                                        </th>
-                                        <th scope="col" class="px-6 py-3">
-                                            Action
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
-
-                                        <td class="px-6 py-4">
-                                            SEO Specialist
-                                        </td>
-                                        <td class="px-6 py-4">
-                                            semester
-                                        </td>
-                                        <td class="px-6 py-4">
-                                            SEO Specialist
-                                        </td>
-                                        <td class="px-6 py-4">
-                                            SEO Specialist
-                                        </td>
-                                        <td class="px-6 py-4">
-                                            <div class="flex items-center">
-                                                <div class="h-2.5 w-2.5 rounded-full bg-red-500 mr-2"></div> Offline
-                                            </div>
-                                        </td>
-
-                                        <td class="px-6 py-4">
-                                            SEO Specialist
-                                        </td>
-                                        <td class="px-6 py-4">
-                                            <div class="flex space-x-2 justify-center">
-                                                <div>
-                                                    <a href="{{ route('student.submit.meeting') }}" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-[#050708]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center  mr-2 mb-2">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 11.25l-3-3m0 0l-3 3m3-3v7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                                    </svg>
-
-                                                    Submission
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-
-                            </table>
-
-                        </div>
-
-
-
-
-
+                        @endforeach
+                    
 
                 </div>
-
-
-
             </div>
         </main>
     </div>
