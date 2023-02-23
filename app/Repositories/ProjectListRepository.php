@@ -43,10 +43,19 @@ class ProjectListRepository
    //            $users[] = strval($user);
    //       }
    //   }
-   
-      return ProjectList::query()
+
+    return ProjectList::query()
          ->whereJsonContains('student_reservation', $student_id)
          ->get();
     }
-      
+
+    // public function showProject($user_id){
+
+    // return ProjectList::query()
+    //      ->whereJsonContains('student_reservation', ["$user_id"])
+    //      ->first();
+    // }
+
+
+
 }

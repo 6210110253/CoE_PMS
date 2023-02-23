@@ -66,7 +66,9 @@ class ProjectController extends Controller
 
     public function submission()
     {
+
         $projectList = hasProjectList(Auth::id());
+        $showproject = $projectList->reservaton;
         if(empty($projectList)){
             abort(403,'คุณยังไม่มีโปรเจกต์');
         }
@@ -89,8 +91,10 @@ class ProjectController extends Controller
             }
         }
 
+        // dd($showproject);
 
-        return view('pages.student.submission.submission', compact('job_pro_groups'));
+
+        return view('pages.student.submission.submission', compact('job_pro_groups','showproject'));
     }
 
     public function submit_meeting_store(Request $request){
