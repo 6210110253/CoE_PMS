@@ -167,7 +167,7 @@
                                     @foreach ($job_pros as $job_pro)
                                      <tr class="bg-white dark:bg-gray-800">
                                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                            {{ $job_pro->process }}
+                                           
                                          </th>
                                          <td class="px-6 py-4">
                                             {{ $job_pro->semester_id }}

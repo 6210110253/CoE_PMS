@@ -22,7 +22,7 @@ class SemesterController extends Controller
 
     public function management(){
         $semesters = $this->semester_repo->getSemester();
-        $job_pros = $this->job_processes_repo->getJobProcess();
+        $job_pros = $this->job_processes_repo->getMyJobProcessAll();
         return view('pages.admin.management', compact('semesters','job_pros'));
     }
 
