@@ -19,6 +19,7 @@ use App\Repositories\ProjectListRepository;
 use App\Repositories\JobProcessesRepository;
 use App\Enums\ProcessesEnum;
 use App\Repositories\ProcessedsRepository;
+use App\Helpers\ThaiDateHelperService;
 
 
 class ProjectController extends Controller
@@ -213,6 +214,8 @@ class ProjectController extends Controller
     }
 
     public function student_home(){
+
+
         $announcements =  Announcement::all();
 
         return view('pages.student.student_home', compact('announcements'));

@@ -1,4 +1,5 @@
 <x-app-layout>
+
     <div>
          <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-200">
 
@@ -45,17 +46,18 @@
                                  </thead>
                                  <tbody>
                                     @foreach ($announcements as $announcement)
-                                     <tr class="bg-white dark:bg-gray-800">
+                                    @inject('ThaiDateHelper', 'App\Services\ThaiDateHelperService')
 
+                                     <tr class="bg-white dark:bg-gray-800">
 
                                          <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                             {{ $announcement->title }}
                                         </th>
                                          <td class="px-6 py-4">
-                                            {{ $announcement->start }}
+                                            {{ $ThaiDateHelper->simpleDateFormat($announcement->start) }}
                                          </td>
                                          <td class="px-6 py-4">
-                                            {{ $announcement->finish }}
+                                            {{ $ThaiDateHelper->simpleDateFormat($announcement->finish) }}
                                          </td>
                                         <td class="px-6 py-4">
                                             <span class="bg-purple-200 text-purple-600 py-1 px-3 mt-2 rounded-full text-xs">{{ $announcement->status }}</span>
