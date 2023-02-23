@@ -46,7 +46,7 @@
                                  </thead>
                                  <tbody>
                                     @foreach ($announcements as $announcement)
-                                    @inject('ThaiDateHelper', 'App\Services\ThaiDateHelperService')
+                                    {{-- @inject('ThaiDateHelper', 'App\Services\ThaiDateHelperService') --}}
 
                                      <tr class="bg-white dark:bg-gray-800">
 
@@ -54,10 +54,12 @@
                                             {{ $announcement->title }}
                                         </th>
                                          <td class="px-6 py-4">
-                                            {{ $ThaiDateHelper->simpleDateFormat($announcement->start) }}
+                                            {{-- {{ $ThaiDateHelper->simpleDateFormat($announcement->start) }} --}}
+                                            {{ $announcement->start }}
                                          </td>
                                          <td class="px-6 py-4">
-                                            {{ $ThaiDateHelper->simpleDateFormat($announcement->finish) }}
+                                            {{ $announcement->finish }}
+                                            {{-- {{ $ThaiDateHelper->simpleDateFormat($announcement->finish) }} --}}
                                          </td>
                                         <td class="px-6 py-4">
                                             <span class="bg-purple-200 text-purple-600 py-1 px-3 mt-2 rounded-full text-xs">{{ $announcement->status }}</span>
