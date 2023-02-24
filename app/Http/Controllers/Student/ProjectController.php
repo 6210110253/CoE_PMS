@@ -124,6 +124,16 @@ class ProjectController extends Controller
             $request->file_poster = $this->upload($request);
         }
 
+        if(!empty($request->file_other)){
+            $file_other_arr = [];
+            foreach($request->file_other as $other){
+                $request->name_file = Str::random(20);
+                $request->file = $other;
+                $request->upload_path = 'process';
+                $file_other_arr[] = $this->upload($request);
+            }
+            $request->file_other = $file_other_arr;
+        }
   
         return $request;
     }
