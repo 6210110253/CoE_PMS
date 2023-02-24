@@ -192,38 +192,33 @@
                         <br>
 
                         <div class="hidden p-4 bg-white rounded-lg md:p-8 dark:bg-gray-800" id="faq" role="tabpanel" aria-labelledby="faq-tab">
-                           <div>
-                            @foreach ($project_in_charts as $project)
-                            <div class="w-full  bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                            <div>
+                                @foreach ($project_in_charts as $project )
+                                <div class="w-full  bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
 
-                                <div class="px-5 pb-5">
-                                    <br>
+                                    <div class="px-5 pb-5">
+                                        <br>
 
-                                    <a >
-                                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"> 
-                                            {{ $project->reservaton->project->title }}
-                                       </h5>
+                                        <a >
+                                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"> 
+                                                {{ $project->reservaton->project->title }}
+                                            </h5>
+                                            <p class="font-normal text-gray-700 dark:text-gray-400">Description : 
+                                                {{ $projec->reservaton->project->detail }}
+                                            </p>
+                                        </a>
 
-                                        <p class="font-normal text-gray-700 dark:text-gray-400">Description :
-                                            {{ $project->reservaton->project->detail }}
-                                        </p>
+                                        <br>
 
-                                        <p> 
-                                            {{-- @if(!empty($projectList->reservaton->project->student_reservetion))
-                                            @foreach ($projectList->reservaton->project->student_reservetion_list as $key => $member )
-                                                <p class="font-normal text-gray-700 dark:text-gray-400">{{ $key+1 }}.{{ $member }}</p>
-                                            @endforeach
-                                        @else
-                                            <p class="font-normal text-gray-700 dark:text-gray-400">1.{{ $projectList->reservaton->project->member->name }}</p>
-                                        @endif --}}
-                                        </p>
-                                    </a>
-                                    <br>
+                                    
+                                    </div>
+
+
+                                </div>
+                                <br>
+                                @endforeach
+
                             </div>
-                            <br>
-                            @endforeach 
-                           
-                        </div>
                         </div>
 
 
