@@ -192,7 +192,7 @@
                         <br>
 
                         <div class="hidden p-4 bg-white rounded-lg md:p-8 dark:bg-gray-800" id="faq" role="tabpanel" aria-labelledby="faq-tab">
-                            @foreach ($project_in_chart as $project )
+                            @foreach ($project_in_charts as $project )
                                <div class="w-full p-4 text-center bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
                                     <h5 class="mb-2 text-3xl text-left font-bold text-gray-900 dark:text-white">ชื่อโปรเจกต์ : {{ $project->reservaton->project->title }}</h5>
                                     <p class="mb-5 text-left text-gray-500 sm:text-lg dark:text-gray-400">คำอธิบายโปรเจกต์ : {{ $project->reservaton->project->detail }}</p>
@@ -207,7 +207,7 @@
                                     </p>
                                     <br>
                                     <div class="flex left justify-between">
-                                            <a href="{{ route('teacher.project.detail.teacher',$project ) }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">View more</a>
+                                            <a href="{{ route('teacher.project.detail.teacher',$project) }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">View more</a>
                                     </div>
 
 
