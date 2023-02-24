@@ -50,9 +50,7 @@ class ProjectController extends Controller
         $project_in_chart = $this->project_list_repo->getProjectInChart(Auth::id());
         // dd($project_in_chart);
 
-        $project_in_charts = $this->project_list_repo->getProjectInChart(Auth::id());
-
-        return view('pages.teacher.project_teacher', compact('project_reservations', 'projects','project_in_charts'));
+        return view('pages.teacher.project_teacher', compact('project_reservations', 'projects','project_in_chart'));
     }
 
     public function create(){

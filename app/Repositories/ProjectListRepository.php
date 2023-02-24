@@ -31,13 +31,6 @@ class ProjectListRepository
 
    //    return ProjectList::query()->find($student_id);
    // }
-
-   public function getProjectListTeacher($id){
-      return ProjectList::query($id)
-           ->where('approve_by', $id)
-           ->get();
-      }
-
     // public function showProject($user_id){
 
     // return ProjectList::query()
