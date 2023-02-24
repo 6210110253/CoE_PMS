@@ -98,10 +98,36 @@ class ProjectController extends Controller
     }
 
     public function submit_meeting_store(Request $request){
-        $processes = $this->processeds_repo->store($request);
+
+        $request =  $this->myUploadFileProcess($request);
+        
+        $processes = $this->processes_repo->store($request);
+       
 
         return view('pages.student.submission.submit_meeting');
     }
+
+    private function myUploadFileProcess($request)
+    {
+
+        if(!empty($request->file_report)){
+            $request->name_file = Str::random(20);
+            $request->file = $request->file_report;
+            $request->upload_path = 'process';
+            $request->file_report = $this->upload($request);
+        }
+
+        if(!empty($request->file_poster)){
+            $request->name_file = Str::random(20);
+            $request->file = $request->file_poster;
+            $request->upload_path = 'process';
+            $request->file_poster = $this->upload($request);
+        }
+
+  
+        return $request;
+    }
+
 
     public function store(Request $request){
 
@@ -227,7 +253,8 @@ class ProjectController extends Controller
 
     public function formProcess(Request $request){
         $job_process = $this->job_processes_repo->find($request->JobProcess);
-        return view('pages.student.submission.submit_meeting', compact('job_process'));
+        $projectList = hasProjectList(Auth::id());
+        return view('pages.student.submission.submit_meeting', compact('job_process','projectList'));
     }
 
     public function submit_report(){

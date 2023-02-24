@@ -31,12 +31,6 @@ class ProjectListRepository
 
    //    return ProjectList::query()->find($student_id);
    // }
-    // public function showProject($user_id){
-
-    // return ProjectList::query()
-    //      ->whereJsonContains('student_reservation', ["$user_id"])
-    //      ->first();
-    // }
 
     public function getProjectInChart($id){
 
