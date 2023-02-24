@@ -30,4 +30,6 @@ class ProjectList extends Model
     public function reservaton(){
         return $this->belongsTo(ProjectReservation::class,'project_reservation_id');
     }
+
+
 }
