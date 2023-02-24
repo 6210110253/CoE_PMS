@@ -45,6 +45,12 @@ class ProjectListRepository
     //      ->first();
     // }
 
+    public function getProjectInChart($id){
+
+        return ProjectList::query()
+            ->where('approve_by',$id)
+            ->get();
+    }
 
 
 }
