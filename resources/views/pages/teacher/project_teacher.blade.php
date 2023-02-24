@@ -204,7 +204,17 @@
                                                 {{ $project->reservaton->project->title }}
                                             </h5>
                                             <p class="font-normal text-gray-700 dark:text-gray-400">Description : 
-                                                {{ $projec->reservaton->project->detail }}
+                                                {{ $project->reservaton->project->detail }}
+                                            </p>
+                                            <p>
+                                                @if(!empty($project->reservaton->student_reservetion))
+                                            @foreach ($project->reservaton->student_reservetion_list as $key => $member )
+                                                <p class="font-normal text-gray-700 dark:text-gray-400">{{ $key+1 }}.{{ $member }}</p>
+                                            @endforeach
+                                            @else
+                                                <p class="font-normal text-gray-700 dark:text-gray-400">1.{{ $project->reservaton->member->name }}</p>
+                                            @endif  
+
                                             </p>
                                         </a>
 
