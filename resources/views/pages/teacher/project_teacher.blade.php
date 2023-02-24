@@ -193,7 +193,7 @@
 
                         <div class="hidden p-4 bg-white rounded-lg md:p-8 dark:bg-gray-800" id="faq" role="tabpanel" aria-labelledby="faq-tab">
                            <div>
-                            @foreach ($projectLists as $projectList)
+                            @foreach ($project_in_charts as $project)
                             <div class="w-full  bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
 
                                 <div class="px-5 pb-5">
@@ -201,42 +201,28 @@
 
                                     <a >
                                         <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"> 
-                                            {{ $projectList->reservaton->project->title }}
+                                            {{ $project->reservaton->project->title }}
                                        </h5>
 
                                         <p class="font-normal text-gray-700 dark:text-gray-400">Description :
-                                            {{ $projectList->reservaton->project->detail }}
+                                            {{ $project->reservaton->project->detail }}
                                         </p>
 
-
-                                        {{-- @if(!empty($projectList->reservaton->project->student_reservetion))
-
+                                        <p> 
+                                            {{-- @if(!empty($projectList->reservaton->project->student_reservetion))
                                             @foreach ($projectList->reservaton->project->student_reservetion_list as $key => $member )
                                                 <p class="font-normal text-gray-700 dark:text-gray-400">{{ $key+1 }}.{{ $member }}</p>
-
                                             @endforeach
-
                                         @else
                                             <p class="font-normal text-gray-700 dark:text-gray-400">1.{{ $projectList->reservaton->project->member->name }}</p>
-
                                         @endif --}}
+                                        </p>
                                     </a>
                                     <br>
-                                    
-                                </div>
-
-
                             </div>
                             <br>
-                            @endforeach
-                            @foreach ($project_in_chart as $project )
-                               <div class="w-full p-4 text-center bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
-                                    <h5 class="mb-2 text-3xl text-left font-bold text-gray-900 dark:text-white">ชื่อโปรเจกต์ : {{ $project->reservaton->project->title }}</h5>
-                                    <p class="mb-5 text-left text-gray-500 sm:text-lg dark:text-gray-400">คำอธิบายโปรเจกต์ : {{ $project->reservaton->project->detail }}</p>
-                                    <div class="flex left justify-between">
-                                            <a href="{{ route('teacher.project.detail.teacher',$project ) }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">View more</a>
-                                    </div>
-
+                            @endforeach 
+                           
                         </div>
                         </div>
 
