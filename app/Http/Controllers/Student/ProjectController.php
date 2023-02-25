@@ -84,9 +84,6 @@ class ProjectController extends Controller
                 $process = $this->processes_repo->getJobProcessById($job->id,$my_project);
                 $processed = $process;
 
-                $date= $this->job_processes_repo->getDateCanSubmit($job->id);
-                $date_date = $date;
-
                 $job_pro_groups[$key][] = $job->toArray() + [
                     'data' => $job,
                     'semester_name' => $job->semester->name,
