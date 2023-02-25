@@ -20,6 +20,7 @@ use App\Repositories\JobProcessesRepository;
 use App\Enums\ProcessesEnum;
 use App\Repositories\ProcessedsRepository;
 use App\Helpers\ThaiDateHelperService;
+use Carbon\Carbon;
 
 
 class ProjectController extends Controller
@@ -64,7 +65,7 @@ class ProjectController extends Controller
         return view('pages.student.project.project_propose',compact('students','teachers','semesters'));
     }
 
-    public function submission()
+    public function submission(JobProcess $job_process)
     {
 
         $projectList = hasProjectList(Auth::id());
@@ -83,6 +84,9 @@ class ProjectController extends Controller
                 $process = $this->processes_repo->getJobProcessById($job->id,$my_project);
                 $processed = $process;
 
+                $date= $this->job_processes_repo->getDateCanSubmit($job->id);
+                $date_date = $date;
+
                 $job_pro_groups[$key][] = $job->toArray() + [
                     'data' => $job,
                     'semester_name' => $job->semester->name,
@@ -91,13 +95,17 @@ class ProjectController extends Controller
             }
         }
 
-        // dd($showproject);
+    
+        $current_date = Carbon::now();
 
 
-        return view('pages.student.submission.submission', compact('job_pro_groups','showproject'));
+
+        return view('pages.student.submission.submission', compact('job_pro_groups','showproject' , 'current_date'));
     }
 
     public function submit_meeting_store(Request $request){
+
+        
 
         $request =  $this->myUploadFileProcess($request);
         

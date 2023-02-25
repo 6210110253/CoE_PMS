@@ -137,12 +137,17 @@
                                                 @if(!empty($job_pro['processed']))
                                                 <div class="h-2.5 w-2.5 rounded-full bg-green-500 mr-2"></div>    ส่งแล้ว
                                                 @else
-                                                <div class="h-2.5 w-2.5 rounded-full bg-red-500 mr-2"></div>    ยังไม่ส่ง                                                @endif
+                                                <div class="h-2.5 w-2.5 rounded-full bg-red-500 mr-2"></div>    ยังไม่ส่ง                                               
+                                                 @endif
                                             </div>
                                         </td>
 
                                         <td class="px-6 py-4">
-                                            Out of time
+                                            @if( $current_date >= $job_pro['end_date']   )
+                                                <div class="h-2.5 w-2.5 rounded-full bg-red-500 mr-2"></div> หมดช่วงเวลาในการส่ง
+                                            @else
+                                                <div class="h-2.5 w-2.5 rounded-full bg-green-500 mr-2"></div> อยู่ในช่วงเวลาการส่ง
+                                            @endif  
                                         </td>
                                         <td class="px-6 py-4">
                                             <div class="flex space-x-2 justify-center">

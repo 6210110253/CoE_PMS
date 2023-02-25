@@ -3,6 +3,7 @@
 namespace App\Repositories;
 use App\Models\JobProcess;
 use App\Enums\ProcessesEnum;
+use Carbon\Carbon;
 
 class JobProcessesRepository
 {
@@ -50,5 +51,19 @@ class JobProcessesRepository
 
     public function getMyJobProcessAll(){
         return JobProcess::query()->get();
+    }
+
+    public function getDateCanSubmit($job_process_id){
+        $current_date = Carbon::today();
+      
+
+        
+        $compare_date = JobProcess::query()
+                ->find($job_process_id)
+                ->whereDate('end_date', '>=', $current_date->format('Y-m-d'))
+                ->whereTime('end_date', '>=', $current_date)
+                ->get();
+                
+        return $compare_date;
     }
 }
