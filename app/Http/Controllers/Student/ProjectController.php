@@ -20,6 +20,7 @@ use App\Repositories\JobProcessesRepository;
 use App\Enums\ProcessesEnum;
 use App\Repositories\ProcessedsRepository;
 use App\Helpers\ThaiDateHelperService;
+use Carbon\Carbon;
 
 
 class ProjectController extends Controller
@@ -64,11 +65,10 @@ class ProjectController extends Controller
         return view('pages.student.project.project_propose',compact('students','teachers','semesters'));
     }
 
-    public function submission()
+    public function submission(JobProcess $job_process)
     {
 
         $projectList = hasProjectList(Auth::id());
-        $showproject = $projectList->reservaton;
         if(empty($projectList)){
             abort(403,'คุณยังไม่มีโปรเจกต์');
         }
@@ -91,13 +91,17 @@ class ProjectController extends Controller
             }
         }
 
-        // dd($showproject);
+        $showproject = $projectList->reservaton;
+        $current_date = Carbon::now();
 
 
-        return view('pages.student.submission.submission', compact('job_pro_groups','showproject'));
+
+        return view('pages.student.submission.submission', compact('job_pro_groups','showproject' , 'current_date'));
     }
 
     public function submit_meeting_store(Request $request){
+
+        
 
         $request =  $this->myUploadFileProcess($request);
         
@@ -124,6 +128,16 @@ class ProjectController extends Controller
             $request->file_poster = $this->upload($request);
         }
 
+        if(!empty($request->file_other)){
+            $file_other_arr = [];
+            foreach($request->file_other as $other){
+                $request->name_file = Str::random(20);
+                $request->file = $other;
+                $request->upload_path = 'process';
+                $file_other_arr[] = $this->upload($request);
+            }
+            $request->file_other = $file_other_arr;
+        }
   
         return $request;
     }

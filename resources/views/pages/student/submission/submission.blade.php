@@ -137,17 +137,24 @@
                                                 @if(!empty($job_pro['processed']))
                                                 <div class="h-2.5 w-2.5 rounded-full bg-green-500 mr-2"></div>    ส่งแล้ว
                                                 @else
-                                                <div class="h-2.5 w-2.5 rounded-full bg-red-500 mr-2"></div>    ยังไม่ส่ง                                                @endif
+                                                <div class="h-2.5 w-2.5 rounded-full bg-red-500 mr-2"></div>    ยังไม่ส่ง                                               
+                                                 @endif
                                             </div>
                                         </td>
 
                                         <td class="px-6 py-4">
-                                            Out of time
+                                            @if( $current_date >= $job_pro['end_date']   )
+                                                <div class="h-2.5 w-2.5 rounded-full bg-red-500 mr-2"></div> หมดช่วงเวลาในการส่ง
+                                            @else
+                                                <div class="h-2.5 w-2.5 rounded-full bg-green-500 mr-2"></div> อยู่ในช่วงเวลาการส่ง
+                                            @endif  
                                         </td>
                                         <td class="px-6 py-4">
                                             <div class="flex space-x-2 justify-center">
                                                 <div>
-                                                    @if(empty($job_pro['processed']))
+                                                    @if( (!empty($job_pro['processed'])) || ($current_date >= $job_pro['end_date']) )
+
+                                                    @else
                                                     <a href="{{ route('student.submit.meeting', $job_pro['id']) }}" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-[#050708]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center  mr-2 mb-2">
                                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                                         <path stroke-linecap="round" stroke-linejoin="round" d="M15 11.25l-3-3m0 0l-3 3m3-3v7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
