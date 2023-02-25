@@ -69,7 +69,6 @@ class ProjectController extends Controller
     {
 
         $projectList = hasProjectList(Auth::id());
-        $showproject = $projectList->reservaton;
         if(empty($projectList)){
             abort(403,'คุณยังไม่มีโปรเจกต์');
         }
@@ -92,7 +91,7 @@ class ProjectController extends Controller
             }
         }
 
-    
+        $showproject = $projectList->reservaton;
         $current_date = Carbon::now();
 
 
