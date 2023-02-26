@@ -19,6 +19,7 @@ class SemesterRepository
 
        !isset($params->name) ?: $data->name = $params->name;
        !isset($params->year) ?: $data->year = $params->year;
+       !isset($params->is_active) ?: $data->is_active = $params->is_active;
 
        $data->save();
        return $data;
@@ -32,5 +33,11 @@ class SemesterRepository
     public function getSemester(){
 
         return Semester::all();
+    }
+
+    public function findByID($id){
+        return Semester::query()
+                ->find($id);
+
     }
 }

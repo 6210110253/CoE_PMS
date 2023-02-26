@@ -59,7 +59,7 @@ class ProjectController extends Controller
 
     public function create()
     {
-        $students = $this->user_repo->getStudent();
+        $students = $this->user_repo->getStudent(unsetStudent());
         $teachers = $this->user_repo->getTeacher();
         $semesters = $this->semester_repo->getAll();
         return view('pages.student.project.project_propose',compact('students','teachers','semesters'));
@@ -100,11 +100,11 @@ class ProjectController extends Controller
     }
 
     public function submit_meeting_store(Request $request){
-       
+
         $request =  $this->myUploadFileProcess($request);
-        
+
         $processes = $this->processes_repo->store($request);
-        
+
 
         return view('pages.student.submission.submit_meeting', );
     }
@@ -136,7 +136,7 @@ class ProjectController extends Controller
             }
             $request->file_other = $file_other_arr;
         }
-  
+
         return $request;
     }
 
@@ -264,7 +264,7 @@ class ProjectController extends Controller
     }
 
     public function formProcess(Request $request){
-        
+
         $job_process = $this->job_processes_repo->find($request->JobProcess);
         $projectList = hasProjectList(Auth::id());
         return view('pages.student.submission.submit_meeting', compact('job_process','projectList'));
@@ -279,7 +279,6 @@ class ProjectController extends Controller
     }
 
     public function reservation(Request $request){
-
        $project_id =  $request->project_id;
 
        $user_id = Auth()->id();

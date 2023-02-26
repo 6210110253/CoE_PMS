@@ -166,10 +166,10 @@ class ProjectController extends Controller
 
     public function project_detail(Project $project)
     {
+        $project_reservation = $this->project_reservation_repo->getProjectBookingStatus(Auth::id(), $project->id);
+        $students = $this->user_repo->getStudent(unsetStudent());
 
-        $students = $this->user_repo->getStudent();
-
-        return view('pages.student.project.project_detail',compact('project','students'));
+        return view('pages.student.project.project_detail',compact('project','students','project_reservation'));
     }
 
     public function dashboard(){

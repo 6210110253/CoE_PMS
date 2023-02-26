@@ -47,7 +47,11 @@ class ProjectReservation extends Model
     }
 
     public function getStudentReservetionListAttribute(){
-        $users = User::query()->find($this->student_reservetion);
+        $users = [];
+
+        if(!empty($this->student_reservetion)){
+            $users = User::query()->find($this->student_reservetion);
+        }
         $created_by = $this->member->name;
 
 
@@ -61,7 +65,7 @@ class ProjectReservation extends Model
     }
 
 
-    
 
- 
+
+
 }

@@ -31,4 +31,18 @@ class SemesterController extends Controller
         $semester = $this->semester_repo->store($request);
         return redirect()->back();
     }
+
+    public function updateActive(Request $request){
+
+       $semester = $this->semester_repo->findByID($request->id);
+       $semester = $this->semester_repo->variable($semester, [
+        'is_active'=> $request->is_active
+       ]);
+
+       return \response()->json([
+            'status' => true,
+            'data' => $semester,
+            'massege' => 'sucess'
+        ]);
+    }
 }

@@ -12,6 +12,19 @@ function hasProjectList($user_id)
 
 }
 
+function unsetStudent(){
+     $project_lists = App\Models\ProjectList::query()
+        ->whereNot('status','Cancel')
+        ->get();
+    $arr_student = [];
+    foreach($project_lists as $project_list){
+        foreach($project_list->student_reservetion as $student){
+            $arr_student[] = $student;
+        }
+    }
+    return $arr_student;
+}
+
 
 // class ThaiDateHelperService
 // {

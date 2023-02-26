@@ -101,12 +101,15 @@ class ProjectReservationRepository
 
         $users[] = strval($my_project->user_id);
 
-        if(count($my_project->student_reservetion) > 0){
-            foreach($my_project->student_reservetion as $user){
-                 $users[] = strval($user);
+        if(!empty($my_project->student_reservetion)){
+            if(count($my_project->student_reservetion) > 0){
+                foreach($my_project->student_reservetion as $user){
+                    $users[] = strval($user);
 
+                }
             }
         }
+
 
 
         ProjectReservation::query()
@@ -123,5 +126,22 @@ class ProjectReservationRepository
 
         return $users;
     }
+
+    public function getProjectBookingStatus($user_id,$project_id){
+
+        return ProjectReservation::query()
+            ->with([
+                'project.teacher',
+                'user'
+            ])
+            ->whereIn('status', ["wait", "reject"]) //whereสำหรับหลายค่า ,and
+            ->where(function($q) use ($user_id){
+                $q->orWhere('user_id',$user_id ) // or
+                  ->orWhereJsonContains('student_reservetion', ["$user_id"]); //ใช้สำหรับค่า json
+            })
+            ->where('project_id',$project_id)
+            ->first();
+    }
+
 
 }

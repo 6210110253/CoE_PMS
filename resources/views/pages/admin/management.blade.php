@@ -84,15 +84,22 @@
                                          </td>
                                          <td class="px-6 py-4">
                                             <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
-                                                <input type="checkbox" name="toggle" id="toggle" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer"/>
-                                                <label for="toggle" class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"></label>
+                                                <input  value="1"
+                                                @if( $semester->is_active == 1)
+                                                        checked
+                                                @endif
+                                                        type="checkbox"
+                                                        name="is_active[]"
+                                                        data-id="{{ $semester->id }}"
+                                                        id="toggle{{ $semester->id }}" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer"/>
+                                                <label for="toggle{{ $semester->id }}" class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"></label>
                                             </div>
-                                            <label for="toggle" class="text-xs text-gray-700">Active</label>
+                                            <label for="toggle{{ $semester->id }}" class="text-xs text-gray-700">Active</label>
                                         </td>
                                      </tr>
                                      @endforeach
 
-                                     
+
                              </table>
 
                          </div>
@@ -135,7 +142,7 @@
                                 <br>
                              <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                                  <thead class="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400">
-                                     
+
                                     <tr>
                                          <th scope="col" class="px-6 py-3 ">
                                              Name
@@ -191,7 +198,7 @@
                                             <a href="">Delete</a>
                                             <a href="">Edit</a>
                                          </td>
-                                        
+
                                      </tr>
                                      @endforeach
 
@@ -214,5 +221,36 @@
          </main>
      </div>
  </div>
+ <script>
+    $('.toggle-checkbox').change(function() {
+          if(this.checked) {
+           var id = $(this).attr('data-id')
+             updateActive(id,1)
+          }else{
+             var id = $(this).attr('data-id')
+             updateActive(id,0)
+          }
+    });
+    function updateActive(id,is_active){
+        $.ajax({
+            url: "{{ route('admin.update.active') }}",
+            type: "POST",
+            data: {
+                _token : $('meta[name="csrf-token"]').attr('content'),
+                id : id ,
+                is_active : is_active
+            },
+            success: function(result){
+                if(result.status)
+                {
+                        Swal.fire('Saved!', '', 'success')
+                }else{
+                        Swal.fire(result.massege, '', 'error')
+                }
+            }
+
+        });
+    }
+ </script>
  </x-app-layout>
 

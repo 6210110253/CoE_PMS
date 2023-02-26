@@ -31,10 +31,6 @@ Route::controller(AnnouncementController::class)->name('admin.')->prefix('admin/
 
     Route::post('/announcement/store', 'store')
     ->name('announcement.store');
-
-
-
-
 });
 
 Route::controller(SemesterController::class)->name('admin.')->prefix('admin/')
@@ -45,6 +41,9 @@ Route::controller(SemesterController::class)->name('admin.')->prefix('admin/')
 
     Route::post('/semester/store', 'store')
     ->name('semester.store');
+
+    Route::post('/update-active', 'updateActive')
+        ->name('update.active');
 
 
 
