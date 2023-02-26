@@ -25,7 +25,7 @@
                     <span class="mx-3">Home</span>
                 </a>
 
-                @canany('Role access','Role add','Role edit','Role delete')
+                {{-- @canany('Role access','Role add','Role edit','Role delete')
                 <a class="flex items-center mt-4 py-2 px-6 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100 {{ Route::currentRouteNamed('admin.roles.index') ? 'active' : '' }}"
                     href="{{ route('admin.roles.index') }}">
                     <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -37,8 +37,8 @@
 
                     <span class="mx-3">Role</span>
                 </a>
-                @endcanany
-                @canany('Permission access','Permission add','Permission edit','Permission delete')
+                @endcanany --}}
+                {{-- @canany('Permission access','Permission add','Permission edit','Permission delete')
                  <a class="flex items-center mt-4 py-2 px-6 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100 {{ Route::currentRouteNamed('admin.permissions.index') ? 'active' : '' }}"
                     href="{{ route('admin.permissions.index') }}">
                     <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -50,16 +50,16 @@
 
                     <span class="mx-3">Permission</span>
                 </a>
-                @endcanany
+                @endcanany --}}
 
                 @canany('User access','User add','User edit','User delete')
                 <a class="flex items-center mt-4 py-2 px-6 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100 {{ Route::currentRouteNamed('admin.users.index') ? 'active' : '' }}"
                     href="{{ route('admin.users.index')}}">
                     <span class="inline-flex justify-center items-center">
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12.414 5H21a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h7.414l2 2zM12 13a2.5 2.5 0 1 0 0-5a2.5 2.5 0 0 0 0 5zm-4 5h8a4 4 0 1 0-8 0z"/></svg>
                 </span>
 
-                    <span class="mx-3">User</span>
+                    <span class="mx-3">User Management</span>
                 </a>
                 @endcanany
 
