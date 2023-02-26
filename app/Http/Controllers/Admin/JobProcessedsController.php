@@ -27,7 +27,7 @@ class JobProcessedsController extends Controller
     public function create()
     {
         $semesters = $this->semester_repo->getAll();
-        return view('pages.admin.form_create_submission',compact('semesters'));
+        return view('pages.admin.submission.form_create_submission',compact('semesters'));
     }
 
     public function store(Request $request)
@@ -38,7 +38,7 @@ class JobProcessedsController extends Controller
 
     public function edit(JobProcess $jobprocess){
         $semesters = $this->semester_repo->getAll();
-        return view('pages.admin.form_create_submission',compact('semesters'));
+        return view('pages.admin.submission.form_create_submission',compact('semesters'));
     }
 
     public function update(JobProcess $jobprocess,Request $request){

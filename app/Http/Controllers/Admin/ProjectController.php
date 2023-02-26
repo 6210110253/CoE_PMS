@@ -19,19 +19,19 @@ class ProjectController extends Controller
         ->get();
         //dd($project);
 
-        return view('pages.admin.project_status');
+        return view('pages.admin.project.project_status');
     }
 
     public function submission(){
-        return view('pages.admin.submission');
+        return view('pages.admin.submission.submission');
     }
 
     public function submission_detail(){
-        return view('pages.admin.submission_detail');
+        return view('pages.admin.submission.submission_detail');
     }
 
     public function old_project(){
-        return view('pages.admin.old_project');
+        return view('pages.admin.project.old_project');
     }
 
 
