@@ -54,8 +54,19 @@
                     </div>
 
                     <div class="mb-6">
-                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="user_avatar">Poster File</label>
-                        <input name="file_poster" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="user_avatar" type="file">
+                        <label 
+                            @if( $job_process->type == 'appointment') 
+                                id="file_poster"
+                            @else
+                            @endif
+                        
+                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="user_avatar">Poster File</label>
+                        <input
+                            @if( $job_process->type == 'appointment') 
+                                id="poster"
+                            @else
+                            @endif
+                         name="file_poster" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="user_avatar" type="file">
     
                         {{-- @if(!empty($project->file_design))
                         <br>
@@ -66,20 +77,50 @@
                     </div>
 
                     <div class="mb-6">
-                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="user_avatar">Other</label>
-                        <input name="file_other[]" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="user_avatar" type="file" multiple="">
+                        <label
+                        @if( $job_process->type == 'appointment') 
+                            id="other_lable"
+                        @else
+                        @endif
+                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="user_avatar">Other</label>
+                        <input 
+                        @if( $job_process->type == 'appointment') 
+                            id="other_input"
+                        @else
+                        @endif
+                        name="file_other[]" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="user_avatar" type="file" multiple="">
                     </div>
              
 
 
                     <div class="mb-6">
-                        <label  for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Vedio URL <span class="text-red-500">*</span></label>
-                        <input type="text" name="file_video" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="หัวข้อเรื่องที่ส่งมา" required>
+                        <label  
+                        @if( $job_process->type == 'appointment') 
+                            id="video_lable"
+                        @else
+                        @endif
+                        for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Vedio URL <span class="text-red-500">*</span></label>
+                        <input 
+                        @if( $job_process->type == 'appointment') 
+                            id="video_input"
+                        @else
+                        @endif
+                        type="text" name="file_video" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="หัวข้อเรื่องที่ส่งมา" required>
                     </div>
 
                     <div class="mb-6">
-                        <label  for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Git URL <span class="text-red-500">*</span></label>
-                        <input type="text" name="git_url" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="หัวข้อเรื่องที่ส่งมา" required>
+                        <label 
+                         @if( $job_process->type == 'appointment') 
+                            id="git_label"
+                        @else
+                        @endif
+                        for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Git URL <span class="text-red-500">*</span></label>
+                        <input 
+                         @if( $job_process->type == 'appointment') 
+                            id="git_input"
+                        @else
+                        @endif
+                        id="git_input" type="text" name="git_url" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="หัวข้อเรื่องที่ส่งมา" required>
                     </div>
 
                     <div class="formkit-outer" data-family="text" data-type="datetime-local" data-invalid="true">
@@ -108,4 +149,14 @@
         </main>
     </div>
 </div>
+<script>
+   $("#file_poster").hide();
+   $("#poster").hide();
+   $("#other_lable").hide();
+   $("#other_input").hide();
+   $("#video_lable").hide();
+   $("#video_input").hide();
+   $("#git_label").hide();
+   $("#git_input").hide();
+</script>
 </x-app-layout>

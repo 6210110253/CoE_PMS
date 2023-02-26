@@ -100,15 +100,13 @@ class ProjectController extends Controller
     }
 
     public function submit_meeting_store(Request $request){
-
-        
-
+       
         $request =  $this->myUploadFileProcess($request);
         
         $processes = $this->processes_repo->store($request);
-       
+        
 
-        return view('pages.student.submission.submit_meeting');
+        return view('pages.student.submission.submit_meeting', );
     }
 
     private function myUploadFileProcess($request)
@@ -266,6 +264,7 @@ class ProjectController extends Controller
     }
 
     public function formProcess(Request $request){
+        
         $job_process = $this->job_processes_repo->find($request->JobProcess);
         $projectList = hasProjectList(Auth::id());
         return view('pages.student.submission.submit_meeting', compact('job_process','projectList'));

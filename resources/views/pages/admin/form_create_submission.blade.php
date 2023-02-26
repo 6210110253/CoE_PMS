@@ -49,6 +49,7 @@
                                 <option value="Pre-Project" {{  @$semester->process == 'Pre-Project' ? 'selected' : '' }} >Pre-Project</option>
                                 <option value="Project I" {{  @$semester->process == 'Project I' ? 'selected' : '' }} >Project I</option>
                                 <option value="Project II" {{  @$semester->process == 'Project II' ? 'selected' : '' }}>Project II</option>
+                                <option value="Project II" {{  @$semester->process == 'Finished' ? 'selected' : '' }}>Finished</option>
 
                             </select>
                         </div>
