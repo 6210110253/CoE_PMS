@@ -20,6 +20,9 @@ return new class extends Migration
                 ->cascadeOnDelete()
                 ->nullable();
             $table->string("detail");
+            $table->string("file_progress")
+            ->nullable()
+            ->comment("ไฟล์รายงานความก้าวหน้า");
             $table->string("file_report")
                 ->nullable()
                 ->comment("ไฟล์รายงาน");
@@ -35,7 +38,7 @@ return new class extends Migration
             $table->string("git_url")
                 ->nullable()
                 ->comment("ลิ้งกิต");
-            $table->enum("type", ['appointment', 'submission'])->default('appointment');
+            $table->enum("type", ['appointment', 'submission','report'])->default('appointment');
             $table->foreignId("created_by")
                 ->references('id')
                 ->on('users')
