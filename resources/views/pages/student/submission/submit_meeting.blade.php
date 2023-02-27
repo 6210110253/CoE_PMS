@@ -46,6 +46,7 @@
                         <input name="file_report" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="user_avatar" type="file">
                     </div>
 
+                    @if( $job_process->type == 'submission')
                     <div class="mb-6">
                         <label
                          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="user_avatar">Poster File</label>
@@ -59,31 +60,32 @@
                         </a>
                         @endif --}}
                     </div>
+                    @endif
 
+                    @if( $job_process->type == 'submission')
                     <div class="mb-6">
                         <label
                          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="user_avatar">Other</label>
                         <input
                         name="file_other[]" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="user_avatar" type="file" multiple="">
                     </div>
+                    @endif
 
 
-                    @if( $job_process->type == 'appointment')
-                    <div class="mb-6">
-                        <label
-                        for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Vedio URL <span class="text-red-500">*</span></label>
+                    @if( $job_process->type == 'submission')
+                    <div class="file_video">
+                        <label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Vedio URL <span class="text-red-500">*</span></label>
                         <input
                         type="text" name="file_video" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="หัวข้อเรื่องที่ส่งมา" required>
                     </div>
+                    @endif
 
-
+                    @if( $job_process->type == 'submission')
                     <div class="mb-6">
-                        <label
-
-                        for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Git URL <span class="text-red-500">*</span></label>
-                        <input
-                        id="git_input" type="text" name="git_url" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="หัวข้อเรื่องที่ส่งมา" required>
+                        <label for="git_input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Git URL <span class="text-red-500">*</span></label>
+                        <input id="git_input" type="text" name="git_url" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="หัวข้อเรื่องที่ส่งมา" required>
                     </div>
+                    @endif
 
                     <div class="formkit-outer" data-family="text" data-type="datetime-local" data-invalid="true">
                         <div class="formkit-wrapper">

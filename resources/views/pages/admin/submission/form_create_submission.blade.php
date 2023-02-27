@@ -59,7 +59,7 @@
                             <select name="semester_id " id="status" >
                                 <option value="">--select term/year--</option>
                                 @foreach ($semesters as $semester)
-                                <option value="{{ $semester->id }}" {{ !empty($jobprocess->semester_id) ? $jobprocess->semester_id == $semester->id  ? 'selected' : ''  : '' }}> {{ $semester->name }}</option>
+                                <option value="{{ $semester->id }}" {{ !empty($job_processes->semester_id) ? $job_processes->semester_id == $semester->id  ? 'selected' : ''  : '' }}> {{ $semester->name }}</option>
                                 @endforeach
                             </select>
                         </div>
