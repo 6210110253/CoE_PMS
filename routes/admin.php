@@ -26,11 +26,15 @@ Route::controller(ProjectController::class)->name('admin.')->prefix('admin/')->g
 Route::controller(AnnouncementController::class)->name('admin.')->prefix('admin/')
     ->group(function () {
 
+    Route::get('/announcement/show', 'show')
+        ->name('announcement.show');
+    
     Route::get('/announcement', 'index')
     ->name('announcement');
 
     Route::post('/announcement/store', 'store')
     ->name('announcement.store');
+
 });
 
 Route::controller(SemesterController::class)->name('admin.')->prefix('admin/')

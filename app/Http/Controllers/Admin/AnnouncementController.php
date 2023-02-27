@@ -15,7 +15,7 @@ class AnnouncementController extends Controller
     }
 
     public function index(){
-        return  view('pages.admin.announcement');
+        return  view('pages.admin.announcement.announcement');
     }
 
     public function store(Request $request){
@@ -24,5 +24,9 @@ class AnnouncementController extends Controller
 
         return redirect()->back();
 
+    }
+
+    public function show(){
+        return view('pages.admin.announcement.show');
     }
 }

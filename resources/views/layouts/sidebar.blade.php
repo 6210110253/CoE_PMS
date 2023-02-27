@@ -119,6 +119,12 @@
                     <span class="mx-3">โปรเจกต์ย้อนหลัง</span>
                 </a>
 
+                <a class="flex items-center mt-4 py-2 px-6 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100 {{ Route::currentRouteNamed('admin.announcement.show') ? 'active' : '' }}"
+                    href="{{ route('admin.announcement.show')}}">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M13 19c0 .34.04.67.09 1H4a2 2 0 0 1-2-2V6c0-1.11.89-2 2-2h6l2 2h8a2 2 0 0 1 2 2v5.81c-.88-.51-1.9-.81-3-.81c-3.31 0-6 2.69-6 6m8.34-3.16l-3.59 3.59l-1.59-1.59L15 19l2.75 3l4.75-4.75l-1.16-1.41Z"/></svg>
+                    <span class="mx-3">Announcement</span>
+                </a>
+
 
 
             </nav>
