@@ -21,9 +21,10 @@ class ProcessedsRepository
 
        $params = (object)$params;
 
-       !isset($params->job_process_id ) ?: $data->job_process_id  = $params->job_process_id ;
-       !isset($params->detail ) ?: $data->detail  = $params->detail ;
-       !isset($params->file_report ) ?: $data->file_report  = $params->file_report ;
+       !isset($params->job_process_id ) ?: $data->job_process_id  = $params->job_process_id;
+       !isset($params->detail ) ?: $data->detail  = $params->detail;
+       !isset($params->file_progress ) ?: $data->file_progress  = $params->file_progress;
+       !isset($params->file_report ) ?: $data->file_report  = $params->file_report;
        !isset($params->file_poster) ?: $data->file_poster = $params->file_poster;
        !isset($params->file_other) ?: $data->file_other = $params->file_other;
        !isset($params->file_video) ?: $data->file_video = $params->file_video;
