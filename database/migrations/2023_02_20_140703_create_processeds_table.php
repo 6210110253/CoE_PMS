@@ -19,7 +19,8 @@ return new class extends Migration
                 ->constrained()
                 ->cascadeOnDelete()
                 ->nullable();
-            $table->string("detail");
+            $table->string("detail")
+                ->nullable();
             $table->string("file_progress")
             ->nullable()
             ->comment("ไฟล์รายงานความก้าวหน้า");

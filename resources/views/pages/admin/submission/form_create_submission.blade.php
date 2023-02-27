@@ -56,7 +56,7 @@
 
                         <div class="mb-6">
                             <label for="semester_id " class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Semester <span class="text-red-500">*</span></label>
-                            <select name="semester_id " id="status" >
+                            <select name="semester_id " id="semester_id" >
                                 <option value="">--select term/year--</option>
                                 @foreach ($semesters as $semester)
                                 <option value="{{ $semester->id }}" {{ !empty($job_processes->semester_id) ? $job_processes->semester_id == $semester->id  ? 'selected' : ''  : '' }}> {{ $semester->name }}</option>
@@ -66,10 +66,11 @@
 
                         <div class="mb-6">
                             <label for="type" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Type <span class="text-red-500">*</span></label>
-                            <select name="type" id="status" >
+                            <select name="type" id="type" >
                                 <option value="">--select type--</option>
-                                <option value="">การนัดพบอาจารย์ที่ปรึกษา</option>
-                                <option value="">ส่งรายงาน</option>
+                                <option value="appointment" {{  @$semester->type == 'appointment' ? 'selected' : '' }} >การนัดพบอาจารย์ที่ปรึกษา</option>
+                                <option value="submission" {{  @$semester->type == 'submission' ? 'selected' : '' }} >ส่งไฟล์งานรายงาน</option>
+                                <option value="report" {{  @$semester->type == 'report' ? 'selected' : '' }}>ส่งรายงานทั้งหมด</option>
                             </select>
                         </div>
 

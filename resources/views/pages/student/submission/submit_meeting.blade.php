@@ -30,23 +30,33 @@
                     <input type="hidden" name="project_list_id" value="{{ $projectList->id }}">
                     <input type="hidden" name="project_list_id" value="{{ $projectList->id }}">
                     <div class="mb-6">
-                        <label  for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Topic <span class="text-red-500">*</span></label>
+                        <label  for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Topic</label>
                         <input type="text" value="{{ $projectList->reservaton->project->title }}" name="topic" id="title" name="title" value="" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="ตรงนี้แสดงชื่อโปรเจคของนักศึกษามาเลย" required>
                     </div>
                     <div class="mb-6">
-                        <label  for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Supervisor <span class="text-red-500">*</span></label>
+                        <label  for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Supervisor</label>
                         <input type="text" value="{{ $projectList->reservaton->project->teacher->name}}" id="title" name="title" value="" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="ตรงนี้แสดงชื่ออาจารย์ที่ปรึกษาโปรเจคของนักศึกษามาเลย" required>
                     </div>
                     <div class="mb-6">
-                        <label  for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">title <span class="text-red-500">*</span></label>
+                        <label  for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">title</label>
                         <input type="text" id="title" name="title" value="" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="หัวข้อเรื่องที่ส่งมา" required>
                     </div>
 
                     @if( $job_process->type == 'appointment')
                     <div class="mb-6">
-                        <label for="detail" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description <span class="text-red-500">*</span></label>
+                        <label for="detail" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
                         <textarea id="detail" name="detail" name="detail" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Leave a comment..."></textarea>
                     </div>
+
+                    <div class="formkit-outer" data-family="text" data-type="datetime-local" data-invalid="true">
+                        <div class="formkit-wrapper">
+                          <label class="formkit-label" for="input_0">Meeting Date</label>
+                          <div class="formkit-inner">
+                            <input name="date_meeting" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" type="datetime-local" name="start" id="input_0" aria-describedby="help-input_0 input_0-rule_date_after">
+                          </div>
+                        </div>
+                    </div>
+
                     @endif
 
                     <div class="mb-6">
@@ -75,27 +85,19 @@
                     </div>
                
                     <div class="file_video">
-                        <label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Vedio URL <span class="text-red-500">*</span></label>
+                        <label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Vedio URL</label>
                         <input
                         type="text" name="file_video" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="หัวข้อเรื่องที่ส่งมา" required>
                     </div>
 
                     <div class="mb-6">
-                        <label for="git_input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Git URL <span class="text-red-500">*</span></label>
+                        <label for="git_input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Git URL</label>
                         <input id="git_input" type="text" name="git_url" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="หัวข้อเรื่องที่ส่งมา" required>
                     </div>
                     
                     @endif
 
-                    <div class="formkit-outer" data-family="text" data-type="datetime-local" data-invalid="true">
-                        <div class="formkit-wrapper">
-                          <label class="formkit-label" for="input_0">Meeting Date</label>
-                          <div class="formkit-inner">
-                            <input name="date_meeting" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" type="datetime-local" name="start" id="input_0" aria-describedby="help-input_0 input_0-rule_date_after">
-                          </div>
-                        </div>
-                    </div>
-
+                  
                     <br>
 
                     <button class="flex items-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
