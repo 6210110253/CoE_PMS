@@ -1673,6 +1673,18 @@ input:checked + .toggle-bg {
   --tw-bg-opacity: 1;
   background-color: rgb(255 90 31 / var(--tw-bg-opacity));
 }
+.bg-blue-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(28 100 242 / var(--tw-bg-opacity));
+}
+.bg-lime-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(132 204 22 / var(--tw-bg-opacity));
+}
+.bg-rose-700 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(190 18 60 / var(--tw-bg-opacity));
+}
 .bg-white\/50 {
   background-color: rgb(255 255 255 / 0.5);
 }
@@ -1996,6 +2008,10 @@ input:checked + .toggle-bg {
   --tw-text-opacity: 1;
   color: rgb(126 58 242 / var(--tw-text-opacity));
 }
+.text-blue-600 {
+  --tw-text-opacity: 1;
+  color: rgb(28 100 242 / var(--tw-text-opacity));
+}
 .text-red-500 {
   --tw-text-opacity: 1;
   color: rgb(240 82 82 / var(--tw-text-opacity));
@@ -2003,10 +2019,6 @@ input:checked + .toggle-bg {
 .text-indigo-100 {
   --tw-text-opacity: 1;
   color: rgb(229 237 255 / var(--tw-text-opacity));
-}
-.text-blue-600 {
-  --tw-text-opacity: 1;
-  color: rgb(28 100 242 / var(--tw-text-opacity));
 }
 .underline {
   text-decoration-line: underline;
@@ -2208,6 +2220,16 @@ input:checked + .toggle-bg {
 .hover\:bg-orange-800:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(138 44 13 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-lime-800:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(63 98 18 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-rose-400:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(251 113 133 / var(--tw-bg-opacity));
 }
 
 .hover\:bg-white:hover {
