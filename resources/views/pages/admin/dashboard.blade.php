@@ -33,10 +33,15 @@
 
 
                         <div class="w-full p-8  bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
-                            <div class="flex items-center justify-between">
+                            <div class="flex items-right justify-between">
                                 <span class="text-3xl font-bold text-gray-900 dark:text-white"></span>
-                                <a href="{{ route('admin.announcement')  }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Create Announcement</a>
-                             </div>
+                                <a href="{{ route('admin.announcement')  }}">
+                                    <button class="bg-green-500 hover:bg-green-800 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="m14.06 9l.94.94L5.92 19H5v-.92L14.06 9m3.6-6c-.25 0-.51.1-.7.29l-1.83 1.83l3.75 3.75l1.83-1.83c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.2-.2-.45-.29-.71-.29m-3.6 3.19L3 17.25V21h3.75L17.81 9.94l-3.75-3.75Z"/></svg>
+                                        <span>Create Announcement</span>
+                                    </button>
+                                </a>
+                            </div>
                             <p class="text-lg text-gray-900 dark:text-white">กำหนดการ</p>
 
 
