@@ -62,13 +62,14 @@ Route::controller(JobProcessedsController::class)->name('admin.')->prefix('admin
 
     Route::get('/form/create/submission', 'create')
         ->name('form.create.submission');
+
     Route::post('/submission/store', 'store')
     ->name('submission.store');
+
     Route::get('/submission/edit/{jobprocess}','edit')
         ->name('submission.edit');
+        
     Route::post('/submission/{jobprocess}/update','update')
         ->name('submission.update');
-
-
 
 });

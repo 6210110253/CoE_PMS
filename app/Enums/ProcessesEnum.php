@@ -9,12 +9,12 @@ class ProcessesEnum{
     const PROJECT_II = "Project II";
     const FINISHED = "Finished";
     const CANCEL = "Cancel";
-    
+
     const ALL = [
         self::PREPROJECT,
         self::PROJECT_I,
         self::PROJECT_II,
-        self::FINISHED 
-        
+        self::FINISHED
+
     ];
 }

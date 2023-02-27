@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 use App\Repositories\JobProcessesRepository;
 use App\Repositories\SemesterRepository;
 
+use App\Enums\ProcessesEnum;
+
+use App\Models\JobProcess;
+
 class JobProcessedsController extends Controller
 {
     public function __construct(
@@ -27,7 +31,8 @@ class JobProcessedsController extends Controller
     public function create()
     {
         $semesters = $this->semester_repo->getAll();
-        return view('pages.admin.submission.form_create_submission',compact('semesters'));
+        $processes = ProcessesEnum::ALL;
+        return view('pages.admin.submission.form_create_submission',compact('semesters','processes'));
     }
 
     public function store(Request $request)
@@ -38,7 +43,8 @@ class JobProcessedsController extends Controller
 
     public function edit(JobProcess $jobprocess){
         $semesters = $this->semester_repo->getAll();
-        return view('pages.admin.submission.form_create_submission',compact('semesters'));
+        $processes = ProcessesEnum::ALL;
+        return view('pages.admin.submission.form_create_submission',compact('jobprocess','semesters','processes'));
     }
 
     public function update(JobProcess $jobprocess,Request $request){
