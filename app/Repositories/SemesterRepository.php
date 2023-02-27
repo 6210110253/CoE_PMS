@@ -19,10 +19,11 @@ class SemesterRepository
 
        !isset($params->name) ?: $data->name = $params->name;
        !isset($params->year) ?: $data->year = $params->year;
-       !isset($params->is_active) ?: $data->is_active = $params->is_active;
+        $data->is_active = $params->is_active ?? $data->is_active; //กรณีที่เก็บค่าแค่ 0,1 จะไม่ต้องใส่ !isset
 
        $data->save();
        return $data;
+       
     }
     public function delete(Semester $data){
         return $data->delete();

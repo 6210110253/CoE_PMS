@@ -1,7 +1,7 @@
 <?php
 // namespace App\Services;
 
-// use Carbon\Carbon;
+use Carbon\Carbon;
 
 
 function hasProjectList($user_id)
@@ -25,36 +25,21 @@ function unsetStudent(){
     return $arr_student;
 }
 
+function dateThai($strDate){
+    Carbon::setlocale('th_TH');
+    $date = Carbon::rawParse($strDate);
+    $strDay = $date->isoFormat('D');
+    $strMonth = $date->isoFormat('M');
+    $strYear = $date->isoFormat('YYYY');
+    $strDate = $date->isoFormat('dddd D MMMM YYYY');
 
-// class ThaiDateHelperService
-// {
+    $strDayMonth =$date->isoFormat('D MMMM');
+    $strYearThai =$date->addYears(543)->isoFormat('YYYY');
 
-//     public static function simpleDateFormat($arg)
-//     {
-//         $thai_months = [
-//             1 => 'ม.ค.',
-//             2 => 'ก.พ.',
-//             3 => 'มี.ค.',
-//             4 => 'เม.ย.',
-//             5 => 'พ.ค.',
-//             6 => 'มิ.ย.',
-//             7 => 'ก.ค.',
-//             8 => 'ส.ค.',
-//             9 => 'ก.ย.',
-//             10 => 'ต.ค.',
-//             11 => 'พ.ย.',
-//             12 => 'ธ.ค.',
-//         ];
-//         $date = Carbon::parse($arg);
-//         $month = $thai_months[$date->month];
-//         $year = $date->year + 543;
-//         return $date->format("j $month $year H:i:s");
-//     }
-// }
+    // return "$strDayMonth พ.ศ. $strYearThai";
+    //return "$strDate";
+    return "$strDay/$strMonth/$strYear";
+
+}
 
 
-// function getSemesterActive()
-// {
-//     $data = App\Models\Semester::query()->where('is')->first();
-//     return ($data) ? $data->id : 0 ;
-// }
