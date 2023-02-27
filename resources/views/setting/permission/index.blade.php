@@ -7,7 +7,7 @@
                         @can('Permission create')
                             <a href="{{route('admin.permissions.create')}}">
                                     <button class="flex items-center bg-green-500 hover:bg-green-800 text-white font-bold py-2 px-4 rounded">
-                                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><path fill="currentColor" d="M16 5c-3.9 0-7 3.1-7 7a6.96 6.96 0 0 0 3.07 5.813C8.51 19.346 6 22.892 6 27h2c0-4.4 3.6-8 8-8c3.9 0 7-3.1 7-7s-3.1-7-7-7zm0 2c2.8 0 5 2.2 5 5s-2.2 5-5 5s-5-2.2-5-5s2.2-5 5-5zm5 12c-1.1 0-2 .9-2 2v4.4l6 6c.4.4.9.6 1.4.6c.5 0 1-.2 1.4-.6l3.6-3.6c.4-.4.6-.9.6-1.4c0-.5-.2-1-.6-1.4l-6-6H21zm0 2h3.6l5.4 5.4l-3.6 3.6l-5.4-5.4V21zm2 1a1 1 0 0 0 0 2a1 1 0 0 0 0-2z"/></svg>
+                                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><path fill="currentColor" d="M6 8c0-2.21 1.79-4 4-4s4 1.79 4 4s-1.79 4-4 4s-4-1.79-4-4m6 10.2c0-.96.5-1.86 1.2-2.46V14.5c0-.05.02-.11.02-.16c-.99-.22-2.07-.34-3.22-.34c-4.42 0-8 1.79-8 4v2h10v-1.8m10 .1v3.5c0 .6-.6 1.2-1.3 1.2h-5.5c-.6 0-1.2-.6-1.2-1.3v-3.5c0-.6.6-1.2 1.2-1.2v-2.5c0-1.4 1.4-2.5 2.8-2.5s2.8 1.1 2.8 2.5v.5h-1.3v-.5c0-.8-.7-1.3-1.5-1.3s-1.5.5-1.5 1.3V17h4.3c.6 0 1.2.6 1.2 1.3Z"/></svg>
                                         <span>New Permission</span>
                                     </button>
                             </a>
