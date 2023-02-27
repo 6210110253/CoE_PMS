@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Repositories\SemesterRepository;
 use App\Repositories\JobProcessesRepository;
 
+use App\Models\Semester;
+
 class SemesterController extends Controller
 {
     protected $semester_repo,$job_processes_repo;
@@ -32,6 +34,15 @@ class SemesterController extends Controller
         return redirect()->back();
     }
 
+    public function edit(Semester $semester){
+        return view('pages.admin.semester-edit', compact('semester'));
+    }
+
+    public function update(Semester $semester,Request $request){
+
+        $semester = $this->semester_repo->variable($semester,$request);
+        return redirect()->back();
+    }
     public function updateActive(Request $request){
 
        $semester = $this->semester_repo->findByID($request->id);

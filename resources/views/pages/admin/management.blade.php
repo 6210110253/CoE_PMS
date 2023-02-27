@@ -55,15 +55,15 @@
                              <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                                  <thead class="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400">
                                      <tr>
-                                         <th scope="col" class="px-6 py-3 rounded-l-lg">
-                                             No
-                                         </th>
                                          <th scope="col" class="px-6 py-3">
                                              Name
                                          </th>
                                          <th scope="col" class="px-6 py-3 rounded-r-lg">
                                              Year
                                          </th>
+                                         <th scope="col" class="px-6 py-3 rounded-r-lg">
+                                             Status
+                                        </th>
                                          <th scope="col" class="px-6 py-3 rounded-r-lg">
                                             Action
                                         </th>
@@ -73,9 +73,6 @@
                                     @foreach ($semesters as $semester)
 
                                      <tr class="bg-white dark:bg-gray-800">
-                                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                             {{ $semester->id }}
-                                         </th>
                                          <td class="px-6 py-4">
                                             {{ $semester->name }}
                                          </td>
@@ -95,7 +92,12 @@
                                                 <label for="toggle{{ $semester->id }}" class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"></label>
                                             </div>
                                             <label for="toggle{{ $semester->id }}" class="text-xs text-gray-700">Active</label>
-                                        </td>
+                                         </td>
+                                         <td class="px-6 py-4">
+                                            <a href="">Delete</a>
+                                            <a href="{{ route('admin.semester.edit', $semester->id) }}">Edit</a>
+                                         </td>
+
                                      </tr>
                                      @endforeach
 

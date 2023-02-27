@@ -24,6 +24,9 @@ class SemesterRepository
        $data->save();
        return $data;
     }
+    public function delete(Semester $data){
+        return $data->delete();
+    }
 
     public function getAll(){
 
