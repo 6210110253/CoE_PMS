@@ -10,8 +10,6 @@ Route::controller(ProjectController::class)->name('student.')->prefix('student/'
 
     Route::get('/project-select', 'project_select')
         ->name('project.select');
-
-
     Route::get('/project-propose', 'create')
         ->name('project.propose');
     Route::post('/project/store','store')
@@ -28,7 +26,6 @@ Route::controller(ProjectController::class)->name('student.')->prefix('student/'
         ->name('meeting');
     Route::get('/meeting-list','meeting_list')
         ->name('meeting.list');
-    
     Route::get('/submission', 'submission')
         ->name('submission');
     Route::get('/submit-meeting/{JobProcess}', 'formProcess')

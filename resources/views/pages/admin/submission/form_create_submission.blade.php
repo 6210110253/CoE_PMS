@@ -27,7 +27,7 @@
                             <div class="formkit-wrapper">
                               <label class="formkit-label" for="input_0">Start Date</label>
                               <div class="formkit-inner">
-                                <input name="start_date" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" type="datetime-local" name="start" id="input_0" aria-describedby="help-input_0 input_0-rule_date_after">
+                                <input name="start_date" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" type="datetime-local"  id="sdate" aria-describedby="help-input_0 input_0-rule_date_after">
                               </div>
                             </div>
                         </div>
@@ -36,7 +36,7 @@
                             <div class="formkit-wrapper">
                                 <label class="formkit-label" for="input_0">End Date</label>
                                 <div class="formkit-inner">
-                                    <input name="end_date" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" type="datetime-local" name="start" id="input_0" aria-describedby="help-input_0 input_0-rule_date_after">
+                                    <input name="end_date" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" type="datetime-local"  id="edate" aria-describedby="help-input_0 input_0-rule_date_after">
                                 </div>
                             </div>
                         </div>
@@ -92,4 +92,12 @@
              </div>
          </main>
      </div>
+     <script>
+        $(function() {
+            $('#sdate').datepicker({
+            dateFormat: 'dd/mm/yy'
+  });
+
+        });
+     </script>
  </x-app-layout>
