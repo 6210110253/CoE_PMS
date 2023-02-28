@@ -5,21 +5,24 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Processed;
+
 use App\Repositories\StudentRepository;
 use App\Repositories\ProjectListRepository;
-
+use App\Repositories\ProcessedsRepository;
 
 class ProjectController extends Controller
 {
-    protected $student_repo,$project_list_repo;
+    protected $student_repo,$project_list_repo,$processed_repo;
 
     public function __construct(
        StudentRepository $studentRepository,
-       ProjectListRepository $projectListRepository
-
+       ProjectListRepository $projectListRepository,
+       ProcessedsRepository $processedsRepository
     ){
         $this->student_repo = $studentRepository;
         $this->project_list_repo = $projectListRepository;
+        $this->processed_repo = $processedsRepository;
     }
 
 
@@ -76,7 +79,14 @@ class ProjectController extends Controller
     }
 
     public function submission(){
-        return view('pages.admin.submission.submission');
+
+    
+    $pre_project = $this->processed_repo->getPreProject();
+
+    
+
+
+    return view('pages.admin.submission.submission',compact('pre_project'));
     }
 
     public function submission_detail(){

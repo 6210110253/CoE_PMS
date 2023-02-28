@@ -49,6 +49,5 @@ class JobProcessesRepository
     public function getMyJobProcessAll(){
         return JobProcess::query()->get();
     }
-
    
 }

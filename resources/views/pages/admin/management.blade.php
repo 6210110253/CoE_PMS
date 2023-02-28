@@ -103,7 +103,7 @@
                                          </td>
                                          <td class="px-6 py-4">
                                             <a class=" underline text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-blue hover:bg-blue-dark text-red-400" id="delete_semester" href="">Delete</a>
-                                            <a class=" underline text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-blue hover:bg-blue-dark text-blue-400" href="{{ route('admin.semester.edit', $semester->id) }}">Edit</a>
+                                            <a class=" underline text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-blue hover:bg-blue-dark text-blue-400" href="">Edit</a>
                                          </td>
 
                                      </tr>
