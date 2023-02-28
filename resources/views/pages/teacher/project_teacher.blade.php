@@ -64,7 +64,7 @@
                     <div id="fullWidthTabContent" class="border-t border-gray-200 dark:border-gray-600">
                         <div class="hidden p-4 bg-white rounded-lg md:p-8 dark:bg-gray-800" id="stats" role="tabpanel" aria-labelledby="stats-tab">
 
-                            <div class = "flex justify-end gap-4">
+                            {{-- <div class = "flex justify-end gap-4">
 
                                 <button id="dropdownDefaultButton" data-dropdown-toggle="years" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">ปีการศึกษา<svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
                                 <!-- Dropdown menu -->
@@ -89,7 +89,7 @@
                                              {{-- <li>
                                                 <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">โปรเจกต์ทั้งหมด</a>
                                             </li> --}}
-                                            <li>
+                                            {{-- <li>
                                                 <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">โปรเจกต์ที่นักศึกษาจอง</a>
                                             </li>
                                             <li>
@@ -97,7 +97,7 @@
                                             </li>
                                         </ul>
                                     </div>
-                            </div>
+                            </div> --}}
 
                             <br>
                             <div>

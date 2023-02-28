@@ -31,5 +31,13 @@ class ProjectList extends Model
         return $this->belongsTo(ProjectReservation::class,'project_reservation_id');
     }
 
+    public function teacher(){
+        return $this->belongsTo(User::class, 'approve_by', 'id');
+    }
+
+    public function semester(){
+        return $this->belongsTo(Semester::class, 'semester_id', 'id');
+    }
+
 
 }
