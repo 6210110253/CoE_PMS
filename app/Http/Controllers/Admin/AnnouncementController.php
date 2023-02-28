@@ -29,4 +29,8 @@ class AnnouncementController extends Controller
     public function show(){
         return view('pages.admin.announcement.show');
     }
+
+    public function selectRole(){
+        return view('pages.select_role');
+    }
 }
