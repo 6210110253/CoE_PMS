@@ -46,5 +46,16 @@ class ProcessedsRepository
             ->where('project_id',$project_id)
             ->first();
     }
+
+    public function getPreProject(){
+        return Processed::all();
+    }
+
+    public function getPreProjectTeacher($teacher_id){
+        return Processed::query()
+                ->where('approve_by', $teacher_id )
+                ->where()
+                ->get();
+    }
 }
 
