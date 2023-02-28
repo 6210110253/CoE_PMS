@@ -171,12 +171,19 @@
                             Reject
                         </button>
                         @elseif($project_reservation->status == 'remove')
-                        55555
+                            <div class="w-full bg-gradient-to-tr from-red-300 to-red-300 py-4">
+                                <h1 class="text-center text-red-800 text-xl font-bold">Removed</h1>
+                            </div>
                         @elseif($project_reservation->status == 'approve')
-                        approved
+                            <div class="w-full bg-gradient-to-tr from-green-300 to-green-300 py-4">
+                                <h1 class="text-center text-green-800 text-xl font-bold">approved</h1>
+                            </div>
+
                         @elseif($project_reservation->status == 'reject')
                         {{ $project_reservation->comment }}
-                        rejected
+                        <div class="w-full bg-gradient-to-tr from-orange-300 to-orange-300 py-4">
+                                <h1 class="text-center text-orange-800 text-xl font-bold">rejected</h1>
+                        </div>
                         @endif
 
 

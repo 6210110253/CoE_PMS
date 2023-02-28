@@ -1690,6 +1690,10 @@ input:checked + .toggle-bg {
   --tw-bg-opacity: 1;
   background-color: rgb(250 202 21 / var(--tw-bg-opacity));
 }
+.bg-red-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(251 213 213 / var(--tw-bg-opacity));
+}
 .bg-white\/50 {
   background-color: rgb(255 255 255 / 0.5);
 }
@@ -1704,6 +1708,16 @@ input:checked + .toggle-bg {
   --tw-gradient-to: rgb(88 80 236 / 0);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
+.from-red-300 {
+  --tw-gradient-from: #F8B4B4;
+  --tw-gradient-to: rgb(248 180 180 / 0);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+.from-green-300 {
+  --tw-gradient-from: #84E1BC;
+  --tw-gradient-to: rgb(132 225 188 / 0);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
 .from-orange-300 {
   --tw-gradient-from: #FDBA8C;
   --tw-gradient-to: rgb(253 186 140 / 0);
@@ -1711,6 +1725,12 @@ input:checked + .toggle-bg {
 }
 .to-purple-600 {
   --tw-gradient-to: #7E3AF2;
+}
+.to-red-300 {
+  --tw-gradient-to: #F8B4B4;
+}
+.to-green-300 {
+  --tw-gradient-to: #84E1BC;
 }
 .to-orange-300 {
   --tw-gradient-to: #FDBA8C;
@@ -2032,6 +2052,14 @@ input:checked + .toggle-bg {
 .text-indigo-100 {
   --tw-text-opacity: 1;
   color: rgb(229 237 255 / var(--tw-text-opacity));
+}
+.text-red-800 {
+  --tw-text-opacity: 1;
+  color: rgb(155 28 28 / var(--tw-text-opacity));
+}
+.text-green-800 {
+  --tw-text-opacity: 1;
+  color: rgb(3 84 63 / var(--tw-text-opacity));
 }
 .text-orange-800 {
   --tw-text-opacity: 1;

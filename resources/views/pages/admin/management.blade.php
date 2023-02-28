@@ -94,8 +94,8 @@
                                             <label for="toggle{{ $semester->id }}" class="text-xs text-gray-700">Active</label>
                                          </td>
                                          <td class="px-6 py-4">
-                                            <a href="">Delete</a>
-                                            <a href="{{ route('admin.semester.edit', $semester->id) }}">Edit</a>
+                                            <a class=" underline text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-blue hover:bg-blue-dark text-red-400" href="">Delete</a>
+                                            <a class=" underline text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-blue hover:bg-blue-dark text-blue-400" href="{{ route('admin.semester.edit', $semester->id) }}">Edit</a>
                                          </td>
 
                                      </tr>
@@ -194,11 +194,11 @@
                                             {{ $job_pro->end_date }}
                                          </td>
                                          <td class="px-6 py-4">
-                                            {{ $job_pro->status }}
+                                            <span class="bg-purple-200 text-purple-600 py-1 px-3 mt-2 rounded-full text-xs"> {{ $job_pro->status }} </span>
                                          </td>
                                          <td class="px-6 py-4">
-                                            <a href="">Delete</a>
-                                            <a href="">Edit</a>
+                                            <a class="underline text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-blue hover:bg-blue-dark text-red-400" href="">Delete</a>
+                                            <a class="underline text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-blue hover:bg-blue-dark text-blue-400" href="">Edit</a>
                                          </td>
 
                                      </tr>
