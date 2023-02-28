@@ -124,10 +124,10 @@
                                             {{ $job_pro['semester_name'] }}
                                         </td>
                                         <td class="px-6 py-4">
-                                            {{ $job_pro['start_date'] }}
+                                            {{ dateThai($job_pro['start_date']) }}
                                         </td>
                                         <td class="px-6 py-4">
-                                            {{ $job_pro['end_date'] }}
+                                            {{ dateThai($job_pro['end_date']) }}
                                         </td>
                                         <td class="px-6 py-4">
                                             {{ $job_pro['type'] }}

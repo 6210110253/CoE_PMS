@@ -30,6 +30,7 @@ class SemesterController extends Controller
 
     public function store(Request $request)
     {
+        $request->is_active = empty($request->is_active) ? 0 : 1;
         $semester = $this->semester_repo->store($request);
         return redirect()->back();
     }
@@ -39,7 +40,8 @@ class SemesterController extends Controller
     }
 
     public function update(Semester $semester,Request $request){
-
+        
+        $request->is_active = empty($request->is_active) ? 0 : 1;
         $semester = $this->semester_repo->variable($semester,$request);
         return redirect()->back();
     }

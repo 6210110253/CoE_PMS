@@ -100,17 +100,25 @@ class ProjectController extends Controller
     }
 
     public function submit_meeting_store(Request $request){
+        
 
         $request =  $this->myUploadFileProcess($request);
 
         $processes = $this->processes_repo->store($request);
 
 
-        return view('pages.student.submission.submit_meeting', );
+        return  redirect()->route('student.submission');
     }
 
     private function myUploadFileProcess($request)
     {
+
+        if(!empty($request->file_progress)){
+            $request->name_file = Str::random(20);
+            $request->file = $request->file_progress;
+            $request->upload_path = 'process';
+            $request->file_progress = $this->upload($request);
+        }
 
         if(!empty($request->file_report)){
             $request->name_file = Str::random(20);
