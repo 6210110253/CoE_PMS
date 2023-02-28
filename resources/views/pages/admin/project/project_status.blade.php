@@ -56,9 +56,7 @@
                         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                             <tr>
 
-                                <th scope="col" class="px-6 py-3">
-                                    Student ID
-                                </th>
+
                                 <th scope="col" class="px-6 py-3">
                                     Name
                                 </th>
@@ -77,32 +75,30 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($results as $result)
+                                <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
 
 
-                            <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                    <td class="px-6 py-4">
+                                    {{  $result['student_name'] }}
+                                    </td>
 
-                                <td class="px-6 py-4">
-                                    SEO Specialist
-                                </td>
-                                <td class="px-6 py-4">
-                                    SEO Specialist
-                                </td>
-
-                                <td class="px-6 py-4">
-                                    <div class="flex items-center">
-                                        <div class="h-2.5 w-2.5 rounded-full bg-red-500 mr-2"></div> Offline
-                                    </div>
-                                </td>
-                                <td class="px-6 py-4">
-                                    SEO Specialist
-                                </td>
-                                <td class="px-6 py-4">
-                                    SEO Specialist
-                                </td>
-                                <td class="px-6 py-4">
-                                    SEO Specialist
-                                </td>
-                            </tr>
+                                    <td class="px-6 py-4">
+                                        <div class="flex items-center">
+                                            <div class="h-2.5 w-2.5 rounded-full bg-red-500 mr-2"></div> Offline
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        SEO Specialist
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        SEO Specialist
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        SEO Specialist
+                                    </td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

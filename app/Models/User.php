@@ -54,5 +54,10 @@ class User extends Authenticatable
         ->using(ProjectReservationRelate::class);
     }
 
- 
+    public function projectList()
+    {
+          return $this->belongsToMany(ProjectList::class);
+    }
+
+
 }

@@ -3,7 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\ProjectList;
-
+use App\Enums\ProcessesEnum;
 
 class ProjectListRepository
 {
@@ -27,15 +27,24 @@ class ProjectListRepository
        return $data;
     }
 
-   //  public function getById($student_id){
-
-   //    return ProjectList::query()->find($student_id);
-   // }
 
     public function getProjectInChart($id){
 
         return ProjectList::query()
             ->where('approve_by',$id)
+            ->get();
+    }
+
+    public function getProjectByStudent()
+    {
+        return ProjectList::query()
+            //->whereJsonContains('student_reservetion', $arr_students)
+            ->with([
+                'reservaton.project',
+                'semester',
+                'teacher'
+            ])
+            ->whereNot('status',ProcessesEnum::CANCEL)
             ->get();
     }
 

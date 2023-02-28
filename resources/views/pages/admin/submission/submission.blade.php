@@ -16,16 +16,16 @@
                     </div>
                     <ul class="hidden text-sm font-medium text-center text-gray-800 divide-x divide-gray-400 rounded-lg sm:flex dark:divide-gray-600 dark:text-gray-400" id="fullWidthTab" data-tabs-toggle="#fullWidthTabContent" role="tablist">
                         <li class="w-full">
-                            <button id="stats-tab" data-tabs-target="#stats" type="button" role="tab" aria-controls="stats" aria-selected="true" class="inline-block w-full p-4 rounded-tl-lg bg-gray-50 hover:bg-gray-300 focus:outline-none dark:bg-gray-700 dark:hover:bg-gray-600">Pre-Project</button>
+                            <button id="stats-tab" data-tabs-target="#stats" type="button" role="tab" aria-controls="stats" aria-selected="true" class="inline-block w-full p-4 rounded-tl-lg bg-gray-50 hover:bg-gray-300 focus:outline-none ">Pre-Project</button>
                         </li>
                         <li class="w-full">
-                            <button id="about-tab" data-tabs-target="#about" type="button" role="tab" aria-controls="about" aria-selected="false" class="inline-block w-full p-4 bg-gray-50 hover:bg-gray-300 focus:outline-none dark:bg-gray-700 dark:hover:bg-gray-600">Project I</button>
+                            <button id="about-tab" data-tabs-target="#about" type="button" role="tab" aria-controls="about" aria-selected="false" class="inline-block w-full p-4 bg-gray-50 hover:bg-gray-300 focus:outline-none">Project I</button>
                         </li>
                         <li class="w-full">
-                            <button id="faq-tab" data-tabs-target="#faq" type="button" role="tab" aria-controls="faq" aria-selected="false" class="inline-block w-full p-4 rounded-tr-lg bg-gray-50 hover:bg-gray-300 focus:outline-none dark:bg-gray-700 dark:hover:bg-gray-600">Project II</button>
+                            <button id="faq-tab" data-tabs-target="#faq" type="button" role="tab" aria-controls="faq" aria-selected="false" class=" inline-block w-full p-4 rounded-tr-lg bg-gray-50 hover:bg-gray-300 focus:outline-none">Project II</button>
                         </li>
                         <li class="w-full">
-                            <button id="test-tab" data-tabs-target="#test" type="button" role="tab" aria-controls="test" aria-selected="false" class="inline-block w-full p-4 rounded-tr-lg bg-gray-50 hover:bg-gray-300 focus:outline-none dark:bg-gray-700 dark:hover:bg-gray-600">Finished</button>
+                            <button id="test-tab" data-tabs-target="#test" type="button" role="tab" aria-controls="test" aria-selected="false" class="inline-block w-full p-4 rounded-tr-lg bg-gray-50 hover:bg-gray-300 focus:outline-none">Finished</button>
                         </li>
                     </ul>
                     <div id="fullWidthTabContent" class="border-t border-gray-200 dark:border-gray-600">
