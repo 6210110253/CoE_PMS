@@ -17,13 +17,12 @@ return new class extends Migration
             $table->id();
             $table->foreignId('job_process_id')
                 ->constrained()
-                ->cascadeOnDelete()
-                ->nullable();
+                ->cascadeOnDelete();
             $table->string("detail")
                 ->nullable();
             $table->string("file_progress")
-            ->nullable()
-            ->comment("ไฟล์รายงานความก้าวหน้า");
+                ->nullable()
+                ->comment("ไฟล์รายงานความก้าวหน้า");
             $table->string("file_report")
                 ->nullable()
                 ->comment("ไฟล์รายงาน");
