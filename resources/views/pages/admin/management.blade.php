@@ -48,7 +48,15 @@
                                 <label class="">Year</label>
                                 <input type="text"  name="year" id="table-search" class="block p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="กรอกข้อมูล">
 
-                                <button type="submit" class="text-white  bg-green-500 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Create</button>
+                                <button class="flex items-center text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                <span class="inline-flex justify-center items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
+                                    </svg>                        
+                                </span>
+                                
+                                <span class="mx-3">Create</span>
+                                </button>
                             </form>
 
                                 <br>
@@ -94,7 +102,9 @@
                                             <label for="toggle{{ $semester->id }}" class="text-xs text-gray-700">Active</label>
                                          </td>
                                          <td class="px-6 py-4">
-                                            <a class=" underline text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-blue hover:bg-blue-dark text-red-400" href="">Delete</a>
+                                            <a class=" underline text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-blue hover:bg-blue-dark text-red-400" href="
+                                            {{-- {{ route('admin.semester.delete', $semester->id ) }} --}}
+                                            ">Delete</a>
                                             <a class=" underline text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-blue hover:bg-blue-dark text-blue-400" href="{{ route('admin.semester.edit', $semester->id) }}">Edit</a>
                                          </td>
 
@@ -121,9 +131,16 @@
 
                          <p class="text-lg text-gray-900 dark:text-white">ฟอร์มสร้างการส่งงาน </p>
                          <hr><br>
-                         <div class="flex items-center justify-between">
-                            <span class="text-3xl font-bold text-gray-900 dark:text-white"></span>
-                            <a href="{{ route('admin.form.create.submission') }}" class="text-white bg-green-500 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Create Form</a>
+                         <div class="flex justify-end gap-4">
+                            <a href="{{ route('admin.form.create.submission')}}" class="flex items-center text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                <span class="inline-flex justify-center items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
+                                    </svg>                        
+                                </span>
+                                
+                                <span class="mx-3">Create Form</span>
+                            </a>
                         </div>
 
                          <div class="relative overflow-x-auto">
@@ -188,13 +205,17 @@
                                             {{ $job_pro->topic  }}
                                          </td>
                                          <td class="px-6 py-4">
-                                            {{ $job_pro->start_date }}
+                                            {{ dateThai($job_pro->start_date) }}
                                          </td>
                                          <td class="px-6 py-4">
-                                            {{ $job_pro->end_date }}
+                                            {{ dateThai($job_pro->end_date) }}
                                          </td>
                                          <td class="px-6 py-4">
+                                            @if( $job_pro->status == 'publish')
+                                            <span class="bg-green-200 text-green-600 py-1 px-3 mt-2 rounded-full text-xs"> {{ $job_pro->status }} </span>
+                                            @else
                                             <span class="bg-purple-200 text-purple-600 py-1 px-3 mt-2 rounded-full text-xs"> {{ $job_pro->status }} </span>
+                                            @endif
                                          </td>
                                          <td class="px-6 py-4">
                                             <a class="underline text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-blue hover:bg-blue-dark text-red-400" href="">Delete</a>

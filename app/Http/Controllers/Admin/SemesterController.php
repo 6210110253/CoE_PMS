@@ -58,4 +58,12 @@ class SemesterController extends Controller
             'massege' => 'sucess'
         ]);
     }
+
+    public function delete(Semester $semester){
+    
+            $this->semester_repo->delete($semester);
+
+        return redirect()->back();
+
+    }
 }

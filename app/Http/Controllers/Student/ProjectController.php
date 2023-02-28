@@ -155,7 +155,6 @@ class ProjectController extends Controller
 
         $project = $this->project_repo->store($request);
 
-
        $user_id = Auth()->id();
 
        $param = [
@@ -179,7 +178,6 @@ class ProjectController extends Controller
     }
 
     public function update(Project $project,Request $request){
-
 
         $request =  $this->myUploadFile($request);
 
@@ -307,6 +305,22 @@ class ProjectController extends Controller
             'data' => $obj,
             'massege' => 'sucess'
         ]);
+    }
+
+    public function delete(Request $request){ //ส่งแบบajax
+    
+        $data = $this->project_repo->getProjectById($request->id);
+        
+        if($data){
+            $this->project_repo->delete($data);
+        }
+
+        return \response()->json([
+            'status' => true,
+            'data' => [],
+            'massege' => 'sucess'
+        ]);
+
     }
 
 

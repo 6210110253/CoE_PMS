@@ -43,14 +43,15 @@ Route::controller(SemesterController::class)->name('admin.')->prefix('admin/')
     Route::get('/management', 'management')
         ->name('management');
     Route::post('/semester/store', 'store')
-    ->name('semester.store');
+        ->name('semester.store');
     Route::get('/semester/edit/{semester}', 'edit')
-    ->name('semester.edit');
+        ->name('semester.edit');
     Route::post('/semester/{semester}/update','update')
-    ->name('semester.update');
-
+        ->name('semester.update');
     Route::post('/update-active', 'updateActive')
         ->name('update.active');
+     Route::get('/semester/{semester}/delete', 'delete')
+        ->name('semester.delete');
 
 
 

@@ -25,7 +25,8 @@ function unsetStudent(){
     return $arr_student;
 }
 
-function dateThai($strDate){
+function dateThai($strDate)
+{
     Carbon::setlocale('th_TH');
     $date = Carbon::rawParse($strDate);
     $strDay = $date->isoFormat('D');
