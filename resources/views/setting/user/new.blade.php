@@ -4,14 +4,6 @@
             <div class="container mx-auto px-6 py-8 pb-16">
 
                     <div class="flex items-center justify-between">
-                        <a href="#">
-                                    <button class="flex items-center bg-green-500 hover:bg-green-800 text-white font-bold py-2 px-4 rounded">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28"><path fill="currentColor" d="M19 17v2H7v-2s0-4 6-4s6 4 6 4m-3-9a3 3 0 1 0-3 3a3 3 0 0 0 3-3m3.2 5.06A5.6 5.6 0 0 1 21 17v2h3v-2s0-3.45-4.8-3.94M18 5a2.91 2.91 0 0 0-.89.14a5 5 0 0 1 0 5.72A2.91 2.91 0 0 0 18 11a3 3 0 0 0 0-6M8 10H5V7H3v3H0v2h3v3h2v-3h3Z"/></svg>
-                                        <span>เพิ่ม User แบบเยอะๆ </span>
-                                    </button>
-                            </a>
-
-
                             <span class="text-3xl font-bold text-gray-900 dark:text-white"></span>
                             <a href="{{ route('admin.users.index')}}">
                                     <button class="flex items-center bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
