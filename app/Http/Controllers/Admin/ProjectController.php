@@ -32,7 +32,7 @@ class ProjectController extends Controller
         $students = $this->student_repo->getStudents();
 
         $students_demo = $students->pluck('id')->all();
-        dd($students_demo );
+
         foreach($students_demo as $student){
             $arr_students[] =  strval($student);
         }
@@ -81,10 +81,10 @@ class ProjectController extends Controller
 
     public function submission(){
 
-    
+
     $pre_project = $this->processed_repo->getPreProject();
 
-    
+
 
 
     return view('pages.admin.submission.submission',compact('pre_project'));

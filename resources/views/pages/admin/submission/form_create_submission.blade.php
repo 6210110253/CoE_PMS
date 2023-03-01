@@ -20,12 +20,12 @@
 
                         <div class="mb-6">
                             <label for="topic" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Topic</label>
-                            <input type="text" 
-                                    name="topic" 
-                                    value="{{ $jobprocess->topic ?? '' }}" 
-                                    id="topic" 
-                                    class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg 
-                                    focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 
+                            <input type="text"
+                                    name="topic"
+                                    value="{{ $jobprocess->topic ?? '' }}"
+                                    id="topic"
+                                    class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg
+                                    focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600
                                     dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="หัวข้อการส่งงาน" required>
                         </div>
 
@@ -34,10 +34,10 @@
                               <label class="formkit-label" for="input_0">Start Date</label>
                               <div class="formkit-inner">
                                 <input name="start_date"
-                                    value="{{ $jobprocess->start_date ?? '' }}" 
-                                    class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" 
-                                    type="datetime-local"  
-                                    id="sdate" 
+                                    value="{{ $jobprocess->start_date ?? '' }}"
+                                    class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
+                                    type="datetime-local"
+                                    id="sdate"
                                     aria-describedby="help-input_0 input_0-rule_date_after">
                               </div>
                             </div>
@@ -47,11 +47,11 @@
                             <div class="formkit-wrapper">
                                 <label class="formkit-label" for="input_0">End Date</label>
                                 <div class="formkit-inner">
-                                    <input name="end_date" 
-                                    value="{{ $jobprocess->end_date ?? '' }}" 
-                                    class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" 
-                                    type="datetime-local"  
-                                    id="edate" 
+                                    <input name="end_date"
+                                    value="{{ $jobprocess->end_date ?? '' }}"
+                                    class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
+                                    type="datetime-local"
+                                    id="edate"
                                     aria-describedby="help-input_0 input_0-rule_date_after">
                                 </div>
                             </div>
@@ -67,7 +67,7 @@
                                 @endforeach
                             </select>
                         </div>
-                        
+
                         <div class="mb-6">
                             <label for="semester_id" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Semester <span class="text-red-500">*</span></label>
                             <select name="semester_id" id="semester_id" >
