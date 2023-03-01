@@ -19,7 +19,7 @@ return new class extends Migration
                 ->index();
             $table->dateTime("start");
             $table->dateTime("finish");
-            $table->enum("status", ['start', 'finished'])->default('start');
+            $table->enum("status", ['draft', 'publish'])->default('draft');
             $table->timestamps();
         });
     }

@@ -8,7 +8,7 @@
                 <div class="container mx-auto px-6 py-8">
                     <div class="flex items-center justify-between">
                             <span class="text-3xl font-bold text-gray-900 dark:text-white"></span>
-                            <a href="{{ route('admin.dashboard') }}">
+                            <a href="{{ route('admin.announcement.show') }}">
                                     <button class="flex items-center bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
                                             <path fill-rule="evenodd" d="M10.707,15.707l-5-5C5.512,10.512,5,10.265,5,9.914s0.512-0.598,0.707-0.793l5-5c0.391-0.391,1.023-0.391,1.414,0s0.391,1.023,0,1.414L8.414,8H15c0.553,0,1,0.447,1,1s-0.447,1-1,1H8.414l3.707,3.707C11.098,14.684,11.195,14.854,11.195,15.025C11.195,15.195,11.098,15.367,10.707,15.707z" />
@@ -27,19 +27,25 @@
                     >
                     @csrf
                         <div class="mb-6">
+                        <label for="semester" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Year <span class="text-red-500">*</span></label>
+                          {{-- @dd($project->reservation) --}}
+                            <select name="semester_id" id="semester">
+                                <option value="">--select semester--</option>
+                                {{-- @foreach ($semesters as $semester)
+                                <option value="{{$semester->id }}" {{ !empty($project->semester_id) ? $project->semester_id == $semester->id ? 'selected' : ''  : '' }}> {{ $semester->name }}</option>
+                                @endforeach --}}
+                            </select>
+                        </div>
+
+                        <div class="mb-6">
                             <label for="topic" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Title</label>
                             <input type="text" name="title" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="หัวข้อ" required>
                         </div>
 
-                        {{-- <div class="mb-6">
-                            <label for="topic" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Start</label>
-                            <input type="text"  class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="เลือกชื่ออาจารย์" required>
-                        </div>
-
                         <div class="mb-6">
-                            <label for="topic" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Finish</label>
-                            <input type="text" name="finish" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="เลือกชื่ออาจารย์" required>
-                        </div> --}}
+                          <label for="detail" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Detail <span class="text-red-500">*</span></label>
+                          <textarea id="detail" name="detail" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Leave a comment...">{{$project->detail ?? ''}}</textarea>
+                        </div>
 
                         <div class="formkit-outer" data-family="text" data-type="datetime-local" data-invalid="true">
                             <div class="formkit-wrapper">
@@ -48,9 +54,8 @@
                                 <input class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" type="datetime-local" name="start" id="input_0" aria-describedby="help-input_0 input_0-rule_date_after">
                               </div>
                             </div>
+                        </div>
 
-
-                          </div>
                           <br>
 
                           <div class="formkit-outer" data-family="text" data-type="datetime-local" data-invalid="true">
@@ -63,6 +68,20 @@
 
 
                           </div>
+
+                          <div class="mb-6">
+                            <label for="status" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Status <span class="text-red-500">*</span></label>
+                            <select name="status" id="status">
+                                <option value="">--select status--</option>
+                                <option value="draft" 
+                                {{-- {{  @$project->status == 'draft' ? 'selected' : '' }} --}}
+                                > draft</option>
+                                <option value="publish" 
+                                {{-- {{  @$project->status == 'publish' ? 'selected' : '' }} --}}
+                                > publish</option>
+    
+                            </select>
+                        </div>
                           <br>
 
                         <button class="flex items-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">

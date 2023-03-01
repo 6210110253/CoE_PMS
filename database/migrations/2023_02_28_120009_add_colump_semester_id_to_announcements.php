@@ -17,7 +17,6 @@ return new class extends Migration
             $table->foreignId('semester_id')
                 ->constrained()
                 ->cascadeOnDelete();
-            $table->boolean('is_active')->default(0);
             $table->longText("detail")
                 ->comment("รายละเอียด")
                 ->nullable();;
@@ -35,7 +34,6 @@ return new class extends Migration
         Schema::table('announcements', function (Blueprint $table) {
             $table->dropColumn([
                 'semester_id',
-                'is_active',
                 'detail'
             ]);
         });
