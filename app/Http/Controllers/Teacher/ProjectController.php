@@ -8,14 +8,18 @@ use App\Models\User;
 use App\Models\Project;
 use App\Models\ProjectReservation;
 use App\Models\Announcement;
-use App\Repositories\ProjectRepository;
-use App\Repositories\UserRepository;
+use App\Models\Processed;
+
 use App\Traits\uploadImage;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
+
+use App\Repositories\ProjectRepository;
+use App\Repositories\UserRepository;
 use App\Repositories\ProjectReservationRepository;
 use App\Repositories\ProjectListRepository;
 use App\Repositories\SemesterRepository;
+use App\Repositories\ProcessedsRepository;
 
 
 class ProjectController extends Controller
@@ -23,7 +27,7 @@ class ProjectController extends Controller
     use uploadImage;
 
     protected $project_repo;
-    protected $user_repo, $semester_repo;
+    protected $user_repo, $semester_repo, $processed_repo;
 
 
     public function __construct(
@@ -31,7 +35,8 @@ class ProjectController extends Controller
         UserRepository $userRepository,
         ProjectReservationRepository $projectReservationRepository,
         ProjectListRepository $projectListRepository,
-        SemesterRepository $semesterRepository
+        SemesterRepository $semesterRepository,
+        ProcessedsRepository $processedsRepository
         )
     {
         $this->project_repo = $projectRepository;
@@ -39,6 +44,7 @@ class ProjectController extends Controller
         $this->project_reservation_repo = $projectReservationRepository;
         $this->project_list_repo = $projectListRepository;
         $this->semester_repo = $semesterRepository;
+        $this->processed_repo = $processedsRepository;
 
     }
 
@@ -147,6 +153,8 @@ class ProjectController extends Controller
     }
 
     public function submission(){
+        $pre_project = $this->processed_repo->getPreProjectTeacher(Auth::id());
+        
         return view('pages.teacher.submission');
     }
 

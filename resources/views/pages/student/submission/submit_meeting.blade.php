@@ -29,6 +29,16 @@
                     <input type="hidden" name="project_id" value="{{ $projectList->reservaton->project->id }}">
                     <input type="hidden" name="project_list_id" value="{{ $projectList->id }}">
                     <input type="hidden" name="project_list_id" value="{{ $projectList->id }}">
+                    <input type="hidden" name="type" 
+                    @if($job_process->type == 'appointment')
+                        value="appointment"
+                    @elseif($job_process->type == 'submission')
+                        value="submission"
+                    @else
+                        value="report"
+                    @endif  
+                   >
+
                     <div class="mb-6">
                         <label  for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Topic</label>
                         <input type="text" value="{{ $projectList->reservaton->project->title }}" name="topic" id="title" name="title" value="" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="ตรงนี้แสดงชื่อโปรเจคของนักศึกษามาเลย" required>

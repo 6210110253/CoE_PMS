@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignId('job_process_id')
                 ->constrained()
                 ->cascadeOnDelete();
-            $table->string("detail")
+            $table->longText("detail")
                 ->nullable();
             $table->string("file_progress")
                 ->nullable()
