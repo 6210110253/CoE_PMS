@@ -13,13 +13,27 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('announcements', function (Blueprint $table) {
+        Schema::create('meetings', function (Blueprint $table) {
+            $table->id();
             $table->foreignId('semester_id')
                 ->constrained()
                 ->cascadeOnDelete();
+            $table->string("title")
+                ->index();
             $table->longText("detail")
                 ->comment("รายละเอียด")
                 ->nullable();
+                $table->foreignId("created_by")
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade')
+                ->nullable();
+            $table->foreignId("approve_by")
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade')
+                ->nullable();
+            $table->timestamps();
         });
     }
 
@@ -30,11 +44,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('announcements', function (Blueprint $table) {
-            $table->dropColumn([
-                'semester_id',
-                'detail'
-            ]);
-        });
+        Schema::dropIfExists('meetings');
     }
 };
