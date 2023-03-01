@@ -84,9 +84,15 @@
                                     </td>
 
                                     <td class="px-6 py-4">
+                                        @if($result['status'] == 'true')
                                         <div class="flex items-center">
-                                            <div class="h-2.5 w-2.5 rounded-full bg-red-500 mr-2"></div> Offline
+                                            <div class="h-2.5 w-2.5 rounded-full bg-red-500 mr-2"></div> มีโปรเจกต์
                                         </div>
+                                        @else
+                                        <div class="flex items-center">
+                                            <div class="h-2.5 w-2.5 rounded-full bg-red-500 mr-2"></div> ไม่มีโปรเจกต์
+                                        </div>
+                                        @endif
                                     </td>
                                     <td class="px-6 py-4">
                                         {{  $result['project_title'] }}
