@@ -19,4 +19,8 @@ class Semester extends Model
     public function job_processes(){
         return $this->hasMany(JobProcesses::class);
     }
+
+    public function announcements(){
+        return $this->hasMany(Announcement::class);
+    }
 }

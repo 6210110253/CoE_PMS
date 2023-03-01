@@ -35,6 +35,12 @@ Route::controller(AnnouncementController::class)->name('admin.')->prefix('admin/
     Route::post('/announcement/store', 'store')
     ->name('announcement.store');
 
+    Route::get('/announcement/edit/{announcement}', 'edit')
+        ->name('announcement.edit');
+
+    Route::post('/announcement/{announcement}/update','update')
+        ->name('announcement.update');
+
     Route::get('/select_role', 'selectRole')
     ->name('select.role');
 

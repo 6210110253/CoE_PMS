@@ -18,13 +18,16 @@ class AnnouncementsRepository
        !isset($params->title) ?: $data->title = $params->title;
        !isset($params->start ) ?: $data->start = $params->start;
        !isset($params->finish) ?: $data->finish = $params->finish;
+       !isset($params->status) ?: $data->status = $params->status;
+       !isset($params->semester_id ) ?: $data->semester_id  = $params->semester_id ;
+       !isset($params->detail) ?: $data->detail = $params->detail;
        
        $data->save();
        return $data;
     }
 
-    public function getAnnouncement(Announcement $data){
-        return $data;
+    public function getAnnouncementAll(){
+        return Announcement::All();
     }
 
     

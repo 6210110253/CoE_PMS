@@ -28,12 +28,11 @@
                     @csrf
                         <div class="mb-6">
                         <label for="semester" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Year <span class="text-red-500">*</span></label>
-                          {{-- @dd($project->reservation) --}}
                             <select name="semester_id" id="semester">
                                 <option value="">--select semester--</option>
-                                {{-- @foreach ($semesters as $semester)
-                                <option value="{{$semester->id }}" {{ !empty($project->semester_id) ? $project->semester_id == $semester->id ? 'selected' : ''  : '' }}> {{ $semester->name }}</option>
-                                @endforeach --}}
+                                @foreach ($semesters as $semester)
+                                  <option value="{{$semester->id }}"{{ !empty(@$announcement) ? $announcement->semester_id == $semester->id  ? 'selected' : ''  : '' }}> {{ $semester->name }}</option>
+                                @endforeach 
                             </select>
                         </div>
 
@@ -74,10 +73,10 @@
                             <select name="status" id="status">
                                 <option value="">--select status--</option>
                                 <option value="draft" 
-                                {{-- {{  @$project->status == 'draft' ? 'selected' : '' }} --}}
+                                {{  @$announcement->status == 'draft' ? 'selected' : '' }}
                                 > draft</option>
                                 <option value="publish" 
-                                {{-- {{  @$project->status == 'publish' ? 'selected' : '' }} --}}
+                                {{  @$announcement->status == 'publish' ? 'selected' : '' }}
                                 > publish</option>
     
                             </select>

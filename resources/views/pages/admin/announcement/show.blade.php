@@ -20,38 +20,46 @@
                     <tr>
                       <th class="py-4 px-6 bg-grey-lightest font-bold text-sm text-grey-dark border-b border-grey-light">Semeter</th>
                       <th class="py-4 px-6 bg-grey-lightest font-bold text-sm text-grey-dark border-b border-grey-light">Title</th>
-                      <th class="py-4 px-6 bg-grey-lightest font-bold text-sm text-grey-dark border-b border-grey-light text-right">Start</th>
-                      <th class="py-4 px-6 bg-grey-lightest font-bold text-sm text-grey-dark border-b border-grey-light text-right">Finish</th>
-                      <th class="py-4 px-6 bg-grey-lightest font-bold text-sm text-grey-dark border-b border-grey-light text-right">Status</th>
-                      <th class="py-4 px-6 bg-grey-lightest font-bold text-sm text-grey-dark border-b border-grey-light text-right">Action</th>
+                      <th class="py-4 px-6 bg-grey-lightest font-bold text-sm text-grey-dark border-b border-grey-light">Detail</th>
+                      <th class="py-4 px-6 bg-grey-lightest font-bold text-sm text-grey-dark border-b border-grey-light ">Start</th>
+                      <th class="py-4 px-6 bg-grey-lightest font-bold text-sm text-grey-dark border-b border-grey-light ">Finish</th>
+                      <th class="py-4 px-6 bg-grey-lightest font-bold text-sm text-grey-dark border-b border-grey-light ">Status</th>
+                      <th class="py-4 px-6 bg-grey-lightest font-bold text-sm text-grey-dark border-b border-grey-light">Action</th>
                     </tr>
                   </thead>
                   <tbody>
 
                    
-                      
+                      @foreach($announcements as $announcement )
                       <tr class="hover:bg-grey-lighter">
-                        <td class="py-4 px-6 border-b border-grey-light">test</td>
+                        <td class="py-4 px-6 border-b border-grey-light">{{ $announcement->semester_id }}</td>
+                        <td class="py-4 px-6 border-b border-grey-light">{{ $announcement->title }}</td>
+                        <td class="py-4 px-6 border-b border-grey-light">{{ $announcement->detail }}</td>
+                        <td class="py-4 px-6 border-b border-grey-light">{{ dateThai($announcement->start) }}</td>
+                        <td class="py-4 px-6 border-b border-grey-light">{{ dateThai($announcement->finish) }}</td>
+
                         <td class="py-4 px-6 border-b border-grey-light">
-                              <span class="inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-white bg-gray-500 rounded-full">test</span>
+                            @if($announcement->status == 'draft')
+                            <span class="bg-green-200 text-green-600 py-1 px-3 mt-2 rounded-full text-xs"> {{ $announcement->status }} </span>
+                            @else
+                            <span class="bg-purple-200 text-purple-600 py-1 px-3 mt-2 rounded-full text-xs"> {{ $announcement->status }} </span>
+                            @endif
     
                         </td>
-                        <td class="py-4 px-6 border-b border-grey-light text-right">
+
+                        <td class="py-4 px-6 border-b border-grey-light">
                         
                           <a href="" class="text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-green hover:bg-green-dark text-blue-400">Edit</a>
-                        
-
-                      
+                
                           <form action="" method="POST" class="inline">
                               @csrf
                               @method('delete')
                               <button class="text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-blue hover:bg-blue-dark text-red-400">Delete</button>
                           </form>
-                        
-
-                        </td>
-                      </tr>
                       
+                        </td> 
+                      </tr>
+                    @endforeach
                 
 
                   </tbody>
