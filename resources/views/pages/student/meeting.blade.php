@@ -3,7 +3,7 @@
          <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-200">
             <br>
 
-                <div class="flex justify-center gap-4 mx-auto>
+                {{-- <div class="flex justify-center gap-4 mx-auto>
                     <div class="w-full p-4 text-center bg-white border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
 
                     <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
@@ -21,7 +21,7 @@
                     </div>
 
                     </div>
-                </div>
+                </div> --}}
 
 
 
@@ -33,77 +33,85 @@
                         <span class="text-3xl font-bold text-gray-900 dark:text-white"></span>
                         <a href="{{ route('student.meeting.list') }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Meeting List</a>
                     </div>
-                    <form>
-                        <div class="mb-6">
-                            <label for="topic" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Supervisor</label>
-                            <input type="text" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="เลือกชื่ออาจารย์" required>
-                        </div>
-                        <div class="mb-6">
+                    <form 
+                        action="{{ route('student.meeting.store') }}"
+                        method="post">
+                    @csrf
 
+                        <input type="hidden" name="created_by" value="{{ Auth()->user()->id }}">
+                        <div class="mb-6">
+                            <label for="semester_id" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Semester <span class="text-red-500">*</span></label>
+                            <select name="semester_id" id="semester_id" >
+                                <option value="">--select term/year--</option>
+                                @foreach ($semesters as $semester)
+                                <option value="{{ $semester->id }}" {{ !empty(@$meeting) ? $meeting->semester_id == $semester->id  ? 'selected' : ''  : '' }}> {{ $semester->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="mb-6">
+                            <label for="aprove_by" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Teacher <span class="text-red-500">*</span></label>
+                            <select name="approve_by" id="approve_by" class="select2">
+                                <option value="">--select teacher--</option>
+                                @foreach ($teachers as $teacher)
+                                     <option value="{{ $teacher->id }}" {{ !empty($meeting->approve_by) ? $meeting->approve_by == $teacher->id ? 'selected' : ''  : '' }} > {{ $teacher->name }} </option>
+                                @endforeach
+    
+                            </select>
+                        </div>
+    
+
+                        <div class="mb-6">
                             <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Title</label>
-                            <input type="text" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="Title" required>
+                            <input type="text" name="title" id="title" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="Title" required>
                         </div>
-
-
-                        <div class="flex flex-justify-left gap-4">
-                        <div class="mb-6">
-                            <div
-                                x-data
-                                x-init="flatpickr($refs.datetimewidget, {wrap: true, enableTime: true, dateFormat: 'M j, Y h:i K'});"
-                                x-ref="datetimewidget"
-                                class="flatpickr container mx-auto col-span-6 sm:col-span-6 mt-5"
-                            >
-
-                            <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Start Date</label>
-                            <div class="relative max-w-sm">
-                            <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                                <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg>
-                            </div>
-                            <input
-                                x-ref="datetime"
-                                type="text"
-                                id="datetime"
-                                data-input
-                                class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
-
-                            >
-                            </div>
-
-
-                            </div>
-
-                        </div>
-
 
                         <div class="mb-6">
-                            <div
-                                x-data
-                                x-init="flatpickr($refs.datetimewidget, {wrap: true, enableTime: true, dateFormat: 'M j, Y h:i K'});"
-                                x-ref="datetimewidget"
-                                class="flatpickr container mx-auto col-span-6 sm:col-span-6 mt-5"
-                            >
-
-                            <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">End Date</label>
-                            <div class="relative max-w-sm">
-                            <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                                <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg>
-                            </div>
-                            <input
-                                x-ref="datetime"
-                                type="text"
-                                id="datetime"
-                                data-input
-                                class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
-
-                            >
-                            </div>
-
-                            </div>
-
-                        </div>
+                            <label for="detail" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description <span class="text-red-500">*</span></label>
+                            <textarea id="detail" name="detail" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Leave a comment..."></textarea>
                         </div>
 
+                        <div class="formkit-outer" data-family="text" data-type="datetime-local" data-invalid="true">
+                            <div class="formkit-wrapper">
+                              <label class="formkit-label" for="input_0">Start Date</label>
+                              <div class="formkit-inner">
+                                <input name="start_date"
+                                    class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
+                                    type="datetime-local"
+                                    id="sdate"
+                                    aria-describedby="help-input_0 input_0-rule_date_after">
+                              </div>
+                            </div>
+                        </div>
 
+                        <br>
+
+                        <div class="formkit-outer" data-family="text" data-type="datetime-local" data-invalid="true">
+                            <div class="formkit-wrapper">
+                                <label class="formkit-label" for="input_0">End Date</label>
+                                <div class="formkit-inner">
+                                    <input name="end_date"
+                                    class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
+                                    type="datetime-local"
+                                    id="edate"
+                                    aria-describedby="help-input_0 input_0-rule_date_after">
+                                </div>
+                            </div>
+                        </div>
+
+                        <br>
+
+                        <div class="mb-6">
+                            <label for="status" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Status <span class="text-red-500">*</span></label>
+                            <select name="status" id="status">
+                                <option value="">--select status--</option>
+                                <option value="draft" {{  @$meeting->status == 'draft' ? 'selected' : '' }} > draft</option>
+                                <option value="publish" {{  @$meeting->status == 'publish' ? 'selected' : '' }}> publish</option> 
+    
+                            </select>
+                        </div>
+
+                        <br>
 
                         <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
                     </form>

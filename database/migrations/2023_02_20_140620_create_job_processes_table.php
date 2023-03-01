@@ -22,7 +22,6 @@ return new class extends Migration
             $table->string("topic")
                 ->index()
                 ->nullable();
-            
             $table->enum("type", ['appointment', 'submission','report'])->default('appointment');
             $table->dateTime("start_date")
                 ->nullable();

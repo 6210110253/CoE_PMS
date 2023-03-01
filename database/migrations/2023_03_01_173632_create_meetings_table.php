@@ -23,7 +23,11 @@ return new class extends Migration
             $table->longText("detail")
                 ->comment("รายละเอียด")
                 ->nullable();
-                $table->foreignId("created_by")
+            $table->dateTime("start_date")
+                ->nullable();
+            $table->dateTime("end_date")
+                ->nullable();
+            $table->foreignId("created_by")
                 ->references('id')
                 ->on('users')
                 ->onDelete('cascade')
@@ -33,6 +37,7 @@ return new class extends Migration
                 ->on('users')
                 ->onDelete('cascade')
                 ->nullable();
+            $table->enum("status", ['draft', 'publish'])->default("draft");
             $table->timestamps();
         });
     }

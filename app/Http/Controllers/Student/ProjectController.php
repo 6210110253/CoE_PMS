@@ -248,10 +248,6 @@ class ProjectController extends Controller
         return view('pages.teacher.project_request');
     }
 
-    public function meeting(){
-        return view('pages.student.meeting');
-    }
-
     public function project_view(){
 
         //ฝั่งใช้งาน
@@ -278,10 +274,6 @@ class ProjectController extends Controller
 
     public function submit_report(){
         return view('pages.student.submit_report');
-    }
-
-    public function meeting_list(){
-        return view('pages.student.meeting_list');
     }
 
     public function reservation(Request $request){
