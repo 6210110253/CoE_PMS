@@ -89,13 +89,13 @@
                                         </div>
                                     </td>
                                     <td class="px-6 py-4">
-                                        SEO Specialist
+                                        {{  $result['project_title'] }}
                                     </td>
                                     <td class="px-6 py-4">
-                                        SEO Specialist
+                                        {{  $result['teacher_name'] }}
                                     </td>
                                     <td class="px-6 py-4">
-                                        SEO Specialist
+                                        {{  $result['semester_name'] }}
                                     </td>
                                 </tr>
                             @endforeach
