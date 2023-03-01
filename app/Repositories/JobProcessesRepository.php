@@ -49,5 +49,14 @@ class JobProcessesRepository
     public function getMyJobProcessAll(){
         return JobProcess::query()->get();
     }
+
+    public function getPreProjectById()
+    {
+        return JobProcess::query()
+                ->where('process', 'Pre-Project')
+                ->get();
+
+       
+    }
    
 }

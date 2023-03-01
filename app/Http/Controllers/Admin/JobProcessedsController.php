@@ -52,4 +52,5 @@ class JobProcessedsController extends Controller
   
         return redirect()->back();
     }
+
 }

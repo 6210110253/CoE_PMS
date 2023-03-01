@@ -20,14 +20,14 @@ use App\Repositories\ProjectReservationRepository;
 use App\Repositories\ProjectListRepository;
 use App\Repositories\SemesterRepository;
 use App\Repositories\ProcessedsRepository;
-
+use App\Repositories\JobProcessesRepository;
 
 class ProjectController extends Controller
 {
     use uploadImage;
 
     protected $project_repo;
-    protected $user_repo, $semester_repo, $processed_repo;
+    protected $user_repo, $semester_repo, $processed_repo, $job_processes_repo;
 
 
     public function __construct(
@@ -36,7 +36,8 @@ class ProjectController extends Controller
         ProjectReservationRepository $projectReservationRepository,
         ProjectListRepository $projectListRepository,
         SemesterRepository $semesterRepository,
-        ProcessedsRepository $processedsRepository
+        ProcessedsRepository $processedsRepository,
+        JobProcessesRepository $jobProcessesRepository
         )
     {
         $this->project_repo = $projectRepository;
@@ -45,6 +46,7 @@ class ProjectController extends Controller
         $this->project_list_repo = $projectListRepository;
         $this->semester_repo = $semesterRepository;
         $this->processed_repo = $processedsRepository;
+        $this->job_processes_repo = $jobProcessesRepository;
 
     }
 
@@ -153,7 +155,16 @@ class ProjectController extends Controller
     }
 
     public function submission(){
-        $pre_project = $this->processed_repo->getPreProjectTeacher(Auth::id());
+
+    
+
+        $pre_projects = $this->job_processes_repo->getPreProjectById();
+
+        $pre_project_demo = $pre_projects->pluck('id')->all();
+
+        $group_pre_project_id = $pre_projects->groupBy('id');
+       
+        $job = $this->processed_repo->getPreProjectTeacher(Auth::id(),$group_pre_project_id);
         
         return view('pages.teacher.submission');
     }
