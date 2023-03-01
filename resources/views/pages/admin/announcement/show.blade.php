@@ -32,7 +32,7 @@
                    
                       @foreach($announcements as $announcement )
                       <tr class="hover:bg-grey-lighter">
-                        <td class="py-4 px-6 border-b border-grey-light">{{ $announcement->semester_id }}</td>
+                        <td class="py-4 px-6 border-b border-grey-light">{{ $announcement->semester->name}}</td>
                         <td class="py-4 px-6 border-b border-grey-light">{{ $announcement->title }}</td>
                         <td class="py-4 px-6 border-b border-grey-light">{{ $announcement->detail }}</td>
                         <td class="py-4 px-6 border-b border-grey-light">{{ dateThai($announcement->start) }}</td>

@@ -9,7 +9,7 @@ class Announcement extends Model
 {
     use HasFactory;
 
-    public function semesters(){
+    public function semester(){
         return $this->belongsTo(Semester::class);
     }
 }
