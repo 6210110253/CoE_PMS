@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+
+use App\Models\Announcement;
+
 use App\Repositories\AnnouncementsRepository;
 use App\Repositories\SemesterRepository;
 
@@ -33,10 +36,8 @@ class AnnouncementController extends Controller
     }
 
     public function edit(Announcement $announcement){
-        // $students = $this->user_repo->getStudent();
-        // $teachers = $this->user_repo->getTeacher();
         $semesters = $this->semester_repo->getAll();
-        return view('pages.admin.announcement.announcement',compact('semesters'));
+        return view('pages.admin.announcement.announcement',compact('semesters', 'announcement'));
     }
 
     public function update(Announcement $announcement,Request $request){

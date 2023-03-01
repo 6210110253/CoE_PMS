@@ -29,6 +29,4 @@ class AnnouncementsRepository
     public function getAnnouncementAll(){
         return Announcement::All();
     }
-
-    
 }

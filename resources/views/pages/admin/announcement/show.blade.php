@@ -49,7 +49,7 @@
 
                         <td class="py-4 px-6 border-b border-grey-light">
                         
-                          <a href="" class="text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-green hover:bg-green-dark text-blue-400">Edit</a>
+                          <a href="{{ route('admin.announcement.edit', $announcement) }}" class="text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-green hover:bg-green-dark text-blue-400">Edit</a>
                 
                           <form action="" method="POST" class="inline">
                               @csrf
