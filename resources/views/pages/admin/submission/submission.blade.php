@@ -77,7 +77,12 @@
                                         </td>
                                         <td class="px-6 py-4">
                                             <span class="text-3xl font-bold text-gray-900 dark:text-white"></span>
-                                            <a href="{{ route('admin.submission.detail') }}" class="text-white bg-blue-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">View Detail</a>
+                                                <a href="{{ route('admin.submission.detail') }}">
+                                                        <button class="flex items-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M2 19v-2h10v2H2Zm0-5v-2h5v2H2Zm0-5V7h5v2H2Zm18.6 10l-3.85-3.85q-.6.425-1.313.638T14 16q-2.075 0-3.538-1.463T9 11q0-2.075 1.463-3.538T14 6q2.075 0 3.538 1.463T19 11q0 .725-.213 1.438t-.637 1.312L22 17.6L20.6 19ZM14 14q1.25 0 2.125-.875T17 11q0-1.25-.875-2.125T14 8q-1.25 0-2.125.875T11 11q0 1.25.875 2.125T14 14Z"/></svg>
+                                                            <span>View detail</span>
+                                                        </button>
+                                                </a>
 
 
                                         </td>
@@ -138,7 +143,12 @@
                                         </td>
                                         <td class="px-6 py-4">
                                             <span class="text-3xl font-bold text-gray-900 dark:text-white"></span>
-                                            <a href="{{ route('admin.submission.detail') }}" class="text-white bg-blue-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">View Detail</a>
+                                                <a href="{{ route('admin.submission.detail') }}">
+                                                        <button class="flex items-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M2 19v-2h10v2H2Zm0-5v-2h5v2H2Zm0-5V7h5v2H2Zm18.6 10l-3.85-3.85q-.6.425-1.313.638T14 16q-2.075 0-3.538-1.463T9 11q0-2.075 1.463-3.538T14 6q2.075 0 3.538 1.463T19 11q0 .725-.213 1.438t-.637 1.312L22 17.6L20.6 19ZM14 14q1.25 0 2.125-.875T17 11q0-1.25-.875-2.125T14 8q-1.25 0-2.125.875T11 11q0 1.25.875 2.125T14 14Z"/></svg>
+                                                            <span>View detail</span>
+                                                        </button>
+                                                </a>
 
 
                                         </td>
@@ -197,9 +207,12 @@
                                         </td>
                                         <td class="px-6 py-4">
                                             <span class="text-3xl font-bold text-gray-900 dark:text-white"></span>
-                                            <a href="{{ route('admin.submission.detail') }}" class="text-white bg-blue-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">View Detail</a>
-
-
+                                                <a href="{{ route('admin.submission.detail') }}">
+                                                        <button class="flex items-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M2 19v-2h10v2H2Zm0-5v-2h5v2H2Zm0-5V7h5v2H2Zm18.6 10l-3.85-3.85q-.6.425-1.313.638T14 16q-2.075 0-3.538-1.463T9 11q0-2.075 1.463-3.538T14 6q2.075 0 3.538 1.463T19 11q0 .725-.213 1.438t-.637 1.312L22 17.6L20.6 19ZM14 14q1.25 0 2.125-.875T17 11q0-1.25-.875-2.125T14 8q-1.25 0-2.125.875T11 11q0 1.25.875 2.125T14 14Z"/></svg>
+                                                            <span>View detail</span>
+                                                        </button>
+                                                </a>
                                         </td>
                                         <td class="px-6 py-4">
                                             2565
@@ -257,9 +270,12 @@
                                         </td>
                                         <td class="px-6 py-4">
                                             <span class="text-3xl font-bold text-gray-900 dark:text-white"></span>
-                                            <a href="{{ route('admin.submission.detail') }}" class="text-white bg-blue-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">View Detail</a>
-
-
+                                                <a href="{{ route('admin.submission.detail') }}">
+                                                        <button class="flex items-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M2 19v-2h10v2H2Zm0-5v-2h5v2H2Zm0-5V7h5v2H2Zm18.6 10l-3.85-3.85q-.6.425-1.313.638T14 16q-2.075 0-3.538-1.463T9 11q0-2.075 1.463-3.538T14 6q2.075 0 3.538 1.463T19 11q0 .725-.213 1.438t-.637 1.312L22 17.6L20.6 19ZM14 14q1.25 0 2.125-.875T17 11q0-1.25-.875-2.125T14 8q-1.25 0-2.125.875T11 11q0 1.25.875 2.125T14 14Z"/></svg>
+                                                            <span>View detail</span>
+                                                        </button>
+                                                </a>
                                         </td>
                                         <td class="px-6 py-4">
                                             2565

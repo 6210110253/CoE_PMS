@@ -79,7 +79,7 @@
                                         </td>
                                         <td class="px-6 py-4">
                                            @if($project_booking->status == 'wait')
-                                            <button class="cancel" data-id="{{ $project_booking->id }}"> Cancel</button>
+                                            <button class="cancel underline text-red-600 " data-id="{{ $project_booking->id }}"> Cancel</button>
                                            @elseif($project_booking->status == 'reject')
 
                                             <button class="comment" data-id="{{ $project_booking->id }}"> View comment</button>

@@ -25,6 +25,15 @@
                          <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
 
                              <tbody>
+                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                         Semester
+                                     </th>
+                                     <td class="px-6 py-4">
+
+                                     </td>
+
+                                 </tr>
                                  <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                                      <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                          Topic
@@ -42,7 +51,6 @@
 
                                         {{ $project_reservation->project->detail}}
                                      </td>
-
                                  </tr>
                                  <tr class="bg-white dark:bg-gray-800">
                                      <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
@@ -51,7 +59,6 @@
                                      <td class="px-6 py-4">
                                         {{ $project_reservation->project->scope }}
                                      </td>
-
                                  </tr>
                                  <tr class="bg-white dark:bg-gray-800">
                                      <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
@@ -163,13 +170,27 @@
                         @if($project_reservation->status == 'wait')
 
                         <div class="flex items-center justify-between">
-                            <span class="text-3xl font-bold text-gray-900 dark:text-white "></span>
-                            <a href="#" id="accept" class="text-white bg-green-500 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center  ">Accept</a>
+                            <span class="text-3xl font-bold text-gray-900 dark:text-white"></span>
+                            <a href="#" id="accept">
+                                    <button class="flex items-center bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><path fill="currentColor" d="M10 2c-4.42 0-8 3.58-8 8s3.58 8 8 8s8-3.58 8-8s-3.58-8-8-8zm-.615 12.66h-1.34l-3.24-4.54l1.341-1.25l2.569 2.4l5.141-5.931l1.34.94l-5.811 8.381z"/></svg>
+                                        <span>Accept</span>
+                                    </button>
+                            </a>
+                            
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-3xl font-bold text-gray-900 dark:text-white"></span>
+                            <a href="#" id="reject">
+                                    <button class="flex items-center bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><path fill="currentColor" d="M14.95 6.46L11.41 10l3.54 3.54l-1.41 1.41L10 11.42l-3.53 3.53l-1.42-1.42L8.58 10L5.05 6.47l1.42-1.42L10 8.58l3.54-3.53z"/></svg>
+                                        <span>Reject</span>
+                                    </button>
+                            </a>
+                            
                         </div>
 
-                        <button id="reject" class="block text-white bg-red-500 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center " type="button">
-                            Reject
-                        </button>
+                        
                         @elseif($project_reservation->status == 'remove')
                             <div class="w-full bg-gradient-to-tr from-red-300 to-red-300 py-4">
                                 <h1 class="text-center text-red-800 text-xl font-bold">Removed</h1>

@@ -12,7 +12,7 @@
                                     </button>
                             </a>
                 </div>
-                <div class="flex justify-center gap-4">
+                    {{-- <div class="flex justify-center gap-4">
                         <a class='relative bg-blue-700 hover:bg-blue-800 text-white p-6 rounded text-sm font-bold overflow-visible'>
 
                                 นักศึกษาจองโปรเจกต์ 2565
@@ -24,7 +24,7 @@
                                 นักศึกษาเสนอโปรเจกต์ปี 2565
                                 <div class="absolute top-0 right-0 -mt-4 -mr-4 px-4 py-1 bg-red-500 rounded-full">2000</div>
                         </a>
-                    </div>
+                    </div> --}}
 
 
                 <br>
@@ -39,13 +39,13 @@
                     </div>
                     <ul class="hidden text-sm font-medium text-center text-gray-500 divide-x divide-gray-200 rounded-lg sm:flex dark:divide-gray-600 dark:text-gray-400" id="fullWidthTab" data-tabs-toggle="#fullWidthTabContent" role="tablist">
                         <li class="w-full">
-                            <button id="stats-tab" data-tabs-target="#stats" type="button" role="tab" aria-controls="stats" aria-selected="true" class="inline-block w-full p-4 rounded-tl-lg bg-gray-50 hover:bg-gray-100 focus:outline-none dark:bg-gray-700 dark:hover:bg-gray-600">โปรเจกต์ที่นักศึกษาเสนอหรือจองเข้ามา</button>
+                            <button id="stats-tab" data-tabs-target="#stats" type="button" role="tab" aria-controls="stats" aria-selected="true" class="inline-block w-full p-4 rounded-tl-lg bg-gray-50 hover:bg-gray-100 focus:outline-none dark:bg-gray-700 dark:hover:bg-gray-600">Propose/Reserve</button>
                         </li>
                         <li class="w-full">
-                            <button id="about-tab" data-tabs-target="#about" type="button" role="tab" aria-controls="about" aria-selected="false" class="inline-block w-full p-4 bg-gray-50 hover:bg-gray-100 focus:outline-none dark:bg-gray-700 dark:hover:bg-gray-600">โปรเจกต์ที่อาจารย์สร้าง</button>
+                            <button id="about-tab" data-tabs-target="#about" type="button" role="tab" aria-controls="about" aria-selected="false" class="inline-block w-full p-4 bg-gray-50 hover:bg-gray-100 focus:outline-none dark:bg-gray-700 dark:hover:bg-gray-600">My Project</button>
                         </li>
                         <li class="w-full">
-                            <button id="faq-tab" data-tabs-target="#faq" type="button" role="tab" aria-controls="faq" aria-selected="false" class="inline-block w-full p-4 rounded-tr-lg bg-gray-50 hover:bg-gray-100 focus:outline-none dark:bg-gray-700 dark:hover:bg-gray-600">โปรเจกต์ที่ดูแลอยู่</button>
+                            <button id="faq-tab" data-tabs-target="#faq" type="button" role="tab" aria-controls="faq" aria-selected="false" class="inline-block w-full p-4 rounded-tr-lg bg-gray-50 hover:bg-gray-100 focus:outline-none dark:bg-gray-700 dark:hover:bg-gray-600">Project Under Management</button>
                         </li>
                     </ul>
                     <div id="fullWidthTabContent" class="border-t border-gray-200 dark:border-gray-600">
@@ -120,7 +120,14 @@
                                         </a>
                                         <br>
                                         <div class="flex center justify-between">
-                                            <a href="{{ route('teacher.project.detail.teacher', $project_reservation) }}" class="text-white bg-blue-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">View more</a>
+                                            <span class="text-3xl font-bold text-gray-900 dark:text-white"></span>
+                                                <a href="{{ route('teacher.project.detail.teacher', $project_reservation) }}">
+                                                        <button class="flex items-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M2 19v-2h10v2H2Zm0-5v-2h5v2H2Zm0-5V7h5v2H2Zm18.6 10l-3.85-3.85q-.6.425-1.313.638T14 16q-2.075 0-3.538-1.463T9 11q0-2.075 1.463-3.538T14 6q2.075 0 3.538 1.463T19 11q0 .725-.213 1.438t-.637 1.312L22 17.6L20.6 19ZM14 14q1.25 0 2.125-.875T17 11q0-1.25-.875-2.125T14 8q-1.25 0-2.125.875T11 11q0 1.25.875 2.125T14 14Z"/></svg>
+                                                            <span>View more</span>
+                                                        </button>
+                                                </a>
+
                                         </div>
                                     </div>
 
@@ -161,7 +168,14 @@
                                         <br>
 
                                         <div class="flex items-center justify-between">
-                                            <a href="{{ route('teacher.project.detail.teacher.create', $project) }}" class="text-white bg-blue-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">View more</a>
+                                            <span class="text-3xl font-bold text-gray-900 dark:text-white"></span>
+                                                <a href="{{ route('teacher.project.detail.teacher.create', $project) }}">
+                                                        <button class="flex items-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M2 19v-2h10v2H2Zm0-5v-2h5v2H2Zm0-5V7h5v2H2Zm18.6 10l-3.85-3.85q-.6.425-1.313.638T14 16q-2.075 0-3.538-1.463T9 11q0-2.075 1.463-3.538T14 6q2.075 0 3.538 1.463T19 11q0 .725-.213 1.438t-.637 1.312L22 17.6L20.6 19ZM14 14q1.25 0 2.125-.875T17 11q0-1.25-.875-2.125T14 8q-1.25 0-2.125.875T11 11q0 1.25.875 2.125T14 14Z"/></svg>
+                                                            <span>View more</span>
+                                                        </button>
+                                                </a>
+
                                         </div>
                                     </div>
 
@@ -193,7 +207,13 @@
                                         </p>
                                         <br>
                                         <div class="flex left justify-between">
-                                                <a href="{{ route('teacher.project.detail.teacher',$project->reservaton ) }}" class="text-white bg-blue-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">View more</a>
+                                            <span class="text-3xl font-bold text-gray-900 dark:text-white"></span>
+                                                <a href="{{ route('teacher.project.detail.teacher',$project->reservaton ) }}" >
+                                                        <button class="flex items-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M2 19v-2h10v2H2Zm0-5v-2h5v2H2Zm0-5V7h5v2H2Zm18.6 10l-3.85-3.85q-.6.425-1.313.638T14 16q-2.075 0-3.538-1.463T9 11q0-2.075 1.463-3.538T14 6q2.075 0 3.538 1.463T19 11q0 .725-.213 1.438t-.637 1.312L22 17.6L20.6 19ZM14 14q1.25 0 2.125-.875T17 11q0-1.25-.875-2.125T14 8q-1.25 0-2.125.875T11 11q0 1.25.875 2.125T14 14Z"/></svg>
+                                                            <span>View more</span>
+                                                        </button>
+                                                </a>
                                         </div>
 
 
