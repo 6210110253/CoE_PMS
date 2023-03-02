@@ -55,10 +55,10 @@
                                         </th>
                                          <td class="px-6 py-4">
                                             {{-- {{ $ThaiDateHelper->simpleDateFormat($announcement->start) }} --}}
-                                            {{ $announcement->start }}
+                                            {{ dateThai($announcement->start) }}
                                          </td>
                                          <td class="px-6 py-4">
-                                            {{ $announcement->finish }}
+                                            {{ dateThai($announcement->finish) }}
                                             {{-- {{ $ThaiDateHelper->simpleDateFormat($announcement->finish) }} --}}
                                          </td>
                                         {{-- <td class="px-6 py-4">

@@ -18,10 +18,10 @@
 
                 <div class="w-full p-8  bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
 
-                         <p class="text-lg text-gray-900 dark:text-white">ข้อมูลกำลังดำเนินการที่จองและเสนอ</p>
+                         <p class="text-lg text-gray-900 dark:text-white">Tasks in progress</p>
 
                          <div class="relative overflow-x-auto">
-                                 <div class="flex justify-end pb-4 bg-white dark:bg-gray-900">
+                                 {{-- <div class="flex justify-end pb-4 bg-white dark:bg-gray-900">
                                      <label for="table-search" class="sr-only">Search</label>
                                      <div class="relative mt-1">
                                          <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -29,21 +29,21 @@
                                          </div>
                                          <input type="text" id="table-search" class="block p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search for items">
                                      </div>
-                                 </div>
+                                 </div> --}}
                              <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                                  <thead class="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400">
                                      <tr>
                                          <th scope="col" class="px-6 py-3 rounded-l-lg">
-                                             หัวข้อ
+                                             Project Name
                                          </th>
                                          <th scope="col" class="px-6 py-3">
-                                             ชื่ออาจารย์
+                                             Teacher
                                          </th>
-                                         <th scope="col" class="px-6 py-3 rounded-r-lg">
-                                             สถานะ
+                                         <th scope="col" class="px-6 py-3 ">
+                                             Status
                                          </th>
 
-                                         <th scope="col" class="px-6 py-3 rounded-r-lg">
+                                         <th scope="col" class="px-6 py-3 ">
                                              Action
                                          </th>
                                      </tr>
@@ -82,7 +82,7 @@
                                             <button class="cancel underline text-red-600 " data-id="{{ $project_booking->id }}"> Cancel</button>
                                            @elseif($project_booking->status == 'reject')
 
-                                            <button class="comment" data-id="{{ $project_booking->id }}"> View comment</button>
+                                            <button class="comment underline text-blue-600 " data-id="{{ $project_booking->id }}"> View comment</button>
                                            @endif
                                         </td>
                                     </tr>
