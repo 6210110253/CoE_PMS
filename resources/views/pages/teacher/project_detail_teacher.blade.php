@@ -177,7 +177,7 @@
                                         <span>Accept</span>
                                     </button>
                             </a>
-                            
+
                         </div>
                         <div class="flex items-center justify-between">
                             <span class="text-3xl font-bold text-gray-900 dark:text-white"></span>
@@ -187,10 +187,10 @@
                                         <span>Reject</span>
                                     </button>
                             </a>
-                            
+
                         </div>
 
-                        
+
                         @elseif($project_reservation->status == 'remove')
                             <div class="w-full bg-gradient-to-tr from-red-300 to-red-300 py-4">
                                 <h1 class="text-center text-red-800 text-xl font-bold">Removed</h1>
@@ -201,9 +201,10 @@
                             </div>
 
                         @elseif($project_reservation->status == 'reject')
-                        {{ $project_reservation->comment }}
+
+
                         <div class="w-full bg-gradient-to-tr from-orange-300 to-orange-300 py-4">
-                                <h1 class="text-center text-orange-800 text-xl font-bold">rejected</h1>
+                                <h1 class="text-center text-orange-800 text-xl font-bold">rejected-> Comment: {{ $project_reservation->comment }} </h1>
                         </div>
                         @endif
 
@@ -233,7 +234,7 @@
 
             Swal.fire({
 
-                text: "คุณต้องการยืนยันรับโปรเจกต์ใช่ไหม!",
+                text: "Are you sure you approve this project?",
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',

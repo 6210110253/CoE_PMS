@@ -11,7 +11,7 @@
                         <tbody>
                             <tr class="bg-white border-b dark:bg-gray-800 ">
                                 <td class="px-6 py-2">
-                                    ชื่อโปรเจกต์ :
+                                    Project Name :
                                 </td>
                                 <th scope="row" class="px-6 py-4 font-medium text-gray-900  dark:text-white">
                                     {{ $showproject->project->title }}
@@ -21,7 +21,7 @@
 
                             <tr class="bg-white border-b dark:bg-gray-800">
                                 <td class="px-6 py-2">
-                                    อาจารย์ที่ปรึกษา :
+                                    Supervisor :
                                 </td>
                                 <th scope="row" class="px-6 py-4 font-medium text-gray-900  dark:text-white">
                                     {{ $showproject->project->teacher->name}}
@@ -31,7 +31,7 @@
 
                             <tr class="bg-white border-b dark:bg-gray-800">
                                 <td class="px-6 py-2">
-                                    ผู้ร่วมโปรเจค :
+                                    Project collaborator :
                                 </td>
                                 <th scope="row" class="px-6 py-4 font-medium text-gray-900  dark:text-white">
                                 @if(!empty($showproject->student_reservetion))
@@ -135,18 +135,18 @@
                                         <td class="px-6 py-4">
                                             <div class="flex items-center">
                                                 @if(!empty($job_pro['processed']))
-                                                <div class="h-2.5 w-2.5 rounded-full bg-green-500 mr-2"></div>    ส่งแล้ว
+                                                <div class="h-2.5 w-2.5 rounded-full bg-green-500 mr-2"></div>    Submitted
                                                 @else
-                                                <div class="h-2.5 w-2.5 rounded-full bg-red-500 mr-2"></div>    ยังไม่ส่ง
+                                                <div class="h-2.5 w-2.5 rounded-full bg-red-500 mr-2"></div>    Not Submitted
                                                  @endif
                                             </div>
                                         </td>
 
                                         <td class="px-6 py-4">
                                             @if( $current_date >= $job_pro['end_date']   )
-                                                <div class="h-2.5 w-2.5 rounded-full bg-red-500 mr-2"></div> หมดช่วงเวลาในการส่ง
+                                                <div class="h-2.5 w-2.5 rounded-full bg-red-500 mr-2"></div> Out of time
                                             @else
-                                                <div class="h-2.5 w-2.5 rounded-full bg-green-500 mr-2"></div> อยู่ในช่วงเวลาการส่ง
+                                                <div class="h-2.5 w-2.5 rounded-full bg-green-500 mr-2"></div> In time
                                             @endif
                                         </td>
                                         <td class="px-6 py-4">

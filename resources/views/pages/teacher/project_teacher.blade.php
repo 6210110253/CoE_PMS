@@ -194,9 +194,9 @@
 
                                 @foreach ($project_in_charts as $project )
                                    <div class="w-full p-4 text-center bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
-                                        <h5 class="mb-2 text-3xl text-left font-bold text-gray-900 dark:text-white">ชื่อโปรเจกต์ : {{ $project->reservaton->project->title }}</h5>
-                                        <p class="mb-5 text-left text-gray-500 sm:text-lg dark:text-gray-400">คำอธิบายโปรเจกต์ : {{ $project->reservaton->project->detail }}</p>
-                                        <p class="mb-5 text-left text-gray-500 sm:text-lg dark:text-gray-400">นักศึกษา: </p>
+                                        <h5 class="mb-2 text-3xl text-left font-bold text-gray-900 dark:text-white">{{ $project->reservaton->project->title }}</h5>
+                                        <p class="mb-5 text-left text-gray-500 sm:text-lg dark:text-gray-400">Description: {{ $project->reservaton->project->detail }}</p>
+                                        <p class="mb-5 text-left text-gray-500 sm:text-lg dark:text-gray-400">Another: </p>
                                         @if(!empty($project->reservaton->student_reservetion))
                                                 @foreach ($project->reservaton->student_reservetion_list as $key => $member )
                                                     <p class=" flex leftfont-normal text-gray-700 dark:text-gray-400">{{ $key+1 }}.{{ $member }}</p>

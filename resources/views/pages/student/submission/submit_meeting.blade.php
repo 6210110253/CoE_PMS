@@ -29,18 +29,18 @@
                     <input type="hidden" name="project_id" value="{{ $projectList->reservaton->project->id }}">
                     <input type="hidden" name="project_list_id" value="{{ $projectList->id }}">
                     <input type="hidden" name="project_list_id" value="{{ $projectList->id }}">
-                    <input type="hidden" name="type" 
+                    <input type="hidden" name="type"
                     @if($job_process->type == 'appointment')
                         value="appointment"
                     @elseif($job_process->type == 'submission')
                         value="submission"
                     @else
                         value="report"
-                    @endif  
+                    @endif
                    >
 
                     <div class="mb-6">
-                        <label  for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Topic</label>
+                        <label  for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Project Name</label>
                         <input type="text" value="{{ $projectList->reservaton->project->title }}" name="topic" id="title" name="title" value="" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="ตรงนี้แสดงชื่อโปรเจคของนักศึกษามาเลย" required>
                     </div>
                     <div class="mb-6">
@@ -48,8 +48,8 @@
                         <input type="text" value="{{ $projectList->reservaton->project->teacher->name}}" id="title" name="title" value="" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="ตรงนี้แสดงชื่ออาจารย์ที่ปรึกษาโปรเจคของนักศึกษามาเลย" required>
                     </div>
                     <div class="mb-6">
-                        <label  for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">title</label>
-                        <input type="text" id="title" name="title" value="" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="หัวข้อเรื่องที่ส่งมา" required>
+                        <label  for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Title</label>
+                        <input type="text" id="title" name="title" value="" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="title" required>
                     </div>
 
                     @if( $job_process->type == 'appointment')
@@ -62,52 +62,54 @@
                         <div class="formkit-wrapper">
                           <label class="formkit-label" for="input_0">Meeting Date</label>
                           <div class="formkit-inner">
-                            <input name="date_meeting" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" type="datetime-local" name="start" id="input_0" aria-describedby="help-input_0 input_0-rule_date_after">
+                            <input name="date_meeting" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" type="datetime-local" name="start" id="input_0" aria-describedby="help-input_0 input_0-rule_date_after">
                           </div>
                         </div>
                     </div>
+                    <br>
 
                     @endif
 
                     <div class="mb-6">
                         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="user_avatar">File or PNG</label>
-                        <input name="file_report" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="user_avatar" type="file">
+                        <input name="file_report" class="block text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="user_avatar" type="file">
                     </div>
-                    
+
                     @if( $job_process->type == 'report')
                     <div class="mb-6">
                         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="user_avatar">Report File</label>
-                        <input name="file_progress" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="user_avatar" type="file">
+                        <input name="file_progress" class="block text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="user_avatar" type="file">
                     </div>
 
                     <div class="mb-6">
                         <label
                          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="user_avatar">Poster File</label>
                         <input
-                         name="file_poster" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="user_avatar" type="file">
+                         name="file_poster" class="block  text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="user_avatar" type="file">
                     </div>
-          
+
                     <div class="mb-6">
                         <label
                          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="user_avatar">Other</label>
                         <input
-                        name="file_other[]" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="user_avatar" type="file" multiple="">
+                        name="file_other[]" class="block  text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="user_avatar" type="file" multiple="">
                     </div>
-               
+
                     <div class="file_video">
                         <label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Vedio URL</label>
                         <input
-                        type="text" name="file_video" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="หัวข้อเรื่องที่ส่งมา" required>
+                        type="text" name="file_video" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="Vedio URL" required>
                     </div>
+                    <br>
 
                     <div class="mb-6">
                         <label for="git_input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Git URL</label>
-                        <input id="git_input" type="text" name="git_url" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="หัวข้อเรื่องที่ส่งมา" required>
+                        <input id="git_input" type="text" name="git_url" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="Git URL" required>
                     </div>
-                    
+
                     @endif
 
-                  
+
                     <br>
 
                     <button class="flex items-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
