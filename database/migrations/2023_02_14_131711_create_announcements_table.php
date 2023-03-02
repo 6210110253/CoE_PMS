@@ -20,6 +20,12 @@ return new class extends Migration
             $table->dateTime("start");
             $table->dateTime("finish");
             $table->enum("status", ['draft', 'publish'])->default('draft');
+             $table->foreignId('semester_id')
+                ->constrained()
+                ->cascadeOnDelete();
+            $table->longText("detail")
+                ->comment("รายละเอียด")
+                ->nullable();
             $table->timestamps();
         });
     }
