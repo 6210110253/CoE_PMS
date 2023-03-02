@@ -53,6 +53,11 @@ class ProcessedsRepository
 
     public function getPreProjectTeacher($teacher_id){
         return Processed::query()
+                ->with([
+                    'reservaton.project',
+                    'semester',
+                    'teacher'
+                ])
                 ->where('approve_by', $teacher_id )
                 ->get();
     }

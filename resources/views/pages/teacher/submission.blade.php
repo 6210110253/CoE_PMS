@@ -34,10 +34,6 @@
                                 <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                                     <tr>
-
-                                        <th scope="col" class="px-6 py-3">
-                                            Student ID
-                                        </th>
                                         <th scope="col" class="px-6 py-3">
                                             Name
                                         </th>
@@ -57,14 +53,10 @@
                                 </thead>
                                 <tbody>
 
-
+                                    @foreach($jobs as $job)
                                     <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
-
                                         <td class="px-6 py-4">
-                                            6210110566
-                                        </td>
-                                        <td class="px-6 py-4">
-                                            นางสาววรนุช แดงวรวิทย์
+                                            {{  $job['created_by'] }}
                                         </td>
 
                                         <td class="px-6 py-4">
@@ -73,7 +65,7 @@
                                             </div>
                                         </td>
                                         <td class="px-6 py-4">
-                                            ชื่อโปรเจกต์
+                                            {{  $job[] }}
                                         </td>
                                         <td class="px-6 py-4">
                                             <span class="text-3xl font-bold text-gray-900 dark:text-white"></span>
@@ -85,6 +77,7 @@
                                             2565
                                         </td>
                                     </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
 

@@ -162,11 +162,17 @@ class ProjectController extends Controller
 
         $pre_project_demo = $pre_projects->pluck('id')->all();
 
-        $group_pre_project_id = $pre_projects->groupBy('id');
-       
-        $job = $this->processed_repo->getPreProjectTeacher(Auth::id(),$group_pre_project_id);
+        $group_pre_project_ids = $pre_projects->groupBy('id');
+
+        foreach($group_pre_project_ids as $group_pre_project_id)
+        {
+            $group_pre_project_id = $group_pre_project_id;
+
+        }
+
+        $jobs = $this->processed_repo->getPreProjectTeacher(Auth::id(),$group_pre_project_id);
         
-        return view('pages.teacher.submission');
+        return view('pages.teacher.submission', compact('jobs'));
     }
 
     public function submission_detail(){
