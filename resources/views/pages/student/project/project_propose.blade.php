@@ -186,6 +186,8 @@
             </div>
         </main>
 </div>
+
+
 <script>
     $("#propose_project").validate({
         rules: {

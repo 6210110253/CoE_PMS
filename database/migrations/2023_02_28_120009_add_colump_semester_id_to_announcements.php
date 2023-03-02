@@ -19,8 +19,7 @@ return new class extends Migration
                 ->cascadeOnDelete();
             $table->longText("detail")
                 ->comment("รายละเอียด")
-                ->nullable();;
-
+                ->nullable();
         });
     }
 

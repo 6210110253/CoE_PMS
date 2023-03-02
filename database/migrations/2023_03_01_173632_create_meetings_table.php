@@ -13,19 +13,29 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('job_processes', function (Blueprint $table) {
+        Schema::create('meetings', function (Blueprint $table) {
             $table->id();
-            $table->enum("process", ['Pre-Project', 'Project I', 'Project II', 'Finished', 'Cancel'])->default('Pre-Project');
             $table->foreignId('semester_id')
                 ->constrained()
                 ->cascadeOnDelete();
-            $table->string("topic")
-                ->index()
+            $table->string("title")
+                ->index();
+            $table->longText("detail")
+                ->comment("รายละเอียด")
                 ->nullable();
-            $table->enum("type", ['appointment', 'submission','report'])->default('appointment');
             $table->dateTime("start_date")
                 ->nullable();
             $table->dateTime("end_date")
+                ->nullable();
+            $table->foreignId("created_by")
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade')
+                ->nullable();
+            $table->foreignId("approve_by")
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade')
                 ->nullable();
             $table->enum("status", ['draft', 'publish'])->default("draft");
             $table->timestamps();
@@ -39,6 +49,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('job_processes');
+        Schema::dropIfExists('meetings');
     }
 };
