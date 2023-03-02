@@ -21,7 +21,7 @@
 
                      <div class="w-full p-8  bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
 
-                         <p class="text-lg text-gray-900 dark:text-white">สร้างเทอม/ปีที่จะใช้งาน</p>
+                         <p class="text-lg text-gray-900 dark:text-white">Create semester/year</p>
                          <hr><br>
 
                          <div class="relative overflow-x-auto">
@@ -66,13 +66,13 @@
                                          <th scope="col" class="px-6 py-3">
                                              Name
                                          </th>
-                                         <th scope="col" class="px-6 py-3 rounded-r-lg">
+                                         <th scope="col" class="px-6 py-3">
                                              Year
                                          </th>
-                                         <th scope="col" class="px-6 py-3 rounded-r-lg">
+                                         <th scope="col" class="px-6 py-3">
                                              Status
                                         </th>
-                                         <th scope="col" class="px-6 py-3 rounded-r-lg">
+                                         <th scope="col" class="px-6 py-3">
                                             Action
                                         </th>
                                      </tr>
@@ -127,7 +127,7 @@
 
                      <div class="w-full p-8  bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
 
-                         <p class="text-lg text-gray-900 dark:text-white">ฟอร์มสร้างการส่งงาน </p>
+                         <p class="text-lg text-gray-900 dark:text-white">Create submission </p>
                          <hr><br>
                          <div class="flex justify-end gap-4">
                             <a href="{{ route('admin.form.create.submission')}}" class="flex items-center text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
@@ -197,7 +197,13 @@
                                             {{ $job_pro->semester->name }}
                                          </td>
                                          <td class="px-6 py-4">
-                                             {{ $job_pro->type }}
+                                            @if( $job_pro->type == 'appointment')
+                                            <span class="bg-green-200 text-green-600 py-1 px-3 mt-2 rounded-full text-xs">appointment</span>
+                                            @elseif ( $job_pro->type == 'submission')
+                                            <span class="bg-green-200 text-green-600 py-1 px-3 mt-2 rounded-full text-xs">submission</span>
+                                            @elseif ( $job_pro->type == 'report')
+                                            <span class="bg-green-200 text-green-600 py-1 px-3 mt-2 rounded-full text-xs">report</span>
+                                            @endif
                                          </td>
                                          <td class="px-6 py-4">
                                             {{ $job_pro->topic  }}

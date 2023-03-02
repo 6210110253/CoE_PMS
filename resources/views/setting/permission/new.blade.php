@@ -15,7 +15,7 @@
                     </div>
               <div class="bg-white shadow-md rounded my-6 p-5">
                 <form method="POST" action="{{ route('admin.permissions.store')}}">
-                    <h1 class="text-3xl font-bold mb-4">Create Role</h1>
+                    <h1 class="text-3xl font-bold mb-4">Create Permission</h1>
                      <hr><br>
                   @csrf
                   @method('post')
