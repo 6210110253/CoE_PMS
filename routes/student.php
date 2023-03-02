@@ -50,9 +50,8 @@ Route::controller(MeetingController::class)->name('student.')->prefix('student/'
         ->name('meeting.store');
     Route::get('/meeting/edit/{meeting}','edit')
         ->name('meeting.edit');
-    // Route::post('/meeting/{project}/update','update')
-    //     ->name('meeting.update');
-
+    Route::post('/meeting/{meeting}/update','update')
+         ->name('meeting.update');
     Route::get('/meeting-list','meeting_list')
         ->name('meeting.list');
 
