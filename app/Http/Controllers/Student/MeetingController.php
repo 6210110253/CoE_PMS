@@ -44,22 +44,15 @@ class MeetingController extends Controller
         return redirect()->back();
     }
 
-    public function edit(Meeting $Meeting){
-        // $students = $this->user_repo->getStudent();
-        // $teachers = $this->user_repo->getTeacher();
-        // $semesters = $this->semester_repo->getAll();
-        return view('pages.student.project.project_propose',compact('students','project','teachers','semesters'));
+    public function edit(Meeting $meeting){
+        $teachers = $this->user_repo->getTeacher();
+        $semesters = $this->semester_repo->getAll();
+        return view('pages.student.meeting',compact('teachers','semesters','meeting'));
     }
 
-    public function update(Meeting $Meeting,Request $request){
+    public function update(Meeting $meeting,Request $request){
 
-        // $request =  $this->myUploadFile($request);
-
-        // $project = $this->project_repo->variable($project,$request);
-        // $project->reservation()->update([
-        //     'semester_id' => $request->semester_id
-        //     // 'comment' => 'edit '.$project->title
-        // ]);
+        $meeting = $this->meeting_repo->variable($meeting,$request);
         return redirect()->back();
     }
 
