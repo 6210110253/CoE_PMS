@@ -257,16 +257,16 @@
                                             6210110566
                                         </td>
                                         <td class="px-6 py-4">
-                                            นางสาววรนุช แดงวรวิทย์
+                                            Woranut Dangworawith
                                         </td>
 
                                         <td class="px-6 py-4">
                                             <div class="flex items-center">
-                                                <div class="h-2.5 w-2.5 rounded-full bg-red-500 mr-2"></div> ส่งแล้ว
+                                                <div class="h-2.5 w-2.5 rounded-full bg-green-500 mr-2"></div> Submited
                                             </div>
                                         </td>
                                         <td class="px-6 py-4">
-                                            ชื่อโปรเจกต์
+                                            Wireless Signal Converter System
                                         </td>
                                         <td class="px-6 py-4">
                                             <span class="text-3xl font-bold text-gray-900 dark:text-white"></span>

@@ -19,13 +19,13 @@
                     <thead class="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
                             <th scope="col" class="px-6 py-3">
-                                เทอม
+                                Semester/Year
                             </th>
-                            <th scope="col" class="px-6 py-3 rounded-l-lg">
-                                หัวข้อ
+                            <th scope="col" class="px-6 py-3 ">
+                                Project Name
                             </th>
-                            <th scope="col" class="px-6 py-3 rounded-r-lg">
-                                รายละเอียด
+                            <th scope="col" class="px-6 py-3 ">
+                                Description
                             </th>
                         </tr>
                     </thead>
