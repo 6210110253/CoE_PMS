@@ -11,7 +11,6 @@ class ProjectRepository
     public function store($params){
         $data = new Project();
         return $this->variable($data , $params);
-
     }
 
     //แก้ไข

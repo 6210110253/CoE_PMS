@@ -28,7 +28,7 @@ Route::controller(AnnouncementController::class)->name('admin.')->prefix('admin/
 
     Route::get('/announcement/show', 'show')
         ->name('announcement.show');
-    
+
     Route::get('/announcement', 'index')
     ->name('announcement');
 
@@ -44,7 +44,10 @@ Route::controller(AnnouncementController::class)->name('admin.')->prefix('admin/
     Route::get('/select_role', 'selectRole')
     ->name('select.role');
 
-    
+    Route::get('/import_user', 'import_user')
+    ->name('import.user');
+
+
 
 });
 
@@ -80,7 +83,7 @@ Route::controller(JobProcessedsController::class)->name('admin.')->prefix('admin
 
     Route::get('/submission/edit/{jobprocess}','edit')
         ->name('submission.edit');
-        
+
     Route::post('/submission/{jobprocess}/update','update')
         ->name('submission.update');
 

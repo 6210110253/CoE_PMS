@@ -18,5 +18,27 @@ class UserRepository
 
         return User::query()->role('teacher')->get();
 
-     }
+    }
+
+    public function store($params){
+        $data = new Project();
+        return $this->variable($data , $params);
+    }
+
+    public function variable(Project $data , $params){
+       $params = (object)$params;
+
+       !isset($params->name) ?: $data->name = $params->name;
+       !isset($params->email) ?: $data->email = $params->email;
+       !isset($params->email) ?: $data->email = $params->email;
+       !isset($params->email) ?: $data->email = $params->email;
+
+        // $data->created_by = Auth()->user()->id;
+
+       $data->save();
+       return $data;
+    }
+
+
+
 }

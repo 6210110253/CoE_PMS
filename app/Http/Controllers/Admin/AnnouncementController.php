@@ -56,4 +56,9 @@ class AnnouncementController extends Controller
     public function selectRole(){
         return view('pages.select_role');
     }
+
+
+    public function import_user(){
+        return view('pages.import_user');
+    }
 }
