@@ -102,7 +102,7 @@
                                             <label for="toggle{{ $semester->id }}" class="text-xs text-gray-700">Active</label>
                                          </td>
                                          <td class="px-6 py-4">
-                                            <a class=" underline text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-blue hover:bg-blue-dark text-blue-400" href="">Edit</a>
+                                            <a class=" underline text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-blue hover:bg-blue-dark text-blue-400" href="{{ route('admin.semester.edit', $semester) }}">Edit</a>
                                             <button class="underline text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-green hover:bg-green-dark text-red-400" id="delete_semester"> Delete</button>
                                          </td>
 
