@@ -102,7 +102,7 @@
                                             <label for="toggle{{ $semester->id }}" class="text-xs text-gray-700">Active</label>
                                          </td>
                                          <td class="px-6 py-4">
-                                            <a class=" underline text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-blue hover:bg-blue-dark text-red-400" id="delete_semester" href="">Delete</a>
+                                            <a class=" underline text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-blue hover:bg-blue-dark text-red-400" id="delete_semester">Delete</a>
                                             <a class=" underline text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-blue hover:bg-blue-dark text-blue-400" href="">Edit</a>
                                          </td>
 
@@ -222,8 +222,8 @@
                                             @endif
                                          </td>
                                          <td class="px-6 py-4">
-                                            <a class="underline text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-blue hover:bg-blue-dark text-red-400" href="">Delete</a>
-                                            <a class="underline text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-blue hover:bg-blue-dark text-blue-400" href="">Edit</a>
+                                            <a class="underline text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-blue hover:bg-blue-dark text-red-400" id="delete_submission">Delete</a>
+                                            <a class="underline text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-blue hover:bg-blue-dark text-blue-400">Edit</a>
                                          </td>
 
                                      </tr>
@@ -279,40 +279,47 @@
         })
     }
 
+    $('#delete_semester').click(function(){
+        Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire(
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success'
+                )
+            }
+        })
 
-    // $('#delete_semester').click(function(){
-    //     Swal.fire({
-    //         title: 'Are you sure?',
-    //         text: "You won't be able to revert this!",
-    //         icon: 'warning',
-    //         showCancelButton: true,
-    //         confirmButtonColor: '#3085d6',
-    //         cancelButtonColor: '#d33',
-    //         confirmButtonText: 'Yes, delete it!'
-    //         }).then((result) => {
-    //                     if (result.isConfirmed) {
-    //                         $.ajax({
-    //                             url: "",
-    //                             type: "",
-    //                             data: {
-    //                                 _token : $('meta[name="csrf-token"]').attr('content'),
-    //                                 semester_id : '1'
-    //                             },
-    //                             success: function(result){
-    //                                 if(result.status)
-    //                                 {
-    //                                     Swal.fire('Approved!', '', 'success').then((result)=>{
-    //                                         // location.reload();
-    //                                     })
-    //                                 }else{
-    //                                     Swal.fire(result.massege, '', 'error')
-    //                                 }
-    //                             }
+    })
 
-    //                         });
-    //                     }
-    //             })
-    // })
+    $('#delete_submission').click(function(){
+        Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire(
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success'
+                )
+            }
+        })
+
+    })
  </script>
  </x-app-layout>
 

@@ -47,15 +47,10 @@
     
                         </td>
 
-                        <td class="py-4 px-6 border-b border-grey-light">
-                        
-                          <a href="{{ route('admin.announcement.edit', $announcement) }}" class="text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-green hover:bg-green-dark text-blue-400">Edit</a>
-                
-                          <form action="" method="POST" class="inline">
-                              @csrf
-                              @method('delete')
-                              <button class="text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-blue hover:bg-blue-dark text-red-400">Delete</button>
-                          </form>
+                        <td class="py-4 px-6">
+                         
+                          <a href="{{ route('admin.announcement.edit', $announcement) }}" class="underline text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-green hover:bg-green-dark text-blue-400">Edit</a>
+                          <a id="delete" class="underline text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-green hover:bg-green-dark text-red-400" >Delete</a>
                       
                         </td> 
                       </tr>
@@ -73,4 +68,26 @@
 
         </main>
  </div>
+ <script>
+    $('#delete').click(function(){
+        Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire(
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success'
+                )
+            }
+        })
+
+    })
+ </script>
  </x-app-layout>
