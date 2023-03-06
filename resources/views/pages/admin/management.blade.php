@@ -222,7 +222,7 @@
                                             @endif
                                          </td>
                                          <td class="px-6 py-4">
-                                            <a class="underline text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-blue hover:bg-blue-dark text-blue-400">Edit</a>
+                                            <a class=" underline text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-blue hover:bg-blue-dark text-blue-400" href="{{ route('admin.submission.edit', $job_pro) }}">Edit</a>
                                             <button class="underline text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-green hover:bg-green-dark text-red-400" id="delete_submission"> Delete</button>
                                          </td>
 

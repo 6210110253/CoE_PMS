@@ -23,7 +23,7 @@
 
                          <form
                             method="post"
-                            action=" {{ route('admin.submission.store') }}">
+                            action="{{ Request::route()->getName() == 'admin.form.create.submission' ?  route('admin.submission.store') : route('admin.submission.update', $jobprocess) }}">
                             @csrf
 
                         <div class="mb-6">
