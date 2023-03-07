@@ -35,8 +35,6 @@
                     </a>
                 </div>
 
-
-
               <div class="bg-white shadow-md rounded my-6">
                 <table class="text-left w-full border-collapse">
                   <thead>

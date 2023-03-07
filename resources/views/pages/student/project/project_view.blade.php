@@ -101,7 +101,6 @@
 
 <script>
 $('#cancel').click(function(){
-
 Swal.fire({
   title: 'Are you sure?',
   text: "You won't be able to revert this!",
@@ -112,11 +111,31 @@ Swal.fire({
   confirmButtonText: 'Yes, cancel this project!'
     }).then((result) => {
         if (result.isConfirmed) {
-            Swal.fire(
-            'Deleted!',
-            'Your file has been deleted.',
-            'success'
-            )
+            if (result.isConfirmed) {
+                            $.ajax({
+                                url: "{{ route('teacher.project.reservation.cancel') }}",
+                                type: "POST",
+                                data: {
+                                    _token : $('meta[name="csrf-token"]').attr('content'),
+                                    project_reservation_id : `3`,
+                                    status : 'remove',
+                                    comment : '',
+                                    teacher_id : "{{ Auth::id() }}",
+                                    semester_id : '1'
+                                },
+                                success: function(result){
+                                    if(result.status)
+                                    {
+                                        Swal.fire('Deleted!', 'Your file has been deleted.', 'success').then((result)=>{
+                                            location.reload();
+                                        })
+                                    }else{
+                                        Swal.fire(result.massege, '', 'error')
+                                    }
+                                }
+
+                            });
+                        }
         }
     })
 
