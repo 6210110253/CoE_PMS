@@ -79,7 +79,7 @@
                                         </td>
                                         <td class="px-6 py-4">
                                            @if($project_booking->status == 'wait')
-                                            <button class="cancel underline text-red-600 " data-id="{{ $project_booking->id }}"> Cancel</button>
+                                            <button class="cancel underline text-red-600 " id="cancel"> Cancel</button>
                                            @elseif($project_booking->status == 'reject')
 
                                             <button class="comment underline text-blue-600 " data-id="{{ $project_booking->id }}"> View comment</button>
@@ -91,29 +91,55 @@
                                  </tfoot>
                              </table>
                          </div>
-
-
-
-
                 </div>
 
                 <br>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
             </div>
         </main>
     </div>
+
+<script>
+$('#cancel').click(function(){
+Swal.fire({
+  title: 'Are you sure?',
+  text: "You won't be able to revert this!",
+  icon: 'warning',
+  showCancelButton: true,
+  confirmButtonColor: '#3085d6',
+  cancelButtonColor: '#d33',
+  confirmButtonText: 'Yes, cancel this project!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            if (result.isConfirmed) {
+                            $.ajax({
+                                url: "{{ route('teacher.project.reservation.cancel') }}",
+                                type: "POST",
+                                data: {
+                                    _token : $('meta[name="csrf-token"]').attr('content'),
+                                    project_reservation_id : `3`,
+                                    status : 'remove',
+                                    comment : '',
+                                    teacher_id : "{{ Auth::id() }}",
+                                    semester_id : '1'
+                                },
+                                success: function(result){
+                                    if(result.status)
+                                    {
+                                        Swal.fire('Deleted!', 'Your file has been deleted.', 'success').then((result)=>{
+                                            location.reload();
+                                        })
+                                    }else{
+                                        Swal.fire(result.massege, '', 'error')
+                                    }
+                                }
+
+                            });
+                        }
+        }
+    })
+
+})
+</script>
 
 </x-app-layout>

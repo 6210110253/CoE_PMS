@@ -235,6 +235,25 @@ class ProjectController extends Controller
 
     }
 
+    public function cancel(Request $request){
+
+        $id = $request->project_reservation_id;
+        $status = $request->status;
+        $comment = $request->comment;
+        $semester_id = $request->semester_id;
+
+
+        $obj = $this->project_reservation_repo->updateStatusCancel($id, $status, $comment,$semester_id);
+
+        return \response()->json([
+            'status' => true,
+            'data' => $obj,
+            'massege' => 'sucess'
+        ]);
+
+    }
+
+
 
 
 

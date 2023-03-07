@@ -58,7 +58,7 @@ class AnnouncementController extends Controller
     }
 
 
-    public function import_user(){
+    public function importFileUser(){
         return view('pages.import_user');
     }
 }

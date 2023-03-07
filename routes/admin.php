@@ -44,7 +44,7 @@ Route::controller(AnnouncementController::class)->name('admin.')->prefix('admin/
     Route::get('/select_role', 'selectRole')
     ->name('select.role');
 
-    Route::get('/import_user', 'import_user')
+    Route::get('/import_user', 'importFileUser')
     ->name('import.user');
 
 

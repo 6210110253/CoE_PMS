@@ -87,6 +87,19 @@ class ProjectReservationRepository
 
      }
 
+     public function updateStatusCancel($id, $status, $comment='',$semester_id){
+
+        $project_reser = $this->getById($id);
+        $project_reser->status = $status;
+        empty($comment) ?: $project_reser->comment = $comment;
+        $project_reser->save();
+
+        return $project_reser;
+
+     }
+
+
+
      public function getById($id){
 
         return ProjectReservation::query()->find($id);

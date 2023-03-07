@@ -37,7 +37,7 @@ class JobProcessedsController extends Controller
 
     public function store(Request $request)
     {
-        $announcement = $this->job_processes_repo->store($request);
+        $submission = $this->job_processes_repo->store($request);
         return redirect()->back();
     }
 
@@ -48,8 +48,9 @@ class JobProcessedsController extends Controller
     }
 
     public function update(JobProcess $jobprocess,Request $request){
-        $project = $this->semester_repo->variable($jobprocess,$request);
-  
+
+        $submission = $this->job_processes_repo->variable($jobprocess,$request);
+        
         return redirect()->back();
     }
 

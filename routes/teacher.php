@@ -52,6 +52,9 @@ Route::controller(ProjectController::class)->name('teacher.')->prefix('teacher/'
     Route::get('/old_project', 'old_project')
         ->name('old.project');
 
+        Route::post('/project/reservation/cancel', 'cancel')
+        ->name('project.reservation.cancel');
+
 
 
 });
