@@ -26,16 +26,17 @@ class MeetingController extends Controller
         $this->meeting_repo = $meetingRepository;
         $this->semester_repo = $semesterRepository;
     }
+    public function index(){
+        $teachers = $this->user_repo->getTeacher();
+        $semesters = $this->semester_repo->getAll();
+        return view('pages.student.meeting.index',compact('teachers','semesters'));
+    }
 
     public function create(){
         $teachers = $this->user_repo->getTeacher();
         $semesters = $this->semester_repo->getAll();
-        return view('pages.student.meeting',compact('teachers','semesters'));
+        return view('pages.student.meeting.meeting',compact('teachers','semesters'));
     }
-
-    // public function create(){
-    //     return view('pages.student.meeting');
-    // }
 
     public function store(Request $request){
 
@@ -47,7 +48,7 @@ class MeetingController extends Controller
     public function edit(Meeting $meeting){
         $teachers = $this->user_repo->getTeacher();
         $semesters = $this->semester_repo->getAll();
-        return view('pages.student.meeting',compact('teachers','semesters','meeting'));
+        return view('pages.student.meeting.meeting',compact('teachers','semesters','meeting'));
     }
 
     public function update(Meeting $meeting,Request $request){
@@ -57,7 +58,7 @@ class MeetingController extends Controller
     }
 
     public function meeting_list(){
-        return view('pages.student.meeting_list');
+        return view('pages.student.meeting.meeting_list');
     }
 
 }
