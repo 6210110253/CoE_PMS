@@ -5,7 +5,7 @@
 
                 <div class="w-full p-8  bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
 
-                         <p class="text-lg text-gray-900 dark:text-white">ฟอร์มสร้างการส่งงาน </p>
+                         <p class="text-lg text-gray-900 dark:text-white">Import User</p>
                          <hr><br>
 
                          <form
@@ -15,7 +15,7 @@
                             @csrf
 
                         <div class="mb-6">
-                            <label for="topic" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">File CSV</label>
+                            <label for="topic" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">CSV File</label>
                             <input type="file"
                                     name="file"
                                     class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg
