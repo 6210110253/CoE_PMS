@@ -85,7 +85,7 @@
                                      <td class="px-6 py-4">
                                         @if(!empty($processed->file_progress))
                                             <div class="mb-6">
-                                                <label for="file_progress" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">file_progress </label>
+
                                                 <a target="_blank" href="{{ Storage::url($processed->file_progress) }}">
                                                     <img src="{{ asset('images\icon_file.png') }}" width="50">
                                                 </a>
@@ -118,7 +118,7 @@
                                      <td class="px-6 py-4">
                                         @if(!empty($processed->file_poster))
                                             <div class="mb-6">
-                                                <label for="file_poster" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">file_poster </label>
+
                                                 <a target="_blank" href="{{ Storage::url($processed->file_poster) }}">
                                                     <img src="{{ asset('images\icon_file.png') }}" width="50">
                                                 </a>
@@ -150,7 +150,7 @@
                                      <td class="px-6 py-4">
                                         @if(!empty($processed->file_video))
                                         <div class="mb-6">
-                                            <label for="file_video" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">file_video  </label>
+
                                             <a href="{{ $processed->file_video }}">
                                                 <img src="{{ asset('images\icon_file.png') }}" width="50">
                                             </a>
