@@ -12,7 +12,15 @@
                     <nav class="text-black text-lg hidden lg:flex items-center">
 
                         @if(Route::has('admin.login'))
-                                <a href="{{ route('admin.login') }}" class="py-2 px-6 flex hover:text-blue-500">Login</a>
+
+
+                                <a href="{{ route('admin.login') }}">
+                                    <button class="flex items-center bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+                                        <span>Login</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M10 17v-3H3v-4h7V7l5 5l-5 5m0-15h9a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2h-9a2 2 0 0 1-2-2v-2h2v2h9V4h-9v2H8V4a2 2 0 0 1 2-2Z"/></svg>
+
+                                    </button>
+                            </a>
 
                         @endif
 
@@ -49,9 +57,9 @@
 
         </div>
         </div>
-        <br><br><br>
+        {{-- <br><br><br> --}}
 
-        <div class="container mx-auto px-6 sm:px-12 flex flex-col-reverse sm:flex-row items-center">
+        {{-- <div class="container mx-auto px-6 sm:px-12 flex flex-col-reverse sm:flex-row items-center">
             <div class="flex flex-justify-center gap-4 mx-auto px-6">
 
 
@@ -92,8 +100,8 @@
                 </a>
             </div>
 
-        </div>
-        <br><br><br>
+        </div> --}}
+        {{-- <br><br><br> --}}
 
 
 

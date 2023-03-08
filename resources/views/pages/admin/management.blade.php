@@ -52,9 +52,9 @@
                                 <span class="inline-flex justify-center items-center">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
-                                    </svg>                        
+                                    </svg>
                                 </span>
-                                
+
                                 <span class="mx-3">Create</span>
                                 </button>
                             </form>
@@ -106,7 +106,7 @@
                                             {{-- <button class="delete_semester underline text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-green hover:bg-green-dark text-red-400"
                                              data-id="{{ $semester->id }}"
                                             > Delete</button> --}}
-                                         </td> 
+                                         </td>
 
                                      </tr>
                                      @endforeach
@@ -136,9 +136,9 @@
                                 <span class="inline-flex justify-center items-center">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
-                                    </svg>                        
+                                    </svg>
                                 </span>
-                                
+
                                 <span class="mx-3">Create Form</span>
                             </a>
                         </div>
@@ -163,18 +163,19 @@
                                  <thead class="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400">
 
                                     <tr>
-                                         <th scope="col" class="px-6 py-3 ">
-                                             Name
+                                          <th scope="col" class="px-6 py-3 ">
+                                            Topic
+                                        </th>
+                                        <th scope="col" class="px-6 py-3 ">
+                                             Process
                                          </th>
                                          <th scope="col" class="px-6 py-3">
                                              Round
                                          </th>
                                          <th scope="col" class="px-6 py-3 ">
-                                             Process
+                                             Type
                                          </th>
-                                         <th scope="col" class="px-6 py-3 ">
-                                            Topic
-                                        </th>
+
                                          <th scope="col" class="px-6 py-3 ">
                                             START DATE
                                         </th>
@@ -192,9 +193,12 @@
                                  <tbody>
                                     @foreach ($job_pros as $job_pro)
                                      <tr class="bg-white dark:bg-gray-800">
-                                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                            {{ $job_pro->process }}
+                                        <th class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                            {{ $job_pro->topic  }}
                                          </th>
+                                         <td class="px-6 py-4">
+                                            {{ $job_pro->process }}
+                                         </td>
                                          <td class="px-6 py-4">
                                             {{ $job_pro->semester->name }}
                                          </td>
@@ -207,9 +211,7 @@
                                             <span class="bg-green-200 text-green-600 py-1 px-3 mt-2 rounded-full text-xs">report</span>
                                             @endif
                                          </td>
-                                         <td class="px-6 py-4">
-                                            {{ $job_pro->topic  }}
-                                         </td>
+
                                          <td class="px-6 py-4">
                                             {{ dateThai($job_pro->start_date) }}
                                          </td>
@@ -225,7 +227,7 @@
                                          </td>
                                          <td class="px-6 py-4">
                                             <a class=" underline text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-blue hover:bg-blue-dark text-blue-400" href="{{ route('admin.submission.edit', $job_pro) }}">Edit</a>
-                                            <button class="delete_submission underline text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-green hover:bg-green-dark text-red-400" 
+                                            <button class="delete_submission underline text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-green hover:bg-green-dark text-red-400"
                                             data-id="{{$job_pro->id }}"
                                             > Delete</button>
                                          </td>
@@ -302,7 +304,7 @@
                     type: "POST",
                     data: {
                         _token : $('meta[name="csrf-token"]').attr('content'),
-                        id : id 
+                        id : id
                     },
                     success: function(result){
                         if(result.status)

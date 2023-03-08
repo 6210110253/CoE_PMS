@@ -18,85 +18,165 @@
 
                  <div class="w-full p-4  bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
 
+                        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+
+                             <tbody>
+                                 <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                         Topic
+                                     </th>
+                                     <td class="px-6 py-4">
+                                        {{ $processed->project->title }}
+                                     </td>
+
+                                 </tr>
+                                 <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                         Submit by
+                                     </th>
+                                     <td class="px-6 py-4">
+
+                                       {{ $processed->student->name }}
+                                     </td>
+                                 </tr>
+                                 <tr class="bg-white dark:bg-gray-800">
+                                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                         Round
+                                     </th>
+                                     <td class="px-6 py-4">
+                                        {{ $processed->projectList->semester->name }}
+                                     </td>
+                                 </tr>
+                                 <tr class="bg-white dark:bg-gray-800">
+                                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                         Process
+                                     </th>
+                                     <td class="px-6 py-4">
+                                        {{ $processed->jobProcess->process }}
+                                     </td>
+
+                                 </tr>
+                                 <tr class="bg-white dark:bg-gray-800">
+                                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                         Title
+                                     </th>
+                                     <td class="px-6 py-4">
+                                        {{ $processed->jobProcess->topic }}
+                                     </td>
+
+                                 </tr>
+                                 <tr class="bg-white dark:bg-gray-800">
+                                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                         Description
+                                     </th>
+                                     <td class="px-6 py-4">
+                                        @if(!empty($processed->detail))
+                                            <div class="mb-6">
+                                                <label for="detail" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"> {{ $processed->detail }}</label>
+                                            </div>
+                                        @endif
+                                     </td>
+
+                                 </tr>
+                                 <tr class="bg-white dark:bg-gray-800">
+                                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                         File_progress
+                                     </th>
+                                     <td class="px-6 py-4">
+                                        @if(!empty($processed->file_progress))
+                                            <div class="mb-6">
+                                                <label for="file_progress" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">file_progress </label>
+                                                <a target="_blank" href="{{ Storage::url($processed->file_progress) }}">
+                                                    <img src="{{ asset('images\icon_file.png') }}" width="50">
+                                                </a>
+                                            </div>
+                                        @endif
+                                     </td>
+
+                                 </tr>
+                                 <tr class="bg-white dark:bg-gray-800">
+                                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                         File_report
+                                     </th>
+                                     <td class="px-6 py-4">
+                                        @if(!empty($processed->file_report))
+                                            <div class="mb-6">
+
+                                                <a target="_blank" href="{{ Storage::url($processed->file_report) }}">
+                                                    <img src="{{ asset('images\icon_file.png') }}" width="50">
+                                                </a>
+                                            </div>
+                                        @endif
+                                     </td>
+
+                                 </tr>
+
+                                 <tr class="bg-white dark:bg-gray-800">
+                                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                         File_poster
+                                     </th>
+                                     <td class="px-6 py-4">
+                                        @if(!empty($processed->file_poster))
+                                            <div class="mb-6">
+                                                <label for="file_poster" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">file_poster </label>
+                                                <a target="_blank" href="{{ Storage::url($processed->file_poster) }}">
+                                                    <img src="{{ asset('images\icon_file.png') }}" width="50">
+                                                </a>
+                                            </div>
+                                        @endif
+                                     </td>
+
+                                 </tr>
+                                  {{-- <tr class="bg-white dark:bg-gray-800">
+                                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                         File_other
+                                     </th>
+                                     <td class="px-6 py-4">
+                                        <div class="mb-6">
+
+                                            @foreach ($processed->file_other as $file_other )
+                                                <a target="_blank" href="{{ Storage::url($file_other) }}">
+                                                <img src="{{ asset('images\icon_file.png') }}" width="50">
+                                                </a>
+                                            @endforeach
+                                        </div>
+                                     </td>
+
+                                 </tr> --}}
+                                  <tr class="bg-white dark:bg-gray-800">
+                                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                         File_poster
+                                     </th>
+                                     <td class="px-6 py-4">
+                                        @if(!empty($processed->file_video))
+                                        <div class="mb-6">
+                                            <label for="file_video" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">file_video  </label>
+                                            <a href="{{ $processed->file_video }}">
+                                                <img src="{{ asset('images\icon_file.png') }}" width="50">
+                                            </a>
+                                        </div>
+                                        @endif
+                                     </td>
+
+                                 </tr>
+
+                                 <tr class="bg-white dark:bg-gray-800">
+                                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                         Date_meeting
+                                     </th>
+                                     <td class="px-6 py-4">
+                                        @if(!empty($processed->date_meeting))
+                                            <div class="mb-6">
+                                                <label for="file_video" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ $processed->date_meeting }}</label>
+                                            </div>
+                                        @endif
+                                     </td>
+
+                                 </tr>
 
 
-                     <div class="mb-6">
-                         <label  for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Topic  {{ $processed->project->title }}</label>
-                     </div>
-                     <div class="mb-6">
-                        <label  for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">รหัสและชื่อผู้ส่ง {{ $processed->student->name }} </label>
-                    </div>
-                    <div class="mb-6">
-                        <label  for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Round {{ $processed->projectList->semester->name }}</label>
-                    </div>
-                    
-                     <div class="mb-6">
-                        <label  for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name {{ $processed->jobProcess->process }} </label>
-                    </div>
-                    
-                     <div class="mb-6">
-                         <label  for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">title {{ $processed->jobProcess->topic }} </label>
-                     </div>
-
-                     @if(!empty($processed->detail))
-                     <div class="mb-6">
-                         <label for="detail" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description {{ $processed->detail }}</label>
-                     </div>
-                     @endif
-
-                     @if(!empty($processed->file_progress))
-                     <div class="mb-6">
-                         <label for="file_progress" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">file_progress </label>
-                         <a target="_blank" href="{{ Storage::url($processed->file_progress) }}">
-                            <img src="{{ asset('images\icon_file.png') }}" width="50">
-                        </a>
-                     </div>
-                     @endif
-
-
-                     @if(!empty($processed->file_report))
-                     <div class="mb-6">
-                         <label for="file_report" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">file_report </label>
-                         <a target="_blank" href="{{ Storage::url($processed->file_report) }}">
-                            <img src="{{ asset('images\icon_file.png') }}" width="50">
-                        </a>
-                     </div>
-                     @endif
-                    
-                     @if(!empty($processed->file_poster))
-                     <div class="mb-6">
-                         <label for="file_poster" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">file_poster </label>
-                         <a target="_blank" href="{{ Storage::url($processed->file_poster) }}">
-                            <img src="{{ asset('images\icon_file.png') }}" width="50">
-                        </a>
-                     </div>
-                     @endif
-
-                     @if(!empty($processed->file_other))
-                     <div class="mb-6">
-                         <label for="file_other[]" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">file_other </label>
-                         @foreach ($processed->file_other as $file_other )
-                            <a target="_blank" href="{{ Storage::url($file_other) }}">
-                            <img src="{{ asset('images\icon_file.png') }}" width="50">
-                            </a>
-                        @endforeach
-                     </div>
-                     @endif
-
-                     @if(!empty($processed->file_video))
-                     <div class="mb-6">
-                         <label for="file_video" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">file_video  </label>
-                         <a href="{{ $processed->file_video }}">
-                            <img src="{{ asset('images\icon_file.png') }}" width="50">
-                        </a>
-                     </div>
-                     @endif
-
-                     @if(!empty($processed->date_meeting))
-                     <div class="mb-6">
-                         <label for="file_video" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">date_meeting  {{ $processed->date_meeting }}</label>
-                     </div>
-                     @endif
+                             </tbody>
+                         </table>
 
                      <br>
 
@@ -106,7 +186,7 @@
                             </svg>
                         <span>Up to Finished Project</span>
                     </button>
-                          
+
 
                  </div>
 

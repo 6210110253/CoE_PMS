@@ -8,11 +8,9 @@
         </button>
 
         <div class="relative mx-4 lg:mx-0">
-            <p>Welcome to<b>
-                    @foreach(auth()->user()->roles as $role)
-                        {{ $role->name }} Dashboard
-                    @endforeach
-                </b> </p>
+            <b>Welcome<b> {{ Auth::user()->name }}
+                    to PMS
+                </b> </b>
 
             {{-- <span class="absolute inset-y-0 left-0 pl-3 flex items-center">
                 <svg class="h-5 w-5 text-gray-500" viewBox="0 0 24 24" fill="none">
