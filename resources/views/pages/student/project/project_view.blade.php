@@ -79,10 +79,10 @@
                                         </td>
                                         <td class="px-6 py-4">
                                            @if($project_booking->status == 'wait')
-                                            <button class="cancel underline text-red-600 " id="cancel"> Cancel</button>
+                                            <button class="cancel underline text-red-600 " data-id="{{ $project_booking->id }}"> Cancel</button>
                                            @elseif($project_booking->status == 'reject')
 
-                                            <button class="comment underline text-blue-600 " data-id="{{ $project_booking->id }}"> View comment</button>
+                                            <button class="comment underline text-blue-600 " data-comment="{{ $project_booking->comment }}"> View comment</button>
                                            @endif
                                         </td>
                                     </tr>
@@ -100,7 +100,15 @@
     </div>
 
 <script>
-$('#cancel').click(function(){
+$('.comment').click(function(){
+Swal.fire({
+  title: 'Comment',
+  text:  $(this).attr('data-comment'),
+});
+});
+
+$('.cancel').click(function(){
+
 Swal.fire({
   title: 'Are you sure?',
   text: "You won't be able to revert this!",
@@ -117,11 +125,8 @@ Swal.fire({
                                 type: "POST",
                                 data: {
                                     _token : $('meta[name="csrf-token"]').attr('content'),
-                                    project_reservation_id : `3`,
+                                    project_reservation_id : $(this).attr('data-id'),
                                     status : 'remove',
-                                    comment : '',
-                                    teacher_id : "{{ Auth::id() }}",
-                                    semester_id : '1'
                                 },
                                 success: function(result){
                                     if(result.status)

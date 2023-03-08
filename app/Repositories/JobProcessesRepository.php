@@ -29,6 +29,11 @@ class JobProcessesRepository
        return $data;
     }
 
+    public function delete($id)
+    {
+       return $this->find($id)->delete();
+    }
+
     public function find($id)
     {
         return JobProcess::query()->findOrfail($id);

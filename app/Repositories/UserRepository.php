@@ -21,24 +21,32 @@ class UserRepository
     }
 
     public function store($params){
-        $data = new Project();
+        $data = new User();
         return $this->variable($data , $params);
     }
 
-    public function variable(Project $data , $params){
+    public function variable(User $data , $params){
        $params = (object)$params;
 
        !isset($params->name) ?: $data->name = $params->name;
        !isset($params->email) ?: $data->email = $params->email;
-       !isset($params->email) ?: $data->email = $params->email;
-       !isset($params->email) ?: $data->email = $params->email;
-
-        // $data->created_by = Auth()->user()->id;
+       !isset($params->type) ?: $data->type = $params->type;
+       !isset($params->profile) ?: $data->profile = $params->profile;
+       !isset($params->email_verified_at) ?: $data->email_verified_at = $params->email_verified_at;
+       !isset($params->password) ?: $data->password = $params->password;
+       !isset($params->remember_token) ?: $data->remember_token = $params->remember_token;
 
        $data->save();
+
        return $data;
     }
 
+    public function findByEmail($email)
+    {
+       return User::query()
+            ->where('email',$email)
+            ->first();
+    }
 
 
 }

@@ -35,6 +35,13 @@ class ProjectListRepository
             ->get();
     }
 
+    public function getProjectFinished(){
+
+        return ProjectList::query()
+            ->where('status','Finished')
+            ->paginate();
+    }
+
     public function getProjectByStudent()
     {
         return ProjectList::query()

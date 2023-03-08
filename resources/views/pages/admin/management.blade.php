@@ -101,10 +101,12 @@
                                             </div>
                                             <label for="toggle{{ $semester->id }}" class="text-xs text-gray-700">Active</label>
                                          </td>
-                                         <td class="px-6 py-4">
+                                          <td class="px-6 py-4">
                                             <a class=" underline text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-blue hover:bg-blue-dark text-blue-400" href="{{ route('admin.semester.edit', $semester) }}">Edit</a>
-                                            <button class="underline text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-green hover:bg-green-dark text-red-400" id="delete_semester"> Delete</button>
-                                         </td>
+                                            {{-- <button class="delete_semester underline text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-green hover:bg-green-dark text-red-400"
+                                             data-id="{{ $semester->id }}"
+                                            > Delete</button> --}}
+                                         </td> 
 
                                      </tr>
                                      @endforeach
@@ -223,7 +225,9 @@
                                          </td>
                                          <td class="px-6 py-4">
                                             <a class=" underline text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-blue hover:bg-blue-dark text-blue-400" href="{{ route('admin.submission.edit', $job_pro) }}">Edit</a>
-                                            <button class="underline text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-green hover:bg-green-dark text-red-400" id="delete_submission"> Delete</button>
+                                            <button class="delete_submission underline text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-green hover:bg-green-dark text-red-400" 
+                                            data-id="{{$job_pro->id }}"
+                                            > Delete</button>
                                          </td>
 
                                      </tr>
@@ -279,7 +283,8 @@
         })
     }
 
-    $('#delete_semester').click(function(){
+
+    $('.delete_submission').click(function(){
         Swal.fire({
         title: 'Are you sure?',
         text: "You won't be able to revert this!",
@@ -290,32 +295,27 @@
         confirmButtonText: 'Yes'
         }).then((result) => {
             if (result.isConfirmed) {
-                Swal.fire(
-                    'Deleted!',
-                    'Your file has been deleted.',
-                    'success'
-                )
-            }
-        })
+               let id = $(this).attr('data-id');
+                //ajax
+                 $.ajax({
+                    url: "{{ route('admin.submission.delete') }}",
+                    type: "POST",
+                    data: {
+                        _token : $('meta[name="csrf-token"]').attr('content'),
+                        id : id 
+                    },
+                    success: function(result){
+                        if(result.status)
+                        {
+                                Swal.fire('Deleted!', '', 'success')
+                                location.reload();
+                        }else{
+                                Swal.fire(result.massege, '', 'error')
+                        }
+                    }
 
-    })
+                 })
 
-    $('#delete_submission').click(function(){
-        Swal.fire({
-        title: 'Are you sure?',
-        text: "You won't be able to revert this!",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                Swal.fire(
-                    'Deleted!',
-                    'Your file has been deleted.',
-                    'success'
-                )
             }
         })
 

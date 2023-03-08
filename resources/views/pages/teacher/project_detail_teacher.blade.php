@@ -30,7 +30,7 @@
                                          Semester
                                      </th>
                                      <td class="px-6 py-4">
-
+                                         {{  $project_reservation->project->semester_id }}
                                      </td>
 
                                  </tr>
@@ -251,7 +251,7 @@
                                     status : 'remove',
                                     comment : '',
                                     teacher_id : "{{ Auth::id() }}",
-                                    semester_id : '1'
+                                    semester_id : '{{ $project_reservation->project->semester_id }}'
                                 },
                                 success: function(result){
                                     if(result.status)

@@ -21,6 +21,7 @@ use App\Repositories\ProjectListRepository;
 use App\Repositories\SemesterRepository;
 use App\Repositories\ProcessedsRepository;
 use App\Repositories\JobProcessesRepository;
+use App\Enums\ProcessesEnum;
 
 class ProjectController extends Controller
 {
@@ -154,25 +155,32 @@ class ProjectController extends Controller
         return view('pages.teacher.meeting_detail');
     }
 
-    public function submission(){
+    public function submission(Request $request){
 
-    
+        $filter['semester_id'] = $request->semester ?? null;
+        $filter['teacher_id'] = Auth::id();
+        $semesters = $this->semester_repo->getSemester();
+        $processes = $this->processed_repo->getPreProject($filter);
 
-        $pre_projects = $this->job_processes_repo->getPreProjectById();
+       $order = ProcessesEnum::ALL;
+         $job_pro_groups = $processes->sortBy(function($item) use ($order) {
+             return array_search($item->jobProcess->process, $order);
+            })
+            ->groupBy('jobProcess.process');
 
-        $pre_project_demo = $pre_projects->pluck('id')->all();
-
-        $group_pre_project_ids = $pre_projects->groupBy('id');
-
-        foreach($group_pre_project_ids as $group_pre_project_id)
+        $group_list = [];
+        foreach(ProcessesEnum::ALL as $group)
         {
-            $group_pre_project_id = $group_pre_project_id;
-
+            if(!isset($job_pro_groups[$group])){
+             $job_pro_groups[$group] = [];
+            }
         }
-
-        $jobs = $this->processed_repo->getPreProjectTeacher(Auth::id(),$group_pre_project_id);
         
-        return view('pages.teacher.submission', compact('jobs'));
+         $job_pro_groups = $job_pro_groups->sortBy(function($item,$key) use ($order) {
+             return array_search($key, $order);
+        });
+        
+        return view('pages.admin.submission', compact('semesters','job_pro_groups'));
     }
 
     public function submission_detail(){

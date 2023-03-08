@@ -9,6 +9,8 @@ use App\Models\Announcement;
 
 use App\Repositories\AnnouncementsRepository;
 use App\Repositories\SemesterRepository;
+use App\Imports\UsersImport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class AnnouncementController extends Controller
 {
@@ -58,7 +60,14 @@ class AnnouncementController extends Controller
     }
 
 
-    public function importFileUser(){
+    public function importFileUserPage(){
         return view('pages.import_user');
+    }
+
+    public function importFileUser(Request $request){
+
+        Excel::import(new UsersImport, request()->file('file'));
+
+       return redirect()->back()->with('success', 'Success');
     }
 }

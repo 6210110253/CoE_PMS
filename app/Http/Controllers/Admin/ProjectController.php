@@ -10,19 +10,24 @@ use App\Models\Processed;
 use App\Repositories\StudentRepository;
 use App\Repositories\ProjectListRepository;
 use App\Repositories\ProcessedsRepository;
+use App\Repositories\SemesterRepository;
+use App\Enums\ProcessesEnum;
+use Illuminate\Support\Str;
 
 class ProjectController extends Controller
 {
-    protected $student_repo,$project_list_repo,$processed_repo;
+    protected $student_repo,$project_list_repo,$processed_repo,$semester_repo;
 
     public function __construct(
        StudentRepository $studentRepository,
        ProjectListRepository $projectListRepository,
-       ProcessedsRepository $processedsRepository
+       ProcessedsRepository $processedsRepository,
+       SemesterRepository $semesterRepository
     ){
         $this->student_repo = $studentRepository;
         $this->project_list_repo = $projectListRepository;
         $this->processed_repo = $processedsRepository;
+        $this->semester_repo = $semesterRepository;
     }
 
 
@@ -79,15 +84,31 @@ class ProjectController extends Controller
         return view('pages.admin.project.project_status',compact('results'));
     }
 
-    public function submission(){
+    public function submission(Request $request)
+    {
 
+        $filter['semester_id'] = $request->semester ?? null;
+        $semesters = $this->semester_repo->getSemester();
+        $processes = $this->processed_repo->getPreProject($filter);
 
-    $pre_project = $this->processed_repo->getPreProject();
-
-
-
-
-    return view('pages.admin.submission.submission',compact('pre_project'));
+       $order = ProcessesEnum::ALL;
+         $job_pro_groups = $processes->sortBy(function($item) use ($order) {
+             return array_search($item->jobProcess->process, $order);
+            })
+            ->groupBy('jobProcess.process');
+        
+        $group_list = [];
+        foreach(ProcessesEnum::ALL as $group)
+        {
+            if(!isset($job_pro_groups[$group])){
+             $job_pro_groups[$group] = [];
+            }
+        }
+        $job_pro_groups = $job_pro_groups->sortBy(function($item,$key) use ($order) {
+             return array_search($key, $order);
+        });
+     
+        return view('pages.admin.submission.submission',compact('semesters','job_pro_groups'));
     }
 
     public function submission_detail(){
@@ -95,7 +116,10 @@ class ProjectController extends Controller
     }
 
     public function old_project(){
-        return view('pages.admin.project.old_project');
+
+       $projects = $this->project_list_repo->getProjectFinished();
+
+        return view('pages.admin.project.old_project',compact('projects'));
     }
 
 

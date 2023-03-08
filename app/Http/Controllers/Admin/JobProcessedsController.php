@@ -10,6 +10,7 @@ use App\Repositories\SemesterRepository;
 use App\Enums\ProcessesEnum;
 
 use App\Models\JobProcess;
+use Carbon\Carbon;
 
 class JobProcessedsController extends Controller
 {
@@ -37,6 +38,9 @@ class JobProcessedsController extends Controller
 
     public function store(Request $request)
     {
+       $request->start_date= Carbon::parse($request->start_date)->format('Y-m-d');
+       $request->end_date= Carbon::parse($request->end_date)->format('Y-m-d');
+       
         $submission = $this->job_processes_repo->store($request);
         return redirect()->back();
     }
@@ -52,6 +56,18 @@ class JobProcessedsController extends Controller
         $submission = $this->job_processes_repo->variable($jobprocess,$request);
         
         return redirect()->back();
+    }
+
+    public function delete(Request $request){
+      
+        $this->job_processes_repo->delete($request->id);
+
+        return \response()->json([
+            'status' => true,
+            'data' => [],
+            'massege' => 'sucess'
+        ]);
+        
     }
 
 }

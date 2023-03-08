@@ -47,8 +47,36 @@ class ProcessedsRepository
             ->first();
     }
 
-    public function getPreProject(){
-        return Processed::all();
+    public function getPreProject($filter = []){
+
+        $semester_id = $filter['semester_id'] ?? null;
+        $teacher_id = $filter['teacher_id'] ?? null;
+        $project_id = $filter['project_id'] ?? null;
+    
+        $data = Processed::query()
+            ->with([
+                'jobProcess',
+                'project',
+                'teacher',
+                'projectList'
+            ]);
+
+            if($semester_id){
+               $data->whereHas('jobProcess', function($q) use ($semester_id){
+                    $q->where('semester_id',$semester_id);
+                });
+            }
+
+            if($teacher_id){
+               $data->where('approve_by', $teacher_id);
+            }
+
+            if($project_id){
+               $data->where('project_id', $project_id);
+            }
+
+
+        return $data->get();
     }
 
     public function getPreProjectTeacher($teacher_id){

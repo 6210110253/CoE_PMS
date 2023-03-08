@@ -58,7 +58,16 @@
                      <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="user_avatar">Upload File: PDF or PNG</label>
                      </div>
 
+                     <br>
 
+                            <a href="#" >
+                                    <button class="flex items-center bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M10.707,15.707l-5-5C5.512,10.512,5,10.265,5,9.914s0.512-0.598,0.707-0.793l5-5c0.391-0.391,1.023-0.391,1.414,0s0.391,1.023,0,1.414L8.414,8H15c0.553,0,1,0.447,1,1s-0.447,1-1,1H8.414l3.707,3.707C11.098,14.684,11.195,14.854,11.195,15.025C11.195,15.195,11.098,15.367,10.707,15.707z" />
+                                        </svg>
+                                        <span>Up to Finished Project</span>
+                                    </button>
+                            </a>
 
                  </div>
 

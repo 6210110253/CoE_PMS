@@ -8,9 +8,11 @@
             <div class="bg-white-50 h-screen ">
                 <nav>
                     <div class="w-full bg-gradient-to-tr from-indigo-600 to-purple-600 py-4">
-                        <h1 class="text-center text-indigo-100 text-xl font-bold">รายการโปรเจกต์เก่า ๆ </h1>
+                        <h1 class="text-center text-indigo-100 text-xl font-bold">รายการโปรเจกต์จบ </h1>
                     </div>
                 </nav>
+
+                @foreach($projects as $project )
                 <div class="px-10 mt-10">
                     <div class="bg-white rounded-md max-w-4xl mx-auto p-4 space-y-4 shadow-lg">
                         <h3 class="mb-2 font-semibold">Title: <span class="font-thin">Project Name</span></p>
@@ -36,7 +38,11 @@
                                     </div>
                     </div>
                 </div>
+                @endforeach
 
+                <div class="mt-10">
+                {{ $projects->links() }}
+                </div>
 
             </div>
             </div>

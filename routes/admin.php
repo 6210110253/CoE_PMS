@@ -41,11 +41,14 @@ Route::controller(AnnouncementController::class)->name('admin.')->prefix('admin/
     Route::post('/announcement/{announcement}/update','update')
         ->name('announcement.update');
 
-    Route::get('/select_role', 'selectRole')
+    Route::get('/select-role', 'selectRole')
     ->name('select.role');
 
-    Route::get('/import_user', 'importFileUser')
+    Route::get('/import-user', 'importFileUserPage')
     ->name('import.user');
+
+    Route::post('import-user-file','importFileUser')
+    ->name('import-excel');
 
 
 
@@ -86,5 +89,9 @@ Route::controller(JobProcessedsController::class)->name('admin.')->prefix('admin
 
     Route::post('/submission/{jobprocess}/update','update')
         ->name('submission.update');
+
+    Route::post('/submission/delete','delete')
+        ->name('submission.delete');
+    
 
 });

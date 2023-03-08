@@ -11,6 +11,7 @@ class ProjectList extends Model
 {
     use HasFactory;
 
+    protected $perPage = 10;
     protected $casts = [
         'student_reservetion' => Json::class,
     ];

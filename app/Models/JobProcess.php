@@ -11,6 +11,11 @@ class JobProcess extends Model
 {
     use HasFactory;
 
+    protected $casts = [
+        'start_date' => 'date',
+        'end_date' => 'date',
+    ];
+
     public function semester(){
         return $this->belongsTo(Semester::class);
     }
