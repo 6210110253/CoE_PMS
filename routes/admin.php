@@ -73,9 +73,6 @@ Route::controller(SemesterController::class)->name('admin.')->prefix('admin/')
      Route::get('/semester/{semester}/delete', 'delete')
         ->name('semester.delete');
 
-
-
-
 });
 
 Route::controller(JobProcessedsController::class)->name('admin.')->prefix('admin/')
