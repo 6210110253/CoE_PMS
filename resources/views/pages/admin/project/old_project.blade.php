@@ -8,7 +8,7 @@
             <div class="bg-white-50 h-screen ">
                 <nav>
                     <div class="w-full bg-gradient-to-tr from-indigo-600 to-purple-600 py-4">
-                        <h1 class="text-center text-indigo-100 text-xl font-bold">รายการโปรเจกต์จบ </h1>
+                        <h1 class="text-center text-indigo-100 text-xl font-bold">Finished Project </h1>
                     </div>
                 </nav>
 
@@ -17,7 +17,7 @@
                     <div class="bg-white rounded-md max-w-4xl mx-auto p-4 space-y-4 shadow-lg">
                         <h3 class="mb-2 font-semibold">Title: <span class="font-thin">{{ $project->reservaton->project->title }}</span></p>
 
-                            <h3 class="border-t mb-2 pt-3 font-semibold">ผู้จัดทำ: <span class="font-thin"></span>
+                            <h3 class="border-t mb-2 pt-3 font-semibold">Member: <span class="font-thin"></span>
                                 @if(!empty($project->student_reservetion))
 
                                 @foreach ($project->student_reservetion_list as $key => $member )

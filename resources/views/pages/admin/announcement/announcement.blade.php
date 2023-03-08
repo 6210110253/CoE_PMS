@@ -32,25 +32,25 @@
                                 <option value="">--select semester--</option>
                                 @foreach ($semesters as $semester)
                                   <option value="{{$semester->id }}"{{ !empty(@$announcement) ? $announcement->semester_id == $semester->id  ? 'selected' : ''  : '' }}> {{ $semester->name }}</option>
-                                @endforeach 
+                                @endforeach
                             </select>
                         </div>
 
                         <div class="mb-6">
                             <label for="topic" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Title</label>
-                            <input type="text" value="{{ $announcement->title ?? ''}}" name="title" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="หัวข้อ" required>
+                            <input type="text" value="{{ $announcement->title ?? ''}}" name="title" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="" required>
                         </div>
 
                         <div class="mb-6">
                           <label for="detail" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Detail <span class="text-red-500">*</span></label>
-                          <textarea id="detail" name="detail" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Leave a comment...">{{ $announcement->detail ?? ''}}</textarea>
+                          <textarea id="detail" name="detail" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="">{{ $announcement->detail ?? ''}}</textarea>
                         </div>
 
                         <div class="formkit-outer" data-family="text" data-type="datetime-local" data-invalid="true">
                             <div class="formkit-wrapper">
                               <label class="formkit-label" for="input_0">Start Date/Time</label>
                               <div class="formkit-inner">
-                                <input  value="{{ $announcement->start ?? ''}}" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" type="datetime-local" name="start" id="input_0" aria-describedby="help-input_0 input_0-rule_date_after">
+                                <input  value="{{ $announcement->start ?? ''}}" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" type="datetime-local" name="start" id="input_0" aria-describedby="help-input_0 input_0-rule_date_after">
                               </div>
                             </div>
                         </div>
@@ -61,7 +61,7 @@
                             <div class="formkit-wrapper">
                               <label class="formkit-label" for="input_0">End Date/Time</label>
                               <div class="formkit-inner">
-                                <input value="{{ $announcement->finish ?? ''}}" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" type="datetime-local" name="finish" id="input_0" aria-describedby="help-input_0 input_0-rule_date_after">
+                                <input value="{{ $announcement->finish ?? ''}}" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" type="datetime-local" name="finish" id="input_0" aria-describedby="help-input_0 input_0-rule_date_after">
                               </div>
                             </div>
                           </div>
@@ -72,13 +72,13 @@
                             <label for="status" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Status <span class="text-red-500">*</span></label>
                             <select name="status" id="status">
                                 <option value="">--select status--</option>
-                                <option value="draft" 
+                                <option value="draft"
                                 {{  @$announcement->status == 'draft' ? 'selected' : '' }}
                                 > draft</option>
-                                <option value="publish" 
+                                <option value="publish"
                                 {{  @$announcement->status == 'publish' ? 'selected' : '' }}
                                 > publish</option>
-    
+
                             </select>
                         </div>
                           <br>
@@ -97,4 +97,5 @@
             </div>
         </main>
  </div>
+
  </x-app-layout>
