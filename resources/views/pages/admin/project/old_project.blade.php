@@ -15,11 +15,23 @@
                 @foreach($projects as $project )
                 <div class="px-10 mt-10">
                     <div class="bg-white rounded-md max-w-4xl mx-auto p-4 space-y-4 shadow-lg">
-                        <h3 class="mb-2 font-semibold">Title: <span class="font-thin">Project Name</span></p>
+                        <h3 class="mb-2 font-semibold">Title: <span class="font-thin">{{ $project->reservaton->project->title }}</span></p>
 
-                            <h3 class="border-t mb-2 pt-3 font-semibold">ผู้จัดทำ: <span class="font-thin">Joker Banny</span></p>
+                            <h3 class="border-t mb-2 pt-3 font-semibold">ผู้จัดทำ: <span class="font-thin"></span>
+                                @if(!empty($project->student_reservetion))
+
+                                @foreach ($project->student_reservetion_list as $key => $member )
+                                    <p class="font-medium text-gray-900 dark:text-gray-400">{{ $key+1 }}.{{ $member }}</p>
+
+                                @endforeach
+
+                                @else
+                                    <p class="font-medium text-gray-900 dark:text-gray-400">1.{{ $project->member->name }}</p>
+                                @endif
+                            </p>
+
                                 <h3 class="border-t mb-2 pt-3 font-semibold">อาจารย์ที่ปรึกษา:
-                                    <span class="font-thin">ชื่ออาจารย์ที่ปรึกษา</span></p>
+                                    <span class="font-thin">{{ $project->teacher->name }}</span></p>
                                     <div class="flex justify-end space-x-2">
                                         {{-- reprot --}}
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600 cursor-pointer" width="16" height="16" viewBox="0 0 16 16">
