@@ -70,5 +70,4 @@ class ProjectListRepository
         return $project_fin;
     }
 
-
 }
