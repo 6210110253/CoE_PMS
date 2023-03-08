@@ -44,8 +44,10 @@ Route::controller(ProjectController::class)->name('student.')->prefix('student/'
 Route::controller(MeetingController::class)->name('student.')->prefix('student/')
     ->group(function () {
 
-    Route::get('/meeting','create')
+    Route::get('/meeting','index')
         ->name('meeting');
+    Route::get('/meeting/create','create')
+        ->name('meeting.create');
     Route::post('/meeting/store','store')
         ->name('meeting.store');
     Route::get('/meeting/edit/{meeting}','edit')
