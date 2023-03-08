@@ -28,7 +28,7 @@ class ProjectController extends Controller
     use uploadImage;
 
     protected $project_repo;
-    protected $user_repo, $semester_repo, $processed_repo, $job_processes_repo;
+    protected $user_repo, $semester_repo, $processed_repo, $job_processes_repo, $project_list_repo;
 
 
     public function __construct(

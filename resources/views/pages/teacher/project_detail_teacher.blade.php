@@ -248,7 +248,7 @@
                                 data: {
                                     _token : $('meta[name="csrf-token"]').attr('content'),
                                     project_reservation_id : `{{ $project_reservation->id }}`,
-                                    status : 'remove',
+                                    status : 'approve',
                                     comment : '',
                                     teacher_id : "{{ Auth::id() }}",
                                     semester_id : '{{ $project_reservation->project->semester_id }}'

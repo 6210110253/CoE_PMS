@@ -55,5 +55,20 @@ class ProjectListRepository
             ->get();
     }
 
+    public function getProjectListById($id){
+
+        return ProjectList::query()->find($id);
+     }
+
+
+    public function updateStatusFinish($project_list_id , $status)
+    {
+        $project_fin = $this->getProjectListById($project_list_id);
+        $project_fin->status = $status;
+        $project_fin->save();
+
+        return $project_fin;
+    }
+
 
 }

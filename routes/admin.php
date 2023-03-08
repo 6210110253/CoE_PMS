@@ -15,11 +15,14 @@ Route::controller(ProjectController::class)->name('admin.')->prefix('admin/')->g
     Route::get('/submission', 'submission')
         ->name('submission');
 
-        Route::get('/submission/detail', 'submission_detail')
+    Route::get('/submission/detail/{processed}', 'submission_detail')
         ->name('submission.detail');
 
     Route::get('/old_project', 'old_project')
         ->name('old.project');
+
+    Route::post('/project-finish','project_finish')
+        ->name('project.finish');
 
 });
 

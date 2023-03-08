@@ -22,12 +22,13 @@ class ProjectController extends Controller
        StudentRepository $studentRepository,
        ProjectListRepository $projectListRepository,
        ProcessedsRepository $processedsRepository,
-       SemesterRepository $semesterRepository
+       SemesterRepository $semesterRepository,
     ){
         $this->student_repo = $studentRepository;
         $this->project_list_repo = $projectListRepository;
         $this->processed_repo = $processedsRepository;
         $this->semester_repo = $semesterRepository;
+
     }
 
 
@@ -111,8 +112,8 @@ class ProjectController extends Controller
         return view('pages.admin.submission.submission',compact('semesters','job_pro_groups'));
     }
 
-    public function submission_detail(){
-        return view('pages.admin.submission.submission_detail');
+    public function submission_detail(Processed $processed){
+        return view('pages.admin.submission.submission_detail',compact('processed'));
     }
 
     public function old_project(){
@@ -120,6 +121,20 @@ class ProjectController extends Controller
        $projects = $this->project_list_repo->getProjectFinished();
 
         return view('pages.admin.project.old_project',compact('projects'));
+    }
+
+    public function project_finish(Request $request){
+
+        $project_list_id = $request->project_list_id;
+        $status = $request->status;
+
+        $this->project_list_repo->updateStatusFinish($project_list_id , $status);
+
+        return \response()->json([
+            'status' => true,
+            'data' => [],
+            'massege' => 'sucess'
+        ]);
     }
 
 
