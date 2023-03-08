@@ -40,5 +40,8 @@ class ProjectList extends Model
         return $this->belongsTo(Semester::class, 'semester_id', 'id');
     }
 
+    public function processFinished(){
+        return $this->hasOne(Processed::class)->orderByDesc('id');
+    }
 
 }

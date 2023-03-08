@@ -192,13 +192,7 @@
                     @endif
 
                  </div>
-
-
-
-
-
-
-
+                 
              </div>
          </main>
      </div>
