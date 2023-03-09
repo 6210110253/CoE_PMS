@@ -100,7 +100,7 @@ class ProjectController extends Controller
     }
 
     public function submit_meeting_store(Request $request){
-        
+
 
         $request =  $this->myUploadFileProcess($request);
 
@@ -300,9 +300,9 @@ class ProjectController extends Controller
     }
 
     public function delete(Request $request){ //ส่งแบบajax
-    
+
         $data = $this->project_repo->getProjectById($request->id);
-        
+
         if($data){
             $this->project_repo->delete($data);
         }
@@ -313,6 +313,14 @@ class ProjectController extends Controller
             'massege' => 'sucess'
         ]);
 
+    }
+
+     public function show(){
+
+
+        $announcements =  Announcement::all();
+
+        return view('pages.student.show', compact('announcements'));
     }
 
 

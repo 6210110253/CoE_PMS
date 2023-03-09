@@ -37,7 +37,9 @@ Route::controller(ProjectController::class)->name('student.')->prefix('student/'
 
     //TODO::reservation
     Route::post('student/reservation','reservation')
-        ->name('reservation');      
+        ->name('reservation');
+    Route::get('show','show')
+        ->name('show');
 
 });
 
