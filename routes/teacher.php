@@ -58,8 +58,11 @@ Route::controller(ProjectController::class)->name('teacher.')->prefix('teacher/'
 Route::controller(MeetingController::class)->name('teacher.')->prefix('teacher/')
     ->group(function () {
 
-    Route::get('/meeting','meeting')
+    Route::get('/meeting','index')
         ->name('meeting');
+    
+    Route::get('/meeting-list','meeting')
+        ->name('meeting.list');
 
     Route::get('/meeting-detail','meeting_detail')
         ->name('meeting.datail');
