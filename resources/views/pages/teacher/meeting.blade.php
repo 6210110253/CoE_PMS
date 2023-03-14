@@ -56,9 +56,19 @@
                                 <p class="font-normal text-gray-700 dark:text-gray-400">รายละเอียด {{ $meeting->detail }}</p>
                                 <p class="font-normal text-gray-700 dark:text-gray-400">ช่วงเวลาที่เข้าพบ <span>{{ $meeting->start_date }} - {{ $meeting->end_date }} </span></p>
                                 <p class="font-normal text-gray-700 dark:text-gray-400">ชื่อผู้เข้าพบ {{ $meeting->created_by }}</p>
-                                <a href="{{ route('teacher.meeting.datail') }}">เพิ่มเติม...</a>
+                                {{-- <a href="{{ route('teacher.meeting.datail') }}">เพิ่มเติม...</a> --}}
                             </a>
-
+                            
+                            <div class="flex justify-center gap-4">
+                                <div>
+                                    <span class="text-3xl font-bold text-gray-900 dark:text-white"></span>
+                                    <a href="#" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Approve</a>
+                                </div>
+                                <div>
+                                    <span class="text-3xl font-bold text-gray-900 dark:text-white"></span>
+                                    <a href="#" class="reject text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" data-id="{{ $meeting->id }}" >Reject</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <br>
@@ -71,5 +81,56 @@
          </main>
      </div>
  </div>
+ <script>
+    $('.reject').click(function(){
+
+        Swal.fire({
+            title: 'Enter your comment',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes',
+            input: 'text',
+            customClass: {
+                validationMessage: 'my-validation-message'
+            },
+            preConfirm: (value) => {
+                if (!value) {
+                Swal.showValidationMessage(
+                    '<i class="fa fa-info-circle"></i> Your name is required'
+                )
+                }
+            }
+            }).then((result) => {
+                console.log(result.value);
+                    if (result.isConfirmed) {
+
+                        $.ajax({
+                            url: "",
+                            type: "POST",
+                            data: {
+                                _token : $('meta[name="csrf-token"]').attr('content'),
+                                status : 'reject',
+                                comment : result.value,
+                                teacher_id : "{{ Auth::id() }}",
+                            },
+                            success: function(result){
+                                if(result.status)
+                                {
+                                    Swal.fire('Rejected!', '', 'success').then((result)=>{
+                                        location.reload();
+                                    })
+
+                                }else{
+                                    Swal.fire(result.massege, '', 'error')
+                                }
+                            }
+
+                        });
+                    }
+            })
+    })
+ </script>
  </x-app-layout>
  
