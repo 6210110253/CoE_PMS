@@ -62,7 +62,7 @@
                             <div class="flex justify-center gap-4">
                                 <div>
                                     <span class="text-3xl font-bold text-gray-900 dark:text-white"></span>
-                                    <a href="#" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Approve</a>
+                                    <a href="#" class="accept text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" data-id="{{ $meeting->id }}">Approve</a>
                                 </div>
                                 <div>
                                     <span class="text-3xl font-bold text-gray-900 dark:text-white"></span>
@@ -82,6 +82,44 @@
      </div>
  </div>
  <script>
+     $('.accept').click(function(){
+
+    Swal.fire({
+
+        text: "Are you sure you approve this project?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes'
+        }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        url: "",
+                        type: "POST",
+                        data: {
+                            _token : $('meta[name="csrf-token"]').attr('content'),
+                            status : 'approve',
+                            comment : '',
+                            teacher_id : "{{ Auth::id() }}",
+                        },
+                        success: function(result){
+                            if(result.status)
+                            {
+                                Swal.fire('Approved!', '', 'success').then((result)=>{
+                                    location.reload();
+                                })
+                            }else{
+                                Swal.fire(result.massege, '', 'error')
+                            }
+                        }
+
+                    });
+                }
+        })
+    })
+
+
     $('.reject').click(function(){
 
         Swal.fire({
