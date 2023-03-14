@@ -147,14 +147,6 @@ class ProjectController extends Controller
         return redirect()->back();
     }
 
-    public function meeting(){
-        return view('pages.teacher.meeting');
-    }
-
-    public function meeting_detail(){
-        return view('pages.teacher.meeting_detail');
-    }
-
     public function submission(Request $request){
 
         $filter['semester_id'] = $request->semester ?? null;

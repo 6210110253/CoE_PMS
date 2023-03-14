@@ -28,13 +28,21 @@ class MeetingRepository
        return $data;
     }
 
-    public function getMyMeeting($student_id)
+    public function getStudentMeeting($student_id)
     {
        $meeting = Meeting::query()
                     ->where('created_by', $student_id)
                     ->get();
         
         return $meeting;
+    }
 
+    public function getMeetingTeacher($teacher_id)
+    {
+       $meeting = Meeting::query()
+                    ->where('approve_by', $teacher_id)
+                    ->get();
+        
+        return $meeting;
     }
 }

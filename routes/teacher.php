@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Teacher\ProjectController;
 use App\Http\Controllers\Teacher\AnnouncementController;
+use App\Http\Controllers\Teacher\MeetingController;
 
 
 
@@ -36,11 +37,6 @@ Route::controller(ProjectController::class)->name('teacher.')->prefix('teacher/'
     Route::get('/dashboard','dashboard' )
         ->name('dashboard');
 
-    Route::get('/meeting','meeting')
-        ->name('meeting');
-    Route::get('/meeting-detail','meeting_detail')
-        ->name('meeting.datail');
-
     Route::get('/submission', 'submission')
         ->name('submission');
     Route::get('/submission/detail', 'submission_detail')
@@ -57,4 +53,14 @@ Route::controller(ProjectController::class)->name('teacher.')->prefix('teacher/'
 
 
 
+});
+
+Route::controller(MeetingController::class)->name('teacher.')->prefix('teacher/')
+    ->group(function () {
+
+    Route::get('/meeting','meeting')
+        ->name('meeting');
+
+    Route::get('/meeting-detail','meeting_detail')
+        ->name('meeting.datail');
 });
