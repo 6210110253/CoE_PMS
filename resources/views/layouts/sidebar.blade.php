@@ -145,12 +145,12 @@
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M19 13c.7 0 1.37.13 2 .35V9l-6-6H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h8.35c-.22-.63-.35-1.3-.35-2c0-3.31 2.69-6 6-6m-5-8.5l5.5 5.5H14V4.5M23 18v2h-3v3h-2v-3h-3v-2h3v-3h2v3h3Z"/></svg>
                     <span class="mx-3">Submission</span>
                     </a>
-                    </a>
-                    {{-- <a class="flex items-center mt-4 py-2 px-6 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100 {{ Route::currentRouteNamed('teacher.meeting') ? 'active' : '' }}"
+  
+                    <a class="flex items-center mt-4 py-2 px-6 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100 {{ Route::currentRouteNamed('teacher.meeting') ? 'active' : '' }}"
                     href="{{ route('teacher.meeting') }}">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M11 14v-2h2v2Zm-4 0v-2h2v2Zm8 0v-2h2v2Zm-4 4v-2h2v2Zm-4 0v-2h2v2Zm8 0v-2h2v2ZM3 22V4h3V2h2v2h8V2h2v2h3v18Zm2-2h14V10H5Z"/></svg>
                     <span class="mx-3">Meeting</span>
-                    </a> --}}
+                    </a>
 
                     <a class="flex items-center mt-4 py-2 px-6 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100 {{ Route::currentRouteNamed('teacher.old.project') ? 'active' : '' }}"
                         href="{{ route('admin.old.project')}}">
@@ -285,12 +285,12 @@
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M19 13c.7 0 1.37.13 2 .35V9l-6-6H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h8.35c-.22-.63-.35-1.3-.35-2c0-3.31 2.69-6 6-6m-5-8.5l5.5 5.5H14V4.5M23 18v2h-3v3h-2v-3h-3v-2h3v-3h2v3h3Z"/></svg>
             <span class="mx-3">Submission</span>
             </a>
-            </a>
-            {{-- <a class="flex items-center mt-4 py-2 px-6 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100 {{ Route::currentRouteNamed('teacher.meeting') ? 'active' : '' }}"
+            
+            <a class="flex items-center mt-4 py-2 px-6 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100 {{ Route::currentRouteNamed('teacher.meeting') ? 'active' : '' }}"
             href="{{ route('teacher.meeting') }}">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M11 14v-2h2v2Zm-4 0v-2h2v2Zm8 0v-2h2v2Zm-4 4v-2h2v2Zm-4 0v-2h2v2Zm8 0v-2h2v2ZM3 22V4h3V2h2v2h8V2h2v2h3v18Zm2-2h14V10H5Z"/></svg>
             <span class="mx-3">Meeting</span>
-            </a> --}}
+            </a>
 
             <a class="flex items-center mt-4 py-2 px-6 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100 {{ Route::currentRouteNamed('teacher.old.project') ? 'active' : '' }}"
                 href="{{ route('admin.old.project')}}">
