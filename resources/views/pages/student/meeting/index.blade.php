@@ -42,10 +42,10 @@
 <div class="container mx-auto px-6 py-8">  
 
     <div class="flex justify-end gap-4">
-        {{-- <div class="flex items-center justify-between">
+        <div class="flex items-center justify-between">
                     <span class="text-3xl font-bold text-gray-900 dark:text-white"></span>
-                    <a href="{{ route('student.meeting') }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Back</a>
-        </div> --}}
+                    <a href="{{ route('student.meeting.create') }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Create Meeting</a>
+        </div>
         <div class="flex items-center justify-between">
             <span class="text-3xl font-bold text-gray-900 dark:text-white"></span>
             <a href="{{ route('student.meeting.list') }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Meeting List</a>
@@ -83,34 +83,6 @@ $(document).ready(function () {
         events:'/full-calender',
         selectable:true,
         selectHelper: true,
-        select:function(start, end, allDay)
-        {
-            var title = prompt('Event Title:');
-
-            if(title)
-            {
-                var start = $.fullCalendar.formatDate(start, 'Y-MM-DD HH:mm:ss');
-
-                var end = $.fullCalendar.formatDate(end, 'Y-MM-DD HH:mm:ss');
-
-                $.ajax({
-                    url:"/full-calender/action",
-                    type:"POST",
-                    data:{
-                        title: title,
-                        start: start,
-                        end: end,
-                        type: 'add'
-                    },
-                    success:function(data)
-                    {
-                        calendar.fullCalendar('refetchEvents');
-                        alert("Event Created Successfully");
-                    }
-                })
-            }
-        },
-        editable:true,
         eventResize: function(event, delta)
         {
             var start = $.fullCalendar.formatDate(event.start, 'Y-MM-DD HH:mm:ss');
@@ -133,50 +105,6 @@ $(document).ready(function () {
                     alert("Event Updated Successfully");
                 }
             })
-        },
-        eventDrop: function(event, delta)
-        {
-            var start = $.fullCalendar.formatDate(event.start, 'Y-MM-DD HH:mm:ss');
-            var end = $.fullCalendar.formatDate(event.end, 'Y-MM-DD HH:mm:ss');
-            var title = event.title;
-            var id = event.id;
-            $.ajax({
-                url:"/full-calender/action",
-                type:"POST",
-                data:{
-                    title: title,
-                    start: start,
-                    end: end,
-                    id: id,
-                    type: 'update'
-                },
-                success:function(response)
-                {
-                    calendar.fullCalendar('refetchEvents');
-                    alert("Event Updated Successfully");
-                }
-            })
-        },
-
-        eventClick:function(event)
-        {
-            if(confirm("Are you sure you want to remove it?"))
-            {
-                var id = event.id;
-                $.ajax({
-                    url:"/full-calender/action",
-                    type:"POST",
-                    data:{
-                        id:id,
-                        type:"delete"
-                    },
-                    success:function(response)
-                    {
-                        calendar.fullCalendar('refetchEvents');
-                        alert("Event Deleted Successfully");
-                    }
-                })
-            }
         }
     });
 

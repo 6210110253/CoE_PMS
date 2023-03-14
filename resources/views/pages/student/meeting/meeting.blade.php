@@ -39,7 +39,7 @@
                     @csrf
 
                         <input type="hidden" name="created_by" value="{{ Auth()->user()->id }}">
-                        <div class="mb-6">
+                        {{-- <div class="mb-6">
                             <label for="semester_id" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Semester <span class="text-red-500">*</span></label>
                             <select name="semester_id" id="semester_id" >
                                 <option value="">--select term/year--</option>
@@ -47,7 +47,7 @@
                                 <option value="{{ $semester->id }}" {{ !empty(@$meeting) ? $meeting->semester_id == $semester->id  ? 'selected' : ''  : '' }}> {{ $semester->name }}</option>
                                 @endforeach
                             </select>
-                        </div>
+                        </div> --}}
 
                         <div class="mb-6">
                             <label for="aprove_by" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Teacher <span class="text-red-500">*</span></label>

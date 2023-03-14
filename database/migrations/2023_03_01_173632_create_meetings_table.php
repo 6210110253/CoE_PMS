@@ -15,9 +15,6 @@ return new class extends Migration
     {
         Schema::create('meetings', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('semester_id')
-                ->constrained()
-                ->cascadeOnDelete();
             $table->string("title")
                 ->index();
             $table->longText("detail")

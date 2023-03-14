@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Student;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Auth;
+
 use App\Models\User;
 use App\Repositories\UserRepository;
 
@@ -58,7 +60,9 @@ class MeetingController extends Controller
     }
 
     public function meeting_list(){
-        return view('pages.student.meeting.meeting_list');
+        $meetings = $this->meeting_repo->getMyMeeting(Auth::id());
+
+        return view('pages.student.meeting.meeting_list', compact('meetings'));
     }
 
 }

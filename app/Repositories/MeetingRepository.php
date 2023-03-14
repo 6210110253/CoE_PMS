@@ -15,7 +15,6 @@ class MeetingRepository
 
        $params = (object)$params;
 
-       !isset($params->semester_id ) ?: $data->semester_id  = $params->semester_id;
        !isset($params->end_date ) ?: $data->end_date  = $params->end_date;
        !isset($params->start_date ) ?: $data->start_date  = $params->start_date;
        !isset($params->title ) ?: $data->title  = $params->title ;
@@ -27,5 +26,15 @@ class MeetingRepository
 
        $data->save();
        return $data;
+    }
+
+    public function getMyMeeting($student_id)
+    {
+       $meeting = Meeting::query()
+                    ->where('created_by', $student_id)
+                    ->get();
+        
+        return $meeting;
+
     }
 }
