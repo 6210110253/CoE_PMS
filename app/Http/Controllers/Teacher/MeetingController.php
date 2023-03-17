@@ -47,10 +47,9 @@ class MeetingController extends Controller
        
         $id = $request->id;
         $status = $request->status;
+        $comment = $request->comment;
 
-
-            $obj = $this->meeting_resevation_repo->updateStatusMeeting($id, $status);
-
+            $obj = $this->meeting_resevation_repo->updateStatusMeeting($id, $status, $comment);
 
         return \response()->json([
             'status' => true,
@@ -58,5 +57,6 @@ class MeetingController extends Controller
             'massege' => 'sucess'
         ]);
     }
+
 
 }

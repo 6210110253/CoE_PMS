@@ -32,17 +32,16 @@ class MeetingResevationRepository
      }
 
 
-    public function updateStatusMeeting($id, $status)
+    public function updateStatusMeeting($id, $status, $comment)
     {
         $meeting_reser = $this->getById($id);
         $meeting_reser->status = $status;
+        empty($comment) ?: $meeting_reser->comment = $comment;
         $meeting_reser->save();
 
         return $meeting_reser;
-
-
     }
-
+    
     public function getMeetingTeacher($teacher_id)
     {
        $meeting = MeetingResevation::query()
