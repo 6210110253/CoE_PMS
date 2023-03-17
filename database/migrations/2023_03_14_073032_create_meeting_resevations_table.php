@@ -24,6 +24,7 @@ return new class extends Migration
                 ->comment("รหัสนักศึกษาที่ทำการจอง");
             $table->enum("status", ['wait', 'approve', 'reject', 'remove'])->default('wait');
             $table->longText("comment")->nullable();
+            $table->integer('teacher_id')->nullable();
             $table->timestamps();
         });
     }

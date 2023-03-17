@@ -93,15 +93,15 @@
         cancelButtonColor: '#d33',
         confirmButtonText: 'Yes'
         }).then((result) => {
+            let id = $(this).attr('data-id');
                 if (result.isConfirmed) {
                     $.ajax({
-                        url: "",
+                        url: "{{ route('teacher.meeting.status') }}",
                         type: "POST",
                         data: {
                             _token : $('meta[name="csrf-token"]').attr('content'),
                             status : 'approve',
-                            comment : '',
-                            teacher_id : "{{ Auth::id() }}",
+                            id : id
                         },
                         success: function(result){
                             if(result.status)

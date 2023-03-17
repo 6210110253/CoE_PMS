@@ -66,4 +66,8 @@ Route::controller(MeetingController::class)->name('teacher.')->prefix('teacher/'
 
     Route::get('/meeting-detail','meeting_detail')
         ->name('meeting.datail');
+
+    Route::post('/meeting/update', 'updateStatusMeeting')
+        ->name('meeting.status');
+
 });

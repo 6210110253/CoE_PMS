@@ -13,16 +13,21 @@ use App\Repositories\UserRepository;
 use App\Models\Meeting;
 use App\Repositories\MeetingRepository;
 
+use App\Models\MeetingResevation;
+use App\Repositories\MeetingResevationRepository;
+
 class MeetingController extends Controller
 {
-    protected $user_repo, $meeting_repo;
+    protected $user_repo, $meeting_repo, $meeting_resevation_repo;
 
     public function __construct(
         UserRepository $userRepository,
-        MeetingRepository $meetingRepository
+        MeetingRepository $meetingRepository,
+        MeetingResevationRepository $meetingResevationRepository
     ){
         $this->user_repo = $userRepository;
         $this->meeting_repo = $meetingRepository;
+        $this->meeting_resevation_repo = $meetingResevationRepository;
     }
 
     public function index(){
@@ -36,6 +41,22 @@ class MeetingController extends Controller
 
     public function meeting_detail(){
         return view('pages.teacher.meeting.meeting_detail');
+    }
+
+    public function updateStatusMeeting(Request $request){
+       
+        $id = $request->id;
+        $status = $request->status;
+
+
+            $obj = $this->meeting_resevation_repo->updateStatusMeeting($id, $status);
+
+
+        return \response()->json([
+            'status' => true,
+            'data' => [],
+            'massege' => 'sucess'
+        ]);
     }
 
 }
