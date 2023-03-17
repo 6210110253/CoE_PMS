@@ -36,13 +36,4 @@ class MeetingRepository
         
         return $meeting;
     }
-
-    public function getMeetingTeacher($teacher_id)
-    {
-       $meeting = Meeting::query()
-                    ->where('approve_by', $teacher_id)
-                    ->get();
-        
-        return $meeting;
-    }
 }

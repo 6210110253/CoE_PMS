@@ -43,4 +43,13 @@ class MeetingResevationRepository
 
     }
 
+    public function getMeetingTeacher($teacher_id)
+    {
+       $meeting = MeetingResevation::query()
+                    ->where('teacher_id', $teacher_id)
+                    ->where('status', 'wait')
+                    ->get();
+        
+        return $meeting;
+    }
 }

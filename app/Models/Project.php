@@ -42,7 +42,7 @@ class Project extends Model
     }
 
     public function member(){
-        return $this->belongsTo(User::class, 'created_by', 'id');
+        return $this->belongsTo(User::class, 'teacher_id', 'id');
     }
 
     public function scopePublish($query)

@@ -44,18 +44,17 @@
                 </div>
 
                 <br>
-
                 <div class="w-full p-4  bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
-                   @foreach ($meetings as $meeting)
+                   @foreach ($meeting_resevations as $meeting)
                     <div class="w-full  bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
  
                         <div class="px-5 pb-5">
                                <br>
                             <a >
-                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ $meeting->title }}</h5>
-                                <p class="font-normal text-gray-700 dark:text-gray-400">รายละเอียด {{ $meeting->detail }}</p>
-                                <p class="font-normal text-gray-700 dark:text-gray-400">ช่วงเวลาที่เข้าพบ <span>{{ $meeting->start_date }} - {{ $meeting->end_date }} </span></p>
-                                <p class="font-normal text-gray-700 dark:text-gray-400">ชื่อผู้เข้าพบ {{ $meeting->created_by }}</p>
+                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ $meeting->meeting->title }}</h5>
+                                <p class="font-normal text-gray-700 dark:text-gray-400">รายละเอียด {{ $meeting->meeting->detail }}</p>
+                                <p class="font-normal text-gray-700 dark:text-gray-400">ช่วงเวลาที่เข้าพบ <span>{{ $meeting->meeting->start_date }} - {{ $meeting->meeting->end_date }} </span></p>
+                                <p class="font-normal text-gray-700 dark:text-gray-400">ชื่อผู้เข้าพบ {{ $meeting->meeting->student->name }}</p>
                                 {{-- <a href="{{ route('teacher.meeting.datail') }}">เพิ่มเติม...</a> --}}
                             </a>
                             
@@ -150,10 +149,10 @@
                             data: {
                                 _token : $('meta[name="csrf-token"]').attr('content'),
                                 status : 'reject',
-                                comment : result.value,
-                                teacher_id : "{{ Auth::id() }}",
+                                comment : result.value
                             },
                             success: function(result){
+                                // let id = $(this).attr('data-id');
                                 if(result.status)
                                 {
                                     Swal.fire('Rejected!', '', 'success').then((result)=>{
