@@ -31,9 +31,9 @@ class MeetingController extends Controller
     }
 
     public function index(){
-        return view('pages.teacher.meeting.index');
+        $meeting_aps = $this->meeting_resevation_repo->getMeetimgStatusApprove(Auth::id());
+        return view('pages.teacher.meeting.index', compact('meeting_aps'));
     }
-
     public function meeting(){
         $meeting_resevations= $this->meeting_resevation_repo->getMeetingTeacher(Auth::id());
         return view('pages.teacher.meeting.meeting', compact('meeting_resevations'));

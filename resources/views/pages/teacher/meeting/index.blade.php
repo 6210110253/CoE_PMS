@@ -51,9 +51,6 @@
         
         <div class="w-full bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
            
-            <br>
-            <h1 class="text-center text-primary"><u>How to Use Fullcalendar in Laravel 8</u></h1>
-            <br>
             
             <div class="container mx-auto px-6 py-8"   id="calendar"></div>
         </div>
@@ -62,52 +59,29 @@
     <script>
     
     $(document).ready(function () {
-    
-        $.ajaxSetup({
-            headers:{
-                'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
-            }
+
+
+    var calendar = $('#calendar').fullCalendar({
+        editable:true,
+        header:{
+            left:'prev,next today',
+            center:'title',
+            right:'month,agendaWeek,agendaDay'
+        },
+        events:[
+                
+                @foreach($meeting_aps as $meeting_ap)
+                {
+                    title : '{{ $meeting_ap->meeting->title}}',
+                    start : '{{ $meeting_ap->meeting->start_date }}',
+                    end : '{{ $meeting_ap->meeting->end_date }}',
+                },
+                @endforeach
+            ]
         });
-    
-        var calendar = $('#calendar').fullCalendar({
-            editable:true,
-            header:{
-                left:'prev,next today',
-                center:'title',
-                right:'month,agendaWeek,agendaDay'
-            },
-            events:'/full-calender',
-            selectable:true,
-            selectHelper: true,
-            eventResize: function(event, delta)
-            {
-                var start = $.fullCalendar.formatDate(event.start, 'Y-MM-DD HH:mm:ss');
-                var end = $.fullCalendar.formatDate(event.end, 'Y-MM-DD HH:mm:ss');
-                var title = event.title;
-                var id = event.id;
-                $.ajax({
-                    url:"/full-calender/action",
-                    type:"POST",
-                    data:{
-                        title: title,
-                        start: start,
-                        end: end,
-                        id: id,
-                        type: 'update'
-                    },
-                    success:function(response)
-                    {
-                        calendar.fullCalendar('refetchEvents');
-                        alert("Event Updated Successfully");
-                    }
-                })
-            }
-        });
-    
     });
       
     </script>
-      
-    </body>
-    </html>
-    </x-app-layout>
+</body>
+</html>
+</x-app-layout>

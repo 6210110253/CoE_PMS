@@ -65,13 +65,8 @@
    
 <script>
 
-$(document).ready(function () {
+    $(document).ready(function () {
 
-    $.ajaxSetup({
-        headers:{
-            'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
-        }
-    });
 
     var calendar = $('#calendar').fullCalendar({
         editable:true,
@@ -80,35 +75,18 @@ $(document).ready(function () {
             center:'title',
             right:'month,agendaWeek,agendaDay'
         },
-        events:'/full-calender',
-        selectable:true,
-        selectHelper: true,
-        eventResize: function(event, delta)
-        {
-            var start = $.fullCalendar.formatDate(event.start, 'Y-MM-DD HH:mm:ss');
-            var end = $.fullCalendar.formatDate(event.end, 'Y-MM-DD HH:mm:ss');
-            var title = event.title;
-            var id = event.id;
-            $.ajax({
-                url:"/full-calender/action",
-                type:"POST",
-                data:{
-                    title: title,
-                    start: start,
-                    end: end,
-                    id: id,
-                    type: 'update'
-                },
-                success:function(response)
+        events:[
+                
+                @foreach($meeting_aps as $meeting_ap)
                 {
-                    calendar.fullCalendar('refetchEvents');
-                    alert("Event Updated Successfully");
-                }
-            })
-        }
+                    title : '{{ $meeting_ap->meeting->title}}',
+                    start : '{{ $meeting_ap->meeting->start_date }}',
+                    end : '{{ $meeting_ap->meeting->end_date }}',
+                },
+                @endforeach
+            ]
+        });
     });
-
-});
   
 </script>
   

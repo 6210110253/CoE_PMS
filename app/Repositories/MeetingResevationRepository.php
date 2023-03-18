@@ -51,4 +51,29 @@ class MeetingResevationRepository
         
         return $meeting;
     }
+
+    public function getMeetimgStatusApprove($teacher_id)
+    {
+        {
+            $meeting_aps = MeetingResevation::query()
+                         ->where('teacher_id', $teacher_id)
+                         ->where('status', 'approve')
+                         ->get();
+             
+             return $meeting_aps;
+         }
+    }
+
+    public function getMeetimgStatusApproveByStudent($student_id)
+    {
+        {
+            $meeting_aps = MeetingResevation::query()
+                         ->where('user_id', $student_id)
+                         ->where('status', 'approve')
+                         ->get();
+             
+             return $meeting_aps;
+         }
+    }
+    
 }

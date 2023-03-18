@@ -15,26 +15,30 @@ use App\Repositories\MeetingRepository;
 
 use App\Repositories\SemesterRepository;
 
+use App\Models\MeetingResevation;
+use App\Repositories\MeetingResevationRepository;
+
 
 class MeetingController extends Controller
 {
-    protected $user_repo, $meeting_repo, $semester_repo ;
+    protected $user_repo, $meeting_repo, $semester_repo, $meeting_resevation_repo ;
 
     public function __construct(
         UserRepository $userRepository,
         MeetingRepository $meetingRepository,
-        SemesterRepository $semesterRepository
+        SemesterRepository $semesterRepository,
+        MeetingResevationRepository $meetingResevationRepository
       
     ){
         $this->user_repo = $userRepository;
         $this->meeting_repo = $meetingRepository;
         $this->semester_repo = $semesterRepository;
+        $this->meeting_resevation_repo = $meetingResevationRepository;
        
     }
     public function index(){
-        $teachers = $this->user_repo->getTeacher();
-        $semesters = $this->semester_repo->getAll();
-        return view('pages.student.meeting.index',compact('teachers','semesters'));
+        $meeting_aps = $this->meeting_resevation_repo->getMeetimgStatusApproveByStudent(Auth::id());
+        return view('pages.student.meeting.index',compact('meeting_aps'));
     }
 
     public function create(){
