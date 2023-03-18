@@ -89,52 +89,55 @@
                             <br>
                             <div>
                                 @foreach ($project_reservations as $project_reservation )
-                                <div class="w-full  bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                                    @if($project_reservation->project->status == 'publish')
+                                    <div class="w-full  bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
 
-                                    <div class="px-5 pb-5">
-                                        <br>
+                                        <div class="px-5 pb-5">
+                                            <br>
 
-                                        <a >
-                                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"> {{ $project_reservation->project->title }}
-                                                 <span class="bg-purple-200 text-purple-600 py-1 px-3 mt-2 rounded-full text-xs">{{ $project_reservation->type }}
-                                                 </span>
-                                                 <span class=" bg-gray-200 text-black-600 py-1  px-3 mt-2 rounded-full text-xs">{{ $project_reservation->status }}</span>
-
-
-                                            </p></h5>
-
-                                            <p class="font-normal text-gray-700 dark:text-gray-400">Description : {{ $project_reservation->project->detail }}</p>
+                                            <a >
+                                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"> {{ $project_reservation->project->title }}
+                                                    <span class="bg-purple-200 text-purple-600 py-1 px-3 mt-2 rounded-full text-xs">{{ $project_reservation->type }}
+                                                    </span>
+                                                    <span class=" bg-gray-200 text-black-600 py-1  px-3 mt-2 rounded-full text-xs">{{ $project_reservation->status }}</span>
 
 
-                                            @if(!empty($project_reservation->student_reservetion))
+                                                </p></h5>
 
-                                                @foreach ($project_reservation->student_reservetion_list as $key => $member )
-                                                    <p class="font-normal text-gray-700 dark:text-gray-400">{{ $key+1 }}.{{ $member }}</p>
+                                                <p class="font-normal text-gray-700 dark:text-gray-400">Description : {{ $project_reservation->project->detail }}</p>
 
-                                                @endforeach
 
-                                            @else
-                                                <p class="font-normal text-gray-700 dark:text-gray-400">1.{{ $project_reservation->member->name }}</p>
+                                                @if(!empty($project_reservation->student_reservetion))
 
-                                            @endif
-                                        </a>
-                                        <br>
-                                        <div class="flex center justify-between">
-                                            <span class="text-3xl font-bold text-gray-900 dark:text-white"></span>
-                                                <a href="{{ route('teacher.project.detail.teacher', $project_reservation) }}">
-                                                        <button class="flex items-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M2 19v-2h10v2H2Zm0-5v-2h5v2H2Zm0-5V7h5v2H2Zm18.6 10l-3.85-3.85q-.6.425-1.313.638T14 16q-2.075 0-3.538-1.463T9 11q0-2.075 1.463-3.538T14 6q2.075 0 3.538 1.463T19 11q0 .725-.213 1.438t-.637 1.312L22 17.6L20.6 19ZM14 14q1.25 0 2.125-.875T17 11q0-1.25-.875-2.125T14 8q-1.25 0-2.125.875T11 11q0 1.25.875 2.125T14 14Z"/></svg>
-                                                            <span>View more</span>
-                                                        </button>
-                                                </a>
+                                                    @foreach ($project_reservation->student_reservetion_list as $key => $member )
+                                                        <p class="font-normal text-gray-700 dark:text-gray-400">{{ $key+1 }}.{{ $member }}</p>
 
+                                                    @endforeach
+
+                                                @else
+                                                    <p class="font-normal text-gray-700 dark:text-gray-400">1.{{ $project_reservation->member->name }}</p>
+
+                                                @endif
+                                            </a>
+                                            <br>
+                                            <div class="flex center justify-between">
+                                                <span class="text-3xl font-bold text-gray-900 dark:text-white"></span>
+                                                    <a href="{{ route('teacher.project.detail.teacher', $project_reservation) }}">
+                                                            <button class="flex items-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M2 19v-2h10v2H2Zm0-5v-2h5v2H2Zm0-5V7h5v2H2Zm18.6 10l-3.85-3.85q-.6.425-1.313.638T14 16q-2.075 0-3.538-1.463T9 11q0-2.075 1.463-3.538T14 6q2.075 0 3.538 1.463T19 11q0 .725-.213 1.438t-.637 1.312L22 17.6L20.6 19ZM14 14q1.25 0 2.125-.875T17 11q0-1.25-.875-2.125T14 8q-1.25 0-2.125.875T11 11q0 1.25.875 2.125T14 14Z"/></svg>
+                                                                <span>View more</span>
+                                                            </button>
+                                                    </a>
+
+                                            </div>
                                         </div>
+
+
                                     </div>
-
-
-                                </div>
+                                    @endif
                                 <br>
                                 @endforeach
+                                
 
                             </div>
 
