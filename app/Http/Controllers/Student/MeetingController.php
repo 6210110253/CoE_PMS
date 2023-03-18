@@ -78,8 +78,7 @@ class MeetingController extends Controller
     }
 
     public function meeting_list(){
-        $meetings = $this->meeting_repo->getStudentMeeting(Auth::id());
-
+        $meetings = $this->meeting_resevation_repo->getStudentMeeting(Auth::id());
         return view('pages.student.meeting.meeting_list', compact('meetings'));
     }
 

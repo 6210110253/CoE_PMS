@@ -45,6 +45,9 @@ class MeetingResevationRepository
     public function getMeetingTeacher($teacher_id)
     {
        $meeting = MeetingResevation::query()
+                    ->with([
+                        'meeting'
+                    ])
                     ->where('teacher_id', $teacher_id)
                     ->where('status', 'wait')
                     ->get();
@@ -74,6 +77,19 @@ class MeetingResevationRepository
              
              return $meeting_aps;
          }
+    }
+
+    public function getStudentMeeting($student_id)
+    {
+       $meeting = MeetingResevation::query()
+                ->with([
+                        'teacher',
+                        'meeting'
+                 ])
+                ->where('user_id', $student_id)
+                ->get();
+        
+        return $meeting;
     }
     
 }
