@@ -77,7 +77,7 @@
                 "shasum": ""
             },
             "require": {
-                "php": "^8.0"
+                "php": "^8.php -v0"
             },
             "require-dev": {
                 "php-coveralls/php-coveralls": "^2.2",

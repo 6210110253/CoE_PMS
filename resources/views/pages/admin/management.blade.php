@@ -42,7 +42,7 @@
                                 method="post"
                                 action=" {{ route('admin.semester.store') }}">
                                 @csrf
-                                <label class="">Name</label>
+                                <label class="">Term</label>
                                 <input type="text" name="name" id="table-search" class="block p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="">
 
                                 <label class="">Year</label>
@@ -64,7 +64,7 @@
                                  <thead class="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400">
                                      <tr>
                                          <th scope="col" class="px-6 py-3">
-                                             Name
+                                             Term
                                          </th>
                                          <th scope="col" class="px-6 py-3">
                                              Year
